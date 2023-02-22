@@ -1,6 +1,5 @@
 package com.IP3G11.Best11;
 
-import com.IP3G11.Best11.repositories.PlayerApiRepo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
