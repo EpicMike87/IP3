@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +16,8 @@ public class Player {
     private int idNo;
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private int age;
+    private LocalDate dateOfBirth;
     private String photoUrl;
     private String team;
     private String position;

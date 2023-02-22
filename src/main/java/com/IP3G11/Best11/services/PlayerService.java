@@ -6,11 +6,12 @@ import com.IP3G11.Best11.repositories.PlayerApiRepo;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class PlayerService {
 
-    private PlayerApiRepo repo;
+    private final PlayerApiRepo repo;
 
     public PlayerService() throws IOException, InterruptedException {
         repo = new PlayerApiRepo();
@@ -20,12 +21,16 @@ public class PlayerService {
         return repo.getTeamId(teamName);
     }
 
-    public Team getTeamByName(String teamName){
+    public Team getTeamByName(String teamName) {
         return null;
     }
 
-    public Player getPlayerByName(String name){
-        return null;
+    public List<Team> getTeams() throws IOException, InterruptedException {
+        return repo.getTeams();
+    }
+
+    public Player getPlayerByName(String name) throws IOException, InterruptedException {
+        return repo.getPlayerByName(name);
     }
 
 }
