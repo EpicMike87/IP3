@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Team {
 
+    private int id;
     private String teamName;
     private List<Player> players;
 
