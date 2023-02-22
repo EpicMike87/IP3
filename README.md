@@ -47,5 +47,5 @@ System.out.println(response.body());
 		.header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
 		.method("GET", HttpRequest.BodyPublishers.noBody())
 		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	System.out.println(response.body());
