@@ -27,7 +27,7 @@ public class TeamRepo {
     private static final int leagueId = 179;
     private static final int season = 2022;
     private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
-    private PlayerApiRepo playerRepo = new PlayerApiRepo();
+    private final PlayerApiRepo playerRepo = new PlayerApiRepo();
     private List<Team> teams;
 
     public List<Team> getTeams() throws IOException, InterruptedException {
@@ -160,7 +160,6 @@ public class TeamRepo {
         HashSet ids = new HashSet();
 
         for(int i = 0; i < squadPlayersJson.size(); i++){
-            System.out.println(squadPlayersJson.get(i).getAsJsonObject());
             ids.add(squadPlayersJson.get(i).getAsJsonObject().get("id").getAsInt());
         }
         return ids;

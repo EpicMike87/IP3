@@ -45,25 +45,21 @@ public class PlayerApiRepo {
         JsonObject player = playerInfo.get(0).getAsJsonObject();
 
         //Determines subclass and populates all fields from API data
-        Player player1 = populateFieldsOfPlayer(player);
-
-        return player1;
+        return populateFieldsOfPlayer(player);;
 
     }
 
     /**
      * Method removes "" for the date variable
      *
-     * @param s1
+     * @param s
      * @return
      */
-    public static String removeQMarks(String s1) {
+    public static String removeQMarks(String s) {
 
         //Error handling for rare cases when name from API is empty
-        if(s1.isEmpty()) return "";
-
-        String s2 = s1.substring(1, s1.length() - 1);
-        return s2;
+        if(s.isEmpty()) return "";
+        return s.replace("\"", "");
     }
 
     public Player populateFieldsOfPlayer(JsonObject playerJson) {
@@ -161,6 +157,8 @@ public class PlayerApiRepo {
             playerDob = LocalDate.parse(date);
         }
         catch(DateTimeParseException d){
+            System.out.println("Could not add date of birth for " + player.getIdNo());
+            System.out.println(d.getMessage());
             playerDob = LocalDate.now();
         }
 
