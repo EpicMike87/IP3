@@ -13,5 +13,12 @@ public class Team {
 
     private int id;
     private String teamName;
+    private int rank;
+    private int points;
+    private int goalDiff;
+    private TeamStats allStats;
+    private TeamStats homeStats;
+    private TeamStats awayStats;
     private List<Player> players;
+
 }
