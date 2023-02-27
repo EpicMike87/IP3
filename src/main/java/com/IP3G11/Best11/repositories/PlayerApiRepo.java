@@ -45,7 +45,7 @@ public class PlayerApiRepo {
         JsonObject player = playerInfo.get(0).getAsJsonObject();
 
         //Determines subclass and populates all fields from API data
-        return populateFieldsOfPlayer(player);;
+        return populateFieldsOfPlayer(player);
 
     }
 
