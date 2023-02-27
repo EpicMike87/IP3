@@ -16,10 +16,8 @@ import java.util.List;
 @RestController
 public class PlayerController {
 
-    private List<Team> teams = new ArrayList<>();
-    private Player player = new Player();
     private PlayerService service = new PlayerService();
-    private TeamService teamService = new TeamService(new TeamRepo());
+
 
     public PlayerController() throws IOException, InterruptedException {
     }
@@ -30,15 +28,5 @@ public class PlayerController {
         Player player = service.getPlayerByName(name);
         return player;
 
-    }
-
-    @GetMapping("/teams")
-    public List<Team> getTeams() throws IOException, InterruptedException {
-        return teamService.getTeams();
-    }
-
-    @GetMapping("/team/{name}")
-    public Team getTeamByName(@PathVariable String name){
-        return teamService.getTeamByName(name);
     }
 }
