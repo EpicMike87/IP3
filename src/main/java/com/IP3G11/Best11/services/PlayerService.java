@@ -6,13 +6,14 @@ import com.IP3G11.Best11.repositories.PlayerApiRepo;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class PlayerService {
 
     private final PlayerApiRepo repo;
 
-    public PlayerService() throws IOException, InterruptedException {
+    public PlayerService(){
         repo = new PlayerApiRepo();
     }
 
@@ -21,7 +22,8 @@ public class PlayerService {
         return null;
     }
 
-    public Player getPlayerByName(String name) throws IOException, InterruptedException {
+    //Changed to return list as multiple players may match search if firstname not provided
+    public List<Player> getPlayerByName(String name) throws IOException, InterruptedException {
         return repo.getPlayerByName(name);
     }
 

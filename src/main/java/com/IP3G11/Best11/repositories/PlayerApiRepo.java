@@ -14,6 +14,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 @NoArgsConstructor
 public class PlayerApiRepo {
@@ -21,16 +24,21 @@ public class PlayerApiRepo {
     //SPL League ID
     private static final int leagueId = 179;
     private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
+    private static final int season = 2022;
 
-    public Player getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
+    public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
 
         //playerName needs spaces replaced in between first and last name with %20 as required by API
         String playerName = name;
-        playerName = playerName.replace(" ", "%20");
+        String[] playerNames = playerName.split(" ");
+
+        //Set playerName to last name if a first and last were provided, as 2nd name is used for api call
+        if(playerNames.length > 1) playerName = playerNames[1];
 
         //Make API request and get response
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?league=" + leagueId + "&season=2022&search=" + playerName))
+                //api-football only allows last name search, so only last name is used
+                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?league=" + leagueId + "&season=" + season + "&search=" + playerName))
                 .header("X-RapidAPI-Key", api_token)
                 .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
@@ -42,10 +50,19 @@ public class PlayerApiRepo {
         JsonObject jsonObject = json.getAsJsonObject();
         JsonArray playerInfo = jsonObject.getAsJsonArray("response");
 
-        JsonObject player = playerInfo.get(0).getAsJsonObject();
+        List<Player> players = new ArrayList<>();
+        for (int i = 0; i < playerInfo.size(); i++) {
+            JsonObject player = playerInfo.get(i).getAsJsonObject();
+            System.out.println(player);
+            //Determines subclass and populates all fields from API data
+            String playerFirstName = player.get("player").getAsJsonObject().get("firstname").getAsString();
 
-        //Determines subclass and populates all fields from API data
-        return populateFieldsOfPlayer(player);
+            //If only one name was provided for player, or if first name of player contains first name searched, add to player results
+            if ((playerNames.length == 1) || playerFirstName.toLowerCase(Locale.ROOT).contains(playerNames[0].toLowerCase(Locale.ROOT)))
+                players.add(populateFieldsOfPlayer(player));
+        }
+
+        return players;
 
     }
 
@@ -58,7 +75,7 @@ public class PlayerApiRepo {
     public static String removeQMarks(String s) {
 
         //Error handling for rare cases when name from API is empty
-        if(s.isEmpty()) return "";
+        if (s.isEmpty()) return "";
         return s.replace("\"", "");
     }
 
@@ -155,8 +172,7 @@ public class PlayerApiRepo {
         LocalDate playerDob;
         try {
             playerDob = LocalDate.parse(date);
-        }
-        catch(DateTimeParseException d){
+        } catch (DateTimeParseException d) {
             System.out.println("Could not add date of birth for " + player.getIdNo());
             System.out.println(d.getMessage());
             playerDob = LocalDate.now();

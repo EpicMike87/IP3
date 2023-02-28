@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 public class PlayerController {
 
-    private PlayerService service = new PlayerService();
+    private final PlayerService service = new PlayerService();
 
 
     public PlayerController() throws IOException, InterruptedException {
@@ -24,9 +24,8 @@ public class PlayerController {
 
 
     @GetMapping("/search-player/{name}")
-    public Player searchPlayerByName(@PathVariable String name) throws IOException, InterruptedException {
-        Player player = service.getPlayerByName(name);
-        return player;
+    public List<Player> searchPlayerByName(@PathVariable String name) throws IOException, InterruptedException {
+        return service.getPlayerByName(name);
 
     }
 }
