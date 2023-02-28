@@ -14,9 +14,11 @@ public class PlayerController {
 
     private final PlayerService service = new PlayerService();
 
+
     @GetMapping("/search-player/{name}")
     public List<Player> searchPlayerByName(@PathVariable String name) throws IOException, InterruptedException {
         return service.getPlayerByName(name);
 
     }
+
 }
