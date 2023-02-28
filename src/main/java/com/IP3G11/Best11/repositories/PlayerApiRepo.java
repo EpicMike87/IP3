@@ -5,6 +5,7 @@ import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-@NoArgsConstructor
+@Component("playerApiRepo")
 public class PlayerApiRepo {
 
     private static final int LEAGUE_ID = 179;

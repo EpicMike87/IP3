@@ -6,7 +6,7 @@ import com.IP3G11.Best11.model.TeamStats;
 import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,9 +14,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-// TODO: 27/02/2023 create generic method for API calls
 //Gets data for teams and initialises Team objects
-@NoArgsConstructor
+@Component("teamRepo")
 public class TeamRepo {
 
     private static final int LEAGUE_ID = 179;
@@ -24,6 +23,10 @@ public class TeamRepo {
 
     private final PlayerApiRepo playerRepo = new PlayerApiRepo();
     private List<Team> teams;
+
+    public TeamRepo() throws IOException, InterruptedException {
+        teams = getTeams();
+    }
 
     public List<Team> getTeams() throws IOException, InterruptedException {
 

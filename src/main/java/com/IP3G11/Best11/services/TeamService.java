@@ -2,19 +2,24 @@ package com.IP3G11.Best11.services;
 
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 
+@Service
 public class TeamService {
 
-    private final TeamRepo teamRepo;
-    private final List<Team> teams;
+    @Autowired
+    private TeamRepo teamRepo;
 
-    public TeamService(TeamRepo teamRepo) throws IOException, InterruptedException {
-        teams = teamRepo.getTeams();
+    private List<Team> teams;
+
+    public TeamService(TeamRepo teamRepo) {
         this.teamRepo = teamRepo;
     }
+
 
     public List<Team> getTeams(){
         return teams;

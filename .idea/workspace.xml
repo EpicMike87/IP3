@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/TeamStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" afterDir="false" />
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Front end data sorting test files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerApiRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerApiRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/APIUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/APIUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerApiRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerApiRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" afterDir="false" />
     </list>
@@ -185,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677184182404</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Front end data sorting test files">
+      <created>1677617916990</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1677617916990</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Front end data sorting test files">
+      <created>1677618020738</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677618020738</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +216,7 @@
     <MESSAGE value="Fix on file issue" />
     <MESSAGE value="Changed usage of repo in controller to service, repo is now instantiable and saves team list on instantiation" />
     <MESSAGE value="Added method to determine subclass of player and populate fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method to determine subclass of player and populate fields" />
+    <MESSAGE value="Front end data sorting test files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front end data sorting test files" />
   </component>
 </project>

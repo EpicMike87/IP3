@@ -3,6 +3,7 @@ package com.IP3G11.Best11.tools;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import lombok.experimental.UtilityClass;
 
 import java.io.IOException;
 import java.net.URI;
@@ -10,6 +11,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@UtilityClass
 public class APIUtility {
 
     private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
