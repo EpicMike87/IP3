@@ -1,17 +1,12 @@
 package com.IP3G11.Best11.repositories;
 
 import com.IP3G11.Best11.model.*;
+import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -21,9 +16,7 @@ import java.util.Locale;
 @NoArgsConstructor
 public class PlayerApiRepo {
 
-    //SPL League ID
     private static final int leagueId = 179;
-    private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
     private static final int season = 2022;
 
     public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
@@ -31,25 +24,13 @@ public class PlayerApiRepo {
         //Split to get first and last names
         String[] playerNames = name.split(" ");
 
-        //Make API request and get response
-        HttpRequest request = HttpRequest.newBuilder()
-                //api-football only allows last name search, so only last name is used
-                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?league=" + leagueId + "&season=" + season + "&search=" + playerNames[playerNames.length-1]))
-                .header("X-RapidAPI-Key", api_token)
-                .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-
-        String jsonString = response.body();
-        JsonElement json = JsonParser.parseString(jsonString);
-        JsonObject jsonObject = json.getAsJsonObject();
-        JsonArray playerInfo = jsonObject.getAsJsonArray("response");
+        //Get data from API and extract array of players
+        JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + leagueId + "&season="
+                + season + "&search=" + playerNames[playerNames.length-1]).get("response").getAsJsonArray();
 
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < playerInfo.size(); i++) {
             JsonObject player = playerInfo.get(i).getAsJsonObject();
-            System.out.println(player);
 
             //Get first and last name from returned api data to check if contains names searched (as may be double barrelled first, second names)
             String playerName = player.get("player").getAsJsonObject().get("firstname").getAsString()
@@ -59,6 +40,7 @@ public class PlayerApiRepo {
             if (doesContainAllNames(playerName, playerNames))
                 //Determines subclass and populates all fields from API data
                 players.add(populateFieldsOfPlayer(player));
+            System.out.println("Added " + playerName + " to search results.");
 
         }
         return players;
@@ -67,7 +49,6 @@ public class PlayerApiRepo {
 
     //Checks if search names match names of player
     private boolean doesContainAllNames(String name, String[] searchedNames){
-        System.out.println(name);
         for(String s : searchedNames){
             if(!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
         }

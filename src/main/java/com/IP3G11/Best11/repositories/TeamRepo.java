@@ -3,17 +3,12 @@ package com.IP3G11.Best11.repositories;
 import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.model.TeamStats;
+import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +21,7 @@ public class TeamRepo {
 
     private static final int leagueId = 179;
     private static final int season = 2022;
-    private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
+
     private final PlayerApiRepo playerRepo = new PlayerApiRepo();
     private List<Team> teams;
 
@@ -34,19 +29,11 @@ public class TeamRepo {
 
         //Populate teams list if the function hasn't been called before
         if (teams == null) {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/standings?season=" + season + "&league=" + leagueId))
-                    .header("X-RapidAPI-Key", api_token)
-                    .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-                    .method("GET", HttpRequest.BodyPublishers.noBody())
-                    .build();
-            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-            String jsonString = response.body();
-            JsonElement jEle = JsonParser.parseString(jsonString);
-            JsonObject jObject = jEle.getAsJsonObject();
-            JsonArray teamsArray = jObject.getAsJsonArray("response").get(0).getAsJsonObject().get("league")
-                    .getAsJsonObject().get("standings").getAsJsonArray().get(0).getAsJsonArray();
 
+            //Get data from API
+            JsonArray teamsArray = APIUtility.getResponseAsJsonObject("standings?season=" + season + "&league=" + leagueId)
+                    .get("response").getAsJsonArray().get(0).getAsJsonObject().get("league")
+                    .getAsJsonObject().get("standings").getAsJsonArray().get(0).getAsJsonArray();
 
             teams = new ArrayList<>();
 
@@ -109,21 +96,12 @@ public class TeamRepo {
 
     //Populates team object with players of the team and their stats
     private void addPlayersToTeam(Team team, int pageNo) throws IOException, InterruptedException {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?team=" + team.getId() + "&season=" + season + "&page=" + pageNo))
-                .header("X-RapidAPI-Key", api_token)
-                .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-        String jsonString = response.body();
-        JsonElement json = JsonParser.parseString(jsonString);
-        JsonObject jsonObject = json.getAsJsonObject();
-        JsonArray playersJson = jsonObject.getAsJsonArray("response");
+        JsonObject responseObject = APIUtility.getResponseAsJsonObject("players?team=" + team.getId() + "&season=" + season + "&page=" + pageNo);
+        JsonArray playersJson = responseObject.get("response").getAsJsonArray();
 
         //Number of pages of results, 1 API call returns 1 page so determines number of calls to be made to get all players
-        int pages = jsonObject.get("paging").getAsJsonObject().get("total").getAsInt();
+        int pages = responseObject.get("paging").getAsJsonObject().get("total").getAsInt();
 
         List<Player> playersList = team.getPlayers();
 
@@ -145,17 +123,9 @@ public class TeamRepo {
     //As API returns details of players who are left when making a call to get all players in a team, squad IDs will be stored to check players returned against
     //to ensure that only current players are added to the team object. This is achieved by a call to the squad API using the team ID.
     private Set<Integer> getSquadMemberIds(int teamId) throws IOException, InterruptedException {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players/squads?team=" + teamId))
-                .header("X-RapidAPI-Key", "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5")
-                .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        String jsonString = response.body();
-        JsonElement json = JsonParser.parseString(jsonString);
-        JsonObject jsonObject = json.getAsJsonObject();
-        JsonArray squadPlayersJson = jsonObject.getAsJsonArray("response").get(0).getAsJsonObject().get("players").getAsJsonArray();
+
+        JsonObject responseObject = APIUtility.getResponseAsJsonObject("players/squads" + "?team=" + teamId);
+        JsonArray squadPlayersJson = responseObject.getAsJsonArray("response").get(0).getAsJsonObject().get("players").getAsJsonArray();
 
         HashSet ids = new HashSet();
 
