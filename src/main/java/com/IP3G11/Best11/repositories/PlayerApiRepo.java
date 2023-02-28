@@ -30,7 +30,6 @@ public class PlayerApiRepo {
 
     public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
 
-        // TODO: 28/02/2023 Solve issue when player has space seperated first/last names 
         //Split to get first and last names
         String[] playerNames = name.split(" ");
 
@@ -171,7 +170,7 @@ public class PlayerApiRepo {
                 player = new Player();
         }
 
-        player.setIdNo(Integer.parseInt(playerJson.get("player").getAsJsonObject().get("id").toString()));
+        player.setIdNo(playerJson.get("player").getAsJsonObject().get("id").getAsInt());
         player.setFirstName(playerJson.get("player").getAsJsonObject().get("firstname").getAsString());
         player.setLastName(playerJson.get("player").getAsJsonObject().get("lastname").getAsString());
         player.setAge(playerJson.get("player").getAsJsonObject().get("age").isJsonNull() ? 0 : playerJson.get("player").getAsJsonObject().get("age").getAsInt());
