@@ -6,7 +6,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.NoArgsConstructor;
-import org.apache.tomcat.util.net.jsse.JSSEUtil;
 
 import java.io.IOException;
 import java.net.URI;
@@ -16,7 +15,6 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,7 +51,7 @@ public class PlayerApiRepo {
             JsonObject player = playerInfo.get(i).getAsJsonObject();
             System.out.println(player);
 
-            //Get first and last name from returned api data to check if contains any of names given (as may be double barrelled first, second names)
+            //Get first and last name from returned api data to check if contains names searched (as may be double barrelled first, second names)
             String playerName = player.get("player").getAsJsonObject().get("firstname").getAsString()
                     + " " + player.get("player").getAsJsonObject().get("lastname").getAsString();
 
@@ -63,7 +61,6 @@ public class PlayerApiRepo {
                 players.add(populateFieldsOfPlayer(player));
 
         }
-
         return players;
 
     }
