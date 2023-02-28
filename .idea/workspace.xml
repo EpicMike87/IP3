@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/TeamStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/TeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerApiRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerApiRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Heapsort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/MergeSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/SortingPlayers.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Team.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/TeamController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerApiRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerApiRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +66,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2M6Pt692RK26KIejGE1ehO35jxr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,7 +82,33 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Heapsort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.IP3G11.Best11.Heapsort" />
+      <module name="Best11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.IP3G11.Best11.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.IP3G11.Best11.MergeSort" />
+      <module name="Best11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.IP3G11.Best11.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -91,6 +118,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MergeSort" />
+        <item itemvalue="Application.Heapsort" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

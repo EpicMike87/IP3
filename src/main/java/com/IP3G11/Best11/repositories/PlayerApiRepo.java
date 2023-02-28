@@ -47,6 +47,27 @@ public class PlayerApiRepo {
 
     }
 
+    //Checks if search names match names of player
+    private boolean doesContainAllNames(String name, String[] searchedNames){
+        for(String s : searchedNames){
+            if(!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Method removes "" for the date variable
+     *
+     * @param s
+     * @return
+     */
+    public static String removeQMarks(String s) {
+
+        //Error handling for rare cases when name from API is empty
+        if (s.isEmpty()) return "";
+        return s.replace("\"", "");
+    }
+
     public Player populateFieldsOfPlayer(JsonObject playerJson) {
 
         //Get position from API data
@@ -173,27 +194,6 @@ public class PlayerApiRepo {
                 playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("passes").getAsJsonObject().get("accuracy").getAsDouble());
 
         return player;
-    }
-
-    //Checks if search names match names of player
-    private boolean doesContainAllNames(String name, String[] searchedNames) {
-        for (String s : searchedNames) {
-            if (!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
-        }
-        return true;
-    }
-
-    /**
-     * Method removes "" for the date variable
-     *
-     * @param s
-     * @return
-     */
-    private static String removeQMarks(String s) {
-
-        //Error handling for rare cases when name from API is empty
-        if (s.isEmpty()) return "";
-        return s.replace("\"", "");
     }
 
 
