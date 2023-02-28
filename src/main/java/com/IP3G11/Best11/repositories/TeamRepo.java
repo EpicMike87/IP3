@@ -51,31 +51,13 @@ public class TeamRepo {
 
                 // TODO: 27/02/2023 Extract total home and away data filling to a method
                 //Get total matches played, won drawn lost, goals for against
-                int matchesPlayed = team.get("all").getAsJsonObject().get("played").getAsInt();
-                int matchesWon = team.get("all").getAsJsonObject().get("win").getAsInt();
-                int matchesDrew = team.get("all").getAsJsonObject().get("draw").getAsInt();
-                int matchesLost = team.get("all").getAsJsonObject().get("lose").getAsInt();
-                int goalsFor = team.get("all").getAsJsonObject().get("goals").getAsJsonObject().get("for").getAsInt();
-                int goalsAgainst = team.get("all").getAsJsonObject().get("goals").getAsJsonObject().get("against").getAsInt();
-                TeamStats allStats = new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst);
+                TeamStats allStats = getTeamStatsObj(team.get("all").getAsJsonObject());
 
                 //Get home matches played, won drawn lost, goals for against
-                int homeMatchesPlayed = team.get("home").getAsJsonObject().get("played").getAsInt();
-                int homeMatchesWon = team.get("home").getAsJsonObject().get("win").getAsInt();
-                int homeMatchesDrew = team.get("home").getAsJsonObject().get("draw").getAsInt();
-                int homeMatchesLost = team.get("home").getAsJsonObject().get("lose").getAsInt();
-                int homeGoalsFor = team.get("home").getAsJsonObject().get("goals").getAsJsonObject().get("for").getAsInt();
-                int homeGoalsAgainst = team.get("home").getAsJsonObject().get("goals").getAsJsonObject().get("against").getAsInt();
-                TeamStats homeStats = new TeamStats(homeMatchesPlayed, homeMatchesWon, homeMatchesDrew, homeMatchesLost, homeGoalsFor, homeGoalsAgainst);
+                TeamStats homeStats = getTeamStatsObj(team.get("home").getAsJsonObject());
 
                 //Get away matches played, won drawn lost, goals for against
-                int awayMatchesPlayed = team.get("away").getAsJsonObject().get("played").getAsInt();
-                int awayMatchesWon = team.get("away").getAsJsonObject().get("win").getAsInt();
-                int awayMatchesDrew = team.get("away").getAsJsonObject().get("draw").getAsInt();
-                int awayMatchesLost = team.get("away").getAsJsonObject().get("lose").getAsInt();
-                int awayGoalsFor = team.get("away").getAsJsonObject().get("goals").getAsJsonObject().get("for").getAsInt();
-                int awayGoalsAgainst = team.get("away").getAsJsonObject().get("goals").getAsJsonObject().get("against").getAsInt();
-                TeamStats awayStats = new TeamStats(awayMatchesPlayed, awayMatchesWon, awayMatchesDrew, awayMatchesLost, awayGoalsFor, awayGoalsAgainst);
+                TeamStats awayStats = getTeamStatsObj(team.get("away").getAsJsonObject());
 
                 Team t = new Team();
                 t.setTeamName(teamName.replace("\"", ""));
@@ -108,16 +90,17 @@ public class TeamRepo {
         //Get id numbers of players currently in squad
         Set<Integer> squadIds = getSquadMemberIds(team.getId());
 
-        for(int i = 0; i < playersJson.size(); i++){
+        for (int i = 0; i < playersJson.size(); i++) {
             //Only add player to player list if in current squad
             int playerId = playersJson.get(i).getAsJsonObject().get("player").getAsJsonObject().get("id").getAsInt();
-            if(squadIds.contains(playerId)) playersList.add(playerRepo.populateFieldsOfPlayer(playersJson.get(i).getAsJsonObject()));
+            if (squadIds.contains(playerId))
+                playersList.add(playerRepo.populateFieldsOfPlayer(playersJson.get(i).getAsJsonObject()));
         }
         team.setPlayers(playersList);
         System.out.println("Added players to " + team.getTeamName() + ": Page " + pageNo + "/" + pages);
 
         //recursion to move to next page of results from API to add more players
-        if(pageNo < pages) addPlayersToTeam(team, ++pageNo);
+        if (pageNo < pages) addPlayersToTeam(team, ++pageNo);
     }
 
     //As API returns details of players who are left when making a call to get all players in a team, squad IDs will be stored to check players returned against
@@ -129,10 +112,22 @@ public class TeamRepo {
 
         HashSet ids = new HashSet();
 
-        for(int i = 0; i < squadPlayersJson.size(); i++){
+        for (int i = 0; i < squadPlayersJson.size(); i++) {
             ids.add(squadPlayersJson.get(i).getAsJsonObject().get("id").getAsInt());
         }
         return ids;
+    }
+
+    private TeamStats getTeamStatsObj(JsonObject stats) {
+
+        int matchesPlayed = stats.get("played").getAsInt();
+        int matchesWon = stats.get("win").getAsInt();
+        int matchesDrew = stats.get("draw").getAsInt();
+        int matchesLost = stats.get("lose").getAsInt();
+        int goalsFor = stats.get("goals").getAsJsonObject().get("for").getAsInt();
+        int goalsAgainst = stats.get("goals").getAsJsonObject().get("against").getAsInt();
+
+        return new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst);
     }
 
 }
