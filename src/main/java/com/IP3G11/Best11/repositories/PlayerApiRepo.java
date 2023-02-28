@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.NoArgsConstructor;
+import org.apache.tomcat.util.net.jsse.JSSEUtil;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,6 +16,7 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -28,17 +30,14 @@ public class PlayerApiRepo {
 
     public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
 
-        //playerName needs spaces replaced in between first and last name with %20 as required by API
-        String playerName = name;
-        String[] playerNames = playerName.split(" ");
-
-        //Set playerName to last name if a first and last were provided, as 2nd name is used for api call
-        if(playerNames.length > 1) playerName = playerNames[1];
+        // TODO: 28/02/2023 Solve issue when player has space seperated first/last names 
+        //Split to get first and last names
+        String[] playerNames = name.split(" ");
 
         //Make API request and get response
         HttpRequest request = HttpRequest.newBuilder()
                 //api-football only allows last name search, so only last name is used
-                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?league=" + leagueId + "&season=" + season + "&search=" + playerName))
+                .uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?league=" + leagueId + "&season=" + season + "&search=" + playerNames[playerNames.length-1]))
                 .header("X-RapidAPI-Key", api_token)
                 .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
@@ -54,12 +53,16 @@ public class PlayerApiRepo {
         for (int i = 0; i < playerInfo.size(); i++) {
             JsonObject player = playerInfo.get(i).getAsJsonObject();
             System.out.println(player);
-            //Determines subclass and populates all fields from API data
+
+            //Get first and last name from returned api data to check if contains any of names given (as may be double barrelled first, second names)
             String playerFirstName = player.get("player").getAsJsonObject().get("firstname").getAsString();
+            String playerLastName = player.get("player").getAsJsonObject().get("lastname").getAsString();
 
             //If only one name was provided for player, or if first name of player contains first name searched, add to player results
-            if ((playerNames.length == 1) || playerFirstName.toLowerCase(Locale.ROOT).contains(playerNames[0].toLowerCase(Locale.ROOT)))
+            if ((playerNames.length == 1) || (playerFirstName.toLowerCase(Locale.ROOT).contains(playerNames[0].toLowerCase(Locale.ROOT))))
+                //Determines subclass and populates all fields from API data
                 players.add(populateFieldsOfPlayer(player));
+
         }
 
         return players;
