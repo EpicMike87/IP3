@@ -55,11 +55,10 @@ public class PlayerApiRepo {
             System.out.println(player);
 
             //Get first and last name from returned api data to check if contains any of names given (as may be double barrelled first, second names)
-            String playerFirstName = player.get("player").getAsJsonObject().get("firstname").getAsString();
-            String playerLastName = player.get("player").getAsJsonObject().get("lastname").getAsString();
+            String playerName = player.get("player").getAsJsonObject().get("name").getAsString();
 
-            //If only one name was provided for player, or if first name of player contains first name searched, add to player results
-            if ((playerNames.length == 1) || (playerFirstName.toLowerCase(Locale.ROOT).contains(playerNames[0].toLowerCase(Locale.ROOT))))
+            //If names provided exist within player name returned by api, add to results
+            if (doesContainAllNames(playerName, playerNames))
                 //Determines subclass and populates all fields from API data
                 players.add(populateFieldsOfPlayer(player));
 
@@ -67,6 +66,14 @@ public class PlayerApiRepo {
 
         return players;
 
+    }
+
+    //Checks if search names match names of player
+    private boolean doesContainAllNames(String name, String[] searchedNames){
+        for(String s : searchedNames){
+            if(!name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))) return false;
+        }
+        return true;
     }
 
     /**
