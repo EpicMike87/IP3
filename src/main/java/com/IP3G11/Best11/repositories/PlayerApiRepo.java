@@ -3,6 +3,7 @@ package com.IP3G11.Best11.repositories;
 import com.IP3G11.Best11.model.*;
 import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,9 @@ public class PlayerApiRepo {
 
     private static final int leagueId = 179;
     private static final int season = 2022;
+
+    //Default player page is 1.
+    private static final int playerPages = 25;
 
     public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
 
@@ -45,6 +49,32 @@ public class PlayerApiRepo {
         }
         return players;
 
+    }
+
+    public List<Player> getAllPlayersInLeague() throws IOException, InterruptedException, NullPointerException{
+        List<Player> players = new ArrayList<>();
+        int pageNumber = 0;
+        //The while loop will call each page of the api in order to retrieve the players from the league.
+        while(pageNumber < 25) {
+            JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + leagueId + "&season=" + season + "&page=" + pageNumber).get("response").getAsJsonArray();
+
+            for (int i = 0; i < playerInfo.size(); i++) {
+                JsonObject player = playerInfo.get(i).getAsJsonObject();
+
+                //Get first and last name from returned api data to check if contains names searched (as may be double barrelled first, second names)
+//                String playerName = player.get("player").getAsJsonObject().get("firstname").getAsString()
+//                        + " " + player.get("player").getAsJsonObject().get("lastname").getAsString();
+
+                //Determines subclass and populates all fields from API data
+                players.add(populateFieldsOfPlayer(player));
+//            System.out.println("Added " + playerName + " to search results.");
+
+            }
+            pageNumber++;
+//            System.out.println(pageNumber);
+        }
+
+        return players;
     }
 
     //Checks if search names match names of player
