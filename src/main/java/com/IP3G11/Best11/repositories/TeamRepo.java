@@ -19,8 +19,8 @@ import java.util.Set;
 @NoArgsConstructor
 public class TeamRepo {
 
-    private static final int leagueId = 179;
-    private static final int season = 2022;
+    private static final int LEAGUE_ID = 179;
+    private static final int SEASON = 2022;
 
     private final PlayerApiRepo playerRepo = new PlayerApiRepo();
     private List<Team> teams;
@@ -31,7 +31,7 @@ public class TeamRepo {
         if (teams == null) {
 
             //Get data from API
-            JsonArray teamsArray = APIUtility.getResponseAsJsonObject("standings?season=" + season + "&league=" + leagueId)
+            JsonArray teamsArray = APIUtility.getResponseAsJsonObject("standings?season=" + SEASON + "&league=" + LEAGUE_ID)
                     .get("response").getAsJsonArray().get(0).getAsJsonObject().get("league")
                     .getAsJsonObject().get("standings").getAsJsonArray().get(0).getAsJsonArray();
 
@@ -49,7 +49,6 @@ public class TeamRepo {
                 int points = team.get("points").getAsInt();
                 int goalDiff = team.get("goalsDiff").getAsInt();
 
-                // TODO: 27/02/2023 Extract total home and away data filling to a method
                 //Get total matches played, won drawn lost, goals for against
                 TeamStats allStats = getTeamStatsObj(team.get("all").getAsJsonObject());
 
@@ -79,7 +78,7 @@ public class TeamRepo {
     //Populates team object with players of the team and their stats
     private void addPlayersToTeam(Team team, int pageNo) throws IOException, InterruptedException {
 
-        JsonObject responseObject = APIUtility.getResponseAsJsonObject("players?team=" + team.getId() + "&season=" + season + "&page=" + pageNo);
+        JsonObject responseObject = APIUtility.getResponseAsJsonObject("players?team=" + team.getId() + "&season=" + SEASON + "&page=" + pageNo);
         JsonArray playersJson = responseObject.get("response").getAsJsonArray();
 
         //Number of pages of results, 1 API call returns 1 page so determines number of calls to be made to get all players

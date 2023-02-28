@@ -17,8 +17,8 @@ import java.util.Locale;
 @NoArgsConstructor
 public class PlayerApiRepo {
 
-    private static final int leagueId = 179;
-    private static final int season = 2022;
+    private static final int LEAGUE_ID = 179;
+    private static final int SEASON = 2022;
 
     //Default player page is 1.
     private static final int playerPages = 25;
@@ -29,8 +29,8 @@ public class PlayerApiRepo {
         String[] playerNames = name.split(" ");
 
         //Get data from API and extract array of players
-        JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + leagueId + "&season="
-                + season + "&search=" + playerNames[playerNames.length-1]).get("response").getAsJsonArray();
+        JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + LEAGUE_ID + "&season="
+                + SEASON + "&search=" + playerNames[playerNames.length - 1]).get("response").getAsJsonArray();
 
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < playerInfo.size(); i++) {
@@ -51,6 +51,7 @@ public class PlayerApiRepo {
 
     }
 
+<<<<<<< HEAD
     public List<Player> getAllPlayersInLeague() throws IOException, InterruptedException, NullPointerException{
         List<Player> players = new ArrayList<>();
         int pageNumber = 0;
@@ -98,6 +99,8 @@ public class PlayerApiRepo {
         return s.replace("\"", "");
     }
 
+=======
+>>>>>>> 997be678617766f7d6458cbb1e356b29a627dac9
     public Player populateFieldsOfPlayer(JsonObject playerJson) {
 
         //Get position from API data
@@ -225,5 +228,27 @@ public class PlayerApiRepo {
 
         return player;
     }
+
+    //Checks if search names match names of player
+    private boolean doesContainAllNames(String name, String[] searchedNames) {
+        for (String s : searchedNames) {
+            if (!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Method removes "" for the date variable
+     *
+     * @param s
+     * @return
+     */
+    private static String removeQMarks(String s) {
+
+        //Error handling for rare cases when name from API is empty
+        if (s.isEmpty()) return "";
+        return s.replace("\"", "");
+    }
+
 
 }
