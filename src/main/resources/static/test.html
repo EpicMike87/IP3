@@ -1,11 +1,28 @@
 <html>
     <head>
-        <title>Test of JS</title>
-        <script src="test.js"></script>
+        <title>Attacking Players by Goals Scored</title>
+        <script src="js/test.js"></script>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <form id="testForm">
-            
-        </form>
+        <main>
+        <h1>Attacking Players by Goal Scored</h1>
+        <div id="tablecontainer" style="overflow-y: auto">
+        <table id="playerTable" class="scrolldown">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Matches Played</th>
+                    <th>Shots On Target</th>
+                    <th>Goals</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+    </main>
     </body>
 </html>
