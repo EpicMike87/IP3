@@ -1,0 +1,138 @@
+@charset "UTF-8";
+html {
+    font-family: Arial;
+}
+
+body {
+    margin: auto;
+    padding: 0;
+    max-width: 1000px;
+}
+
+main {
+    margin: auto;
+}
+
+header{
+    margin: 1rem, auto;
+}
+
+
+h1, h2, h3 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#tablecontainer {
+    max-height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 6px;
+}
+
+/* Positions table tightly inside container */
+table.sortable {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 1000px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+table.scrolldown tbody {
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#tablecontainer {
+    padding-right: 12px;
+}
+
+/* Scrollbar width */
+#tablecontainer::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Scrollbar background colour */
+#tablecontainer::-webkit-scrollbar-track {
+    background: rgba(211, 211, 211, 1);
+}
+
+/* Scroller thumb colour and shape, border makes it look spaced from the sides */
+#tablecontainer::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 20px;
+    border: 3px solid rgba(211, 211, 211, 1);
+}
+
+.photo{
+    margin: 0;
+    padding: 0;
+}
+
+.photo img {
+    margin: 0;
+    padding: 0;
+}
+
+table.sortable thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+table.sortable th, td {
+    padding: 12px 15px;
+    max-height: 40px;
+}
+
+
+table.sortable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table.sortable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table.sortable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.sortable th {
+    cursor: pointer;
+}
+
+.sortable th.no-sort {
+    pointer-events: none;
+}
+
+.sortable th.dir-d::after {
+    content: "▾";
+}
+
+.sortable th.dir-u::after {
+    content: "▴";
+}
+
+.sortable th.indicator-left::after {
+    content: "";
+}
+
+.sortable th.indicator-left::before {
+    margin-right: 3px;
+    content: "▸";
+}
+
+.sortable th.indicator-left.dir-d::before {
+    content: "▾";
+}
+
+.sortable th.indicator-left.dir-u::before {
+    content: "▴";
+}
