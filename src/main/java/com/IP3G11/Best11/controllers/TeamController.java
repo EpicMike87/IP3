@@ -20,7 +20,7 @@ public class TeamController {
     public TeamController() throws IOException, InterruptedException {
     }
 
-    @GetMapping("/teams")
+    @GetMapping("/team/all")
     public List<Team> getTeams() throws IOException, InterruptedException {
         return teamService.getTeams();
     }
@@ -66,5 +66,10 @@ public class TeamController {
 
         return null;
 
+    }
+
+    @GetMapping("/players/all")
+    public List<Player> getAllPlayers(){
+        return teamService.getAllPlayers();
     }
 }
