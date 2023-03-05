@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 html {
     font-family: Arial;
 }
@@ -6,15 +7,15 @@ html {
 body {
     margin: auto;
     padding: 0;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 main {
     margin: auto;
 }
 
-header{
-    margin: 1rem, auto;
+header {
+    padding: 2rem;
 }
 
 
@@ -23,6 +24,10 @@ h1, h2, h3 {
     text-align: center;
 }
 
+small{
+    text-align: center;
+    margin: 1rem auto;
+}
 
 #tablecontainer {
     max-height: 800px;
@@ -38,7 +43,7 @@ table.sortable {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9em;
-    min-width: 1000px;
+    min-width: 1200px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
@@ -70,7 +75,7 @@ table.scrolldown tbody {
     border: 3px solid rgba(211, 211, 211, 1);
 }
 
-.photo{
+.photo {
     margin: 0;
     padding: 0;
 }
@@ -84,6 +89,11 @@ table.sortable thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: center;
+}
+
+thead {
+    position: sticky;
+    top: 0;
 }
 
 table.sortable th, td {
@@ -136,3 +146,8 @@ table.sortable tbody tr:last-of-type {
 .sortable th.indicator-left.dir-u::before {
     content: "▴";
 }
+
+select{
+    margin-top: 1rem;
+}
+
