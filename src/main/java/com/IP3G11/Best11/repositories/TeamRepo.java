@@ -132,4 +132,12 @@ public class TeamRepo {
         return new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst);
     }
 
+    public List<Player> getAllPlayers(){
+        List<Player> players = new ArrayList<>();
+        for(Team t : teams){
+            players.addAll(t.getPlayers());
+        }
+        return players;
+    }
+
 }

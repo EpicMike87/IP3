@@ -1,5 +1,6 @@
 package com.IP3G11.Best11.services;
 
+import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,9 @@ public class TeamService {
             if(t.getTeamName().equalsIgnoreCase(name)) return t;
         }
         return null;
+    }
+
+    public List<Player> getAllPlayers(){
+        return teamRepo.getAllPlayers();
     }
 }
