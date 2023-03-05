@@ -42,13 +42,13 @@ public class TeamController {
         for(int i = 0; i<teams.size(); i++){
             players = teams.get(i).getPlayers();
             for(Player player: players){
-                if(player.getPosition().equalsIgnoreCase("attacker")){
+                if(player.getPosition().equalsIgnoreCase("attacker") && !attackers.contains(player)){
                     attackers.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("midfielder")){
+                }else if(player.getPosition().equalsIgnoreCase("midfielder") && !midfielders.contains(player)){
                     midfielders.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("defender")){
+                }else if(player.getPosition().equalsIgnoreCase("defender") && !defenders.contains(player)){
                     defenders.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("goalkeeper")){
+                }else if(player.getPosition().equalsIgnoreCase("goalkeeper") && !goalkeepers.contains(player)){
                     goalkeepers.add(player);
                 }
             }
