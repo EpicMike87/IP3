@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Midfielder extends Player{
 
+    private int shotsOnTarget;
     private int assists;
     private int goals;
     private int tackles;
