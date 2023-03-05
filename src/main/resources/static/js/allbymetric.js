@@ -39,7 +39,7 @@ function createTable(players, sortBy) {
     table.innerHTML = "";
     players.forEach(player => {
 
-        // Exclude players that are not attacking pos as shots on target not recorded by system for anyone else and used in the table
+        // Exclude goalkeepers as different stats
         if (!(player.position == "Goalkeeper")) {
 
             //Create table row and cells to display the info for player
