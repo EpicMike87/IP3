@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Attacking Players by Goals Scored</title>
+    <script src="js/test.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Attacking Players (Sortable)</h1>
+            <h3>Click on table headers to sort. Sorted by goals scored as default.</h3>
+        </header>
+        <div id="tablecontainer">
+            <table id="playerTable" class="scrolldown sortable">
+                <thead>
+                    <tr>
+                        <th class="no-sort">Photo</th>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Matches Played</th>
+                        <th>Shots On Target</th>
+                        <th>Goals</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
