@@ -2,7 +2,7 @@
 
 <head>
     <title>Attacking Players by Goals Scored</title>
-    <script src="js/test.js"></script>
+    <script src="js/attackersbymetric.js"></script>
     <script src="js/sortable.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,7 +11,16 @@
     <main>
         <header>
             <h1>Attacking Players (Sortable)</h1>
-            <h3>Click on table headers to sort. Sorted by goals scored as default.</h3>
+            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+        <select id="selector">
+            <option selected="selected">
+                Choose Stat...
+                </option>
+            <option value="matchesPlayed">Matches Played</option>
+            <option value="shotsOnTarget">Shots On Target</option>
+            <option value="goals">Goals</option>
+            <option value="assists">Assists</option>
+        </select>
         </header>
         <div id="tablecontainer">
             <table id="playerTable" class="scrolldown sortable">
@@ -20,15 +29,17 @@
                         <th class="no-sort">Photo</th>
                         <th>Name</th>
                         <th>Team</th>
-                        <th>Matches Played</th>
+                        <th id="#matchesPlayed">Matches Played</th>
                         <th>Shots On Target</th>
                         <th>Goals</th>
+                        <th>Assists</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
                 </tbody>
             </table>
         </div>
+        
     </main>
 </body>
 

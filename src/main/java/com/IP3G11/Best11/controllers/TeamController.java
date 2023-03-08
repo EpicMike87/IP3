@@ -20,7 +20,7 @@ public class TeamController {
     public TeamController() throws IOException, InterruptedException {
     }
 
-    @GetMapping("/teams")
+    @GetMapping("/team/all")
     public List<Team> getTeams() throws IOException, InterruptedException {
         return teamService.getTeams();
     }
@@ -28,5 +28,48 @@ public class TeamController {
     @GetMapping("/team/{name}")
     public Team getTeamByName(@PathVariable String name){
         return teamService.getTeamByName(name);
+    }
+
+    @GetMapping("/players/{position}")
+    public List<Player> getPlayersByPosition(@PathVariable String position){
+        List<Team> teams = teamService.getTeams();
+        List<Player> players = new ArrayList<>();
+        List<Player> attackers = new ArrayList<>();
+        List<Player> midfielders = new ArrayList<>();
+        List<Player> defenders = new ArrayList<>();
+        List<Player> goalkeepers = new ArrayList<>();
+
+        for(int i = 0; i<teams.size(); i++){
+            players = teams.get(i).getPlayers();
+            for(Player player: players){
+                if(player.getPosition().equalsIgnoreCase("attacker") && !attackers.contains(player)){
+                    attackers.add(player);
+                }else if(player.getPosition().equalsIgnoreCase("midfielder") && !midfielders.contains(player)){
+                    midfielders.add(player);
+                }else if(player.getPosition().equalsIgnoreCase("defender") && !defenders.contains(player)){
+                    defenders.add(player);
+                }else if(player.getPosition().equalsIgnoreCase("goalkeeper") && !goalkeepers.contains(player)){
+                    goalkeepers.add(player);
+                }
+            }
+        }
+
+        if(position.equalsIgnoreCase("attackers")){
+            return attackers;
+        } else if(position.equalsIgnoreCase("midfielders")){
+            return midfielders;
+        } else if(position.equalsIgnoreCase("defenders")){
+            return defenders;
+        } else if(position.equalsIgnoreCase("goalkeepers")){
+            return goalkeepers;
+        }
+
+        return null;
+
+    }
+
+    @GetMapping("/players/all")
+    public List<Player> getAllPlayers(){
+        return teamService.getAllPlayers();
     }
 }

@@ -3,9 +3,9 @@ package com.IP3G11.Best11.repositories;
 import com.IP3G11.Best11.model.*;
 import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -14,14 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-@NoArgsConstructor
+@Component("playerApiRepo")
 public class PlayerApiRepo {
 
     private static final int LEAGUE_ID = 179;
     private static final int SEASON = 2022;
-
-    //Default player page is 1.
-    private static final int playerPages = 25;
 
     public List<Player> getPlayerByName(String name) throws IOException, InterruptedException, NullPointerException {
 
@@ -51,33 +48,6 @@ public class PlayerApiRepo {
 
     }
 
-<<<<<<< HEAD
-    public List<Player> getAllPlayersInLeague() throws IOException, InterruptedException, NullPointerException{
-        List<Player> players = new ArrayList<>();
-        int pageNumber = 0;
-        //The while loop will call each page of the api in order to retrieve the players from the league.
-        while(pageNumber < 25) {
-            JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + leagueId + "&season=" + season + "&page=" + pageNumber).get("response").getAsJsonArray();
-
-            for (int i = 0; i < playerInfo.size(); i++) {
-                JsonObject player = playerInfo.get(i).getAsJsonObject();
-
-                //Get first and last name from returned api data to check if contains names searched (as may be double barrelled first, second names)
-//                String playerName = player.get("player").getAsJsonObject().get("firstname").getAsString()
-//                        + " " + player.get("player").getAsJsonObject().get("lastname").getAsString();
-
-                //Determines subclass and populates all fields from API data
-                players.add(populateFieldsOfPlayer(player));
-//            System.out.println("Added " + playerName + " to search results.");
-
-            }
-            pageNumber++;
-//            System.out.println(pageNumber);
-        }
-
-        return players;
-    }
-
     //Checks if search names match names of player
     private boolean doesContainAllNames(String name, String[] searchedNames){
         for(String s : searchedNames){
@@ -99,8 +69,6 @@ public class PlayerApiRepo {
         return s.replace("\"", "");
     }
 
-=======
->>>>>>> 997be678617766f7d6458cbb1e356b29a627dac9
     public Player populateFieldsOfPlayer(JsonObject playerJson) {
 
         //Get position from API data
@@ -133,6 +101,16 @@ public class PlayerApiRepo {
                 break;
             case "Defender":
                 Defender dfnd = new Defender();
+
+                dfnd.setShotsOnTarget(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("shots").getAsJsonObject().get("on").isJsonNull() ? 0 :
+                        playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("shots").getAsJsonObject().get("on").getAsInt());
+
+                dfnd.setAssists(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("assists").isJsonNull() ? 0 :
+                        playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("assists").getAsInt());
+
+                dfnd.setGoals(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("total").isJsonNull() ? 0 :
+                        playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("total").getAsInt());
+
                 dfnd.setDuels(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("duels").getAsJsonObject().get("total").isJsonNull() ? 0 :
                         playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("duels").getAsJsonObject().get("total").getAsInt());
 
@@ -152,6 +130,10 @@ public class PlayerApiRepo {
                 break;
             case "Midfielder":
                 Midfielder mdfd = new Midfielder();
+
+                mdfd.setShotsOnTarget(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("shots").getAsJsonObject().get("on").isJsonNull() ? 0 :
+                        playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("shots").getAsJsonObject().get("on").getAsInt());
+
                 mdfd.setAssists(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("assists").isJsonNull() ? 0 :
                         playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("goals").getAsJsonObject().get("assists").getAsInt());
 
@@ -227,27 +209,6 @@ public class PlayerApiRepo {
                 playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("passes").getAsJsonObject().get("accuracy").getAsDouble());
 
         return player;
-    }
-
-    //Checks if search names match names of player
-    private boolean doesContainAllNames(String name, String[] searchedNames) {
-        for (String s : searchedNames) {
-            if (!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
-        }
-        return true;
-    }
-
-    /**
-     * Method removes "" for the date variable
-     *
-     * @param s
-     * @return
-     */
-    private static String removeQMarks(String s) {
-
-        //Error handling for rare cases when name from API is empty
-        if (s.isEmpty()) return "";
-        return s.replace("\"", "");
     }
 
 

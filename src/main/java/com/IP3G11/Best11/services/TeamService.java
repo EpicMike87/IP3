@@ -1,20 +1,27 @@
 package com.IP3G11.Best11.services;
 
+import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 
+@Service
 public class TeamService {
 
-    private final TeamRepo teamRepo;
-    private final List<Team> teams;
+    @Autowired
+    private TeamRepo teamRepo;
+
+    private List<Team> teams;
 
     public TeamService(TeamRepo teamRepo) throws IOException, InterruptedException {
-        teams = teamRepo.getTeams();
         this.teamRepo = teamRepo;
+        teams = teamRepo.getTeams();
     }
+
 
     public List<Team> getTeams(){
         return teams;
@@ -25,5 +32,9 @@ public class TeamService {
             if(t.getTeamName().equalsIgnoreCase(name)) return t;
         }
         return null;
+    }
+
+    public List<Player> getAllPlayers(){
+        return teamRepo.getAllPlayers();
     }
 }
