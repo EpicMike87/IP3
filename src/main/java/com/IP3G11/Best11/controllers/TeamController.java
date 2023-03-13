@@ -74,4 +74,9 @@ public class TeamController {
     public List<Player> getAllPlayers(){
         return teamService.getAllPlayers();
     }
+
+    @GetMapping("/teamstats/league_table")
+    public List<Team> getLeagueTable(){
+        return teamService.getTeams();
+    }
 }
