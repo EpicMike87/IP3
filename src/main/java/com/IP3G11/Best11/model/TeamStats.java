@@ -16,5 +16,7 @@ public class TeamStats {
     private int matchesLost;
     private int goalsFor;
     private int goalsAgainst;
+    private int goalDifference;
+    private int points;
 
 }

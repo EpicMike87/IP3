@@ -128,8 +128,10 @@ public class TeamRepo {
         int matchesLost = stats.get("lose").getAsInt();
         int goalsFor = stats.get("goals").getAsJsonObject().get("for").getAsInt();
         int goalsAgainst = stats.get("goals").getAsJsonObject().get("against").getAsInt();
+        int goalDifference = goalsFor - goalsAgainst;
+        int points = (matchesWon * 3) + matchesDrew;
 
-        return new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst);
+        return new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
     public List<Player> getAllPlayers(){
