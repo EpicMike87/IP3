@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Best11.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Best11.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/TeamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/TeamStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/model/TeamStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" afterDir="false" />
@@ -69,6 +70,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "spring.configuration.checksum": "002bc6bd86ecac99a02d3149e4951f8c",
     "vue.rearranger.settings.migration": "true"
   }
@@ -125,6 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677085270696</updated>
       <workItem from="1678722552717" duration="3915000" />
+      <workItem from="1679065598209" duration="3738000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
@@ -235,5 +241,15 @@
     <MESSAGE value="Changed usage of repo in controller to service, repo is now instantiable and saves team list on instantiation" />
     <MESSAGE value="Added method to determine subclass of player and populate fields" />
     <option name="LAST_COMMIT_MESSAGE" value="Added method to determine subclass of player and populate fields" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

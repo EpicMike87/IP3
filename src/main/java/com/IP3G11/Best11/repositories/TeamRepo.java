@@ -79,7 +79,7 @@ public class TeamRepo {
     }
 
     //Populates team object with players of the team and their stats
-    private void addPlayersToTeam(Team team, int pageNo) throws IOException, InterruptedException {
+    public void addPlayersToTeam(Team team, int pageNo) throws IOException, InterruptedException {
 
         JsonObject responseObject = APIUtility.getResponseAsJsonObject("players?team=" + team.getId() + "&season=" + SEASON + "&page=" + pageNo);
         JsonArray playersJson = responseObject.get("response").getAsJsonArray();
@@ -120,18 +120,19 @@ public class TeamRepo {
         return ids;
     }
 
-    private TeamStats getTeamStatsObj(JsonObject stats) {
+    public TeamStats getTeamStatsObj(JsonObject stats) {
 
+        int season = SEASON;
         int matchesPlayed = stats.get("played").getAsInt();
         int matchesWon = stats.get("win").getAsInt();
         int matchesDrew = stats.get("draw").getAsInt();
         int matchesLost = stats.get("lose").getAsInt();
         int goalsFor = stats.get("goals").getAsJsonObject().get("for").getAsInt();
         int goalsAgainst = stats.get("goals").getAsJsonObject().get("against").getAsInt();
-        int goalDifference = goalsFor - goalsAgainst;
-        int points = (matchesWon * 3) + matchesDrew;
+        int goalDifference = goalsFor-goalsAgainst;
+        int points = (matchesWon*3) + matchesDrew;
 
-        return new TeamStats(matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
+        return new TeamStats(season, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
     public List<Player> getAllPlayers(){
