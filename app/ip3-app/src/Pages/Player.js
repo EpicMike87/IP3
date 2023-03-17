@@ -24,7 +24,7 @@ const mapPlayers = (players) => {
     table.innerHTML = "";
     setTest(players.map(player => {
          // Exclude goalkeepers as different stats
-        if (!(player.position == "Goalkeeper")) {
+        if (!(player.position === "Goalkeeper")) {
 
             //Create table row and cells to display the info for player
             const newRow = document.createElement('tr');
