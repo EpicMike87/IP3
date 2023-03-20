@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useDrag } from "react-dnd";
 
 export const PlayerResultsCard = ( {player}) => {
+    // const [selectedPlayer, setSelectedPlayer] = useState(true);
+
+    // if(player){
+    //     setSelectedPlayer(true);
+    // }
 
     const [{ isDragging }, dragRef] = useDrag({
         type: 'player',
@@ -12,14 +17,14 @@ export const PlayerResultsCard = ( {player}) => {
     })
 
     return(
-        <div className='player-card' ref={dragRef} style={{
+        <div className='player-results-card' ref={dragRef} style={{
             opacity: isDragging ? 0.5 : 1,
             fontSize: 25,
             fontWeight: 'bold',
             cursor: 'move',
           }}>
 
-            
+            {/* {selectedPlayer ?  */}
             <div className="liEls">
                 <img className="imagePlayer" src={player.photoUrl}/>
                 <div className="HeaderBox">
@@ -42,7 +47,7 @@ export const PlayerResultsCard = ( {player}) => {
                 </div>
             </div>
            
-
+            {/* : <div></div>} */}
             {isDragging && '😱'}
         </div>
     );
