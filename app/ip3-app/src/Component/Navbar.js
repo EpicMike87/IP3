@@ -9,8 +9,8 @@ export default function Navbar() {
       <ul>
         <CustomLink to="/player">Players</CustomLink>
         <CustomLink to="/team">Teams</CustomLink>
-        <CustomLink to="/ranking">Rankings</CustomLink>
         <CustomLink to="/manager">Managers</CustomLink>
+        <CustomLink to="/ranking">Ranking</CustomLink>
       </ul>
     </nav>
   )
