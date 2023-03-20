@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TeamStats {
 
+    private int season;
     private int matchesPlayed;
     private int matchesWon;
     private int matchesDrew;
