@@ -8,13 +8,12 @@ function SearchBar({keyword, onChange, fun}){
     return (
         <div className='searchBar'>
             <input 
-            style={BarStyle}
             key="search-bar"
             value={keyword}
             placeholder={"Enter Player Name"}
             onChange={(e) => onChange(e.target.value)}
             />
-            <img src={searchIcon} style={searchIconStyle} onClick={fun}/>
+            <img src={searchIcon} onClick={fun}/>
         </div>
     );
   }

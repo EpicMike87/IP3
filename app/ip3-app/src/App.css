@@ -178,6 +178,241 @@ select{
     margin-top: 1rem;
 }
 
+.searchBarContainer {
+    width: 802px;
+    box-sizing: border-box;
+    position: relative;
+    margin: auto;
+}
+
+.searchBar {
+    width: 802px;
+    height: 51px;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    /*border: 1px solid rgb(63, 63, 63);*/
+    border-radius: 8px;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.1);
+}
+
+.searchBarInput {
+    position: absolute;
+    width: 701px;
+    height: 51px;
+    border: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    font-size: 30px;
+    outline: none;
+    
+}
+
+.iconSearchContainer {
+    background:#c0c2c0;
+    position: absolute;
+    width: 101px;
+    height: 51px;
+    box-sizing: border-box;
+    left: 701px;
+    border: none;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.iconSearchContainer:hover {
+    background: black;
+    color: white;
+    cursor: pointer;
+
+}
+
+#searchIconStyle {
+    width: 30%; 
+    border: none;
+}
+
+
+
+.iconSearchContainer:hover #searchIconStyle{
+    fill: white;
+}
+
+.playerSection{
+    position: relative;
+    
+}
+
+/* #res {
+    background: #ffffff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    position: absolute;
+    width: 701px;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.1);
+    top: 0px;
+
+    
+} */
+
+
+.player-card{
+  display: flex;
+  position: relative;
+  justify-content: center;
+
+  
+}
+
+.liEls {
+  width: 40%;
+  height: 150px;
+  display: flex;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.liEls:hover {
+  background: rgba(207,208,209,0.3);
+}
+
+.liEls img {
+  margin-left: 10px;
+  border-radius: 50%;
+  width: 150px;
+  height: 100%;
+}
+
+.HeaderBox{
+    width: 50%;
+    display: flex;
+    align-content: left;
+    justify-content: left;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
+    padding: 15px;
+    border-left-style: solid;
+    border-left-color: #009879;
+}
+
+.playerName {
+  margin: 0;
+  font-size: 25px
+}
+
+.playerTeam {
+  font-size: 20px;
+  margin-top: auto;
+  font-weight: 600;
+
+}
+
+.statistics{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    /* flex-flow: column, wrap; */
+    flex-direction: row;
+    list-style: none;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-style: solid;
+    border-left-color: #009879;
+}
+  
+.matchesPlayed{
+  bottom: 10px;
+}
+
+.matchesPlayed > p {
+  position: relative;
+  text-align: center;
+  bottom: 20px;
+  font-size: large;
+}
+
+.matchesPlayed > h5 {
+  font-size: large;
+}
+
+.playerAge{
+  bottom: 10px;
+}
+
+.playerAge > p {
+  position: relative;
+  text-align: center;
+  bottom: 20px;
+  font-size: large;
+}
+.playerAge > h5 {
+  font-size: large;
+}
+
+.playerPosition{
+  bottom: 10px;
+}
+
+.playerPosition > p {
+  position: relative;
+  text-align: center;
+  bottom: 20px;
+  font-size: large;
+}
+
+.playerPosition > h5 {
+  font-size: large;
+}
+
+.fadeout {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    box-sizing: border;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 50px;
+    background: -webkit-linear-gradient(rgba(237,239,240,0) 42px, #ffffff 48px);
+    transition: background 150ms ease-in;
+  }
+  
+.rating {
+    margin: 0;
+    font-size: 13px;
+    height: 15px;
+  }
+
+.hideResults {
+  display: none;
+}
+
+.basket{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  top: 800px;
+  height: 60%;
+  
+}
+
+.Player{
+  margin: 0;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 
 @keyframes App-logo-spin {

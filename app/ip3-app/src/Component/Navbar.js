@@ -11,6 +11,7 @@ export default function Navbar() {
         <CustomLink to="/team">Teams</CustomLink>
         <CustomLink to="/ranking">Rankings</CustomLink>
         <CustomLink to="/manager">Managers</CustomLink>
+        <CustomLink to="/PlayerComparison">Compare Players</CustomLink>
       </ul>
     </nav>
   )
