@@ -63,9 +63,6 @@ public class TeamRepo {
                 //Get logo
                 String photoUrl = team.get("team").getAsJsonObject().get("logo").getAsString();
 
-                //Get grounds info
-//                team.get
-
                 Team t = new Team();
                 t.setTeamName(teamName.replace("\"", ""));
                 t.setId(teamId);
@@ -145,7 +142,7 @@ public class TeamRepo {
         JsonObject responseObject = APIUtility.getResponseAsJsonObject("players/squads" + "?team=" + teamId);
         JsonArray squadPlayersJson = responseObject.getAsJsonArray("response").get(0).getAsJsonObject().get("players").getAsJsonArray();
 
-        HashSet ids = new HashSet();
+        HashSet<Integer> ids = new HashSet<>();
 
         for (int i = 0; i < squadPlayersJson.size(); i++) {
             ids.add(squadPlayersJson.get(i).getAsJsonObject().get("id").getAsInt());
@@ -155,7 +152,6 @@ public class TeamRepo {
 
     public TeamStats getTeamStatsObj(JsonObject stats) {
 
-        int season = SEASON;
         int matchesPlayed = stats.get("played").getAsInt();
         int matchesWon = stats.get("win").getAsInt();
         int matchesDrew = stats.get("draw").getAsInt();
@@ -165,7 +161,7 @@ public class TeamRepo {
         int goalDifference = goalsFor - goalsAgainst;
         int points = (matchesWon * 3) + matchesDrew;
 
-        return new TeamStats(season, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
+        return new TeamStats(SEASON, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
     public List<Player> getAllPlayers() {

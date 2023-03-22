@@ -17,9 +17,7 @@ public class TeamService {
 
     private List<Team> teams;
 
-    public TeamService(TeamRepo teamRepo) throws IOException, InterruptedException {
-        this.teamRepo = teamRepo;
-        teams = teamRepo.getTeams();
+    public TeamService() throws IOException, InterruptedException {
     }
 
 

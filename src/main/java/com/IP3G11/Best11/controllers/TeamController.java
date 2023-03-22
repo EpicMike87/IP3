@@ -22,7 +22,7 @@ import java.util.List;
 public class TeamController {
     private static final int LEAGUE_ID = 179;
     private static final int SEASON = 2022;
-    private TeamService teamService = new TeamService(new TeamRepo());
+    private final TeamService teamService = new TeamService();
 
     public TeamController() throws IOException, InterruptedException {
     }
@@ -40,22 +40,22 @@ public class TeamController {
     @GetMapping("/players/{position}")
     public List<Player> getPlayersByPosition(@PathVariable String position){
         List<Team> teams = teamService.getTeams();
-        List<Player> players = new ArrayList<>();
+        List<Player> players;
         List<Player> attackers = new ArrayList<>();
         List<Player> midfielders = new ArrayList<>();
         List<Player> defenders = new ArrayList<>();
         List<Player> goalkeepers = new ArrayList<>();
 
-        for(int i = 0; i<teams.size(); i++){
-            players = teams.get(i).getPlayers();
-            for(Player player: players){
-                if(player.getPosition().equalsIgnoreCase("attacker") && !attackers.contains(player)){
+        for (Team team : teams) {
+            players = team.getPlayers();
+            for (Player player : players) {
+                if (player.getPosition().equalsIgnoreCase("attacker") && !attackers.contains(player)) {
                     attackers.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("midfielder") && !midfielders.contains(player)){
+                } else if (player.getPosition().equalsIgnoreCase("midfielder") && !midfielders.contains(player)) {
                     midfielders.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("defender") && !defenders.contains(player)){
+                } else if (player.getPosition().equalsIgnoreCase("defender") && !defenders.contains(player)) {
                     defenders.add(player);
-                }else if(player.getPosition().equalsIgnoreCase("goalkeeper") && !goalkeepers.contains(player)){
+                } else if (player.getPosition().equalsIgnoreCase("goalkeeper") && !goalkeepers.contains(player)) {
                     goalkeepers.add(player);
                 }
             }
@@ -86,21 +86,19 @@ public class TeamController {
     }
 
     @GetMapping("/teamstats/comapre_seasons")
-    public List[] getPrevAndCurrentLeagueTable() throws IOException, InterruptedException {
+    public List<Team>[] getPrevAndCurrentLeagueTable() throws IOException, InterruptedException {
 
         TeamRepo teamRepo = new TeamRepo();
 
         List<Team> currentTeam = teamService.getTeams();
 
         //Get data from API
-        JsonArray teamsArray = null;
+        JsonArray teamsArray;
         try {
             teamsArray = APIUtility.getResponseAsJsonObject("standings?season=" + (SEASON-1) + "&league=" + LEAGUE_ID)
                     .get("response").getAsJsonArray().get(0).getAsJsonObject().get("league")
                     .getAsJsonObject().get("standings").getAsJsonArray().get(0).getAsJsonArray();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
