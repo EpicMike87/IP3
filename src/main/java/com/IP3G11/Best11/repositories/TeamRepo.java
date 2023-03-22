@@ -1,18 +1,17 @@
 package com.IP3G11.Best11.repositories;
 
+import com.IP3G11.Best11.model.Grounds;
 import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.model.TeamStats;
 import com.IP3G11.Best11.tools.APIUtility;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 //Gets data for teams and initialises Team objects
 @Component("teamRepo")
@@ -61,6 +60,12 @@ public class TeamRepo {
                 //Get away matches played, won drawn lost, goals for against
                 TeamStats awayStats = getTeamStatsObj(team.get("away").getAsJsonObject());
 
+                //Get logo
+                String photoUrl = team.get("team").getAsJsonObject().get("logo").getAsString();
+
+                //Get grounds info
+//                team.get
+
                 Team t = new Team();
                 t.setTeamName(teamName.replace("\"", ""));
                 t.setId(teamId);
@@ -71,12 +76,40 @@ public class TeamRepo {
                 t.setHomeStats(homeStats);
                 t.setAwayStats(awayStats);
                 t.setPlayers(new ArrayList<>());
+                t.setPhotoUrl(photoUrl);
+
                 addPlayersToTeam(t, 1);
                 teams.add(t);
             }
         }
+        addGroundsInfo(teams);
         return teams;
     }
+
+    //Get grounds info from api and apply it to teams objects in list
+    private void addGroundsInfo(List<Team> teams) throws IOException, InterruptedException {
+        JsonArray teamGroundsInfo = APIUtility.getResponseAsJsonObject("teams?league="
+                + LEAGUE_ID + "&season=" + SEASON).get("response").getAsJsonArray();
+
+        //For each result returned by API
+        for (int i = 0; i < teamGroundsInfo.size(); i++) {
+            JsonElement teamGrounds = teamGroundsInfo.get(i);
+
+            //Get team which matches team name
+            Team team = teams.stream().filter(t -> teamGrounds.getAsJsonObject().get("team").getAsJsonObject()
+                    .get("name").getAsString().equalsIgnoreCase(t.getTeamName())).findAny().get();
+
+            //Set grounds properties
+            String groundsName = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("name").getAsString();
+            String city = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("city").getAsString();
+            int capacity = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("capacity").getAsInt();
+            String photoUrl = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("image").getAsString();
+
+            //Add grounds to team
+            team.setGrounds(new Grounds(groundsName, city, photoUrl, capacity));
+        }
+    }
+
 
     //Populates team object with players of the team and their stats
     public void addPlayersToTeam(Team team, int pageNo) throws IOException, InterruptedException {
@@ -129,15 +162,15 @@ public class TeamRepo {
         int matchesLost = stats.get("lose").getAsInt();
         int goalsFor = stats.get("goals").getAsJsonObject().get("for").getAsInt();
         int goalsAgainst = stats.get("goals").getAsJsonObject().get("against").getAsInt();
-        int goalDifference = goalsFor-goalsAgainst;
-        int points = (matchesWon*3) + matchesDrew;
+        int goalDifference = goalsFor - goalsAgainst;
+        int points = (matchesWon * 3) + matchesDrew;
 
         return new TeamStats(season, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
-    public List<Player> getAllPlayers(){
+    public List<Player> getAllPlayers() {
         List<Player> players = new ArrayList<>();
-        for(Team t : teams){
+        for (Team t : teams) {
             players.addAll(t.getPlayers());
         }
         return players;

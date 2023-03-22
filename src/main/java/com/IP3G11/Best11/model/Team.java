@@ -13,6 +13,8 @@ public class Team {
 
     private int id;
     private String teamName;
+    private String photoUrl;
+    private Grounds grounds;
     private int rank;
     private int points;
     private int goalDiff;
