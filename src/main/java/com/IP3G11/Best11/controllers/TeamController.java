@@ -38,7 +38,7 @@ public class TeamController {
     }
 
     @GetMapping("/players/{position}")
-    public List<Player> getPlayersByPosition(@PathVariable String position){
+    public List<Player> getPlayersByPosition(@PathVariable String position) throws IOException, InterruptedException {
         List<Team> teams = teamService.getTeams();
         List<Player> players;
         List<Player> attackers = new ArrayList<>();
@@ -81,7 +81,7 @@ public class TeamController {
     }
 
     @GetMapping("/teamstats/league_table")
-    public List<Team> getLeagueTable(){
+    public List<Team> getLeagueTable() throws IOException, InterruptedException {
         return teamService.getTeams();
     }
 

@@ -21,7 +21,8 @@ public class TeamService {
     }
 
 
-    public List<Team> getTeams(){
+    public List<Team> getTeams() throws IOException, InterruptedException {
+        teams = teamRepo.getTeams();
         return teams;
     }
 
