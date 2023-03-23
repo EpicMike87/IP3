@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.*;
 
 //Gets data for teams and initialises Team objects
-@Component("teamRepo")
 public class TeamRepo {
 
     private static final int LEAGUE_ID = 179;
