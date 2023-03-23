@@ -12,17 +12,17 @@ import java.util.List;
 @Service
 public class TeamService {
 
-    @Autowired
     private TeamRepo teamRepo;
 
     private List<Team> teams;
 
     public TeamService() throws IOException, InterruptedException {
+        teamRepo = new TeamRepo();
+        teams = teamRepo.getTeams();
     }
 
 
-    public List<Team> getTeams() throws IOException, InterruptedException {
-        teams = teamRepo.getTeams();
+    public List<Team> getTeams(){
         return teams;
     }
 
