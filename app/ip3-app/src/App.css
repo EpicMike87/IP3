@@ -73,7 +73,7 @@ table.sortable {
 }
 
 table.scrolldown tbody {
-    height: 600px;
+    height: auto;
     overflow-y: auto;
     overflow-x: hidden;
 }

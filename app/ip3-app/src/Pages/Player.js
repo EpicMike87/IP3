@@ -5,18 +5,19 @@ import SearchBar from "../Component/SearchBar";
 function Player(){
     const [player, setPlayer] = useState("");
     const [players, setPlayers] = useState([]); 
-    const [test, setTest] = useState()
+    const [test, setTest] = useState();
 
     const searchPlayer = () => {
         Api.get(`search-player/${player}`)
     .then(res => {
         console.log(res.data); 
         setPlayers(res.data);
+        mapPlayers(res.data);
     })
     .catch( err => {
         console.log(err);
     });
-    mapPlayers(players);
+
 }
 
 const mapPlayers = (players) => {
@@ -63,7 +64,7 @@ const mapPlayers = (players) => {
             table.appendChild(newRow);
         }
 
-        // console.log(player.firstName);
+//         console.log(player.firstName);
         // return(<p>{player.firstName}</p>)
     }))
 }
