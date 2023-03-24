@@ -276,7 +276,7 @@ table.sortable tbody tr:nth-of-type(even) {
 }
 
 table.sortable tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid rgb(000, 32, 96);
 }
 
 .sortable th {
