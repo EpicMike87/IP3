@@ -3,13 +3,13 @@ import rankingImage from "../images/rankingImage.jpg";
 import Tabs from "../Component/TabComponent/Tabs";
 
 
-function Ranking(){
+function Ranking() {
 
 
-    return(
+    return (
         <div className="Ranking">
             <div className="backgroundImage">
-                <img className="rankingImage" src={rankingImage} alt="Ranking Image"/>
+                <img className="rankingImage" src={rankingImage} alt="Ranking Image" />
             </div>
             <div className="rankingMain">
                 <div className="componentTabSection">

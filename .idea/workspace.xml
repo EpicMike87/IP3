@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="." />
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Team Page with Basic CSS Working">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +23,11 @@
     <option name="BRANCH" value="origin/ubaid" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="seanlaughlin2 &lt;seanslaughlin@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -47,7 +54,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -59,18 +65,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;002bc6bd86ecac99a02d3149e4951f8c&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.Best11Application">
     <configuration name="Heapsort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.IP3G11.Best11.Heapsort" />
       <module name="Best11" />
@@ -106,8 +109,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Best11Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Best11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.IP3G11.Best11.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.IP3G11.Best11.Best11Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Best11Application" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.Heapsort" />
       </list>
@@ -123,6 +140,8 @@
       <updated>1677085270696</updated>
       <workItem from="1678722552717" duration="3915000" />
       <workItem from="1679065598209" duration="3738000" />
+      <workItem from="1679526419701" duration="932000" />
+      <workItem from="1679528831240" duration="5314000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
@@ -208,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677184182404</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Team Page with Basic CSS Working">
+      <created>1679600336199</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679600336199</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +250,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
@@ -232,7 +259,9 @@
     <MESSAGE value="Fix on file issue" />
     <MESSAGE value="Changed usage of repo in controller to service, repo is now instantiable and saves team list on instantiation" />
     <MESSAGE value="Added method to determine subclass of player and populate fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method to determine subclass of player and populate fields" />
+    <MESSAGE value="Basic Team Page Functionality" />
+    <MESSAGE value="Team Page with Basic CSS Working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Team Page with Basic CSS Working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
