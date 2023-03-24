@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import SearchBar from "../Component/SearchBar";
 import Api from '../Helpers/Api';
 import teamImage from "../images/teamImage.jpg";
-
+import Sortable from "../Helpers/sortable.min.js";
 
 function Teams() {
     const [team, setTeam] = useState("");
