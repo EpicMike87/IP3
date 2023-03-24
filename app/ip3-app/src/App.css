@@ -12,32 +12,121 @@
 }
 
 .searchBarArea {
-  background-color: gray;
+  background-color: lightgray;
   gap: 2rem;
   padding: 1rem;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 .playerSection {
-  margin-left: 300px;
-  margin-right: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 70%;
 }
 
 .teamInfo {
-  background-color: lightgray;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 100%;
 }
+
+.teamStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background-color: lightgray;
+  margin: 0;
+  width: 100%;
+}
+
+
+.teamBio {
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0rem;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+}
+
+.rowBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.teamBio img {
+  object-fit: contain;
+  min-width: 30%;
+  min-height: 90%;
+
+}
+
+.groundsBio {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+}
+
+.groundsBio img {
+  width: 40%;
+  border-radius: 3%;
+  border: 2px lightgray solid;
+}
+
+.statsBox {
+  display: flex;
+  flex-basis: 33.333%;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin: 0;
+}
+
+.colBox {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding-top: 1rem;
+}
+
+
+.rowBox table {
+  text-align: left;
+  margin: 1rem 1rem;
+}
+
+.rowBox th, .rowBox td {
+  border: none;
+}
+
 
 .teamStatsSection {
   background-color: lightgray;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 0 auto;
 }
 
 .teamPlayersSection {
   background-color: lightgray;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  width: 100%;
 }
 
 .teamGamePrediction {
@@ -103,7 +192,9 @@ small {
   max-height: 800px;
   overflow-x: hidden;
   overflow-y: auto;
-  border-radius: 6px;
+  background-color: white;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 /* Positions table tightly inside container */
@@ -113,19 +204,14 @@ table.sortable {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9em;
-  min-width: 1200px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
 table.scrolldown tbody {
-  height: 600px;
+  height: auto;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-#tablecontainer {
-  padding-right: 12px;
 }
 
 /* Scrollbar width */
@@ -156,7 +242,7 @@ table.scrolldown tbody {
 }
 
 table.sortable thead tr {
-  background-color: #009879;
+  background-color: rgb(000, 32, 96);
   color: #ffffff;
   text-align: center;
 }
@@ -463,8 +549,50 @@ select {
 }
 
 .backgroundImage {
+  position: relative;
   width: 100%;
-  padding-bottom: 10px;
+  padding: 0;
+  height: 350px;
+}
+
+.backgroundOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  background-color: rgba(000, 000, 000, 0.4);
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.pageHeaderBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 30%;
+  margin: auto;
+  height: 30%;
+  background-color: rgba(000, 32, 96, 0.7);
+  padding-top: 1rem;
+  z-index: 2;
+  vertical-align: middle;
+}
+
+.pageHeaderBox h1 {
+  font-size: 3rem;
+  color: white;
+}
+
+.backgroundCover {
+  width: 100%;
+  padding: 0;
+  height: 350px;
+  background-color: black;
+  opacity: 0.5;
 }
 
 .rankingImage {

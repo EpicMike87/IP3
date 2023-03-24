@@ -20,6 +20,8 @@ function Teams() {
     const [groundsCapacity, setGroundsCapacity] = useState("")
     const [groundsCity, setGroundsCity] = useState("")
     const [groundsName, setGroundsName] = useState("")
+    const [groundsSurface, setGroundsSurface] = useState("")
+    const [groundsAddress, setGroundsAddress] = useState("")
     const [groundsImage, setGroundsImage] = useState("")
 
 
@@ -88,6 +90,8 @@ function Teams() {
             setGroundsCity(data.city)
             setGroundsName(data.name)
             setGroundsImage(data.photoUrl)
+            setGroundsAddress(data.address)
+            setGroundsSurface(data.surface)
 
         }))
     }
@@ -147,7 +151,7 @@ function Teams() {
             const newRow = document.createElement('tr');
             const playerPhotoCell = document.createElement('td');
             const playerName = document.createElement('td');
-            const playerTeam = document.createElement('td');
+            const playerPosition = document.createElement('td');
             const playerMatchesPlayed = document.createElement('td');
             const playerShotsOnTarget = document.createElement('td');
             const playerGoals = document.createElement('td');
@@ -161,7 +165,7 @@ function Teams() {
 
             //Add the rest of the data to their cells
             playerName.innerText = `${player.firstName} ${player.lastName}`;
-            playerTeam.innerText = player.team;
+            playerPosition.innerText = player.position;
             playerMatchesPlayed.innerText = player.matchesPlayed;
             playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
             playerGoals.innerText = player.goals ? player.goals : 0;
@@ -170,7 +174,7 @@ function Teams() {
             //Add cells to row
             newRow.appendChild(playerPhotoCell);
             newRow.appendChild(playerName);
-            newRow.appendChild(playerTeam)
+            newRow.appendChild(playerPosition)
             newRow.appendChild(playerMatchesPlayed);
             newRow.appendChild(playerShotsOnTarget);
             newRow.appendChild(playerGoals);
@@ -192,164 +196,235 @@ function Teams() {
 
             <div className="backgroundImage">
                 <img src={teamImage} alt="teamPageImage" className="teamPageImage"></img>
+                <div class="backgroundOverlay"></div>
+                <div class="pageHeaderBox"><h1>Team Search</h1></div>
                 <br></br>
             </div>
 
             <div className="searchBarArea">
-                <h1>This is the Team page</h1>
                 <SearchBar keyword={team} placeholders={"Please Enter Team Name"} onChange={updateTeam} fun={searchTeam} />
             </div>
 
             <div className="playerSection">
-
                 <div className="teamInfo">
-                    <h2>Team Info</h2>
-                    <h3>{nameOfTeam}</h3>
-                    <h3>{groundsCity}</h3>
-                    <h3>{rankOfTeam}</h3>
-                    <img src={logoOfTeam} alt="teamLogo"></img>
+                    <div className="teamBio">
+                        <h2>Team Bio</h2>
+                        <div className="rowBox">
+                            <img src={logoOfTeam} alt="teamLogo"></img>
+                            <table>
+                                <tr>
+                                    <th>Team Name:</th>
+                                    <td>{nameOfTeam}</td>
+                                </tr>
+                                <tr>
+                                    <th>Home City:</th>
+                                    <td>{groundsCity}</td>
+                                </tr>
+                                <tr>
+                                    <th>League Position:</th>
+                                    <td>{rankOfTeam}</td>
+                                </tr>
+                                <tr>
+                                    <th>Grounds:</th>
+                                    <td>{groundsName}</td>
+                                </tr>
+                                <tr>
+                                    <th>City:</th>
+                                    <td>{groundsCity}</td>
+                                </tr>
+                                {/* <h2>Team Info</h2>
+                            <h3>{nameOfTeam}</h3>
+                            <h3>{groundsCity}</h3>
+                            <h3>{rankOfTeam}</h3> */}
+                            </table>
+                        </div>
 
-                    <h2>Grounds Info</h2>
-                    <h3>{groundsName}</h3>
-                    <h3>{groundsCapacity}</h3>
-                    <img src={groundsImage} alt="teamGrounds"></img>
-
-                    <br></br>
-                    <div className="teamGamePrediction">
-                        <h3>Team Game Prediction Placeholder</h3>
                     </div>
-                    <br></br>
+                    <div className="groundsBio">
+                        <h2>Grounds</h2>
+                        <div className="rowBox">
+                            <img src={groundsImage} alt="teamGrounds"></img>
+                            <table>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td>{groundsName}</td>
+                                </tr>
+                                <tr>
+                                    <th>City:</th>
+                                    <td>{groundsCity}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address:</th>
+                                    <td>{groundsAddress}</td>
+                                </tr>
+                                <tr>
+                                    <th>Capacity:</th>
+                                    <td>{groundsCapacity}</td>
+                                </tr>
+                                <tr>
+                                    <th>Surface:</th>
+                                    <td>{groundsSurface}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
+                <div className="teamStats">
+                    <div className="statsBox">
+                        <h2>Season Stats {season}</h2>
+                        <div className="rowBox">
+                            <table>
+                                <tr>
+                                    <th>Points:</th>
+                                    <td>{points}</td>
+                                </tr>
+                                <tr>
+                                    <th>Matches Played:</th>
+                                    <td>{matchesPlayed}</td>
+                                </tr>
+                                <tr>
+                                    <th>Won:</th>
+                                    <td>{matchesWon}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lost:</th>
+                                    <td>{matchesLost}</td>
+                                </tr>
+                                <tr>
+                                    <th>Drew:</th>
+                                    <td>{matchesDrew}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goal Difference:</th>
+                                    <td>{goalDifference}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals For:</th>
+                                    <td>{goalsFor}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals Against:</th>
+                                    <td>{goalsAgainst}</td>
+                                </tr>
+                            </table>
+                        </div>
 
+                    </div>
+                    <div className="statsBox">
+                        <h2>Home Stats {season}</h2>
+                        <div className="rowBox">
+                            <table>
+                                <tr>
+                                    <th>Points:</th>
+                                    <td>{homePoints}</td>
+                                </tr>
+                                <tr>
+                                    <th>Matches Played:</th>
+                                    <td>{homeMatchesPlayed}</td>
+                                </tr>
+                                <tr>
+                                    <th>Won:</th>
+                                    <td>{homeMatchesWon}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lost:</th>
+                                    <td>{homeMatchesLost}</td>
+                                </tr>
+                                <tr>
+                                    <th>Drew:</th>
+                                    <td>{homeMatchesDrew}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goal Difference:</th>
+                                    <td>{homeGoalDifference}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals For:</th>
+                                    <td>{homeGoalsFor}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals Against:</th>
+                                    <td>{homeGoalsAgainst}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div className="statsBox">
+                        <h2>Away Stats {season}</h2>
+                        <div className="rowBox">
+                            <table>
+                                <tr>
+                                    <th>Points:</th>
+                                    <td>{awayPoints}</td>
+                                </tr>
+                                <tr>
+                                    <th>Matches Played:</th>
+                                    <td>{awayMatchesPlayed}</td>
+                                </tr>
+                                <tr>
+                                    <th>Won:</th>
+                                    <td>{awayMatchesWon}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lost:</th>
+                                    <td>{awayMatchesLost}</td>
+                                </tr>
+                                <tr>
+                                    <th>Drew:</th>
+                                    <td>{awayMatchesDrew}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goal Difference:</th>
+                                    <td>{awayGoalDifference}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals For:</th>
+                                    <td>{awayGoalsFor}</td>
+                                </tr>
+                                <tr>
+                                    <th>Goals Against:</th>
+                                    <td>{awayGoalsAgainst}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="teamStats">
+                    <div className="colBox">
+                        <h2>Current Squad</h2>
+                            <div id="tablecontainer">
+                                <table id="playerTable" class="scrolldown sortable">
+                                    <thead>
+                                        <tr>
+                                            <th class="no-sort">Photo</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th id="#matchesPlayed">Matches Played</th>
+                                            <th>Shots On Target</th>
+                                            <th>Goals</th>
+                                            <th>Assists</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+                                    </tbody>
+                                </table>
+                                <br></br>
+                            </div>
+                            <ul>
+                                {players}
+                            </ul>
+                        </div>
+                    </div>
                 <div className="teamStatsSection">
-
-                    <div id="tablecontainer">
-                        <br></br>
-                        <h1>Seasons Stats</h1>
-                        <table id="teamStatsTable">
-                            <thead>
-                                <tr>
-                                    <th>Season</th>
-                                    <th>Points</th>
-                                    <th>Matches Played</th>
-                                    <th>Matches Won</th>
-                                    <th>Matches Lost</th>
-                                    <th>Matches Drew</th>
-                                    <th>Goal Difference</th>
-                                    <th>Goals For</th>
-                                    <th>Goals Against</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{season}</th>
-                                    <th>{points}</th>
-                                    <th>{matchesPlayed}</th>
-                                    <th>{matchesWon}</th>
-                                    <th>{matchesLost}</th>
-                                    <th>{matchesDrew}</th>
-                                    <th>{goalDifference}</th>
-                                    <th>{goalsFor}</th>
-                                    <th>{goalsAgainst}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div id="tablecontainer">
-                        <br></br>
-                        <h1>Home Stats</h1>
-                        <table id="teamHomeStatsTable">
-                            <thead>
-                                <tr>
-                                    <th>Points</th>
-                                    <th>Matches Played</th>
-                                    <th>Matches Won</th>
-                                    <th>Matches Lost</th>
-                                    <th>Matches Drew</th>
-                                    <th>Goal Difference</th>
-                                    <th>Goals For</th>
-                                    <th>Goals Against</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{homePoints}</th>
-                                    <th>{homeMatchesPlayed}</th>
-                                    <th>{homeMatchesWon}</th>
-                                    <th>{homeMatchesLost}</th>
-                                    <th>{homeMatchesDrew}</th>
-                                    <th>{homeGoalDifference}</th>
-                                    <th>{homeGoalsFor}</th>
-                                    <th>{homeGoalsAgainst}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div id="tablecontainer">
-                        <br></br>
-                        <h1>Away Stats</h1>
-                        <table id="teamAwayStatsTable">
-                            <thead>
-                                <tr>
-                                    <th>Points</th>
-                                    <th>Matches Played</th>
-                                    <th>Matches Won</th>
-                                    <th>Matches Lost</th>
-                                    <th>Matches Drew</th>
-                                    <th>Goal Difference</th>
-                                    <th>Goals For</th>
-                                    <th>Goals Against</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{awayPoints}</th>
-                                    <th>{awayMatchesPlayed}</th>
-                                    <th>{awayMatchesWon}</th>
-                                    <th>{awayMatchesLost}</th>
-                                    <th>{awayMatchesDrew}</th>
-                                    <th>{awayGoalDifference}</th>
-                                    <th>{awayGoalsFor}</th>
-                                    <th>{awayGoalsAgainst}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
                     <br></br>
                     <div className="teamNLG">
                         <h3>NLG/Visual Data Placeholder</h3>
                     </div>
                     <br></br>
 
-                </div>
-
-                <div className="teamPlayersSection">
-                    <h1>Team Players</h1>
-                    <br></br>
-                    <div id="tablecontainer">
-                        <table id="playerTable" class="scrolldown sortable">
-                            <thead>
-                                <tr>
-                                    <th class="no-sort">Photo</th>
-                                    <th>Name</th>
-                                    <th>Team</th>
-                                    <th id="#matchesPlayed">Matches Played</th>
-                                    <th>Shots On Target</th>
-                                    <th>Goals</th>
-                                    <th>Assists</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                            </tbody>
-                        </table>
-                        <br></br>
-                    </div>
-                    <ul>
-                        {players}
-                    </ul>
                 </div>
 
             </div>

@@ -100,9 +100,11 @@ public class TeamRepo {
             String city = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("city").getAsString();
             int capacity = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("capacity").getAsInt();
             String photoUrl = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("image").getAsString();
+            String address = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("address").getAsString();
+            String surface = teamGrounds.getAsJsonObject().get("venue").getAsJsonObject().get("surface").getAsString();
 
             //Add grounds to team
-            team.setGrounds(new Grounds(groundsName, city, photoUrl, capacity));
+            team.setGrounds(new Grounds(groundsName, city, address, surface, photoUrl, capacity));
         }
     }
 

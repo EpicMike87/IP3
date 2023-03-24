@@ -11,6 +11,8 @@ public class Grounds {
 
     private String name;
     private String city;
+    private String address;
+    private String surface;
     private String photoUrl;
     private int capacity;
 
