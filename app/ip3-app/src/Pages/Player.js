@@ -13,6 +13,8 @@ function Player() {
                 console.log(res.data);
                 setPlayers(res.data);
                 mapPlayers(res.data);
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                playerSection.style.display = 'flex';
             })
             .catch(err => {
                 console.log(err);
