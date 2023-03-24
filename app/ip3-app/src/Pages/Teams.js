@@ -94,7 +94,8 @@ function Teams() {
             setGroundsName(data.name)
             setGroundsImage(data.photoUrl)
             setGroundsAddress(data.address)
-            setGroundsSurface(data.surface)
+            //Capitalise first letter
+            setGroundsSurface(data.surface.charAt(0).toUpperCase() + data.surface.slice(1))
 
         }))
     }
