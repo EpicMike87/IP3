@@ -21,10 +21,18 @@
 
 .playerSection {
   margin: 0 auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: white;
   width: 70%;
+  z-index: 2;
+}
+
+#message {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
 }
 
 .teamInfo {

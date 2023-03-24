@@ -65,7 +65,10 @@ function Teams() {
                 mapTeamHomeStats(res.data.homeStats)
                 mapTeamAwayStats(res.data.awayStats)
                 mapTeamGrounds(res.data.grounds)
-
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                const message = document.getElementById('message');
+                message.style.display = 'none';
+                playerSection.style.display = 'flex';
 
             })
             .catch(err => {
@@ -204,7 +207,7 @@ function Teams() {
             <div className="searchBarArea">
                 <SearchBar keyword={team} placeholders={"Please Enter Team Name"} onChange={updateTeam} fun={searchTeam} />
             </div>
-
+            <div id="message">Search to view team information.</div>
             <div className="playerSection">
                 <div className="teamInfo">
                     <div className="teamBio">
@@ -232,10 +235,6 @@ function Teams() {
                                     <th>City:</th>
                                     <td>{groundsCity}</td>
                                 </tr>
-                                {/* <h2>Team Info</h2>
-                            <h3>{nameOfTeam}</h3>
-                            <h3>{groundsCity}</h3>
-                            <h3>{rankOfTeam}</h3> */}
                             </table>
                         </div>
 
