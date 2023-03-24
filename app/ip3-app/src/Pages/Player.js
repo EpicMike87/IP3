@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Api from '../Helpers/Api'; 
 import SearchBar from "../Component/SearchBar";
+import '../css/Player.css';
 
 function Player(){
     const [player, setPlayer] = useState("");

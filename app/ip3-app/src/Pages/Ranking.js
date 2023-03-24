@@ -3,6 +3,7 @@ import rankingImage from "../images/rankingImage.jpg";
 import Tabs from "../Component/TabComponent/Tabs";
 
 
+
 function Ranking(){
 
 

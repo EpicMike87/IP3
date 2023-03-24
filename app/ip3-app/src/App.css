@@ -1,4 +1,6 @@
-
+body{
+  background-color: #F5FFFA;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -110,7 +112,7 @@ table.scrolldown tbody {
 }
 
 table.sortable thead tr {
-    background-color: #009879;
+    background-color: #002060;
     color: #ffffff;
     text-align: center;
 }
