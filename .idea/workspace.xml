@@ -6,6 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Team Page with Basic CSS Working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/Table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Grounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Grounds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +85,7 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Spring Boot.Best11Application">
@@ -142,6 +157,7 @@
       <workItem from="1679065598209" duration="3738000" />
       <workItem from="1679526419701" duration="932000" />
       <workItem from="1679528831240" duration="5314000" />
+      <workItem from="1679680886360" duration="4620000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>

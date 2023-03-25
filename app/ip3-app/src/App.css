@@ -3,6 +3,10 @@
   pointer-events: none;
 }
 
+.hoverRows:hover {
+  background-color: lightblue;
+}
+
 .teamPageImage {
   width: 100%;
   z-index: 0;
@@ -114,7 +118,8 @@
   margin: 1rem 1rem;
 }
 
-.rowBox th, .rowBox td {
+.rowBox th,
+.rowBox td {
   border: none;
 }
 
