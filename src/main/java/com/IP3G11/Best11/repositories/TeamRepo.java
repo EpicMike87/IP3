@@ -201,7 +201,7 @@ public class TeamRepo {
                     String lastName = names[names.length-1];
                     String firstName = names[0];
 
-                    List<Player> matchingPlayers = new ArrayList<>();
+                    List<Player> matchingPlayers;
                     matchingPlayers = team.getPlayers().stream().filter(p -> (StringUtility.convertToStandardChars(p.getLastName().split(" ")[p.getLastName()
                                     .split(" ").length-1]).toLowerCase(Locale.ROOT)
                             .equals(StringUtility.convertToStandardChars(lastName.toLowerCase(Locale.ROOT))))).toList();
@@ -231,9 +231,6 @@ public class TeamRepo {
                 }
 
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
