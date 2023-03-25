@@ -182,7 +182,7 @@ public class TeamRepo {
     }
 
     private void addPositionsFromJson(Team team) {
-        String filePath = "C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\playerdata\\" + team.getTeamName().replace(" ", "-") + ".json";
+        String filePath = "./playerdata/" + team.getTeamName().replace(" ", "-") + ".json";
         JsonParser jp = new JsonParser();
 
         try (FileReader reader = new FileReader(filePath)) {
