@@ -5,12 +5,17 @@ import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.model.TeamStats;
 import com.IP3G11.Best11.tools.APIUtility;
+import com.IP3G11.Best11.tools.StringUtility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 //Gets data for teams and initialises Team objects
@@ -126,14 +131,17 @@ public class TeamRepo {
         for (int i = 0; i < playersJson.size(); i++) {
             //Only add player to player list if in current squad
             int playerId = playersJson.get(i).getAsJsonObject().get("player").getAsJsonObject().get("id").getAsInt();
-            if (squadIds.contains(playerId))
-                playersList.add(playerRepo.populateFieldsOfPlayer(playersJson.get(i).getAsJsonObject()));
+            if (squadIds.contains(playerId)) {
+                Player player = playerRepo.populateFieldsOfPlayer(playersJson.get(i).getAsJsonObject());
+                playersList.add(player);
+            }
         }
         team.setPlayers(playersList);
         System.out.println("Added players to " + team.getTeamName() + ": Page " + pageNo + "/" + pages);
 
         //recursion to move to next page of results from API to add more players
         if (pageNo < pages) addPlayersToTeam(team, ++pageNo);
+        else addPositionsFromJson(team);
     }
 
     //As API returns details of players who are left when making a call to get all players in a team, squad IDs will be stored to check players returned against
@@ -173,4 +181,62 @@ public class TeamRepo {
         return players;
     }
 
+    private void addPositionsFromJson(Team team) {
+        String filePath = "C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\playerdata\\" + team.getTeamName().replace(" ", "-") + ".json";
+        JsonParser jp = new JsonParser();
+
+        try (FileReader reader = new FileReader(filePath)) {
+            //Read JSON file
+            Object obj = jp.parse(reader);
+
+            JsonArray playerList = (JsonArray) obj;
+            playerList = playerList.get(0).getAsJsonObject().get("players").getAsJsonArray();
+            System.out.println(playerList);
+
+            for(JsonElement player : playerList){
+                String playerName = StringUtility.convertToStandardChars(player.getAsJsonObject().get("player").getAsJsonArray().get(0).getAsString());
+
+                try {
+                    String[] names = playerName.split(" ");
+                    String lastName = names[names.length-1];
+                    String firstName = names[0];
+
+                    List<Player> matchingPlayers = new ArrayList<>();
+                    matchingPlayers = team.getPlayers().stream().filter(p -> (StringUtility.convertToStandardChars(p.getLastName().split(" ")[p.getLastName()
+                                    .split(" ").length-1]).toLowerCase(Locale.ROOT)
+                            .equals(StringUtility.convertToStandardChars(lastName.toLowerCase(Locale.ROOT))))).toList();
+
+                    Player play = new Player();
+
+                    if(matchingPlayers.size() > 1 ){
+                        for(Player p : matchingPlayers){
+                            if((StringUtility.convertToStandardChars(p.getFirstName()).toLowerCase(Locale.ROOT)).contains(firstName.toLowerCase(Locale.ROOT))) {
+                                play = p;
+                            }
+                        }
+                    }
+                    else if(matchingPlayers.size() > 0){
+
+                        play = matchingPlayers.get(0);
+                    }
+                    else{
+                        System.out.println(playerName);
+                    }
+
+                    play.setPosition(player.getAsJsonObject().get("player").getAsJsonArray().get(1).getAsString());
+                    System.out.println(play.getPosition());
+                }
+                catch(NoSuchElementException e){
+                    e.getMessage();
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

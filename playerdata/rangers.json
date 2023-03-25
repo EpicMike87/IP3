@@ -1,0 +1,359 @@
+[{
+  "id": "124",
+  "url": "https://www.transfermarkt.co.uk/glasgow-rangers/startseite/verein/124",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Allan McGregor",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Jan 31, 1982 (41)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/allan-mcgregor/profil/spieler/9422",
+      "id": "9422"
+    },
+    {
+      "number": "28",
+      "player": [
+        "Robby McCrorie",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Mar 18, 1998 (25)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/robby-mccrorie/profil/spieler/244260",
+      "id": "244260"
+    },
+    {
+      "number": "33",
+      "player": [
+        "Jon McLaughlin",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Sep 9, 1987 (35)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/jon-mclaughlin/profil/spieler/92983",
+      "id": "92983"
+    },
+    {
+      "number": "32",
+      "player": [
+        "Kieran Wright",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Apr 1, 2000 (22)",
+      "marketValue": "€50k",
+      "url": "https://www.transfermarkt.com/kieran-wright/profil/spieler/369523",
+      "id": "369523"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Connor Lambert Goldson",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Dec 18, 1992 (30)",
+      "marketValue": "€7.00m",
+      "url": "https://www.transfermarkt.com/connor-goldson/profil/spieler/163656",
+      "id": "163656"
+    },
+    {
+      "number": "26",
+      "player": [
+        "Ben Davies",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Aug 11, 1995 (27)",
+      "marketValue": "€3.50m",
+      "url": "https://www.transfermarkt.com/ben-davies/profil/spieler/257097",
+      "id": "257097"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Filip Helander",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Apr 22, 1993 (29)",
+      "marketValue": "€3.00m",
+      "url": "https://www.transfermarkt.com/filip-helander/profil/spieler/198067",
+      "id": "198067"
+    },
+    {
+      "number": "16",
+      "player": [
+        "John Souttar",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Sep 25, 1996 (26)",
+      "marketValue": "€1.50m",
+      "url": "https://www.transfermarkt.com/john-souttar/profil/spieler/235767",
+      "id": "235767"
+    },
+    {
+      "number": "38",
+      "player": [
+        "Leon Thomson King",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jan 14, 2004 (19)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/leon-king/profil/spieler/633650",
+      "id": "633650"
+    },
+    {
+      "number": "31",
+      "player": [
+        "Borna Barisic",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Nov 10, 1992 (30)",
+      "marketValue": "€6.50m",
+      "url": "https://www.transfermarkt.com/borna-barisic/profil/spieler/39125",
+      "id": "39125"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Rıdvan Yılmaz",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "May 21, 2001 (21)",
+      "marketValue": "€5.00m",
+      "url": "https://www.transfermarkt.com/ridvan-yilmaz/profil/spieler/477930",
+      "id": "477930"
+    },
+    {
+      "number": "2",
+      "player": [
+        "James Tavernier",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Oct 31, 1991 (31)",
+      "marketValue": "€8.00m",
+      "url": "https://www.transfermarkt.com/james-tavernier/profil/spieler/62094",
+      "id": "62094"
+    },
+    {
+      "number": "44",
+      "player": [
+        "Adam Devine",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Mar 25, 2003 (20)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/adam-devine/profil/spieler/633649",
+      "id": "633649"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Glen Adjei Kamara",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Oct 28, 1995 (27)",
+      "marketValue": "€6.00m",
+      "url": "https://www.transfermarkt.com/glen-kamara/profil/spieler/242632",
+      "id": "242632"
+    },
+    {
+      "number": "4",
+      "player": [
+        "John Lundstram",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Feb 18, 1994 (29)",
+      "marketValue": "€7.50m",
+      "url": "https://www.transfermarkt.com/john-lundstram/profil/spieler/156941",
+      "id": "156941"
+    },
+    {
+      "number": "43",
+      "player": [
+        "Nicolas Raskin",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Feb 23, 2001 (22)",
+      "marketValue": "€7.00m",
+      "url": "https://www.transfermarkt.com/nicolas-raskin/profil/spieler/422763",
+      "id": "422763"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Ryan Jack",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Feb 27, 1992 (31)",
+      "marketValue": "€3.50m",
+      "url": "https://www.transfermarkt.com/ryan-jack/profil/spieler/60793",
+      "id": "60793"
+    },
+    {
+      "number": "37",
+      "player": [
+        "Scott Arfield",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 1, 1988 (34)",
+      "marketValue": "€1.50m",
+      "url": "https://www.transfermarkt.com/scott-arfield/profil/spieler/55291",
+      "id": "55291"
+    },
+    {
+      "number": "10",
+      "player": [
+        "Steven Davis",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Jan 1, 1985 (38)",
+      "marketValue": "€750k",
+      "url": "https://www.transfermarkt.com/steven-davis/profil/spieler/28973",
+      "id": "28973"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Nathan Nnamdi Ugochukwu Benjam Asigboro Ofoborh",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 7, 1999 (23)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/nnamdi-ofoborh/profil/spieler/611906",
+      "id": "611906"
+    },
+    {
+      "number": "13",
+      "player": [
+        "Todd Cantwell",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "Feb 27, 1998 (25)",
+      "marketValue": "€8.00m",
+      "url": "https://www.transfermarkt.com/todd-cantwell/profil/spieler/332341",
+      "id": "332341"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Ianis Hagi",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Oct 22, 1998 (24)",
+      "marketValue": "€5.00m",
+      "url": "https://www.transfermarkt.com/ianis-hagi/profil/spieler/282076",
+      "id": "282076"
+    },
+    {
+      "number": "71",
+      "player": [
+        "Malik Tillman",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "May 28, 2002 (20)",
+      "marketValue": "€4.50m",
+      "url": "https://www.transfermarkt.com/malik-tillman/profil/spieler/467437",
+      "id": "467437"
+    },
+    {
+      "number": "51",
+      "player": [
+        "Alexander Lowry",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Jun 23, 2003 (19)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/alex-lowry/profil/spieler/633753",
+      "id": "633753"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Ryan Kent",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Nov 11, 1996 (26)",
+      "marketValue": "€11.00m",
+      "url": "https://www.transfermarkt.com/ryan-kent/profil/spieler/279457",
+      "id": "279457"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Tom Lawrence",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Jan 13, 1994 (29)",
+      "marketValue": "€5.00m",
+      "url": "https://www.transfermarkt.com/tom-lawrence/profil/spieler/229970",
+      "id": "229970"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Rabbi Matondo",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Sep 9, 2000 (22)",
+      "marketValue": "€3.00m",
+      "url": "https://www.transfermarkt.com/rabbi-matondo/profil/spieler/404384",
+      "id": "404384"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Scott Wright",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Aug 8, 1997 (25)",
+      "marketValue": "€2.00m",
+      "url": "https://www.transfermarkt.com/scott-wright/profil/spieler/276914",
+      "id": "276914"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Alfredo José Morelos Aviléz",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jun 21, 1996 (26)",
+      "marketValue": "€7.00m",
+      "url": "https://www.transfermarkt.com/alfredo-morelos/profil/spieler/338962",
+      "id": "338962"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Antonio-Mirko Čolak",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Sep 17, 1993 (29)",
+      "marketValue": "€5.50m",
+      "url": "https://www.transfermarkt.com/antonio-colak/profil/spieler/160668",
+      "id": "160668"
+    },
+    {
+      "number": "30",
+      "player": [
+        "Fashion Sakala Junior",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Mar 14, 1997 (26)",
+      "marketValue": "€5.00m",
+      "url": "https://www.transfermarkt.com/fashion-sakala/profil/spieler/485729",
+      "id": "485729"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Kemar Roofe",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jan 6, 1993 (30)",
+      "marketValue": "€4.00m",
+      "url": "https://www.transfermarkt.com/kemar-roofe/profil/spieler/141350",
+      "id": "141350"
+    }
+  ]
+}]

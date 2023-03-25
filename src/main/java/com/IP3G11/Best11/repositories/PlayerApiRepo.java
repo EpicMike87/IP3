@@ -2,12 +2,14 @@ package com.IP3G11.Best11.repositories;
 
 import com.IP3G11.Best11.model.*;
 import com.IP3G11.Best11.tools.APIUtility;
+import com.IP3G11.Best11.tools.StringUtility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -25,6 +27,11 @@ public class PlayerApiRepo {
         //Split to get first and last names
         String[] playerNames = name.split(" ");
 
+        //Convert accented characters to standard
+        for (String s : playerNames) {
+            s = StringUtility.convertToStandardChars(s);
+        }
+
         //Get data from API and extract array of players
         JsonArray playerInfo = APIUtility.getResponseAsJsonObject("players?league=" + LEAGUE_ID + "&season="
                 + SEASON + "&search=" + playerNames[playerNames.length - 1]).get("response").getAsJsonArray();
@@ -36,6 +43,9 @@ public class PlayerApiRepo {
             //Get first and last name from returned api data to check if contains names searched (as may be double barrelled first, second names)
             String playerName = player.get("player").getAsJsonObject().get("firstname").getAsString()
                     + " " + player.get("player").getAsJsonObject().get("lastname").getAsString();
+
+            //Remove char accents
+            playerName = StringUtility.convertToStandardChars(playerName);
 
             //If names provided exist within player name returned by api, add to results
             if (doesContainAllNames(playerName, playerNames))
@@ -49,9 +59,9 @@ public class PlayerApiRepo {
     }
 
     //Checks if search names match names of player
-    private boolean doesContainAllNames(String name, String[] searchedNames){
-        for(String s : searchedNames){
-            if(!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
+    private boolean doesContainAllNames(String name, String[] searchedNames) {
+        for (String s : searchedNames) {
+            if (!(name.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT)))) return false;
         }
         return true;
     }

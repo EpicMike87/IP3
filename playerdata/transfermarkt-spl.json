@@ -1,0 +1,126 @@
+[{
+  "url": "https://www.transfermarkt.co.uk/scottish-premiership/startseite/wettbewerb/SC1",
+  "type": "competition",
+  "clubs": [
+    {
+      "name": "Rangers FC",
+      "squad": "32",
+      "avgAge": "26.9",
+      "foreigners": "22",
+      "avgMarketValue": "€3.87m",
+      "totalMarketValue": "€123.85m",
+      "url": "https://www.transfermarkt.com/rangers-fc/startseite/verein/124",
+      "id": "124"
+    },
+    {
+      "name": "Celtic FC",
+      "squad": "26",
+      "avgAge": "25.9",
+      "foreigners": "19",
+      "avgMarketValue": "€4.48m",
+      "totalMarketValue": "€116.55m",
+      "url": "https://www.transfermarkt.com/celtic-fc/startseite/verein/371",
+      "id": "371"
+    },
+    {
+      "name": "Heart of Midlothian FC",
+      "squad": "29",
+      "avgAge": "26.4",
+      "foreigners": "16",
+      "avgMarketValue": "€631k",
+      "totalMarketValue": "€18.30m",
+      "url": "https://www.transfermarkt.com/heart-of-midlothian-fc/startseite/verein/43/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Hibernian FC",
+      "squad": "24",
+      "avgAge": "26.2",
+      "foreigners": "15",
+      "avgMarketValue": "€713k",
+      "totalMarketValue": "€17.10m",
+      "url": "https://www.transfermarkt.com/hibernian-fc/startseite/verein/903/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Aberdeen FC",
+      "squad": "24",
+      "avgAge": "25.0",
+      "foreigners": "19",
+      "avgMarketValue": "€535k",
+      "totalMarketValue": "€12.85m",
+      "url": "https://www.transfermarkt.com/aberdeen-fc/startseite/verein/370/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "St. Johnstone FC",
+      "squad": "27",
+      "avgAge": "27.2",
+      "foreigners": "11",
+      "avgMarketValue": "€356k",
+      "totalMarketValue": "€9.63m",
+      "url": "https://www.transfermarkt.com/st-johnstone-fc/startseite/verein/2578/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Motherwell FC",
+      "squad": "27",
+      "avgAge": "26.1",
+      "foreigners": "18",
+      "avgMarketValue": "€340k",
+      "totalMarketValue": "€9.18m",
+      "url": "https://www.transfermarkt.com/motherwell-fc/startseite/verein/987/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "St. Mirren FC",
+      "squad": "23",
+      "avgAge": "26.6",
+      "foreigners": "14",
+      "avgMarketValue": "€397k",
+      "totalMarketValue": "€9.13m",
+      "url": "https://www.transfermarkt.com/st-mirren-fc/startseite/verein/465/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Ross County FC",
+      "squad": "26",
+      "avgAge": "25.7",
+      "foreigners": "17",
+      "avgMarketValue": "€346k",
+      "totalMarketValue": "€9.00m",
+      "url": "https://www.transfermarkt.com/ross-county-fc/startseite/verein/2759/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Livingston FC",
+      "squad": "22",
+      "avgAge": "27.0",
+      "foreigners": "11",
+      "avgMarketValue": "€392k",
+      "totalMarketValue": "€8.63m",
+      "url": "https://www.transfermarkt.com/livingston-fc/startseite/verein/1241/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Kilmarnock FC",
+      "squad": "25",
+      "avgAge": "25.9",
+      "foreigners": "15",
+      "avgMarketValue": "€325k",
+      "totalMarketValue": "€8.13m",
+      "url": "https://www.transfermarkt.com/kilmarnock-fc/startseite/verein/2553/saison_id/2022",
+      "id": "2022"
+    },
+    {
+      "name": "Dundee United FC",
+      "squad": "23",
+      "avgAge": "25.7",
+      "foreigners": "11",
+      "avgMarketValue": "€346k",
+      "totalMarketValue": "€7.95m",
+      "url": "https://www.transfermarkt.com/dundee-united-fc/startseite/verein/1519/saison_id/2022",
+      "id": "2022"
+    }
+  ]
+}]

@@ -1,0 +1,293 @@
+[{
+  "id": "371",
+  "url": "https://www.transfermarkt.co.uk/celtic-glasgow/startseite/verein/371",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Joe Hart",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Apr 19, 1987 (35)",
+      "marketValue": "€1.70m",
+      "url": "https://www.transfermarkt.com/joe-hart/profil/spieler/40204",
+      "id": "40204"
+    },
+    {
+      "number": "31",
+      "player": [
+        "Benjamin Siegrist",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Jan 31, 1992 (31)",
+      "marketValue": "€800k",
+      "url": "https://www.transfermarkt.com/benjamin-siegrist/profil/spieler/111426",
+      "id": "111426"
+    },
+    {
+      "number": "29",
+      "player": [
+        "Scott Bain",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Nov 22, 1991 (31)",
+      "marketValue": "€650k",
+      "url": "https://www.transfermarkt.com/scott-bain/profil/spieler/85627",
+      "id": "85627"
+    },
+    {
+      "number": "65",
+      "player": [
+        "Conor Hazard",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Mar 5, 1998 (25)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/conor-hazard/profil/spieler/322770",
+      "id": "322770"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Cameron Carter-Vickers",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Dec 31, 1997 (25)",
+      "marketValue": "€11.00m",
+      "url": "https://www.transfermarkt.com/cameron-carter-vickers/profil/spieler/341049",
+      "id": "341049"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Carl Starfelt",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jun 1, 1995 (27)",
+      "marketValue": "€6.00m",
+      "url": "https://www.transfermarkt.com/carl-starfelt/profil/spieler/258987",
+      "id": "258987"
+    },
+    {
+      "number": "57",
+      "player": [
+        "Stephen Welsh",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jan 19, 2000 (23)",
+      "marketValue": "€1.50m",
+      "url": "https://www.transfermarkt.com/stephen-welsh/profil/spieler/403568",
+      "id": "403568"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Yuki Kobayashi",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jul 18, 2000 (22)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/yuki-kobayashi/profil/spieler/405386",
+      "id": "405386"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Greg Taylor",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Nov 5, 1997 (25)",
+      "marketValue": "€6.00m",
+      "url": "https://www.transfermarkt.com/greg-taylor/profil/spieler/362562",
+      "id": "362562"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Alexandro Bernabei",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Sep 24, 2000 (22)",
+      "marketValue": "€3.00m",
+      "url": "https://www.transfermarkt.com/alexandro-bernabei/profil/spieler/719635",
+      "id": "719635"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Alistair William Johnston",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Oct 8, 1998 (24)",
+      "marketValue": "€6.00m",
+      "url": "https://www.transfermarkt.com/alistair-johnston/profil/spieler/637446",
+      "id": "637446"
+    },
+    {
+      "number": "56",
+      "player": [
+        "Anthony Ralston",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Nov 16, 1998 (24)",
+      "marketValue": "€1.80m",
+      "url": "https://www.transfermarkt.com/anthony-ralston/profil/spieler/388171",
+      "id": "388171"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Tomoki Iwata",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Apr 7, 1997 (25)",
+      "marketValue": "€1.30m",
+      "url": "https://www.transfermarkt.com/tomoki-iwata/profil/spieler/356236",
+      "id": "356236"
+    },
+    {
+      "number": "42",
+      "player": [
+        "Callum McGregor",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Jun 14, 1993 (29)",
+      "marketValue": "€8.00m",
+      "url": "https://www.transfermarkt.com/callum-mcgregor/profil/spieler/120977",
+      "id": "120977"
+    },
+    {
+      "number": "33",
+      "player": [
+        "Matt O'Riley",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 21, 2000 (22)",
+      "marketValue": "€7.00m",
+      "url": "https://www.transfermarkt.com/matt-oriley/profil/spieler/406634",
+      "id": "406634"
+    },
+    {
+      "number": "41",
+      "player": [
+        "Reo Hatate",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 21, 1997 (25)",
+      "marketValue": "€6.50m",
+      "url": "https://www.transfermarkt.com/reo-hatate/profil/spieler/496656",
+      "id": "496656"
+    },
+    {
+      "number": "14",
+      "player": [
+        "David Turnbull",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Jul 10, 1999 (23)",
+      "marketValue": "€4.50m",
+      "url": "https://www.transfermarkt.com/david-turnbull/profil/spieler/345760",
+      "id": "345760"
+    },
+    {
+      "number": "13",
+      "player": [
+        "Aaron Mooy",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Sep 15, 1990 (32)",
+      "marketValue": "€4.00m",
+      "url": "https://www.transfermarkt.com/aaron-mooy/profil/spieler/123951",
+      "id": "123951"
+    },
+    {
+      "number": "16",
+      "player": [
+        "James McCarthy",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 12, 1990 (32)",
+      "marketValue": "€1.20m",
+      "url": "https://www.transfermarkt.com/james-mccarthy/profil/spieler/45333",
+      "id": "45333"
+    },
+    {
+      "number": "17",
+      "player": [
+        "João Pedro Neves Filipe",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Mar 30, 1999 (23)",
+      "marketValue": "€12.00m",
+      "url": "https://www.transfermarkt.com/jota/profil/spieler/329812",
+      "id": "329812"
+    },
+    {
+      "number": "38",
+      "player": [
+        "Daizen Maeda",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Oct 20, 1997 (25)",
+      "marketValue": "€6.00m",
+      "url": "https://www.transfermarkt.com/daizen-maeda/profil/spieler/420931",
+      "id": "420931"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Sead Hakšabanović",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "May 4, 1999 (23)",
+      "marketValue": "€5.50m",
+      "url": "https://www.transfermarkt.com/sead-haksabanovic/profil/spieler/349300",
+      "id": "349300"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Liel Abada",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Oct 3, 2001 (21)",
+      "marketValue": "€7.00m",
+      "url": "https://www.transfermarkt.com/liel-abada/profil/spieler/519514",
+      "id": "519514"
+    },
+    {
+      "number": "49",
+      "player": [
+        "James Forrest",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Jul 7, 1991 (31)",
+      "marketValue": "€3.00m",
+      "url": "https://www.transfermarkt.com/james-forrest/profil/spieler/84992",
+      "id": "84992"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Kyogo Furuhashi",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jan 20, 1995 (28)",
+      "marketValue": "€9.00m",
+      "url": "https://www.transfermarkt.com/kyogo-furuhashi/profil/spieler/489463",
+      "id": "489463"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Hyeon-gyu Oh",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Apr 12, 2001 (21)",
+      "marketValue": "€1.80m",
+      "url": "https://www.transfermarkt.com/hyeon-gyu-oh/profil/spieler/639246",
+      "id": "639246"
+    }
+  ]
+}]
