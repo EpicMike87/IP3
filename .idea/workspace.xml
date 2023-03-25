@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Team Page with Basic CSS Working">
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Player Page Javascript working but no styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Grounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Grounds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +156,7 @@
       <workItem from="1679065598209" duration="3738000" />
       <workItem from="1679526419701" duration="932000" />
       <workItem from="1679528831240" duration="5314000" />
-      <workItem from="1679680886360" duration="4620000" />
+      <workItem from="1679680886360" duration="5487000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
@@ -250,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679600336199</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Player Page Javascript working but no styling">
+      <created>1679706202597</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679706202597</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +283,8 @@
     <MESSAGE value="Added method to determine subclass of player and populate fields" />
     <MESSAGE value="Basic Team Page Functionality" />
     <MESSAGE value="Team Page with Basic CSS Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Team Page with Basic CSS Working" />
+    <MESSAGE value="Player Page Javascript working but no styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player Page Javascript working but no styling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,6 +3,21 @@
   pointer-events: none;
 }
 
+#playerSelection {
+  background-color: #cccccc;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: none;
+
+}
+
+#playerBio {
+  display: none;
+  background-color: #cccccc;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 .hoverRows:hover {
   background-color: lightblue;
 }
@@ -16,6 +31,14 @@
 }
 
 .searchBarArea {
+  background-color: lightgray;
+  gap: 2rem;
+  padding: 1rem;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.searchBarAreaManager {
   background-color: lightgray;
   gap: 2rem;
   padding: 1rem;
