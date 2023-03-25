@@ -5,7 +5,7 @@ import SearchBar from "../Component/SearchBar";
 function Player() {
     const [player, setPlayer] = useState("");
     const [players, setPlayers] = useState([]);
-    const [test, setTest] = useState()
+    const [test, setTest] = useState();
 
     const searchPlayer = () => {
         Api.get(`search-player/${player}`)
