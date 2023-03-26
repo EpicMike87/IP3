@@ -9,7 +9,7 @@
   margin-right: auto;
   margin-left: auto;
   width: 80%;
-  height: auto;
+  overflow: hidden;
   min-height: 400px;
   /* background: #053742; */
   background: #ffffff;
@@ -20,11 +20,113 @@
   border: 1px solid #000000;
 
   border-radius: 2rem;
-
   @media (max-width: 769px) {
     padding: 2rem 0;
   }
 
+}
+
+.Tabs small{
+    font-size: 1rem;
+}
+
+.pitch{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-size: contain;
+/*    background-repeat: no-repeat;*/
+    border: 0.25rem solid rgba(000, 0, 0, 1) ;
+    border-radius: 1%;
+}
+
+.player{
+    position: absolute;
+    width: 7%;
+    height: 10.5%;
+    border-radius: 50%;
+    border: 3px rgba(000, 32, 96, 1) solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.playerPosMarker{
+    color: white;
+    font-size: 1.75rem;
+    font-weight: bold;
+    -webkit-text-stroke: 2px rgba(000, 32, 96, 1);
+     position: absolute;
+     display: inline-block;
+     text-align: center;
+     top: 110%;
+     right: 25%;
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -13px;
+  border-width: 13px;
+  border-style: solid;
+  border-color: rgba(000, 32, 96, 1) transparent transparent transparent;
+}
+
+.playerToolTip{
+  position: relative;
+  display: inline-block;
+  border: 1px solid white;
+}
+
+.playerToolTip tr, .playerToolTip td, .playerToolTip th{
+    padding: 0.2rem;
+}
+
+.player .playerToolTip {
+  visibility: hidden;
+  width: 300%;
+  background-color: rgba(000, 32, 96, 1);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 0;
+  position: absolute;
+  z-index: 50;
+  bottom: 110%;
+  left: -100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.player .playerToolTip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+
+
+.player:hover .playerToolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.Best11tab img{
+    visibility: hidden;
+}
+
+.Tabs img{
+    width: 100%;
+    border-radius: 1%;
 }
 
 /* Tab Navigation */

@@ -1,10 +1,10 @@
 import React from "react";
+import Api from '../Helpers/Api';
 import rankingImage from "../images/rankingImage.jpg";
 import Tabs from "../Component/TabComponent/Tabs";
 
 
 function Ranking() {
-
 
     return (
         <div className="Ranking">
@@ -27,5 +27,4 @@ function Ranking() {
     );
 
 };
-
 export default Ranking;
