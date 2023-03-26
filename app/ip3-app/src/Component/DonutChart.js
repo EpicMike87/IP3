@@ -91,19 +91,19 @@ function DonutChart({player}) {
     },
   };
 
-  const textCenter = {
-    id: 'textCenter',
-    beforeDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx, data} = chart;
+  // const textCenter = {
+  //   id: 'textCenter',
+  //   beforeDatasetsDraw(chart, args, pluginOptions) {
+  //     const { ctx, data} = chart;
 
-      ctx.save();
-      ctx.font = 'bolder 10px sans-serif';
-      ctx.fillStyle = 'red';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(`Rating: ${data.datasets[0].data[0]}`, chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y);
-    },
-  };
+  //     ctx.save();
+  //     ctx.font = 'bolder 10px sans-serif';
+  //     ctx.fillStyle = 'red';
+  //     ctx.textAlign = 'center';
+  //     ctx.textBaseline = 'middle';
+  //     ctx.fillText(`Rating: ${data.datasets[0].data[0]}`, chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y);
+  //   },
+  // };
 
 
   if (player.position == "Defender" && player.matchesPlayed > 0){
@@ -161,7 +161,8 @@ function DonutChart({player}) {
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
         <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-          <AnimatedNumber value={player.rating} className='animNumber' duration={1000}/>
+          {/* <AnimatedNumber value={player.rating} className='animNumber' duration={1000}/> */}
+          <p>{player.rating.toFixed(2)}</p>
         </div>
       </>
     )
@@ -199,14 +200,14 @@ function DonutChart({player}) {
       }]
     }
 
-    const data4 = {
-      labels: ['Overall Performance'],
-      datasets: [{
-        data: [player.rating],
-        backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-        borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-      }]
-    }
+    // const data4 = {
+    //   labels: ['Overall Performance'],
+    //   datasets: [{
+    //     data: [player.rating],
+    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //   }]
+    // }
 
     return(
       <>
@@ -225,7 +226,8 @@ function DonutChart({player}) {
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
         <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        <AnimatedNumber value={player.rating}/>
+        {/* <AnimatedNumber value={player.rating}/> */}
+        <p>{player.rating.toFixed(2)}</p>
         </div>
       </>
     )
@@ -284,7 +286,8 @@ function DonutChart({player}) {
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
         <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        <AnimatedNumber value={player.rating}/>
+        {/* <AnimatedNumber value={player.rating}/> */}
+        <p>{player.rating.toFixed(2)}</p>
         </div>
       </>
     )
@@ -343,7 +346,8 @@ function DonutChart({player}) {
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
         <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        <AnimatedNumber value={player.rating}/>
+        {/* <AnimatedNumber value={player.rating}/> */}
+        <p>{player.rating.toFixed(2)}</p>
         </div>
       </>
     )
