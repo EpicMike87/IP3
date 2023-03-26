@@ -756,12 +756,237 @@ select {
   text-align: center;
 }
 
-/* .PlayerCard {
+.PlayerCard {
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #ebebeb;
+
+}
+
+.PlayerHeader{
+  display: flex;
+  flex-direction: row;
+  /* position: absolute; */
+  width: 100%;
+  height: 35%;
+  border-bottom-style: solid;
+  border-color: #ebebeb;
+}
+
+.PlayerImgContainer{
+  width: 30%;
+  padding: 2px;
+  display: flex;
+  /* border-bottom-style: solid; */
+  border-right-style: solid;
+  border-right-width: 5px ;
+  border-color: #ebebeb;
+  /* border-radius: 5px; */
+}
+
+.PlayerImg{
+  width: 100%;
+  border-radius: 25px;
+  /* border-radius: 50%; */
+}
+
+.PlayerInformation{
+  display: flex;
+  position: relative;
+  padding: 2px;
+  flex-direction: column;
+  margin-left: 15px;
+  justify-content: space-between;
+}
+
+.PlayerCardNameInformation{
+  display: inline-block;
+  justify-content: left;
+  /* justify-content: space-around; */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: x-large;
+  padding: 2px;
+}
+
+.PlayerCardTeamInformation{
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  /* justify-content: space-around; */
+  margin-top: 5px;
+}
+
+#PlayerCardInfoH1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.PlayerCardTeamInformation > p {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: large;
+}
+
+.PlayerCardAgeInformation{
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+}
+
+.PlayerCardAgeInformation > p {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: large;
+}
+
+.PlayerCardMatchesInformation{
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+
+}
+
+.PlayerCardMatchesInformation > p {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: large;
+}
+
+.PlayerCardPositionInformation{
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+
+}
+
+.PlayerCardPositionInformation > p {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: large;
+}
+
+.PlayerStatistics {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 65%;
+  width: 100%; 
+  margin-top: 5px;
+}
+
+.Doughnuts{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.DoughnutHide {
+  display: none;
+}
+
+.Doughnut1{
+  width: 33%;
+  height: 100%;
+}
+
+.Doughnut2{
+  width: 33%;
+  height: 100%;
+}
+
+.Doughnut3{
+  width: 33%;
+  height: 100%;
+}
+
+/* .DoughnutRating{
+  position: relative;
+ display: flex;
+ justify-content: center;
+  width: 100%;
+  height: 50%;
+} */
+
+.Rating{
   position: relative;
   display: flex;
   width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: center;
+  margin-top: 70px;
+  font-size: 60px;
+}
 
-} */
+.Rating:hover {
+  /* text-decoration: underline solid Currentcolor; */
+}
+
+.animNumber{
+  /* -webkit-animation: fadein 10s;
+  -moz-animation: fadein 10s; 
+   -ms-animation: fadein 10s; 
+    -o-animation: fadein 10s;
+       animation: fadein 10s; */
+  text-decoration: underline solid Currentcolor;
+  transition: text-decoration 3s ease;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 
 
 @keyframes App-logo-spin {

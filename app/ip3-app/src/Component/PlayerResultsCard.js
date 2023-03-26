@@ -1,31 +1,28 @@
 import React, { useState } from "react";
-import { useDrag } from "react-dnd";
+import { DragPreviewImage, useDrag } from "react-dnd";
 
 export const PlayerResultsCard = ( {player}) => {
-    // const [selectedPlayer, setSelectedPlayer] = useState(true);
 
-    // if(player){
-    //     setSelectedPlayer(true);
-    // }
-
-    const [{ isDragging }, dragRef] = useDrag({
+    const [{ isDragging }, dragRef, preview] = useDrag({
         type: 'player',
         item:  {player},
         collect: (monitor) => ({
-            isDragging: monitor.isDragging()
-        })
-    })
+            isDragging: monitor.isDragging(),
+        }),
+        
+
+    });
+
 
     return(
+        <>
+        <DragPreviewImage connect={preview} src={player.photoUrl} style={{width: "50%"}} />
         <div className='player-results-card' ref={dragRef} style={{
             opacity: isDragging ? 0.5 : 1,
-            fontSize: 25,
-            fontWeight: 'bold',
-            cursor: 'move',
-          }}>
-
+            }}
+        >
             {/* {selectedPlayer ?  */}
-            <div className="liEls">
+            <div className="liEls"> 
                 <img className="imagePlayer" src={player.photoUrl}/>
                 <div className="HeaderBox">
                     <h4 className="playerName">{`${player.firstName} ${player.lastName}`}</h4>
@@ -46,9 +43,9 @@ export const PlayerResultsCard = ( {player}) => {
                     </span>
                 </div>
             </div>
-           
-            {/* : <div></div>} */}
-            {isDragging && '😱'}
+            {/* {isDragging && '😱'} */}
         </div>
+        </>
     );
 };
+
