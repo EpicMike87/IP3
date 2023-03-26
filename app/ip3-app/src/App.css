@@ -432,25 +432,16 @@ select {
 
 }
 
-/* #res {
-    background: #ffffff;
-    box-sizing: border-box;
-    border-radius: 8px;
-    position: absolute;
-    width: 701px;
-    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.1);
-    top: 0px;
-
-    
-} */
-
-
-.player-results-card {
+.player-results-card{
   display: flex;
   position: relative;
   justify-content: center;
 
+  /* font-size: 25;
+  font-weight: bold;
+  cursor: move; */
 
+  
 }
 
 .liEls {
@@ -462,7 +453,7 @@ select {
 }
 
 .liEls:hover {
-  background: rgba(207, 208, 209, 0.3);
+  background: rgba(207,208,209,0.3);
 }
 
 .liEls img {
@@ -472,17 +463,17 @@ select {
   height: 100%;
 }
 
-.HeaderBox {
-  width: 50%;
-  display: flex;
-  align-content: left;
-  justify-content: left;
-  flex-direction: column;
-  list-style: none;
-  text-align: center;
-  padding: 15px;
-  border-left-style: solid;
-  border-left-color: #009879;
+.HeaderBox{
+    width: 50%;
+    display: flex;
+    align-content: left;
+    justify-content: left;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
+    padding: 15px;
+    border-left-style: solid;
+    border-left-color: #009879;
 }
 
 .playerName {
@@ -497,24 +488,24 @@ select {
 
 }
 
-.statistics {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  /* flex-flow: column, wrap; */
-  flex-direction: row;
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-left-style: solid;
-  border-left-color: #009879;
+.statistics{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    /* flex-flow: column, wrap; */
+    flex-direction: row;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left-style: solid;
+    border-left-color: #009879;
 }
-
-.matchesPlayed {
+  
+.matchesPlayed{
   bottom: 10px;
 }
 
-.matchesPlayed>p {
+.matchesPlayed > p {
   position: relative;
   text-align: center;
   /* bottom: 20px; */
@@ -522,15 +513,30 @@ select {
   margin-top: 30px;
 }
 
-.matchesPlayed>h5 {
+.matchesPlayed > h5 {
   font-size: large;
 }
 
-.playerAge {
+.playerAge{
   bottom: 10px;
 }
 
-.playerAge>p {
+.playerAge > p {
+  position: relative;
+  text-align: center;
+  /* bottom: 20px; */
+  font-size: large;
+  margin-top: 30px;
+}
+.playerAge > h5 {
+  font-size: large;
+}
+
+.playerPosition{
+  bottom: 10px;
+}
+
+.playerPosition > p {
   position: relative;
   text-align: center;
   /* bottom: 20px; */
@@ -538,45 +544,29 @@ select {
   margin-top: 30px;
 }
 
-.playerAge>h5 {
-  font-size: large;
-}
-
-.playerPosition {
-  bottom: 10px;
-}
-
-.playerPosition>p {
-  position: relative;
-  text-align: center;
-  /* bottom: 20px; */
-  font-size: large;
-  margin-top: 30px;
-}
-
-.playerPosition>h5 {
+.playerPosition > h5 {
   font-size: large;
 }
 
 .fadeout {
-  display: block;
-  position: absolute;
-  cursor: pointer;
-  box-sizing: border;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  height: 50px;
-  background: -webkit-linear-gradient(rgba(237, 239, 240, 0) 42px, #ffffff 48px);
-  transition: background 150ms ease-in;
-}
-
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    box-sizing: border;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 50px;
+    background: -webkit-linear-gradient(rgba(237,239,240,0) 42px, #ffffff 48px);
+    transition: background 150ms ease-in;
+  }
+  
 .rating {
-  margin: 0;
-  font-size: 13px;
-  height: 15px;
-}
+    margin: 0;
+    font-size: 13px;
+    height: 15px;
+  }
 
 .hideResults {
   display: none;
@@ -687,7 +677,7 @@ select {
   height: 100%;
 }
 
-.CardSection1 {
+.CardSection1{
   display: flex;
   width: 50%;
   /* border-left: solid;
@@ -695,16 +685,31 @@ select {
   background-color: #c0c2c0;
   padding-bottom: 25%;
   padding-top: 25%;
-  justify-content: center;
+  /* justify-content: center; */
 
 }
 
-.CardSection1:hover {
+.CardSection1:hover{
   background-color: #cccccc;
   cursor: pointer;
 }
 
-.CardSection2 {
+.CardSection1WithBasket{
+  display: flex;
+  width: 50%;
+  background-color: #ffffff;
+  border-right-style: solid;
+  border-right-color: #ffffff;
+  margin-right: 10px;
+}
+
+.CardSection1WithBasket:hover{
+  background-color: #cccccc;
+  cursor: pointer;
+  
+}
+
+.CardSection2{
   display: flex;
   width: 50%;
   /* border-left: solid;
@@ -718,19 +723,25 @@ select {
   justify-content: center;
 }
 
-.CardSection2:hover {
+.CardSection2:hover{
   background-color: #cccccc;
   cursor: pointer;
 }
 
-/* .basket{
+.CardSection2WithBasket{
   display: flex;
-  position: absolute;
-  width: 100%;
-  top: 800px;
-  height: 60%;
-  
-} */
+  width: 50%;
+  background-color: #ffffff;
+  height: 700px;
+  border-left-style: solid;
+  border-left-color: #ffffff;
+  margin-left: 10px;
+}
+
+.CardSection2WithBasket:hover{
+  background-color: #cccccc;
+  cursor: pointer;
+}
 
 .basket1 {
   position: absolute;
