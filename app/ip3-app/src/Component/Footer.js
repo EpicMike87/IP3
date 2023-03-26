@@ -5,7 +5,7 @@ export default function Footer() {
   return (
    <footer id="footer">
     <h2>
-        This is Footer
+        Produced by Group 11
     </h2>
    </footer>
 

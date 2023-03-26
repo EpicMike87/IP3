@@ -12,18 +12,21 @@
   } */
   
   .nav {
-    background-color: #333;
+    background-color: rgb(000, 32, 96);
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     gap: 2rem;
-    padding: 1rem;
+    height: auto;
+/*    padding: 1rem;*/
    
   }
   
   .site-title {
     font-size: 2rem;
+    
+    
   }
   
   .nav ul {
@@ -31,7 +34,11 @@
     margin: 0;
     list-style: none;
     display: flex;
-    gap: 1rem;
+/*    gap: 1rem;*/
+  }
+
+  .nav li{
+  padding: 1rem;
   }
   
   .nav a {
@@ -44,9 +51,9 @@
   }
   
   .nav li.active {
-    background-color: #555;
+    background-color: rgb(0, 11, 72);
   }
   
   .nav li:hover {
-    background-color: #777;
+    background-color: rgb(39, 53, 121);
   }

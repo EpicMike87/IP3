@@ -1,0 +1,326 @@
+[{
+  "id": "43",
+  "url": "https://www.transfermarkt.co.uk/heart-of-midlothian-fc/startseite/verein/43",
+  "type": "club",
+  "players": [
+    {
+      "number": "28",
+      "player": [
+        "Zander Clark",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Jun 26, 1992 (30)",
+      "marketValue": "€550k",
+      "url": "https://www.transfermarkt.com/zander-clark/profil/spieler/98067",
+      "id": "98067"
+    },
+    {
+      "number": "1",
+      "player": [
+        "Craig Gordon",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Dec 31, 1982 (40)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/craig-gordon/profil/spieler/12589",
+      "id": "12589"
+    },
+    {
+      "number": "13",
+      "player": [
+        "Ross Stewart",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Apr 16, 1995 (27)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/ross-stewart/profil/spieler/203405",
+      "id": "203405"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Kye Rowles",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jun 24, 1998 (24)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/kye-rowles/profil/spieler/399990",
+      "id": "399990"
+    },
+    {
+      "number": "72",
+      "player": [
+        "James Hill",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jan 10, 2002 (21)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/james-hill/profil/spieler/611793",
+      "id": "611793"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Craig Halkett",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "May 29, 1995 (27)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/craig-halkett/profil/spieler/253817",
+      "id": "253817"
+    },
+    {
+      "number": "21",
+      "player": [
+        "Toby Sibbick",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "May 23, 1999 (23)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/toby-sibbick/profil/spieler/484215",
+      "id": "484215"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Stephen Kingsley",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jul 23, 1994 (28)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/stephen-kingsley/profil/spieler/184398",
+      "id": "184398"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Alex Cochrane",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Apr 21, 2000 (22)",
+      "marketValue": "€750k",
+      "url": "https://www.transfermarkt.com/alex-cochrane/profil/spieler/392773",
+      "id": "392773"
+    },
+    {
+      "number": "12",
+      "player": [
+        "Nathaniel Atkinson",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Jun 13, 1999 (23)",
+      "marketValue": "€850k",
+      "url": "https://www.transfermarkt.com/nathaniel-atkinson/profil/spieler/556038",
+      "id": "556038"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Michael Smith",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Sep 4, 1988 (34)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/michael-smith/profil/spieler/103934",
+      "id": "103934"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Lewis Neilson",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "May 15, 2003 (19)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/lewis-neilson/profil/spieler/652633",
+      "id": "652633"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Cammy Devlin",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Jun 7, 1998 (24)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/cammy-devlin/profil/spieler/399162",
+      "id": "399162"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Orestis Kiomourtzoglou",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "May 7, 1998 (24)",
+      "marketValue": "€650k",
+      "url": "https://www.transfermarkt.com/orestis-kiomourtzoglou/profil/spieler/337243",
+      "id": "337243"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Andy Halliday",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Oct 11, 1991 (31)",
+      "marketValue": "€550k",
+      "url": "https://www.transfermarkt.com/andy-halliday/profil/spieler/59543",
+      "id": "59543"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Peter Haring",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Jun 2, 1993 (29)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/peter-haring/profil/spieler/195214",
+      "id": "195214"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Beni Tangama Baningime",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Sep 9, 1998 (24)",
+      "marketValue": "€850k",
+      "url": "https://www.transfermarkt.com/beni-baningime/profil/spieler/399369",
+      "id": "399369"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Jorge Edward Grant",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Dec 19, 1994 (28)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/jorge-grant/profil/spieler/334964",
+      "id": "334964"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Gary Mackay-Steven",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "Aug 31, 1990 (32)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/gary-mackay-steven/profil/spieler/78961",
+      "id": "78961"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Alan Forrest",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "Sep 9, 1996 (26)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/alan-forrest/profil/spieler/276764",
+      "id": "276764"
+    },
+    {
+      "number": "39",
+      "player": [
+        "Finlay Pollock",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Jun 27, 2004 (18)",
+      "marketValue": "€75k",
+      "url": "https://www.transfermarkt.com/finlay-pollock/profil/spieler/887137",
+      "id": "887137"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Barrie McKay",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Dec 30, 1994 (28)",
+      "marketValue": "€850k",
+      "url": "https://www.transfermarkt.com/barrie-mckay/profil/spieler/208934",
+      "id": "208934"
+    },
+    {
+      "number": "30",
+      "player": [
+        "Josh Ginnelly",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Mar 24, 1997 (26)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/josh-ginnelly/profil/spieler/325104",
+      "id": "325104"
+    },
+    {
+      "number": "61",
+      "player": [
+        "Garang Mawien Kuol",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Sep 15, 2004 (18)",
+      "marketValue": "€800k",
+      "url": "https://www.transfermarkt.com/garang-kuol/profil/spieler/967948",
+      "id": "967948"
+    },
+    {
+      "number": "77",
+      "player": [
+        "Robert Snodgrass",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Sep 7, 1987 (35)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/robert-snodgrass/profil/spieler/22614",
+      "id": "22614"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Lawrence Shankland",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Aug 10, 1995 (27)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/lawrence-shankland/profil/spieler/225744",
+      "id": "225744"
+    },
+    {
+      "number": "29",
+      "player": [
+        "Stephen Humphrys",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Sep 15, 1997 (25)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/stephen-humphrys/profil/spieler/354567",
+      "id": "354567"
+    },
+    {
+      "number": "10",
+      "player": [
+        "Liam Boyce",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Apr 8, 1991 (31)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/liam-boyce/profil/spieler/117793",
+      "id": "117793"
+    },
+    {
+      "number": "88",
+      "player": [
+        "Yutaro Oda",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Aug 12, 2001 (21)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/yutaro-oda/profil/spieler/432401",
+      "id": "432401"
+    }
+  ]
+}]

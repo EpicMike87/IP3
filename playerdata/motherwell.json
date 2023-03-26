@@ -1,0 +1,304 @@
+[{
+  "id": "987",
+  "url": "https://www.transfermarkt.co.uk/motherwell-fc/startseite/verein/987/saison_id/2022",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Liam Kelly",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Jan 23, 1996 (27)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/liam-kelly/profil/spieler/208772",
+      "id": "208772"
+    },
+    {
+      "number": "13",
+      "player": [
+        "Aston Oxborough",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "May 9, 1998 (24)",
+      "marketValue": "€150k",
+      "url": "https://www.transfermarkt.com/aston-oxborough/profil/spieler/288948",
+      "id": "288948"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Ricki Lamie",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jun 20, 1993 (29)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/ricki-lamie/profil/spieler/216270",
+      "id": "216270"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Bevis Mugabi",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "May 1, 1995 (27)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/bevis-mugabi/profil/spieler/226971",
+      "id": "226971"
+    },
+    {
+      "number": "52",
+      "player": [
+        "Dan Casey",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Oct 29, 1997 (25)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/dan-casey/profil/spieler/270221",
+      "id": "270221"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Shane Blaney",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jan 20, 1999 (24)",
+      "marketValue": "€125k",
+      "url": "https://www.transfermarkt.com/shane-blaney/profil/spieler/532460",
+      "id": "532460"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Jake Carroll",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Aug 11, 1991 (31)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/jake-carroll/profil/spieler/182242",
+      "id": "182242"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Nathan McGinley",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Sep 15, 1996 (26)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/nathan-mcginley/profil/spieler/387355",
+      "id": "387355"
+    },
+    {
+      "number": "24",
+      "player": [
+        "James Byrne Furlong",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jun 7, 2002 (20)",
+      "marketValue": "€275k",
+      "url": "https://www.transfermarkt.com/james-furlong/profil/spieler/580030",
+      "id": "580030"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Stephen O'Donnell",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "May 11, 1992 (30)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/stephen-odonnell/profil/spieler/186337",
+      "id": "186337"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Paul McGinn",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Oct 22, 1990 (32)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/paul-mcginn/profil/spieler/120070",
+      "id": "120070"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Max Johnston",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Dec 26, 2003 (19)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/max-johnston/profil/spieler/652632",
+      "id": "652632"
+    },
+    {
+      "number": "66",
+      "player": [
+        "Calum Butcher",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Feb 26, 1991 (32)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/calum-butcher/profil/spieler/61813",
+      "id": "61813"
+    },
+    {
+      "number": "27",
+      "player": [
+        "Sean Goss",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Oct 1, 1995 (27)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/sean-goss/profil/spieler/289843",
+      "id": "289843"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Callum Slattery",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Feb 8, 1999 (24)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/callum-slattery/profil/spieler/332342",
+      "id": "332342"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Dean Cornelius",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Apr 11, 2001 (21)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/dean-cornelius/profil/spieler/592473",
+      "id": "592473"
+    },
+    {
+      "number": "26",
+      "player": [
+        "Ross Tierney",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Mar 6, 2001 (22)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/ross-tierney/profil/spieler/623740",
+      "id": "623740"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Josh Morris",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "Sep 30, 1991 (31)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/josh-morris/profil/spieler/121391",
+      "id": "121391"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Riku Danzaki",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "May 31, 2000 (22)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/riku-danzaki/profil/spieler/657124",
+      "id": "657124"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Stuart Adamson McKinstry",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Sep 18, 2002 (20)",
+      "marketValue": "€325k",
+      "url": "https://www.transfermarkt.com/stuart-mckinstry/profil/spieler/592474",
+      "id": "592474"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Blair Spittal",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Dec 19, 1995 (27)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/blair-spittal/profil/spieler/251587",
+      "id": "251587"
+    },
+    {
+      "number": "12",
+      "player": [
+        "Oliver Crankshaw",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Aug 12, 1998 (24)",
+      "marketValue": "€75k",
+      "url": "https://www.transfermarkt.com/oliver-crankshaw/profil/spieler/426285",
+      "id": "426285"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Kevin van Veen",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jun 1, 1991 (31)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/kevin-van-veen/profil/spieler/159894",
+      "id": "159894"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Joseph Efford",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Aug 29, 1996 (26)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/joseph-efford/profil/spieler/537467",
+      "id": "537467"
+    },
+    {
+      "number": "99",
+      "player": [
+        "Jonathan Obika",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Sep 12, 1990 (32)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/jonathan-obika/profil/spieler/61838",
+      "id": "61838"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Jack Aitchison",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Mar 5, 2000 (23)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/jack-aitchison/profil/spieler/344589",
+      "id": "344589"
+    },
+    {
+      "number": "21",
+      "player": [
+        "Mikael Mandron",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Oct 11, 1994 (28)",
+      "marketValue": "€100k",
+      "url": "https://www.transfermarkt.com/mikael-mandron/profil/spieler/218144",
+      "id": "218144"
+    }
+  ]
+}]
