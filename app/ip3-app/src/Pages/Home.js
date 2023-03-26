@@ -34,9 +34,13 @@ function Home() {
       <Table data={dataTable} column={column} />
       
     </div>
+    
+    
 
     )
-
-}
+    
+    
+    }
+  
 
 export default Home;

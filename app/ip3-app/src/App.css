@@ -190,10 +190,18 @@ header {
 
 h1,
 h2,
-h3 {
+h3{
   margin: 0 auto;
   text-align: center;
+  
 }
+tbody{
+  background-image: url(images/banner\ background.jpg);
+  background-repeat: no-repeat;
+  width: auto;
+}
+
+
 
 small {
   text-align: center;

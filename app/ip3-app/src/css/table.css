@@ -5,6 +5,9 @@ table {
   table th, table td {
     padding: 8px;
   }
+   table th{
+    background-color: #CCCCFF;
+  }
 
   tr{
   height: 1rem;
