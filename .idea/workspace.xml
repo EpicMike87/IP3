@@ -5,31 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Team Page with Basic CSS Working">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/table.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
