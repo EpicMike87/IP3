@@ -1,187 +1,104 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
 import Api from '../Helpers/Api';
 import SearchBar from "../Component/SearchBar";
-import playerImage from "../images/playerImage.jpg";
-
 
 function Player() {
-    const [playerName, setPlayerName] = useState("");
+    const [player, setPlayer] = useState("");
     const [players, setPlayers] = useState([]);
-    const [playerInfo, setPlayerInfo] = useState([])
+    const [test, setTest] = useState();
 
     const searchPlayer = () => {
-        Api.get(`search-player/${playerName}`)
+        Api.get(`search-player/${player}`)
             .then(res => {
                 console.log(res.data);
                 setPlayers(res.data);
-                hidingPlayerBio();
+                mapPlayers(res.data);
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                playerSection.style.display = 'flex';
             })
             .catch(err => {
                 console.log(err);
             });
-        console.log(players);
-        togglePlayerSelection();
-
     }
 
-    const updatePlayer = (playerName) => {
-        setPlayerName(playerName);
+    const mapPlayers = (players) => {
+        const table = document.getElementById('tableBody');
+        table.innerHTML = "";
+        setTest(players.map(player => {
+            // Exclude goalkeepers as different stats
+            if (!(player.position === "Goalkeeper")) {
+
+                //Create table row and cells to display the info for player
+                const newRow = document.createElement('tr');
+                const playerPhotoCell = document.createElement('td');
+                const playerName = document.createElement('td');
+                const playerTeam = document.createElement('td');
+                const playerMatchesPlayed = document.createElement('td');
+                const playerShotsOnTarget = document.createElement('td');
+                const playerGoals = document.createElement('td');
+                const playerAssists = document.createElement('td');
+
+                //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+                const playerPhoto = document.createElement('img');
+                playerPhoto.src = player.photoUrl;
+                playerPhotoCell.className = 'photo';
+                playerPhotoCell.appendChild(playerPhoto);
+
+                //Add the rest of the data to their cells
+                playerName.innerText = `${player.firstName} ${player.lastName}`;
+                playerTeam.innerText = player.team;
+                playerMatchesPlayed.innerText = player.matchesPlayed;
+                playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+                playerGoals.innerText = player.goals ? player.goals : 0;
+                playerAssists.innerText = player.assists ? player.assists : 0;
+
+                //Add cells to row
+                newRow.appendChild(playerPhotoCell);
+                newRow.appendChild(playerName);
+                newRow.appendChild(playerTeam)
+                newRow.appendChild(playerMatchesPlayed);
+                newRow.appendChild(playerShotsOnTarget);
+                newRow.appendChild(playerGoals);
+                newRow.appendChild(playerAssists);
+
+                //Add row to table
+                table.appendChild(newRow);
+            }
+
+            // console.log(player.firstName);
+            // return(<p>{player.firstName}</p>)
+        }))
     }
-
-    const showDetail = (playerFullName) => {
-        Api.get(`search-player/${playerFullName}`)
-            .then(res => {
-                console.log(res.data);
-                setPlayerInfo(res.data);
-                togglePlayerSelection();
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        console.log(playerInfo);
-        togglePlayerBio();
-    }
-
-    function hidingPlayerBio() {
-        var x = document.getElementById("playerBio");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    function togglePlayerBio() {
-        // get the clock
-        var myClock = document.getElementById('playerBio');
-
-        // get the current value of the clock's display property
-        var displaySetting = myClock.style.display;
-
-        // also get the clock button, so we can change what it says
-        var clockButton = document.getElementById('clockButton');
-
-        // now toggle the clock and the button text, depending on current state
-        if (displaySetting == 'block') {
-            // clock is visible. hide it
-            myClock.style.display = 'none';
-            // change button text
-            clockButton.innerHTML = 'Show clock';
-        }
-        else {
-            // clock is hidden. show it
-            myClock.style.display = 'block';
-            // change button text
-            clockButton.innerHTML = 'Hide clock';
-        }
-    }
-
-    function togglePlayerSelection() {
-        // get the clock
-        var myClock = document.getElementById('playerSelection');
-
-        // get the current value of the clock's display property
-        var displaySetting = myClock.style.display;
-
-        // also get the clock button, so we can change what it says
-        var clockButton = document.getElementById('clockButton');
-
-        // now toggle the clock and the button text, depending on current state
-        if (displaySetting == 'block') {
-            // clock is visible. hide it
-            myClock.style.display = 'none';
-            // change button text
-            clockButton.innerHTML = 'Show clock';
-        }
-        else {
-            // clock is hidden. show it
-            myClock.style.display = 'block';
-            // change button text
-            clockButton.innerHTML = 'Hide clock';
-        }
+    const updatePlayer = (player) => {
+        setPlayer(player);
     }
 
     return (
-        <div>
-            <div className="backgroundImage">
-                <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
-                <div class="backgroundOverlay"></div>
-                <div class="pageHeaderBox"><h1>Player Search</h1></div>
-                <br></br>
-            </div>
-
-            <div className="searchBarArea">
-                <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={updatePlayer} fun={searchPlayer} />
-            </div>
-
-            <div id='playerSelection'>
-                <br></br>
-                <h2>Select a Player</h2>
-                <br></br>
-                <table>
-                    <thead >
-                        <tr>
-                            <th>No</th>
-                            <th>Player</th>
-                            <th>Name</th>
-                            <th>age</th>
-                            <th>team</th>
-                        </tr>
-                    </thead>
-                    <br></br>
-                    <tbody>
-
-                        {players.map((playersData, index) =>
-                            <tr key={index} onClick={(e) => showDetail(`${playersData.firstName} ${playersData.lastName}`)} data-toggle="modal" data-target="#myModal" className='hoverRows'>
-                                <td>{playersData.idNo}</td>
-                                <td><img src={playersData.photoUrl} ></img></td>
-                                <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
-                                <td>{playersData.age}</td>
-                                <td>{playersData.team}</td>
+        <div className="Player">
+            <h1>This is the Player page</h1>
+            <SearchBar keyword={player} placeholders={"Please Enter Player Name"} onChange={updatePlayer} fun={searchPlayer} />
+            <div className="playerSection">
+                <div id="tablecontainer">
+                    <table id="playerTable" class="scrolldown sortable">
+                        <thead>
+                            <tr>
+                                <th class="no-sort">Photo</th>
+                                <th>Name</th>
+                                <th>Team</th>
+                                <th id="#matchesPlayed">Matches Played</th>
+                                <th>Shots On Target</th>
+                                <th>Goals</th>
+                                <th>Assists</th>
                             </tr>
-                        )}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    {test}
+                </ul>
             </div>
-
-
-            <br></br>
-
-            <div id='playerBio'>
-                <br></br>
-                {playerInfo.map((playersData, index) =>
-                    <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
-                )}
-                <br></br>
-
-                <table >
-                    <thead >
-                        <tr>
-                            <th>No</th>
-                            <th>Player</th>
-                            <th>Name</th>
-                            <th>age</th>
-                            <th>team</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {playerInfo.map((playersData, index) =>
-                            <tr key={index}>
-                                <td>{playersData.idNo}</td>
-                                <td><img src={playersData.photoUrl} ></img></td>
-                                <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
-                                <td>{playersData.age}</td>
-                                <td>{playersData.team}</td>
-                            </tr>
-                        )}
-
-                    </tbody>
-                </table>
-            </div>
-
-            <br></br>
-            <br></br>
         </div>
     )
 }

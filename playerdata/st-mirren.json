@@ -1,0 +1,260 @@
+[{
+  "id": "465",
+  "url": "https://www.transfermarkt.co.uk/st-mirren-fc/startseite/verein/465/saison_id/2022",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Trevor Carson",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Mar 5, 1988 (35)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/trevor-carson/profil/spieler/41131",
+      "id": "41131"
+    },
+    {
+      "number": "27",
+      "player": [
+        "Peter Urminsky",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "May 24, 1999 (23)",
+      "marketValue": "€75k",
+      "url": "https://www.transfermarkt.com/peter-urminsky/profil/spieler/454574",
+      "id": "454574"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Declan Gallagher",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Feb 13, 1991 (32)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/declan-gallagher/profil/spieler/107544",
+      "id": "107544"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Joe Gordan Shaughnessy",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jul 6, 1992 (30)",
+      "marketValue": "€425k",
+      "url": "https://www.transfermarkt.com/joe-shaughnessy/profil/spieler/119574",
+      "id": "119574"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Richard Akinfolarin Taylor",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Oct 2, 2000 (22)",
+      "marketValue": "€100k",
+      "url": "https://www.transfermarkt.com/richard-taylor/profil/spieler/696893",
+      "id": "696893"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Thierry Small",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Aug 1, 2004 (18)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/thierry-small/profil/spieler/746554",
+      "id": "746554"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Scott Tanser",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Oct 23, 1994 (28)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/scott-tanser/profil/spieler/268119",
+      "id": "268119"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Charles Dunne",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Feb 13, 1993 (30)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/charles-dunne/profil/spieler/220496",
+      "id": "220496"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Ryan Strain",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Apr 2, 1997 (25)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/ryan-strain/profil/spieler/549354",
+      "id": "549354"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Marcus Fraser",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Jun 23, 1994 (28)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/marcus-fraser/profil/spieler/132203",
+      "id": "132203"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Richard Tait",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Dec 2, 1989 (33)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/richard-tait/profil/spieler/125746",
+      "id": "125746"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Keanu Baccus",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Jun 7, 1998 (24)",
+      "marketValue": "€650k",
+      "url": "https://www.transfermarkt.com/keanu-baccus/profil/spieler/479037",
+      "id": "479037"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Mark O'Hara",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Dec 12, 1995 (27)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/mark-ohara/profil/spieler/235780",
+      "id": "235780"
+    },
+    {
+      "number": "13",
+      "player": [
+        "Alex Gogic",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Apr 13, 1994 (28)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/alex-gogic/profil/spieler/225393",
+      "id": "225393"
+    },
+    {
+      "number": null,
+      "player": [
+        "Caolan Boyd-Munce",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Jan 26, 2000 (23)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/caolan-boyd-munce/profil/spieler/438086",
+      "id": "438086"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Ryan Flynn",
+        "Right Midfield"
+      ],
+      "dateOfBirthAge": "Sep 4, 1988 (34)",
+      "marketValue": "€275k",
+      "url": "https://www.transfermarkt.com/ryan-flynn/profil/spieler/45228",
+      "id": "45228"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Greg Kiltie",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Jan 18, 1997 (26)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/greg-kiltie/profil/spieler/244256",
+      "id": "244256"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Tony Watt",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Dec 29, 1993 (29)",
+      "marketValue": "€650k",
+      "url": "https://www.transfermarkt.com/tony-watt/profil/spieler/132764",
+      "id": "132764"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Jonah Ayunga",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "May 24, 1997 (25)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/jonah-ayunga/profil/spieler/420777",
+      "id": "420777"
+    },
+    {
+      "number": "10",
+      "player": [
+        "Curtis Main",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jun 20, 1992 (30)",
+      "marketValue": "€425k",
+      "url": "https://www.transfermarkt.com/curtis-main/profil/spieler/77715",
+      "id": "77715"
+    },
+    {
+      "number": "21",
+      "player": [
+        "Alex Greive",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "May 13, 1999 (23)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/alex-greive/profil/spieler/835410",
+      "id": "835410"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Lewis Jamieson",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Apr 17, 2002 (20)",
+      "marketValue": "€125k",
+      "url": "https://www.transfermarkt.com/lewis-jamieson/profil/spieler/694355",
+      "id": "694355"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Kieran Offord",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Mar 28, 2004 (18)",
+      "marketValue": "€50k",
+      "url": "https://www.transfermarkt.com/kieran-offord/profil/spieler/719682",
+      "id": "719682"
+    }
+  ]
+}]

@@ -1,0 +1,260 @@
+[{
+  "id": "1519",
+  "url": "https://www.transfermarkt.co.uk/dundee-united-fc/startseite/verein/1519/saison_id/2022",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Mark Birighitti",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Apr 17, 1991 (31)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/mark-birighitti/profil/spieler/80702",
+      "id": "80702"
+    },
+    {
+      "number": "31",
+      "player": [
+        "Jack Newman",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Feb 12, 2002 (21)",
+      "marketValue": "€150k",
+      "url": "https://www.transfermarkt.com/jack-newman/profil/spieler/532536",
+      "id": "532536"
+    },
+    {
+      "number": "12",
+      "player": [
+        "Ryan Edwards",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Oct 7, 1993 (29)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/ryan-edwards/profil/spieler/173580",
+      "id": "173580"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Ross Graham",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Feb 20, 2001 (22)",
+      "marketValue": "€325k",
+      "url": "https://www.transfermarkt.com/ross-graham/profil/spieler/396563",
+      "id": "396563"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Charlie Mulgrew",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Mar 6, 1986 (37)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/charlie-mulgrew/profil/spieler/37428",
+      "id": "37428"
+    },
+    {
+      "number": "27",
+      "player": [
+        "Loick Ayina",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Apr 20, 2003 (19)",
+      "marketValue": "€50k",
+      "url": "https://www.transfermarkt.com/loick-ayina/profil/spieler/723666",
+      "id": "723666"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Aziz Eraltay Behich",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Dec 16, 1990 (32)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/aziz-behich/profil/spieler/136834",
+      "id": "136834"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Scott Cameron McMann",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jul 9, 1996 (26)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/scott-mcmann/profil/spieler/192077",
+      "id": "192077"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Liam Smith",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Apr 10, 1996 (26)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/liam-smith/profil/spieler/281807",
+      "id": "281807"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Kieran Freeman",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Mar 30, 2000 (22)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/kieran-freeman/profil/spieler/344581",
+      "id": "344581"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Dylan Levitt",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Nov 17, 2000 (22)",
+      "marketValue": "€800k",
+      "url": "https://www.transfermarkt.com/dylan-levitt/profil/spieler/496652",
+      "id": "496652"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Ian Harkes",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Mar 30, 1995 (27)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/ian-harkes/profil/spieler/482493",
+      "id": "482493"
+    },
+    {
+      "number": "10",
+      "player": [
+        "Arnaud Sutchuin Djoum",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "May 2, 1989 (33)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/arnaud-djoum/profil/spieler/42539",
+      "id": "42539"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Jamie McGrath",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Sep 30, 1996 (26)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/jamie-mcgrath/profil/spieler/344107",
+      "id": "344107"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Peter Pawlett",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Feb 3, 1991 (32)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/peter-pawlett/profil/spieler/62170",
+      "id": "62170"
+    },
+    {
+      "number": "28",
+      "player": [
+        "Mathew Anim Cudjoe",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Nov 11, 2003 (19)",
+      "marketValue": "€50k",
+      "url": "https://www.transfermarkt.com/mathew-anim-cudjoe/profil/spieler/701322",
+      "id": "701322"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Glenn Bell Dollar Middleton",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Jan 1, 2000 (23)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/glenn-middleton/profil/spieler/344588",
+      "id": "344588"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Craig Sibbald",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "May 18, 1995 (27)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/craig-sibbald/profil/spieler/165345",
+      "id": "165345"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Ilmari Niskanen",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Oct 27, 1997 (25)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/ilmari-niskanen/profil/spieler/268606",
+      "id": "268606"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Kai Fotheringham",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Apr 18, 2003 (19)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/kai-fotheringham/profil/spieler/652672",
+      "id": "652672"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Steven Fletcher",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Mar 26, 1987 (35)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/steven-fletcher/profil/spieler/35099",
+      "id": "35099"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Sadat Anaku Ada",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Dec 9, 2000 (22)",
+      "marketValue": "€175k",
+      "url": "https://www.transfermarkt.com/sadat-anaku/profil/spieler/709011",
+      "id": "709011"
+    },
+    {
+      "number": "44",
+      "player": [
+        "Rory MacLeod",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Feb 3, 2006 (17)",
+      "marketValue": "€75k",
+      "url": "https://www.transfermarkt.com/rory-macleod/profil/spieler/945909",
+      "id": "945909"
+    }
+  ]
+}]

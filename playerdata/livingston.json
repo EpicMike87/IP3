@@ -1,0 +1,249 @@
+[{
+  "id": "1241",
+  "url": "https://www.transfermarkt.co.uk/livingston-fc/startseite/verein/1241/saison_id/2022",
+  "type": "club",
+  "players": [
+    {
+      "number": "1",
+      "player": [
+        "Shamal George",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Jan 6, 1998 (25)",
+      "marketValue": "€325k",
+      "url": "https://www.transfermarkt.com/shamal-george/profil/spieler/337290",
+      "id": "337290"
+    },
+    {
+      "number": "32",
+      "player": [
+        "Jack Hamilton",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Mar 22, 1994 (29)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/jack-hamilton/profil/spieler/111830",
+      "id": "111830"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Jack Fitzwater",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Sep 23, 1997 (25)",
+      "marketValue": "€550k",
+      "url": "https://www.transfermarkt.com/jack-fitzwater/profil/spieler/342047",
+      "id": "342047"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Ayo Obileye",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Sep 2, 1994 (28)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/ayo-obileye/profil/spieler/319162",
+      "id": "319162"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Luiyi de Lucas Pérez",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Aug 31, 1994 (28)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/luiyi-de-lucas/profil/spieler/597153",
+      "id": "597153"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Tom Wilson Parkes",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Jan 15, 1992 (31)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/tom-parkes/profil/spieler/110866",
+      "id": "110866"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Morgan Boyes",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Apr 22, 2001 (21)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/morgan-boyes/profil/spieler/554250",
+      "id": "554250"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Sean Kelly",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Nov 1, 1993 (29)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/sean-kelly/profil/spieler/226151",
+      "id": "226151"
+    },
+    {
+      "number": "29",
+      "player": [
+        "James Penrice",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Dec 22, 1998 (24)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/james-penrice/profil/spieler/363227",
+      "id": "363227"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Nicky Devlin",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Oct 17, 1993 (29)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/nicky-devlin/profil/spieler/148215",
+      "id": "148215"
+    },
+    {
+      "number": "12",
+      "player": [
+        "Jamie Brandon",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Feb 5, 1998 (25)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/jamie-brandon/profil/spieler/406694",
+      "id": "406694"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Jason Holt",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Feb 19, 1993 (30)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/jason-holt/profil/spieler/105695",
+      "id": "105695"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Stephen Kelly",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Apr 13, 2000 (22)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/stephen-kelly/profil/spieler/403572",
+      "id": "403572"
+    },
+    {
+      "number": "33",
+      "player": [
+        "Stephane Richi Oméonga",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Mar 27, 1996 (26)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/stephane-omeonga/profil/spieler/342472",
+      "id": "342472"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Cristian Montaño Castillo",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "Dec 11, 1991 (31)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/cristian-montano/profil/spieler/87667",
+      "id": "87667"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Scott Pittman",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Jul 9, 1992 (30)",
+      "marketValue": "€550k",
+      "url": "https://www.transfermarkt.com/scott-pittman/profil/spieler/182614",
+      "id": "182614"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Andrew Murray Shinnie",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Jul 17, 1989 (33)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/andrew-shinnie/profil/spieler/51733",
+      "id": "51733"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Dylan Bahamboula",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "May 22, 1995 (27)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/dylan-bahamboula/profil/spieler/290928",
+      "id": "290928"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Steven Bradley",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Mar 17, 2002 (21)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/steven-bradley/profil/spieler/661805",
+      "id": "661805"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Bruce Anderson",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Sep 23, 1998 (24)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/bruce-anderson/profil/spieler/382096",
+      "id": "382096"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Joel Nouble",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jan 19, 1996 (27)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/joel-nouble/profil/spieler/324152",
+      "id": "324152"
+    },
+    {
+      "number": "28",
+      "player": [
+        "Kurtis Owen Guthrie",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Apr 21, 1993 (29)",
+      "marketValue": "€225k",
+      "url": "https://www.transfermarkt.com/kurtis-guthrie/profil/spieler/192656",
+      "id": "192656"
+    }
+  ]
+}]

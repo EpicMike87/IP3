@@ -1,0 +1,282 @@
+[{
+  "id": "2553",
+  "url": "https://www.transfermarkt.co.uk/kilmarnock-fc/startseite/verein/2553/saison_id/2022",
+  "type": "club",
+  "players": [
+    {
+      "number": "20",
+      "player": [
+        "Sam Walker",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Oct 2, 1991 (31)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/sam-walker/profil/spieler/129558",
+      "id": "129558"
+    },
+    {
+      "number": "1",
+      "player": [
+        "Zach Hemming",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Mar 7, 2000 (23)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/zach-hemming/profil/spieler/457528",
+      "id": "457528"
+    },
+    {
+      "number": "5",
+      "player": [
+        "Ash Taylor",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Sep 2, 1990 (32)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/ash-taylor/profil/spieler/106721",
+      "id": "106721"
+    },
+    {
+      "number": "19",
+      "player": [
+        "Joe Wright",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Feb 26, 1995 (28)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/joe-wright/profil/spieler/356396",
+      "id": "356396"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Lewis Mayo",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Mar 19, 2000 (23)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/lewis-mayo/profil/spieler/403569",
+      "id": "403569"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Chris Stokes",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Mar 8, 1991 (32)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/chris-stokes/profil/spieler/125119",
+      "id": "125119"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Jeriel Dorsett",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "May 4, 2002 (20)",
+      "marketValue": "€250k",
+      "url": "https://www.transfermarkt.com/jeriel-dorsett/profil/spieler/503989",
+      "id": "503989"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Jack Sanders",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Mar 18, 1999 (24)",
+      "marketValue": "€175k",
+      "url": "https://www.transfermarkt.com/jack-sanders/profil/spieler/851990",
+      "id": "851990"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Luke Chambers",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jun 24, 2004 (18)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/luke-chambers/profil/spieler/670861",
+      "id": "670861"
+    },
+    {
+      "number": "33",
+      "player": [
+        "Ben Chrisene",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jan 12, 2004 (19)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/ben-chrisene/profil/spieler/670846",
+      "id": "670846"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Ryan Alebiosu",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Dec 17, 2001 (21)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/ryan-alebiosu/profil/spieler/610649",
+      "id": "610649"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Liam Peadar Donnelly",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Mar 7, 1996 (27)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/liam-donnelly/profil/spieler/211121",
+      "id": "211121"
+    },
+    {
+      "number": "21",
+      "player": [
+        "Kerr McInroy",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Aug 31, 2000 (22)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/kerr-mcinroy/profil/spieler/423757",
+      "id": "423757"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Alan Power",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Jan 23, 1988 (35)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/alan-power/profil/spieler/60781",
+      "id": "60781"
+    },
+    {
+      "number": "31",
+      "player": [
+        "Liam Polworth",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Oct 12, 1994 (28)",
+      "marketValue": "€375k",
+      "url": "https://www.transfermarkt.com/liam-polworth/profil/spieler/132209",
+      "id": "132209"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Blair Alston",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Mar 23, 1992 (31)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/blair-alston/profil/spieler/135553",
+      "id": "135553"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Brad Lyons",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "May 26, 1997 (25)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/brad-lyons/profil/spieler/334816",
+      "id": "334816"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Fraser Murray",
+        "Left Midfield"
+      ],
+      "dateOfBirthAge": "May 7, 1999 (23)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/fraser-murray/profil/spieler/399262",
+      "id": "399262"
+    },
+    {
+      "number": "34",
+      "player": [
+        "David Watson",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "Feb 12, 2005 (18)",
+      "marketValue": "€50k",
+      "url": "https://www.transfermarkt.com/david-watson/profil/spieler/931102",
+      "id": "931102"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Danny Armstrong",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Oct 11, 1997 (25)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/danny-armstrong/profil/spieler/225236",
+      "id": "225236"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Rory McKenzie",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Oct 7, 1993 (29)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/rory-mckenzie/profil/spieler/177550",
+      "id": "177550"
+    },
+    {
+      "number": "26",
+      "player": [
+        "Christian Doidge",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Aug 25, 1992 (30)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/christian-doidge/profil/spieler/255353",
+      "id": "255353"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Scott Robinson",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Mar 11, 1992 (31)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/scott-robinson/profil/spieler/60960",
+      "id": "60960"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Kyle Vassell",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Feb 7, 1993 (30)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/kyle-vassell/profil/spieler/293002",
+      "id": "293002"
+    },
+    {
+      "number": "27",
+      "player": [
+        "Innes Cameron",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Aug 22, 2000 (22)",
+      "marketValue": "€225k",
+      "url": "https://www.transfermarkt.com/innes-cameron/profil/spieler/450854",
+      "id": "450854"
+    }
+  ]
+}]

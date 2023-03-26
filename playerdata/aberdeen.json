@@ -1,0 +1,271 @@
+[{
+  "id": "370",
+  "url": "https://www.transfermarkt.co.uk/aberdeen-fc/startseite/verein/370",
+  "type": "club",
+  "players": [
+    {
+      "number": "19",
+      "player": [
+        "Jay Gorter",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "May 30, 2000 (22)",
+      "marketValue": "€1.30m",
+      "url": "https://www.transfermarkt.com/jay-gorter/profil/spieler/480453",
+      "id": "480453"
+    },
+    {
+      "number": "24",
+      "player": [
+        "Kelle Roos",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "May 31, 1992 (30)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/kelle-roos/profil/spieler/123503",
+      "id": "123503"
+    },
+    {
+      "number": "1",
+      "player": [
+        "Joe Lewis",
+        "Goalkeeper"
+      ],
+      "dateOfBirthAge": "Oct 6, 1987 (35)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/joe-lewis/profil/spieler/25834",
+      "id": "25834"
+    },
+    {
+      "number": "4",
+      "player": [
+        "Liam Scales",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Aug 8, 1998 (24)",
+      "marketValue": "€600k",
+      "url": "https://www.transfermarkt.com/liam-scales/profil/spieler/439497",
+      "id": "439497"
+    },
+    {
+      "number": "27",
+      "player": [
+        "Angus MacDonald",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Oct 15, 1992 (30)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/angus-macdonald/profil/spieler/192364",
+      "id": "192364"
+    },
+    {
+      "number": "18",
+      "player": [
+        "Mattie Pollock",
+        "Centre-Back"
+      ],
+      "dateOfBirthAge": "Sep 28, 2001 (21)",
+      "marketValue": "€300k",
+      "url": "https://www.transfermarkt.com/mattie-pollock/profil/spieler/624948",
+      "id": "624948"
+    },
+    {
+      "number": "22",
+      "player": [
+        "Hayden Coulson",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Jun 17, 1998 (24)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/hayden-coulson/profil/spieler/314362",
+      "id": "314362"
+    },
+    {
+      "number": "3",
+      "player": [
+        "Jack MacKenzie",
+        "Left-Back"
+      ],
+      "dateOfBirthAge": "Apr 7, 2000 (22)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/jack-mackenzie/profil/spieler/512994",
+      "id": "512994"
+    },
+    {
+      "number": "25",
+      "player": [
+        "Jayden Richardson",
+        "Right-Back"
+      ],
+      "dateOfBirthAge": "Sep 4, 2000 (22)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/jayden-richardson/profil/spieler/565675",
+      "id": "565675"
+    },
+    {
+      "number": "20",
+      "player": [
+        "Leighton Owen Clarkson",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Oct 19, 2001 (21)",
+      "marketValue": "€800k",
+      "url": "https://www.transfermarkt.com/leighton-clarkson/profil/spieler/470606",
+      "id": "470606"
+    },
+    {
+      "number": "2",
+      "player": [
+        "Ross McCrorie",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Mar 18, 1998 (25)",
+      "marketValue": "€750k",
+      "url": "https://www.transfermarkt.com/ross-mccrorie/profil/spieler/293746",
+      "id": "293746"
+    },
+    {
+      "number": "6",
+      "player": [
+        "Graeme Shinnie",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Aug 4, 1991 (31)",
+      "marketValue": "€700k",
+      "url": "https://www.transfermarkt.com/graeme-shinnie/profil/spieler/95950",
+      "id": "95950"
+    },
+    {
+      "number": "16",
+      "player": [
+        "Ylber Ramadani",
+        "Defensive Midfield"
+      ],
+      "dateOfBirthAge": "Apr 12, 1996 (26)",
+      "marketValue": "€650k",
+      "url": "https://www.transfermarkt.com/ylber-ramadani/profil/spieler/442703",
+      "id": "442703"
+    },
+    {
+      "number": "8",
+      "player": [
+        "Connor Barron",
+        "Central Midfield"
+      ],
+      "dateOfBirthAge": "Aug 29, 2002 (20)",
+      "marketValue": "€500k",
+      "url": "https://www.transfermarkt.com/connor-barron/profil/spieler/567151",
+      "id": "567151"
+    },
+    {
+      "number": "17",
+      "player": [
+        "Jonny Hayes",
+        "Right Midfield"
+      ],
+      "dateOfBirthAge": "Jul 9, 1987 (35)",
+      "marketValue": "€550k",
+      "url": "https://www.transfermarkt.com/jonny-hayes/profil/spieler/52380",
+      "id": "52380"
+    },
+    {
+      "number": "14",
+      "player": [
+        "Patrik Myslovič",
+        "Attacking Midfield"
+      ],
+      "dateOfBirthAge": "May 28, 2001 (21)",
+      "marketValue": "€350k",
+      "url": "https://www.transfermarkt.com/patrik-myslovic/profil/spieler/344323",
+      "id": "344323"
+    },
+    {
+      "number": "33",
+      "player": [
+        "Matty Kennedy",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Nov 1, 1994 (28)",
+      "marketValue": "€450k",
+      "url": "https://www.transfermarkt.com/matty-kennedy/profil/spieler/132207",
+      "id": "132207"
+    },
+    {
+      "number": "23",
+      "player": [
+        "Ryan Duncan",
+        "Left Winger"
+      ],
+      "dateOfBirthAge": "Jan 18, 2004 (19)",
+      "marketValue": "€200k",
+      "url": "https://www.transfermarkt.com/ryan-duncan/profil/spieler/714460",
+      "id": "714460"
+    },
+    {
+      "number": "10",
+      "player": [
+        "Dilan Markanday",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Aug 20, 2001 (21)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/dilan-markanday/profil/spieler/530807",
+      "id": "530807"
+    },
+    {
+      "number": "15",
+      "player": [
+        "Marley Watkins",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Oct 17, 1990 (32)",
+      "marketValue": "€400k",
+      "url": "https://www.transfermarkt.com/marley-watkins/profil/spieler/91315",
+      "id": "91315"
+    },
+    {
+      "number": "7",
+      "player": [
+        "Shayden Morris",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Mar 30, 2002 (20)",
+      "marketValue": "€150k",
+      "url": "https://www.transfermarkt.com/shayden-morris/profil/spieler/727023",
+      "id": "727023"
+    },
+    {
+      "number": "37",
+      "player": [
+        "Callum Roberts",
+        "Right Winger"
+      ],
+      "dateOfBirthAge": "Apr 14, 1997 (25)",
+      "marketValue": "€100k",
+      "url": "https://www.transfermarkt.com/callum-roberts/profil/spieler/288952",
+      "id": "288952"
+    },
+    {
+      "number": "9",
+      "player": [
+        "Bojan Miovski",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Jun 24, 1999 (23)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/bojan-miovski/profil/spieler/476219",
+      "id": "476219"
+    },
+    {
+      "number": "11",
+      "player": [
+        "Luís Henrique de Barros Lopes",
+        "Centre-Forward"
+      ],
+      "dateOfBirthAge": "Feb 16, 2000 (23)",
+      "marketValue": "€1.00m",
+      "url": "https://www.transfermarkt.com/duktm/profil/spieler/535959",
+      "id": "535959"
+    }
+  ]
+}]

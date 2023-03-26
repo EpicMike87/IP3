@@ -1,3 +1,7 @@
+html{
+    overflow-y: scroll;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -48,10 +52,18 @@
 
 .playerSection {
   margin: 0 auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: white;
   width: 70%;
+  z-index: 2;
+}
+
+#message {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
 }
 
 .teamInfo {
@@ -296,7 +308,7 @@ table.sortable tbody tr:nth-of-type(even) {
 }
 
 table.sortable tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid rgb(000, 32, 96);
 }
 
 .sortable th {
