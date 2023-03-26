@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Team Page with Basic CSS Working">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Added top 11 feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/TabComponent/AllTabs/FirstTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/TabComponent/AllTabs/FirstTab.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/TeamRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +142,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Best11Application" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.Heapsort" />
       </list>
@@ -280,7 +279,8 @@
     <MESSAGE value="Added method to determine subclass of player and populate fields" />
     <MESSAGE value="Basic Team Page Functionality" />
     <MESSAGE value="Team Page with Basic CSS Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Team Page with Basic CSS Working" />
+    <MESSAGE value="Added top 11 feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added top 11 feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

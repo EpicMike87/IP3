@@ -10,12 +10,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.springframework.stereotype.Component;
-
-import java.io.FileNotFoundException;
+;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.*;
 
 //Gets data for teams and initialises Team objects

@@ -193,9 +193,6 @@ const FirstTab = () => {
         return topPlayers;
     }
 
-    const createPlayerIcon = (allPos) => {
-
-    }
 
     const getPlayerIcon = (topPlayer) => {
 
