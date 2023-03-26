@@ -15,6 +15,8 @@ function Player() {
                 console.log(res.data);
                 setPlayers(res.data);
                 hidingPlayerBio();
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                playerSection.style.display = 'flex';
             })
             .catch(err => {
                 console.log(err);
