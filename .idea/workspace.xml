@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Player Page Javascript working but no styling">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Managers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" afterDir="false" />
-    </list>
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Added top 11 feature" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +72,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="Spring Boot.Best11Application">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Heapsort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.IP3G11.Best11.Heapsort" />
       <module name="Best11" />
@@ -138,7 +123,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Best11Application" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.Heapsort" />
       </list>
@@ -256,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679706202597</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added top 11 feature">
+      <created>1679830725131</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679830725131</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +263,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
@@ -284,7 +274,8 @@
     <MESSAGE value="Basic Team Page Functionality" />
     <MESSAGE value="Team Page with Basic CSS Working" />
     <MESSAGE value="Player Page Javascript working but no styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player Page Javascript working but no styling" />
+    <MESSAGE value="Added top 11 feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added top 11 feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
