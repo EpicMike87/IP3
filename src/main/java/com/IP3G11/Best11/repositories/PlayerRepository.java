@@ -1,0 +1,12 @@
+package com.IP3G11.Best11.repositories;
+
+import com.IP3G11.Best11.model.Player;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface PlayerRepository extends JpaRepository<Player, Long> {
+
+    List<Player> getPlayersByPosition(String position);
+
+}
