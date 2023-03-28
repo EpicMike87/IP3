@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class TeamDto {
     private TeamStats homeStats;
     private TeamStats awayStats;
     private List<Player> players;
-    private Set<Fixture> homeFixtures;
+    private List<Fixture> fixtures;
 
     public TeamDto(Team t){
         this.id = t.getId();
@@ -39,7 +40,7 @@ public class TeamDto {
         this.homeStats = t.getTeamStats().get(1);
         this.awayStats = t.getTeamStats().get(2);
         this.players = t.getPlayers();
-        this.homeFixtures = t.getHomeFixtures();
+        setFixtures(t);
     }
 
     public static List<TeamDto> convertList(List<Team> teams){
@@ -48,6 +49,14 @@ public class TeamDto {
             teamDtos.add(new TeamDto(t));
         }
         return teamDtos;
+    }
+
+    public void setFixtures(Team t){
+        List<Fixture> fixtures = new ArrayList<>();
+        fixtures.addAll(t.getHomeFixtures());
+        fixtures.addAll(t.getAwayFixtures());
+        Collections.sort(fixtures);
+        this.fixtures = fixtures;
     }
 }
 
