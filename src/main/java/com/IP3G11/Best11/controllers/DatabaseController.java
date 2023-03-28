@@ -22,14 +22,20 @@ public class DatabaseController {
             databaseService.loadDatabase();
         }
         catch(IOException | ParseException | InterruptedException e){
-            return "The system encountered an error.";
+            return "The system encountered an error. Database not loaded.";
         }
         return "Database loaded successfully.";
     }
 
     @GetMapping("database/loadfixtures")
-    public void loadFixtures() throws IOException, ParseException, InterruptedException {
+    public String loadFixtures() throws IOException, ParseException, InterruptedException {
+        try {
             databaseService.loadFixtures();
+        }
+        catch(Exception e){
+            return "The system encountered an error. Fixtures not loaded.";
+        }
+        return "Fixtures loaded successfully.";
     }
 
 }
