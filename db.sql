@@ -40,6 +40,7 @@ CREATE TABLE Player (
     photo_url VARCHAR(2048),
     team VARCHAR(2048),
     position VARCHAR(50),
+    position_type varchar(50),
     matches_played INT,
     is_captain BIT NOT NULL,
     rating FLOAT(24),
