@@ -45,7 +45,6 @@ public class FixtureCsvTool {
 
     public static List<Fixture> getFixturesFromCsv(String path, List<Team> teams) throws IOException, ParseException {
 
-        System.out.println(path);
         List<Fixture> fixtures = new ArrayList<>();
         FileReader reader = new FileReader(path);
         CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader());
@@ -57,8 +56,6 @@ public class FixtureCsvTool {
             String homeTeamName = record.get("HomeTeam");
             String awayTeamName = record.get("AwayTeam");
 
-            System.out.println(homeTeamName);
-            System.out.println(awayTeamName);
 
             if(homeTeamName.equalsIgnoreCase("Dundee United")) homeTeamName = "Dundee Utd";
             if(awayTeamName.equalsIgnoreCase("Dundee United")) awayTeamName = "Dundee Utd";
@@ -73,8 +70,6 @@ public class FixtureCsvTool {
                     if (t.getTeamName().equalsIgnoreCase(homeTeamName)) home = t;
                     if (t.getTeamName().equalsIgnoreCase(awayTeamName)) away = t;
                 }
-                System.out.println("Home obj: " +home.getTeamName());
-                System.out.println("Away obj: " +away.getTeamName());
 
                 Fixture fixture = new Fixture();
                 fixture.setDateTime(new Date(sdf.parse(record.get("Date") + " " + record.get("Time")).getTime()));
