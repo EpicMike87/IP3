@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ModelClassifier {
 
-    private final String MODEL_PATH = "./mlmodel/logregnodraw70.8.model";
+    private final String MODEL_PATH = "./mlmodel/logreg-71.35.model";
 
     private Attribute homeAtkL20;
     private Attribute awayAtkL20;
