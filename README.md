@@ -1,36 +1,30 @@
 # IP3
 
-Teams in SPL (to get Team IDs)
+## Database set up and system initialisation
 
-HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/teams?league=179&season=2022"))
-		.header("X-RapidAPI-Key", "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5")
-		.header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-		.method("GET", HttpRequest.BodyPublishers.noBody())
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+Step 1.
 
+Download MySQL. Set default password to admin
 
-Players in Team by Season
+Step 2.
 
-HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?team=33&season=2022"))
-		.header("X-RapidAPI-Key", "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5")
-		.header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-		.method("GET", HttpRequest.BodyPublishers.noBody())
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+load up MySQL command line client and run:
 
+create database ip3b11;
+use database ip3b11;
 
-Player data when ID is known
+then paste in the contents of db.sql (in root directory of project)
 
-HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("https://api-football-v1.p.rapidapi.com/v3/players?id=276&season=2020"))
-		.header("X-RapidAPI-Key", "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5")
-		.header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
-		.method("GET", HttpRequest.BodyPublishers.noBody())
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+Step 3.
+
+Run the program and navigate to localhost:8080/database/load
+You should receive a message stating the database has been loaded
+
+Step 4.
+
+Navigate to localhost:8080/database/loadfixtures
+You should see a message once the fixtures are loaded in
+
+Step 5. 
+
+Use it, and please don't run into any errors :( :(
