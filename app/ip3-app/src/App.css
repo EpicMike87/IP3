@@ -32,6 +32,7 @@ html {
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
   
 }
 
