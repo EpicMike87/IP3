@@ -23,6 +23,11 @@ public class PlayerController {
         return playerService.getPlayerByName(name);
     }
 
+    @GetMapping("/search-player/")
+    public List<Player> searchPlayer(){
+        return playerService.getAllPlayers();
+    }
+
     @GetMapping("/players/top5/{position}")
     public List<Player> getTop5ByPosition(@PathVariable String position){
         return playerService.getTop5ByPosition(position);

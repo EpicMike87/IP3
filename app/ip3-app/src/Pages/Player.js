@@ -10,7 +10,8 @@ function Player() {
     const [playerInfo, setPlayerInfo] = useState([])
 
     const searchPlayer = () => {
-        togglePlayerSelection();
+        console.log(players[0].firstName)
+        showDetail(players[0].firstName + " " + players[0].lastName);
     }
 
     useEffect(() => {
