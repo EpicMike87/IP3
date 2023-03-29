@@ -26,30 +26,35 @@ html {
   height: auto;
   max-height: 400px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   width: 703px;
   max-width: 703px;
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
+  
 }
 
 /* Scrollbar width */
 #playerSelection::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
+  z-index: 999;
+}
+
+#playerSelection:hover{
+  overflow-y: overlay;
 }
 
 /* Scrollbar background colour */
 #playerSelection::-webkit-scrollbar-track {
-  background: rgba(211, 211, 211, 1);
+  background: rgba(211, 211, 211, 0.7);
 }
 
 /* Scroller thumb colour and shape, border makes it look spaced from the sides */
 #playerSelection::-webkit-scrollbar-thumb {
-  background-color: grey;
-  border-radius: 20px;
-  border: 3px solid rgba(211, 211, 211, 1);
+  background: rgba(0,0,0,.2);
 }
+
 
 #playerBio {
   display: none;
@@ -153,8 +158,8 @@ html {
 }
 
 #photoBox {
-  width: 154px;
-  max-width: 154px;
+  width: 150px;
+  max-width: 150px;
 }
 
 #nameBox {
@@ -187,9 +192,12 @@ html {
   overflow: hidden;
 }
 
-.playerTable tr:hover {
-  cursor: pointer;
-  background-color: #ccc;
+.playerTable tbody tr:hover td,
+.playerTable tbody tr:hover th,
+.playerTable tbody tr:focus td,
+.playerTable tbody tr:focus th  {
+    background-color: #ccc;
+    cursor: pointer;
 }
 
 .playerTable td {
@@ -363,6 +371,7 @@ table.scrolldown tbody {
 
 /* Scrollbar width */
 #tablecontainer::-webkit-scrollbar {
+  margin-left: 1rem;
   width: 12px;
 }
 
@@ -410,13 +419,13 @@ table.sortable tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 
-/* table.sortable tbody tr:nth-of-type(even) {
+table.sortable tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
 table.sortable tbody tr:last-of-type {
   border-bottom: 2px solid rgb(000, 32, 96);
-} */
+}
 
 .sortable th {
   cursor: pointer;

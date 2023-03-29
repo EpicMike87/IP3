@@ -73,10 +73,11 @@ function Player() {
     }
     
     const searchBar = document.getElementsByClassName('searchBar')[0];
+
     document.addEventListener('click', function(event) {
         const outsideClick = !searchBar.contains(event.target);
         if(outsideClick) disablePlayerSelection();
-        else enablePlayerSelection();
+        else if(playerName != "") enablePlayerSelection();
       });
 
     function enablePlayerSelection() {
@@ -108,7 +109,7 @@ return (
         <div className="searchBarArea">
             <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={setPlayerName} fun={searchPlayer} />
             <div id='playerSelection'>
-            <table className="playerTable scrolldown sortable">
+            <table className="playerTable sortable">
                 <tbody>
 
                     {players.map((playersData, index) =>
