@@ -1,12 +1,11 @@
-html{
-    overflow-y: scroll;
+html {
+  overflow-y: scroll;
 }
 
-#root{
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 5rem;
-    background-image: url(images/homebg.jpg);
+#root {
+  position: relative;
+  min-height: 100vh;
+  background-image: url(images/homebg.jpg);
 }
 
 .App-logo {
@@ -14,12 +13,37 @@ html{
   pointer-events: none;
 }
 
-#playerSelection {
-  background-color: #cccccc;
-  margin-left: 100px;
-  margin-right: 100px;
-  display: none;
 
+#playerSelection {
+  background-color: #fff;
+  display: none;
+  height: 100%;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 802px;
+  max-width: 802px;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+}
+
+/* Scrollbar width */
+#playerSelection::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Scrollbar background colour */
+#playerSelection::-webkit-scrollbar-track {
+  background: rgba(211, 211, 211, 1);
+}
+
+/* Scroller thumb colour and shape, border makes it look spaced from the sides */
+#playerSelection::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 20px;
+  border: 3px solid rgba(211, 211, 211, 1);
 }
 
 #playerBio {
@@ -67,10 +91,10 @@ html{
 }
 
 #message {
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    padding-top: 5rem;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 5rem;
 }
 
 .teamInfo {
@@ -108,6 +132,66 @@ html{
   display: flex;
   flex-direction: row;
 }
+
+.rowBox th {
+  background-color: white;
+}
+
+.colBox th {
+  background-color: rgb(000, 32, 96);
+  color: white;
+}
+
+.playerTable {
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#photoBox{
+  width: 154px;
+  max-width: 154px;
+}
+
+#nameBox{
+  width: 370px;
+  max-width: 370px;
+}
+
+#posBox{
+  width: 125px;
+  max-width: 125px;
+}
+
+#teamBox{
+  width: 137px;
+  max-width: 137px;
+}
+
+.playerTable th {
+  color: white;
+  background-color: rgb(000, 32, 96);
+  padding: 0;
+  margin: 0 auto;
+}
+
+.playerTable tr {
+  background-color: white;
+  padding: 0;
+  text-align: center;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.playerTable tr:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.playerTable td {
+  padding: 0;
+  overflow: hidden;
+}
+
 
 .teamBio img {
   object-fit: contain;
@@ -225,18 +309,11 @@ header {
 
 h1,
 h2,
-h3{
+h3 {
   margin: 0 auto;
   text-align: center;
-  
+
 }
-
-/**tbody{
-  background-image: url(images/banner\ background.jpg);
-  background-repeat: no-repeat;
-  width: auto;
-}*/
-
 
 
 small {
@@ -268,6 +345,15 @@ table.scrolldown tbody {
   height: auto;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.Players {
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh;
+  height: 100%;
 }
 
 /* Scrollbar width */
@@ -434,7 +520,7 @@ select {
 
 }
 
-.player-results-card{
+.player-results-card {
   display: flex;
   position: relative;
   justify-content: center;
@@ -443,7 +529,7 @@ select {
   font-weight: bold;
   cursor: move; */
 
-  
+
 }
 
 .liEls {
@@ -455,7 +541,7 @@ select {
 }
 
 .liEls:hover {
-  background: rgba(207,208,209,0.3);
+  background: rgba(207, 208, 209, 0.3);
 }
 
 .liEls img {
@@ -465,17 +551,17 @@ select {
   height: 100%;
 }
 
-.HeaderBox{
-    width: 50%;
-    display: flex;
-    align-content: left;
-    justify-content: left;
-    flex-direction: column;
-    list-style: none;
-    text-align: center;
-    padding: 15px;
-    border-left-style: solid;
-    border-left-color: #009879;
+.HeaderBox {
+  width: 50%;
+  display: flex;
+  align-content: left;
+  justify-content: left;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+  padding: 15px;
+  border-left-style: solid;
+  border-left-color: #009879;
 }
 
 .playerName {
@@ -490,24 +576,24 @@ select {
 
 }
 
-.statistics{
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    /* flex-flow: column, wrap; */
-    flex-direction: row;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-left-style: solid;
-    border-left-color: #009879;
+.statistics {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  /* flex-flow: column, wrap; */
+  flex-direction: row;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left-style: solid;
+  border-left-color: #009879;
 }
-  
-.matchesPlayed{
+
+.matchesPlayed {
   bottom: 10px;
 }
 
-.matchesPlayed > p {
+.matchesPlayed>p {
   position: relative;
   text-align: center;
   /* bottom: 20px; */
@@ -515,30 +601,15 @@ select {
   margin-top: 30px;
 }
 
-.matchesPlayed > h5 {
+.matchesPlayed>h5 {
   font-size: large;
 }
 
-.playerAge{
+.playerAge {
   bottom: 10px;
 }
 
-.playerAge > p {
-  position: relative;
-  text-align: center;
-  /* bottom: 20px; */
-  font-size: large;
-  margin-top: 30px;
-}
-.playerAge > h5 {
-  font-size: large;
-}
-
-.playerPosition{
-  bottom: 10px;
-}
-
-.playerPosition > p {
+.playerAge>p {
   position: relative;
   text-align: center;
   /* bottom: 20px; */
@@ -546,29 +617,45 @@ select {
   margin-top: 30px;
 }
 
-.playerPosition > h5 {
+.playerAge>h5 {
+  font-size: large;
+}
+
+.playerPosition {
+  bottom: 10px;
+}
+
+.playerPosition>p {
+  position: relative;
+  text-align: center;
+  /* bottom: 20px; */
+  font-size: large;
+  margin-top: 30px;
+}
+
+.playerPosition>h5 {
   font-size: large;
 }
 
 .fadeout {
-    display: block;
-    position: absolute;
-    cursor: pointer;
-    box-sizing: border;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    height: 50px;
-    background: -webkit-linear-gradient(rgba(237,239,240,0) 42px, #ffffff 48px);
-    transition: background 150ms ease-in;
-  }
-  
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  box-sizing: border;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 50px;
+  background: -webkit-linear-gradient(rgba(237, 239, 240, 0) 42px, #ffffff 48px);
+  transition: background 150ms ease-in;
+}
+
 .rating {
-    margin: 0;
-    font-size: 13px;
-    height: 15px;
-  }
+  margin: 0;
+  font-size: 13px;
+  height: 15px;
+}
 
 .hideResults {
   display: none;
@@ -679,7 +766,7 @@ select {
   height: 100%;
 }
 
-.CardSection1{
+.CardSection1 {
   display: flex;
   width: 50%;
   background-color: #c0c2c0;
@@ -688,35 +775,35 @@ select {
 
 }
 
-.CardSection1 > p{
+.CardSection1>p {
   margin: auto;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: larger;
 }
 
-.CardSection1:hover{
+.CardSection1:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
 
-.CardSection1WithBasket{
+.CardSection1WithBasket {
   display: flex;
   width: 50%;
   background-color: #ffffff;
   border-right-style: solid;
   border-right-color: #ffffff;
   margin-right: 10px;
-  
+
 }
 
-.CardSection1WithBasket:hover{
+.CardSection1WithBasket:hover {
   background-color: #cccccc;
   cursor: pointer;
-  
+
 }
 
-.CardSection2{
+.CardSection2 {
   display: flex;
   width: 50%;
   background-color: #c0c2c0;
@@ -728,19 +815,19 @@ select {
   justify-content: center;
 }
 
-.CardSection2:hover{
+.CardSection2:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
 
-.CardSection2 > p{
+.CardSection2>p {
   margin: auto;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: larger;
 }
 
-.CardSection2WithBasket{
+.CardSection2WithBasket {
   display: flex;
   width: 50%;
   background-color: #ffffff;
@@ -750,7 +837,7 @@ select {
   margin-left: 10px;
 }
 
-.CardSection2WithBasket:hover{
+.CardSection2WithBasket:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
@@ -792,7 +879,7 @@ select {
 
 }
 
-.PlayerHeader{
+.PlayerHeader {
   display: flex;
   flex-direction: row;
   /* position: absolute; */
@@ -802,21 +889,21 @@ select {
   border-color: #ebebeb;
 }
 
-.PlayerImgContainer{
+.PlayerImgContainer {
   width: 35%;
   padding: 2px;
   display: flex;
   border-right-style: solid;
-  border-right-width: 5px ;
+  border-right-width: 5px;
   border-color: #ebebeb;
 }
 
-.PlayerImg{
+.PlayerImg {
   width: 100%;
   border-radius: 25px;
 }
 
-.PlayerInformation{
+.PlayerInformation {
   display: flex;
   position: relative;
   padding: 2px;
@@ -825,7 +912,7 @@ select {
   justify-content: space-between;
 }
 
-.PlayerCardNameInformation{
+.PlayerCardNameInformation {
   display: inline-block;
   justify-content: left;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -833,7 +920,7 @@ select {
   padding: 2px;
 }
 
-.PlayerCardTeamInformation{
+.PlayerCardTeamInformation {
   display: inline-flex;
   float: left;
   flex-wrap: nowrap;
@@ -842,20 +929,20 @@ select {
   margin-top: 5px;
 }
 
-#PlayerCardInfoH1{
+#PlayerCardInfoH1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
   margin: 0;
   margin-right: 5px;
 }
 
-.PlayerCardTeamInformation > p {
-  font-family:'Courier New', Courier, monospace;
+.PlayerCardTeamInformation>p {
+  font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
   font-size: large;
 }
 
-.PlayerCardAgeInformation{
+.PlayerCardAgeInformation {
   display: inline-flex;
   float: left;
   flex-wrap: nowrap;
@@ -864,29 +951,13 @@ select {
   margin-top: 5px;
 }
 
-.PlayerCardAgeInformation > p {
-  font-family:'Courier New', Courier, monospace;
+.PlayerCardAgeInformation>p {
+  font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
   font-size: large;
 }
 
-.PlayerCardMatchesInformation{
-  display: inline-flex;
-  float: left;
-  flex-wrap: nowrap;
-  justify-content: start;
-  white-space: normal;
-  margin-top: 5px;
-
-}
-
-.PlayerCardMatchesInformation > p {
-  font-family:'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: large;
-}
-
-.PlayerCardPositionInformation{
+.PlayerCardMatchesInformation {
   display: inline-flex;
   float: left;
   flex-wrap: nowrap;
@@ -896,8 +967,24 @@ select {
 
 }
 
-.PlayerCardPositionInformation > p {
-  font-family:'Courier New', Courier, monospace;
+.PlayerCardMatchesInformation>p {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  font-size: large;
+}
+
+.PlayerCardPositionInformation {
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+
+}
+
+.PlayerCardPositionInformation>p {
+  font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
   font-size: large;
 }
@@ -907,11 +994,11 @@ select {
   display: flex;
   flex-direction: column;
   height: 65%;
-  width: 100%; 
+  width: 100%;
   margin-top: 5px;
 }
 
-.Doughnuts{
+.Doughnuts {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -924,17 +1011,17 @@ select {
   display: none;
 }
 
-.Doughnut1{
+.Doughnut1 {
   width: 33%;
   height: 100%;
 }
 
-.Doughnut2{
+.Doughnut2 {
   width: 33%;
   height: 100%;
 }
 
-.Doughnut3{
+.Doughnut3 {
   width: 33%;
   height: 100%;
 }
@@ -947,7 +1034,7 @@ select {
   height: 50%;
 } */
 
-.Rating{
+.Rating {
   position: relative;
   display: flex;
   width: 100%;
@@ -957,10 +1044,10 @@ select {
   margin-top: 70px;
   font-size: 60px;
   -webkit-animation: fadein 3s;
-  -moz-animation: fadein 3s; 
-   -ms-animation: fadein 3s; 
-    -o-animation: fadein 3s;
-       animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -ms-animation: fadein 3s;
+  -o-animation: fadein 3s;
+  animation: fadein 3s;
   text-decoration: underline;
 }
 
@@ -970,48 +1057,69 @@ select {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes fadein {
-  from { opacity: 0;   
+  from {
+    opacity: 0;
     transform: translate3d(-50px, 0, 0);
     cursor: pointer;
     transition: 0.25s all ease-in-out;
   }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; 
+  from {
+    opacity: 0;
     transform: translate3d(-50px, 0, 0);
     cursor: pointer;
     transition: 0.25s all ease-in-out;
   }
-  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; 
+  from {
+    opacity: 0;
     transform: translate3d(-50px, 0, 0);
     cursor: pointer;
     transition: 0.25s all ease-in-out;
   }
-  to   { opacity: 1; transform: translate3d(0, 0, 0);}
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; 
+  from {
+    opacity: 0;
     transform: translate3d(-50px, 0, 0);
     cursor: pointer;
     transition: 0.25s all ease-in-out;
   }
-  to   { opacity: 1; transform: translate3d(0, 0, 0);}
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 
