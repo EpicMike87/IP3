@@ -23,6 +23,10 @@ public class PlayerService {
     }
 
     public List<Player> getPlayerByName(String name){
+        String[] names = name.split(" ");
+        if(names.length > 1){
+            return playerRepo.findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(names[0], names[names.length-1]);
+        }
         return playerRepo.findAllByFirstNameContainingOrLastNameContaining(name, name);
     }
 
