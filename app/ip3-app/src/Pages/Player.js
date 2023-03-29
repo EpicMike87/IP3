@@ -81,7 +81,7 @@ function Player() {
 
     function disablePlayerSelection() {
         var playerSelectEle = document.getElementById('playerSelection');
-
+        playerSelectEle.scrollTop = 0;
         playerSelectEle.style.display = 'none';
     }
 
