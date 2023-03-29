@@ -25,7 +25,7 @@ public class FixtureController {
         return fixtures;
     }
 
-    @GetMapping("fixtures/top3/{name}")
+    @GetMapping("fixtures/next3/{name}")
     public List<Fixture> getNext3(@PathVariable String name){
         return fixtureService.getNext3(name);
     }
