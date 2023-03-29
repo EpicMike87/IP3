@@ -22,8 +22,8 @@ public class PlayerService {
         return playerRepo.findAll();
     }
 
-    public List<Player> getPlayerByName(String lastName){
-        return playerRepo.findByLastName(lastName);
+    public List<Player> getPlayerByName(String name){
+        return playerRepo.findAllByFirstNameContainingOrLastNameContaining(name, name);
     }
 
     public List<Player> getPlayerByNames(String firstName, String lastName) {
