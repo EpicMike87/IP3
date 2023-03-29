@@ -25,7 +25,7 @@ const FirstTab = () => {
                 console.log(res.data);
                 const topPlayers = findTopPerPos(res.data);
                 setPlayers(res.data);
-                //                    mapPlayers(res.data);
+
                 const pitch = document.getElementsByClassName('pitch')[0];
 
                 const rightBack = getPlayerIcon(topPlayers[0]);
@@ -206,21 +206,27 @@ const FirstTab = () => {
         tooltip.style.zIndex = "500";
 
         const playerDetails = document.createElement('table');
+
         const nameRow = document.createElement('tr');
         const teamRow = document.createElement('tr');
         const posRow = document.createElement('tr');
+
         const nameHead = document.createElement('th');
-        nameHead.textContent = "Name:"
         const teamHead = document.createElement('th');
-        teamHead.textContent = "Team:"
         const posHead = document.createElement('th');
+
+        nameHead.textContent = "Name:"
+        teamHead.textContent = "Team:"
         posHead.textContent = "Position:"
+
         const nameCell = document.createElement('td');
-        nameCell.textContent = `${topPlayer.firstName + " " + topPlayer.lastName}`;
         const posCell = document.createElement('td');
-        posCell.textContent = `${topPlayer.position}`;
         const teamCell = document.createElement('td');
+
+        nameCell.textContent = `${topPlayer.firstName + " " + topPlayer.lastName}`;
+        posCell.textContent = `${topPlayer.position}`;
         teamCell.textContent = `${topPlayer.team}`;
+
         nameRow.appendChild(nameHead);
         nameRow.appendChild(nameCell);
         posRow.appendChild(posHead);

@@ -1,7 +1,7 @@
 package com.IP3G11.Best11.services;
 
 import com.IP3G11.Best11.model.Player;
-import com.IP3G11.Best11.repositories.PlayerApiRepo;
+import com.IP3G11.Best11.repositories.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +11,31 @@ import java.util.List;
 @Service
 public class PlayerService {
 
+    private PlayerRepo playerRepo;
+
     @Autowired
-    private final PlayerApiRepo playerApiRepo;
-
-
-    public PlayerService(){
-        playerApiRepo = new PlayerApiRepo();
+    public PlayerService(PlayerRepo playerRepo){
+        this.playerRepo = playerRepo;
     }
 
-    //Changed to return list as multiple players may match search if firstname not provided
-    public List<Player> getPlayerByName(String name) throws IOException, InterruptedException {
-        return playerApiRepo.getPlayerByName(name);
+    public List<Player> getAllPlayers(){
+        return playerRepo.findAll();
+    }
+
+    public List<Player> getPlayerByName(String lastName){
+        return playerRepo.findByLastName(lastName);
+    }
+
+    public List<Player> getPlayerByNames(String firstName, String lastName) {
+        return playerRepo.findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(firstName, lastName);
+    }
+
+    public List<Player> getTop5ByPosition(String position){
+        return playerRepo.findTop5ByPositionOrderByRatingDesc(position);
+    }
+
+    public List<Player> getByPosition(String position){
+        return playerRepo.findByPosition(position);
     }
 
 }
