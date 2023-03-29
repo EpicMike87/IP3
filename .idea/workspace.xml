@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="" />
-=======
-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="CSS update#1">
+    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml" afterDir="false" />
@@ -25,17 +22,8 @@
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" afterDir="false" />
     </list>
->>>>>>> a2674ba8ab5c5b91067ef545821a4c5b8d3a05d8
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
