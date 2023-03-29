@@ -12,10 +12,10 @@ export default function Navbar() {
       
       <ul>
         
-        <CustomLink to="/player">Players</CustomLink>
-        <CustomLink to="/team">Teams</CustomLink>
-        <CustomLink to="/manager">Managers</CustomLink>
-        <CustomLink to="/ranking">Ranking</CustomLink>
+        <CustomLink to="/player"> <b>Players</b></CustomLink>
+        <CustomLink to="/team"><b>Teams</b></CustomLink>
+        <CustomLink to="/manager"><b>Managers</b></CustomLink>
+        <CustomLink to="/ranking"><b>Ranking</b></CustomLink>
         
       </ul>
     </nav>

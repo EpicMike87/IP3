@@ -2,7 +2,7 @@ import '../css/table.css'
 
 const Table = ({ data, column }) => {
   return (
-    <table>
+    <table id='homeStats'>
       <thead>
         <tr >
           {column.map((item, index) => <TableHeadItem item={item} />)}

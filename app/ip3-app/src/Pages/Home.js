@@ -6,7 +6,7 @@ function Home() {
     const [dataTable, setDataTable] = useState([]);
 
     useEffect(() => {
-        Api.get(`/teamstats/league_table`)
+        Api.get(`/team/all`)
         .then(res => setDataTable(res.data))
         .catch(err => console.log(err))
     }, []);
@@ -28,8 +28,6 @@ function Home() {
 
     <div className = "Home" >
        
-        <h1> This is the Home page </h1>  
-        <br></br>
         <h1>League Table</h1>
       <Table data={dataTable} column={column} />
       

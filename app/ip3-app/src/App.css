@@ -6,6 +6,7 @@ html{
     position: relative;
     min-height: 100vh;
     padding-bottom: 5rem;
+    background-image: url(images/homebg.jpg);
 }
 
 .App-logo {
@@ -229,11 +230,12 @@ h3{
   text-align: center;
   
 }
-tbody{
+
+/**tbody{
   background-image: url(images/banner\ background.jpg);
   background-repeat: no-repeat;
   width: auto;
-}
+}*/
 
 
 
@@ -410,7 +412,7 @@ select {
 }
 
 .iconSearchContainer:hover {
-  background: black;
+  background: rgb(0, 0, 0);
   color: white;
   cursor: pointer;
 

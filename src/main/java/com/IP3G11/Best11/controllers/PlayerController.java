@@ -2,6 +2,7 @@ package com.IP3G11.Best11.controllers;
 
 import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.services.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +15,26 @@ import java.util.List;
 @RestController
 public class PlayerController {
 
-    private final PlayerService service = new PlayerService();
-
+    @Autowired
+    PlayerService playerService;
 
     @GetMapping("/search-player/{name}")
-    public List<Player> searchPlayerByName(@PathVariable String name) throws IOException, InterruptedException {
-        return service.getPlayerByName(name);
-
+    public List<Player> searchPlayerByName(@PathVariable String name){
+        return playerService.getPlayerByName(name);
     }
 
+    @GetMapping("/players/top5/{position}")
+    public List<Player> getTop5ByPosition(@PathVariable String position){
+        return playerService.getTop5ByPosition(position);
+    }
+
+    @GetMapping("/players/{position}")
+    public List<Player> getByPosition(@PathVariable String position){
+        return playerService.getByPosition(position);
+    }
+
+    @GetMapping("/players/all")
+    public List<Player> getAll(){
+        return playerService.getAllPlayers();
+    }
 }

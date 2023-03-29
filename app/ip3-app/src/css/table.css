@@ -6,9 +6,27 @@ table {
     padding: 8px;
   }
    table th{
-    background-color: #CCCCFF;
+    background-color: #FFA500;
+    color: black;
   }
 
   tr{
   height: 1rem;
   }
+  
+  #homeStats tr:nth-child(1){
+background-color: #90EE90;
+  }
+    
+   #homeStats tr:nth-child(2){
+    background-color: #87CEEB;
+      }
+       #homeStats tr:nth-child(3){
+        background-color: rgb(216,191,216);
+          }
+
+          
+                
+          
+          
+  
