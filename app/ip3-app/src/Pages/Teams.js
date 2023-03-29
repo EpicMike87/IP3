@@ -398,7 +398,7 @@ function Teams() {
                             <div id="tablecontainer">
                                 <table id="playerTable" class="scrolldown sortable">
                                     <thead>
-                                        <tr>
+                                        <tr id="teampagerow">
                                             <th class="no-sort">Photo</th>
                                             <th>Name</th>
                                             <th>Position</th>
