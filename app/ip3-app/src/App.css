@@ -23,7 +23,7 @@ html {
   left: 0;
   right: 0;
   display: none;
-  height: 100%;
+  height: auto;
   max-height: 400px;
   overflow-x: hidden;
   overflow-y: auto;
