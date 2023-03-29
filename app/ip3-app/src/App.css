@@ -21,14 +21,14 @@ html {
   margin-left: auto;
   margin-right: auto;
   left: 0;
-  right: 0;
+  right: 101px;
   display: none;
   height: auto;
   max-height: 400px;
   overflow-x: hidden;
   overflow-y: auto;
-  width: 802px;
-  max-width: 802px;
+  width: 703px;
+  max-width: 703px;
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
@@ -410,13 +410,13 @@ table.sortable tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 
-table.sortable tbody tr:nth-of-type(even) {
+/* table.sortable tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
 
 table.sortable tbody tr:last-of-type {
   border-bottom: 2px solid rgb(000, 32, 96);
-}
+} */
 
 .sortable th {
   cursor: pointer;

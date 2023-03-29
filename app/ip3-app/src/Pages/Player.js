@@ -11,7 +11,6 @@ function Player() {
 
     const searchPlayer = () => {
         togglePlayerSelection();
-
     }
 
     useEffect(() => {
@@ -22,7 +21,6 @@ function Player() {
                 if(playerName == ""){
                     disablePlayerSelection()
                 }
-                hidePlayerBio()
                 setPlayers(data)
             } catch (error) {
                 console.error(error)
@@ -72,17 +70,29 @@ function Player() {
 
         }
     }
+    
+    const searchBar = document.getElementsByClassName('searchBar')[0];
+    document.addEventListener('click', function(event) {
+        const outsideClick = !searchBar.contains(event.target);
+        if(outsideClick) disablePlayerSelection();
+        else enablePlayerSelection();
+      });
 
     function enablePlayerSelection() {
         var playerSelectEle = document.getElementById('playerSelection');
-
         playerSelectEle.style.display = 'block';
+        const searchBar = document.getElementsByClassName('searchBarInput')[0];
+        searchBar.style.borderBottomLeftRadius = "0";
+        searchBar.style.borderBottom = "1px dashed lightgrey";
     }
 
     function disablePlayerSelection() {
         var playerSelectEle = document.getElementById('playerSelection');
         playerSelectEle.scrollTop = 0;
         playerSelectEle.style.display = 'none';
+        const searchBar = document.getElementsByClassName('searchBarInput')[0];
+        searchBar.style.borderBottomLeftRadius = "8px";
+        searchBar.style.borderBottom = "none";
     }
 
 return (
@@ -96,9 +106,7 @@ return (
 
         <div className="searchBarArea">
             <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={setPlayerName} fun={searchPlayer} />
-        </div>
-
-        <div id='playerSelection'>
+            <div id='playerSelection'>
             <table className="playerTable scrolldown sortable">
                 <tbody>
 
@@ -113,16 +121,14 @@ return (
                 </tbody>
             </table>
         </div>
+        </div>
 
 
-        <br></br>
 
         <div id='playerBio'>
-            <br></br>
             {playerInfo.map((playersData, index) =>
                 <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
             )}
-            <br></br>
 
             <table >
                 <thead >
