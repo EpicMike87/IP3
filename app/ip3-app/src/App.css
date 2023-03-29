@@ -16,6 +16,12 @@ html {
 
 #playerSelection {
   background-color: #fff;
+  position: absolute;
+  z-index: 555;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   display: none;
   height: 100%;
   max-height: 400px;
@@ -23,7 +29,6 @@ html {
   overflow-y: auto;
   width: 802px;
   max-width: 802px;
-  margin: 0 auto;
   border-bottom: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
@@ -147,22 +152,22 @@ html {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#photoBox{
+#photoBox {
   width: 154px;
   max-width: 154px;
 }
 
-#nameBox{
+#nameBox {
   width: 370px;
   max-width: 370px;
 }
 
-#posBox{
+#posBox {
   width: 125px;
   max-width: 125px;
 }
 
-#teamBox{
+#teamBox {
   width: 137px;
   max-width: 137px;
 }
