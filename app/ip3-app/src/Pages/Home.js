@@ -28,8 +28,6 @@ function Home() {
 
     <div className = "Home" >
        
-        <h1> This is the Home page </h1>  
-        <br></br>
         <h1>League Table</h1>
       <Table data={dataTable} column={column} />
       

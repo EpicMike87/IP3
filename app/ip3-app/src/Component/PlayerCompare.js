@@ -6,6 +6,7 @@ import { PlayerResultsCard } from "./PlayerResultsCard";
 import PlayerCard from "./PlayerCard";
 import DonutChart from "./DonutChart";
 
+
 function PlayerCompare(){
 
     const [player, setPlayer] = useState("");
@@ -83,6 +84,7 @@ const updatePlayer = (player) => {
                     <div className={basket == "" ? "CardSection1" : "CardSection1WithBasket"} ref={dropRef}>
                         {basket.map(player => <PlayerCard player={player} />)}
                         {isOver && !basket.includes(dropPlayer1) ? <p>Drop Player Here</p> : <p></p>}
+                        
                     </div>
                     <div className={basket2 == "" ? "CardSection2" : "CardSection2WithBasket"} ref={dropRef2}>
                         {basket2.map(player => <PlayerCard player={player} />)}

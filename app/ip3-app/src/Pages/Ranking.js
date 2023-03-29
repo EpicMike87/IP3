@@ -1,6 +1,6 @@
 import React from "react";
 import Api from '../Helpers/Api';
-import rankingImage from "../images/rankingImage.jpg";
+import rankingimage2 from "../images/rankingimage2.jpg";
 import Tabs from "../Component/TabComponent/Tabs";
 
 
@@ -9,7 +9,7 @@ function Ranking() {
     return (
         <div className="Ranking">
             <div className="backgroundImage">
-                <img className="rankingImage" src={rankingImage} alt="Ranking Image" />
+                <img className="rankingImage" src={rankingimage2} alt="Ranking Image" />
             </div>
             <div className="rankingMain">
                 <div className="componentTabSection">

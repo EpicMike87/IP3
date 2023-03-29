@@ -11,7 +11,7 @@
   width: 80%;
   overflow: hidden;
   min-height: 400px;
-  background: #ffffff;
+  background: transparent;
   padding: 2rem 1rem;
   color: #000000;
   border: 1px solid #000000;
@@ -151,6 +151,7 @@ ul.Tabnav li {
   text-align: center;
   cursor: pointer;
   transition: all 0.7s;
+  background-color: 	#87CEEB;
 }
 
 ul.Tabnav li:first-child {
@@ -165,13 +166,13 @@ ul.Tabnav li:last-child {
 
 ul.Tabnav li:hover {
   /* background: rgba(50, 224, 196, 0.15); */
-  background: rgba(135, 145, 143, 0.401);
+  background: rgb(65,105,225);
 
 }
 
 ul.Tabnav li.active {
   /* background: #39A2DB; */
-  background: #5c5e5f;
+  background:rgb(65,105,225);
 
 }
 
@@ -179,3 +180,4 @@ ul.Tabnav li.active {
 .TabContent {
   font-size: 2rem;
 }
+
