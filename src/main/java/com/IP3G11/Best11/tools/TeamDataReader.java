@@ -22,6 +22,7 @@ public class TeamDataReader {
     private final PlayerDataReader playerDataReader = new PlayerDataReader();
     private List<Team> teams;
 
+    //Returns list of teams from api data
     public List<Team> getTeams() throws IOException, InterruptedException {
 
         //Populate teams list if the function hasn't been called before
@@ -136,6 +137,7 @@ public class TeamDataReader {
         else addPositionsFromJson(team);
     }
 
+    //removes duplicate players from a list by converting to set then re-populating list
     private void removeDuplicates(List<Player> players){
         Set<Player> playersSet = new HashSet<>(players);
         players = playersSet.stream().toList();
@@ -160,6 +162,7 @@ public class TeamDataReader {
         return ids;
     }
 
+    //Returns a TeamStats object from Json stats data from api and type of stats (all, home or away)
     public TeamStats getTeamStatsObj(JsonObject stats, String type) {
 
         int matchesPlayed = stats.get("played").getAsInt();
@@ -174,6 +177,7 @@ public class TeamDataReader {
         return new TeamStats(SEASON, type, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
+    //Uses Json files stored in project to compare api data and add role-specific positions for players with matching names in files
     private void addPositionsFromJson(Team team) {
         String filePath = "./playerdata/" + team.getTeamName().replace(" ", "-") + ".json";
         JsonParser jp = new JsonParser();
@@ -184,7 +188,6 @@ public class TeamDataReader {
 
             JsonArray playerList = (JsonArray) obj;
             playerList = playerList.get(0).getAsJsonObject().get("players").getAsJsonArray();
-            System.out.println(playerList);
 
             for(JsonElement player : playerList){
                 String playerName = StringUtility.convertToStandardChars(player.getAsJsonObject().get("player").getAsJsonArray().get(0).getAsString());
@@ -213,11 +216,10 @@ public class TeamDataReader {
                         play = matchingPlayers.get(0);
                     }
                     else{
-                        System.out.println(playerName);
+                        System.out.println("No role-specific position exists for" + playerName);
                     }
 
                     play.setPosition(player.getAsJsonObject().get("player").getAsJsonArray().get(1).getAsString());
-                    System.out.println(play.getPosition());
                 }
                 catch(NoSuchElementException e){
                     System.out.println(e.getMessage());
