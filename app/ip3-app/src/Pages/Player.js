@@ -50,12 +50,9 @@ function Player() {
             .catch(err => {
                 console.log(err);
             });
+            const message = document.getElementById('message');
+            message.style.display = 'none';
         showPlayerBio();
-    }
-
-    function hidePlayerBio() {
-        const playerBio = document.getElementById("playerBio");
-        playerBio.style.display = "none";
     }
 
     function showPlayerBio() {
@@ -127,19 +124,17 @@ return (
 
                     {players.map((playersData, index) =>
                         <tr key={index} onClick={(e) => showDetail(`${playersData.id}`)}>
-                            <td id="photoBox"><img src={playersData.photoUrl}></img></td>
-                            <td id="nameBox">{`${playersData.firstName} ${playersData.lastName}`}</td>
-                            <td id="posBox">{playersData.position}</td>
-                            <td id="teamBox">{playersData.team}</td>
+                            <td><img src={playersData.photoUrl}></img></td>
+                            <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
+                            <td>{playersData.position}</td>
+                            <td>{playersData.team}</td>
                         </tr>
                     )}
                 </tbody>
             </table>
         </div>
         </div>
-
-
-
+        <div id="message">Search to view player information.</div>
         <div id='playerBio'>
             {playerInfo.map((playersData, index) =>
                 <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
