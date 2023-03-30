@@ -104,7 +104,7 @@ return (
             
                     {showElement ? players.map((playersData, index) =>
                         <tr key={index} onClick={(e) => showDetail(`${playersData.id}`)}>
-                            <td><img src={playersData.photoUrl}></img></td>
+                            <td><img src={playersData.photoUrl} className="searchImage"></img></td>
                             <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
                             <td>{playersData.position}</td>
                             <td>{playersData.team}</td>

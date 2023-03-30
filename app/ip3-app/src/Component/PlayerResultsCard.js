@@ -22,7 +22,7 @@ export const PlayerResultsCard = ({ player }) => {
             }}
             >
                 {/* {selectedPlayer ?  */}
-                <td><img src={player.photoUrl} class="compareImage"></img></td>
+                <td><img src={player.photoUrl} class="searchImage"></img></td>
                 <td>{`${player.firstName} ${player.lastName}`}</td>
                 <td>{player.position}</td>
                 <td>{player.team}</td>
