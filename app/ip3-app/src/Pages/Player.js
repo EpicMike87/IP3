@@ -10,182 +10,158 @@ function Player() {
     const [playerInfo, setPlayerInfo] = useState([])
 
     const searchPlayer = () => {
-        Api.get(`search-player/${playerName}`)
-            .then(res => {
-                console.log(res.data);
-                setPlayers(res.data);
-                hidingPlayerBio();
-/*                const playerSection = document.getElementsByClassName('playerSection')[0];
-                playerSection.style.display = 'flex';*/
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        console.log(players);
-        togglePlayerSelection();
-
+        console.log(players[0].firstName)
+        showDetail(players[0].firstName + " " + players[0].lastName);
     }
 
-    const updatePlayer = (playerName) => {
-        setPlayerName(playerName);
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const { data } = await Api.get(`search-player/${playerName}`)
+                enablePlayerSelection()
+                if(playerName == ""){
+                    disablePlayerSelection()
+                }
+                setPlayers(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        fetchData()
+    }, [playerName])
+
 
     const showDetail = (playerFullName) => {
         Api.get(`search-player/${playerFullName}`)
             .then(res => {
                 console.log(res.data);
                 setPlayerInfo(res.data);
-                togglePlayerSelection();
+                disablePlayerSelection();
             })
             .catch(err => {
                 console.log(err);
             });
         console.log(playerInfo);
-        togglePlayerBio();
+        showPlayerBio();
     }
 
-    function hidingPlayerBio() {
+    function hidePlayerBio() {
         var x = document.getElementById("playerBio");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+        x.style.display = "none";
     }
 
-    function togglePlayerBio() {
-        // get the clock
-        var myClock = document.getElementById('playerBio');
-
-        // get the current value of the clock's display property
-        var displaySetting = myClock.style.display;
-
-        // also get the clock button, so we can change what it says
-        var clockButton = document.getElementById('clockButton');
-
-        // now toggle the clock and the button text, depending on current state
-        if (displaySetting == 'block') {
-            // clock is visible. hide it
-            myClock.style.display = 'none';
-            // change button text
-            clockButton.innerHTML = 'Show clock';
-        }
-        else {
-            // clock is hidden. show it
-            myClock.style.display = 'block';
-            // change button text
-            clockButton.innerHTML = 'Hide clock';
-        }
+    function showPlayerBio() {
+        var x = document.getElementById("playerBio");
+        x.style.display = "block";
     }
 
     function togglePlayerSelection() {
-        // get the clock
-        var myClock = document.getElementById('playerSelection');
+        var playerSelectEle = document.getElementById('playerSelection');
 
-        // get the current value of the clock's display property
-        var displaySetting = myClock.style.display;
+        var displaySetting = playerSelectEle.style.display;
 
-        // also get the clock button, so we can change what it says
-        var clockButton = document.getElementById('clockButton');
 
-        // now toggle the clock and the button text, depending on current state
         if (displaySetting == 'block') {
-            // clock is visible. hide it
-            myClock.style.display = 'none';
-            // change button text
-            clockButton.innerHTML = 'Show clock';
+
+            playerSelectEle.style.display = 'none';
         }
         else {
-            // clock is hidden. show it
-            myClock.style.display = 'block';
-            // change button text
-            clockButton.innerHTML = 'Hide clock';
+
+            playerSelectEle.style.display = 'block';
+
         }
     }
+    
+    const searchBar = document.getElementsByClassName('searchBar')[0];
 
-    return (
-        <div>
-            <div className="backgroundImage">
-                <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
-                <div class="backgroundOverlay"></div>
-                <div class="pageHeaderBox"><h1>Player Search</h1></div>
-                <br></br>
-            </div>
+    document.addEventListener('click', function(event) {
+        const outsideClick = !searchBar.contains(event.target);
+        if(outsideClick) disablePlayerSelection();
+        else if(playerName != "") enablePlayerSelection();
+      });
 
-            <div className="searchBarArea">
-                <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={updatePlayer} fun={searchPlayer} />
-            </div>
+    function enablePlayerSelection() {
+        var playerSelectEle = document.getElementById('playerSelection');
+        playerSelectEle.style.display = 'block';
+        const searchBar = document.getElementsByClassName('searchBarInput')[0];
+        searchBar.style.borderBottomLeftRadius = "0";
+        searchBar.style.borderBottom = "1px dashed lightgrey";
+    }
 
-            <div id='playerSelection'>
-                <br></br>
-                <h2>Select a Player</h2>
-                <br></br>
-                <table>
-                    <thead >
-                        <tr>
-                            <th>No</th>
-                            <th>Player</th>
-                            <th>Name</th>
-                            <th>age</th>
-                            <th>team</th>
-                        </tr>
-                    </thead>
-                    <br></br>
-                    <tbody>
+    function disablePlayerSelection() {
+        var playerSelectEle = document.getElementById('playerSelection');
+        playerSelectEle.scrollTop = 0;
+        playerSelectEle.style.display = 'none';
+        const searchBar = document.getElementsByClassName('searchBarInput')[0];
+        searchBar.style.borderBottomLeftRadius = "8px";
+        searchBar.style.borderBottom = "none";
+    }
 
-                        {players.map((playersData, index) =>
-                            <tr key={index} onClick={(e) => showDetail(`${playersData.firstName} ${playersData.lastName}`)} data-toggle="modal" data-target="#myModal" className='hoverRows'>
-                                <td>{playersData.idNo}</td>
-                                <td><img src={playersData.photoUrl} ></img></td>
-                                <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
-                                <td>{playersData.age}</td>
-                                <td>{playersData.team}</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            </div>
-
-
-            <br></br>
-
-            <div id='playerBio'>
-                <br></br>
-                {playerInfo.map((playersData, index) =>
-                    <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
-                )}
-                <br></br>
-
-                <table >
-                    <thead >
-                        <tr>
-                            <th>No</th>
-                            <th>Player</th>
-                            <th>Name</th>
-                            <th>age</th>
-                            <th>team</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {playerInfo.map((playersData, index) =>
-                            <tr key={index}>
-                                <td>{playersData.idNo}</td>
-                                <td><img src={playersData.photoUrl} ></img></td>
-                                <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
-                                <td>{playersData.age}</td>
-                                <td>{playersData.team}</td>
-                            </tr>
-                        )}
-
-                    </tbody>
-                </table>
-            </div>
-
-            <br></br>
+return (
+    <div className="Players">
+        <div className="backgroundImage">
+            <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
+            <div class="backgroundOverlay"></div>
+            <div class="pageHeaderBox"><h1>Player Search</h1></div>
             <br></br>
         </div>
-    )
+
+        <div className="searchBarArea">
+            <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={setPlayerName} fun={searchPlayer} />
+            <div id='playerSelection'>
+            <table className="playerTable sortable">
+                <tbody>
+
+                    {players.map((playersData, index) =>
+                        <tr key={index} onClick={(e) => showDetail(`${playersData.firstName} ${playersData.lastName}`)} data-toggle="modal" data-target="#myModal" className='hoverRows'>
+                            <td id="photoBox"><img src={playersData.photoUrl}></img></td>
+                            <td id="nameBox">{`${playersData.firstName} ${playersData.lastName}`}</td>
+                            <td id="posBox">{playersData.position}</td>
+                            <td id="teamBox">{playersData.team}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+
+
+        <div id='playerBio'>
+            {playerInfo.map((playersData, index) =>
+                <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
+            )}
+
+            <table >
+                <thead >
+                    <tr>
+                        <th>No</th>
+                        <th>Player</th>
+                        <th>Name</th>
+                        <th>age</th>
+                        <th>team</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {playerInfo.map((playersData, index) =>
+                        <tr key={index}>
+                            <td>{playersData.idNo}</td>
+                            <td><img src={playersData.photoUrl} ></img></td>
+                            <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
+                            <td>{playersData.age}</td>
+                            <td>{playersData.team}</td>
+                        </tr>
+                    )}
+
+                </tbody>
+            </table>
+        </div>
+
+        <br></br>
+        <br></br>
+    </div>
+)
 }
 
 export default Player; 

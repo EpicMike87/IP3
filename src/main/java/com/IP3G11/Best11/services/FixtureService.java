@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import weka.core.Instances;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -61,5 +62,13 @@ public class FixtureService {
                 homeTeam.getHomeDefStrLast20(), awayTeam.getAwayDefStrLast20(), homeTeam.getHomeFormLast20(),
                 awayTeam.getAwayFormLast20(), homeTeam.getHomeDefStrLast10(), homeTeam.getHomeFormLast10());
         fixture.setPrediction(lc.Classify(inst).toCharArray()[0]);
+    }
+
+    public List<Fixture> getNext3(String name){
+        return fixtureRepo.findTop3ByHomeTeamNameOrAwayTeamNameOrderByDateTimeDesc(name, name);
+    }
+
+    public List<Fixture> getLast5(String name){
+        return fixtureRepo.findTop5ByHomeTeamNameOrAwayTeamNameAndDateTimeBeforeOrderByDateTimeDesc(name, name, new Date());
     }
 }
