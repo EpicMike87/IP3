@@ -10,6 +10,7 @@ function Player() {
     const [players, setPlayers] = useState([]);
     const [playerInfo, setPlayerInfo] = useState([])
     const [searchParams, setSearchParams] = useSearchParams();
+    const [showElement, setShowElement] = useState(false);
 
     const searchPlayer = () => {
         showDetail(players[0].id);
@@ -19,9 +20,9 @@ function Player() {
         const fetchData = async () => {
             try {
                 const { data } = await Api.get(`search-player/${playerName}`)
-                enablePlayerSelection()
+                changeSelectionVisibility(true);
                 if(playerName == ""){
-                    disablePlayerSelection()
+                    changeSelectionVisibility(false);
                 }
                 setPlayers(data)
                 console.log(data)
@@ -44,7 +45,7 @@ function Player() {
         Api.get(`players/id/${playerId}`)
             .then(res => {
                 setPlayerInfo(res.data);
-                disablePlayerSelection();
+                changeSelectionVisibility(false);
                 console.log(res.data);
             })
             .catch(err => {
@@ -60,47 +61,26 @@ function Player() {
         playerBio.style.display = "block";
     }
 
-    function togglePlayerSelection() {
-        var playerSelectEle = document.getElementById('playerSelection');
-
-        var displaySetting = playerSelectEle.style.display;
-
-
-        if (displaySetting == 'block') {
-
-            playerSelectEle.style.display = 'none';
-        }
-        else {
-
-            playerSelectEle.style.display = 'block';
-
-        }
-    }
-
-
     document.addEventListener('click', function(event) {
         const searchBar = document.getElementsByClassName('searchBar')[0];
         const outsideClick = !searchBar.contains(event.target);
-        if(outsideClick) disablePlayerSelection();
-        else if(playerName != "") enablePlayerSelection();
+        if(outsideClick) changeSelectionVisibility(false);
+        else if(playerName != "") changeSelectionVisibility(true);
       });
 
-
-    function enablePlayerSelection() {
-        var playerSelectEle = document.getElementById('playerSelection');
-        playerSelectEle.style.display = 'block';
+    const changeSelectionVisibility = (on) => {
         const searchBar = document.getElementsByClassName('searchBarInput')[0];
-        searchBar.style.borderBottomLeftRadius = "0";
-        searchBar.style.borderBottom = "1px dashed lightgrey";
-    }
 
-    function disablePlayerSelection() {
-        var playerSelectEle = document.getElementById('playerSelection');
-        playerSelectEle.scrollTop = 0;
-        playerSelectEle.style.display = 'none';
-        const searchBar = document.getElementsByClassName('searchBarInput')[0];
-        searchBar.style.borderBottomLeftRadius = "8px";
-        searchBar.style.borderBottom = "none";
+        if (on) {
+            setShowElement(true);
+            searchBar.style.borderBottomLeftRadius = "0";
+            searchBar.style.borderBottom = "1px dashed lightgrey";
+        }
+        else {
+            setShowElement(false);
+            searchBar.style.borderBottomLeftRadius = "8px";
+            searchBar.style.borderBottom = "none";
+        }
     }
 
     const gotoTeam = (teamId) =>{
@@ -121,15 +101,15 @@ return (
             <div id='playerSelection'>
             <table className="playerTable sortable">
                 <tbody>
-
-                    {players.map((playersData, index) =>
+            
+                    {showElement ? players.map((playersData, index) =>
                         <tr key={index} onClick={(e) => showDetail(`${playersData.id}`)}>
                             <td><img src={playersData.photoUrl}></img></td>
                             <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
                             <td>{playersData.position}</td>
                             <td>{playersData.team}</td>
                         </tr>
-                    )}
+                    ) : <div></div> }
                 </tbody>
             </table>
         </div>

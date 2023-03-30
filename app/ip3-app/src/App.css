@@ -17,6 +17,10 @@ img{
   pointer-events: none;
 }
 
+.compareImage{
+  max-height: 80px;
+}
+
 
 #playerSelection, #teamSelection {
   background-color: #fff;
@@ -26,7 +30,7 @@ img{
   margin-right: auto;
   left: 0;
   right: 101px;
-  display: none;
+  /* display: none; */
   height: auto;
   max-height: 400px;
   overflow-x: hidden;
