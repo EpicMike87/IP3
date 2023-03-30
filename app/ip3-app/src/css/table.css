@@ -15,17 +15,39 @@ table {
   }
   
   #homeStats tr:nth-child(1){
-background-color: #90EE90;
+background-color: rgb(255,223,0)
+;
   }
     
    #homeStats tr:nth-child(2){
-    background-color: #87CEEB;
+    background-color:rgb(152, 251, 152)
+    ;
       }
        #homeStats tr:nth-child(3){
-        background-color: rgb(216,191,216);
+        background-color: #87CEEB;
+          }
+          #homeStats tr:nth-child(4),
+          #homeStats tr:nth-child(5),
+          #homeStats tr:nth-child(6),
+          #homeStats tr:nth-child(7),
+          #homeStats tr:nth-child(8),
+          #homeStats tr:nth-child(9),
+          #homeStats tr:nth-child(10)
+        {
+            background-color: rgb(192,192,192)
+            ;
+              }
+              #homeStats tr:nth-child(11),
+          #homeStats tr:nth-child(12){
+            background-color: #DA291C
+            
           }
 
-          
+#homeStats{
+  width: 70%;
+  margin-left: 16rem;
+}
+
                 
           
           

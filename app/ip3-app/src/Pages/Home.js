@@ -28,7 +28,7 @@ function Home() {
 
     <div className = "Home" >
        
-        <h1>League Table</h1>
+        <h1>Scottish Premiership 22-23</h1>
       <Table data={dataTable} column={column} />
       
     </div>
