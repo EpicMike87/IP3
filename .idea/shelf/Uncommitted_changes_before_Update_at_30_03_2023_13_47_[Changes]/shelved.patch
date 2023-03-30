@@ -1,0 +1,1872 @@
+Index: target/classes/static/css/style.css
+===================================================================
+diff --git a/target/classes/static/css/style.css b/target/classes/static/css/style.css
+deleted file mode 100644
+--- a/target/classes/static/css/style.css	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,153 +0,0 @@
+-@charset "UTF-8";
+-
+-html {
+-    font-family: Arial;
+-}
+-
+-body {
+-    margin: auto;
+-    padding: 0;
+-    max-width: 1200px;
+-}
+-
+-main {
+-    margin: auto;
+-}
+-
+-header {
+-    padding: 2rem;
+-}
+-
+-
+-h1, h2, h3 {
+-    margin: 0 auto;
+-    text-align: center;
+-}
+-
+-small{
+-    text-align: center;
+-    margin: 1rem auto;
+-}
+-
+-#tablecontainer {
+-    max-height: 800px;
+-    overflow-x: hidden;
+-    overflow-y: auto;
+-    border-radius: 6px;
+-}
+-
+-/* Positions table tightly inside container */
+-table.sortable {
+-    position: sticky;
+-    top: 0;
+-    width: 100%;
+-    border-collapse: collapse;
+-    font-size: 0.9em;
+-    min-width: 1200px;
+-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+-    text-align: center;
+-}
+-
+-table.scrolldown tbody {
+-    height: 600px;
+-    overflow-y: auto;
+-    overflow-x: hidden;
+-}
+-
+-#tablecontainer {
+-    padding-right: 12px;
+-}
+-
+-/* Scrollbar width */
+-#tablecontainer::-webkit-scrollbar {
+-    width: 12px;
+-}
+-
+-/* Scrollbar background colour */
+-#tablecontainer::-webkit-scrollbar-track {
+-    background: rgba(211, 211, 211, 1);
+-}
+-
+-/* Scroller thumb colour and shape, border makes it look spaced from the sides */
+-#tablecontainer::-webkit-scrollbar-thumb {
+-    background-color: grey;
+-    border-radius: 20px;
+-    border: 3px solid rgba(211, 211, 211, 1);
+-}
+-
+-.photo {
+-    margin: 0;
+-    padding: 0;
+-}
+-
+-.photo img {
+-    margin: 0;
+-    padding: 0;
+-}
+-
+-table.sortable thead tr {
+-    background-color: #009879;
+-    color: #ffffff;
+-    text-align: center;
+-}
+-
+-thead {
+-    position: sticky;
+-    top: 0;
+-}
+-
+-table.sortable th, td {
+-    padding: 12px 15px;
+-    max-height: 40px;
+-}
+-
+-
+-table.sortable tbody tr {
+-    border-bottom: 1px solid #dddddd;
+-}
+-
+-table.sortable tbody tr:nth-of-type(even) {
+-    background-color: #f3f3f3;
+-}
+-
+-table.sortable tbody tr:last-of-type {
+-    border-bottom: 2px solid #009879;
+-}
+-
+-.sortable th {
+-    cursor: pointer;
+-}
+-
+-.sortable th.no-sort {
+-    pointer-events: none;
+-}
+-
+-.sortable th.dir-d::after {
+-    content: "▾";
+-}
+-
+-.sortable th.dir-u::after {
+-    content: "▴";
+-}
+-
+-.sortable th.indicator-left::after {
+-    content: "";
+-}
+-
+-.sortable th.indicator-left::before {
+-    margin-right: 3px;
+-    content: "▸";
+-}
+-
+-.sortable th.indicator-left.dir-d::before {
+-    content: "▾";
+-}
+-
+-.sortable th.indicator-left.dir-u::before {
+-    content: "▴";
+-}
+-
+-select{
+-    margin-top: 1rem;
+-}
+-
+Index: src/main/resources/static/test.html
+===================================================================
+diff --git a/src/main/resources/static/test.html b/src/main/resources/static/test.html
+deleted file mode 100644
+--- a/src/main/resources/static/test.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,35 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Attacking Players by Goals Scored</title>
+-    <script src="js/test.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>Attacking Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default.</h3>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th>Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: src/main/resources/static/allplayersbymetric.html
+===================================================================
+diff --git a/src/main/resources/static/allplayersbymetric.html b/src/main/resources/static/allplayersbymetric.html
+deleted file mode 100644
+--- a/src/main/resources/static/allplayersbymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,47 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>All Players</title>
+-    <script src="js/allbymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>All players by metric (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-            <small>Note: Goalkeepers are excluded as they do not use the same stats.</small><br>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: target/classes/static/attackersbymetric.html
+===================================================================
+diff --git a/target/classes/static/attackersbymetric.html b/target/classes/static/attackersbymetric.html
+deleted file mode 100644
+--- a/target/classes/static/attackersbymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,46 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Attacking Players by Goals Scored</title>
+-    <script src="js/attackersbymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>Attacking Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: target/classes/static/allplayersbymetric.html
+===================================================================
+diff --git a/target/classes/static/allplayersbymetric.html b/target/classes/static/allplayersbymetric.html
+deleted file mode 100644
+--- a/target/classes/static/allplayersbymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,47 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>All Players</title>
+-    <script src="js/allbymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>All players by metric (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-            <small>Note: Goalkeepers are excluded as they do not use the same stats.</small><br>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: src/main/resources/static/attackersbymetric.html
+===================================================================
+diff --git a/src/main/resources/static/attackersbymetric.html b/src/main/resources/static/attackersbymetric.html
+deleted file mode 100644
+--- a/src/main/resources/static/attackersbymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,46 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Attacking Players by Goals Scored</title>
+-    <script src="js/attackersbymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>Attacking Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: target/classes/static/js/sortable.min.js
+===================================================================
+diff --git a/target/classes/static/js/sortable.min.js b/target/classes/static/js/sortable.min.js
+deleted file mode 100644
+--- a/target/classes/static/js/sortable.min.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,8 +0,0 @@
+-document.addEventListener("click", function (b) {
+-    try {
+-        function f(a, c) { return a.nodeName === c ? a : f(a.parentNode, c) } var u = b.shiftKey || b.altKey, e = f(b.target, "TH"), m = f(e, "TR"), g = f(m, "TABLE"); function n(a, c) { a.classList.remove("dir-d"); a.classList.remove("dir-u"); c && a.classList.add(c) } function p(a) { return u && a.dataset["sort-alt"] || a.dataset.sort || a.textContent } if (g.classList.contains("sortable")) {
+-            var h, d = m.cells; for (b = 0; b < d.length; b++)d[b] === e ? h = parseInt(e.dataset["sort-col"]) || b : n(d[b], ""); d = "dir-d"; if (e.classList.contains("dir-d") ||
+-                g.classList.contains("asc") && !e.classList.contains("dir-u")) d = "dir-u"; n(e, d); var q = "dir-u" === d; for (b = 0; b < g.tBodies.length; b++) { var k = g.tBodies[b], l = [].slice.call(k.rows, 0); l.sort(function (a, c) { var r = p((q ? a : c).cells[h]); a = p((q ? c : a).cells[h]); c = parseFloat(r) - parseFloat(a); return isNaN(c) ? r.localeCompare(a) : c }); for (var t = k.cloneNode(); l.length;)t.appendChild(l.splice(0, 1)[0]); g.replaceChild(t, k) }
+-        }
+-    } catch (f) { }
+-});
+Index: src/main/resources/static/js/allbymetric.js
+===================================================================
+diff --git a/src/main/resources/static/js/allbymetric.js b/src/main/resources/static/js/allbymetric.js
+deleted file mode 100644
+--- a/src/main/resources/static/js/allbymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,100 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData() {
+-    //Get data from API
+-    try {
+-        const response = await fetch('http://localhost:8080/players/all');
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const data = await response.json();
+-        const players = data;
+-        // Sort players by sortBy value (has to match the exact metric name as exists in player obj). Can sort by any metric
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-
+-    //Remove goalkeepers from list prior to sorting (as no goals stat)
+-    //Can have function in actual implementation that changes table labels based on
+-    //what stat is requested and filters players in results shown
+-    //For demo purposes players excl goalkeepers will do
+-    players.forEach(player => {
+-        if (player.position == "Goalkeeper") delete players[players.indexOf(player)];
+-    });
+-
+-    //Sort list of players by chosen stat (does not work if attribute doesn't exist in player obj)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        // Exclude goalkeepers as different stats
+-        if (!(player.position == "Goalkeeper")) {
+-
+-            //Create table row and cells to display the info for player
+-            const newRow = document.createElement('tr');
+-            const playerPhotoCell = document.createElement('td');
+-            const playerName = document.createElement('td');
+-            const playerTeam = document.createElement('td');
+-            const playerMatchesPlayed = document.createElement('td');
+-            const playerShotsOnTarget = document.createElement('td');
+-            const playerGoals = document.createElement('td');
+-            const playerAssists = document.createElement('td');
+-
+-            //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-            const playerPhoto = document.createElement('img');
+-            playerPhoto.src = player.photoUrl;
+-            playerPhotoCell.className = 'photo';
+-            playerPhotoCell.appendChild(playerPhoto);
+-
+-            //Add the rest of the data to their cells
+-            playerName.innerText = `${player.firstName} ${player.lastName}`;
+-            playerTeam.innerText = player.team;
+-            playerMatchesPlayed.innerText = player.matchesPlayed;
+-            playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-            playerGoals.innerText = player.goals ? player.goals : 0;
+-            playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-            //Add cells to row
+-            newRow.appendChild(playerPhotoCell);
+-            newRow.appendChild(playerName);
+-            newRow.appendChild(playerTeam)
+-            newRow.appendChild(playerMatchesPlayed);
+-            newRow.appendChild(playerShotsOnTarget);
+-            newRow.appendChild(playerGoals);
+-            newRow.appendChild(playerAssists);
+-
+-            //Add row to table
+-            table.appendChild(newRow);
+-        }
+-    });
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //Get data from API
+-    loadData().then(function (result) {
+-        playerData = result;
+-        //create table from results ordered by goals
+-        createTable(playerData, "goals");
+-    });
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        //create table ordered by new values
+-        createTable(playerData, e.target.value);
+-    });
+-}
+-
+-
+Index: src/main/resources/static/teambymetric.html
+===================================================================
+diff --git a/src/main/resources/static/teambymetric.html b/src/main/resources/static/teambymetric.html
+deleted file mode 100644
+--- a/src/main/resources/static/teambymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,65 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Team Players</title>
+-    <script src="js/teambymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1 id="title">Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-            <small>Note: Goalkeepers are excluded as they do not use the same stats.</small><br>
+-            <select id="teamSelector">
+-            <option selected="selected">
+-                Choose Team...
+-                </option>
+-            <option value="celtic">Celtic</option>
+-            <option value="rangers">Rangers</option>
+-            <option value="heart of midlothian">Hearts</option>
+-            <option value="hibernian">Hibernian</option>
+-            <option value="aberdeen">Aberdeen</option>
+-            <option value="st mirren">St Mirren</option>
+-            <option value="livingston">Livingston</option>
+-            <option value="st johnstone">St Johnstone</option>
+-            <option value="motherwell">Motherwell</option>
+-            <option value="ross county">Ross County</option>
+-            <option value="kilmarnock">Kilmarnock</option>
+-            <option value="dundee utd">Dundee United</option>
+-        </select>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th>Position</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: src/main/resources/static/js/teambymetric.js
+===================================================================
+diff --git a/src/main/resources/static/js/teambymetric.js b/src/main/resources/static/js/teambymetric.js
+deleted file mode 100644
+--- a/src/main/resources/static/js/teambymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,131 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData(team) {
+-    //Get data from API
+-    try {
+-        const response = await fetch(`http://localhost:8080/team/${team}`);
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const players = await response.json();
+-        // return players promise
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-
+-    //Remove goalkeepers from list prior to sorting (as no goals stat)
+-    //Can have function in actual implementation that changes table labels based on
+-    //what stat is requested and filters players in results shown
+-    //For demo purposes players excl goalkeepers will do
+-    players.forEach(player => {
+-        if (player.position == "Goalkeeper") delete players[players.indexOf(player)];
+-    });
+-
+-    //Sort list of players by chosen stat (does not work if attribute doesn't exist in player obj)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        //Create table row and cells to display the info for player
+-        const newRow = document.createElement('tr');
+-        const playerPhotoCell = document.createElement('td');
+-        const playerName = document.createElement('td');
+-        const playerTeam = document.createElement('td');
+-        const playerPosition = document.createElement('td');
+-        const playerMatchesPlayed = document.createElement('td');
+-        const playerShotsOnTarget = document.createElement('td');
+-        const playerGoals = document.createElement('td');
+-        const playerAssists = document.createElement('td');
+-
+-        //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-        const playerPhoto = document.createElement('img');
+-        playerPhoto.src = player.photoUrl;
+-        playerPhotoCell.className = 'photo';
+-        playerPhotoCell.appendChild(playerPhoto);
+-
+-        //Add the rest of the data to their cells
+-        playerName.innerText = `${player.firstName} ${player.lastName}`;
+-        playerTeam.innerText = player.team;
+-        playerPosition.innerText = player.position;
+-        playerMatchesPlayed.innerText = player.matchesPlayed;
+-        playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-        playerGoals.innerText = player.goals ? player.goals : 0;
+-        playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-        //Add cells to row
+-        newRow.appendChild(playerPhotoCell);
+-        newRow.appendChild(playerName);
+-        newRow.appendChild(playerTeam)
+-        newRow.appendChild(playerPosition)
+-        newRow.appendChild(playerMatchesPlayed);
+-        newRow.appendChild(playerShotsOnTarget);
+-        newRow.appendChild(playerGoals);
+-        newRow.appendChild(playerAssists);
+-
+-        //Add row to table
+-        table.appendChild(newRow);
+-    }
+-    );
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //default value
+-    let teamSelection = "celtic";
+-    let statSelection = "goals";
+-    //Get data from api
+-    loadData(teamSelection).then(function (result) {
+-        //extract players from team obj
+-        playerData = result.players;
+-        //fill table. goals is again a default
+-        createTable(playerData, statSelection);
+-    });
+-
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        statSelection = e.target.value;
+-        //update table with new results based on selection
+-        createTable(playerData, statSelection);
+-        //Update page heading
+-        updateTitle(teamSelection, statSelection);
+-    });
+-
+-    //get team selector obj and add event listener for change in selection
+-    const teamSelect = document.getElementById('teamSelector');
+-    teamSelect.addEventListener('change', function (e) {
+-        teamSelection = e.target.value;
+-        //get new team data from api and update table
+-        loadData(teamSelection).then(function (result) {
+-            playerData = result.players;
+-            createTable(playerData, statSelection);
+-            //Update page heading
+-            updateTitle(teamSelection, statSelection);
+-        });
+-    });
+-}
+-
+-const capitalise = function (str) {
+-    const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+-    return str2;
+-}
+-
+-const updateTitle = function (team, stat) {
+-    const title = document.getElementById('title');
+-    title.innerText = `${capitalise(team)} players by ${capitalise(stat)}`
+-}
+-
+-
+-
+Index: target/classes/static/js/allbymetric.js
+===================================================================
+diff --git a/target/classes/static/js/allbymetric.js b/target/classes/static/js/allbymetric.js
+deleted file mode 100644
+--- a/target/classes/static/js/allbymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,100 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData() {
+-    //Get data from API
+-    try {
+-        const response = await fetch('http://localhost:8080/players/all');
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const data = await response.json();
+-        const players = data;
+-        // Sort players by sortBy value (has to match the exact metric name as exists in player obj). Can sort by any metric
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-
+-    //Remove goalkeepers from list prior to sorting (as no goals stat)
+-    //Can have function in actual implementation that changes table labels based on
+-    //what stat is requested and filters players in results shown
+-    //For demo purposes players excl goalkeepers will do
+-    players.forEach(player => {
+-        if (player.position == "Goalkeeper") delete players[players.indexOf(player)];
+-    });
+-
+-    //Sort list of players by chosen stat (does not work if attribute doesn't exist in player obj)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        // Exclude goalkeepers as different stats
+-        if (!(player.position == "Goalkeeper")) {
+-
+-            //Create table row and cells to display the info for player
+-            const newRow = document.createElement('tr');
+-            const playerPhotoCell = document.createElement('td');
+-            const playerName = document.createElement('td');
+-            const playerTeam = document.createElement('td');
+-            const playerMatchesPlayed = document.createElement('td');
+-            const playerShotsOnTarget = document.createElement('td');
+-            const playerGoals = document.createElement('td');
+-            const playerAssists = document.createElement('td');
+-
+-            //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-            const playerPhoto = document.createElement('img');
+-            playerPhoto.src = player.photoUrl;
+-            playerPhotoCell.className = 'photo';
+-            playerPhotoCell.appendChild(playerPhoto);
+-
+-            //Add the rest of the data to their cells
+-            playerName.innerText = `${player.firstName} ${player.lastName}`;
+-            playerTeam.innerText = player.team;
+-            playerMatchesPlayed.innerText = player.matchesPlayed;
+-            playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-            playerGoals.innerText = player.goals ? player.goals : 0;
+-            playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-            //Add cells to row
+-            newRow.appendChild(playerPhotoCell);
+-            newRow.appendChild(playerName);
+-            newRow.appendChild(playerTeam)
+-            newRow.appendChild(playerMatchesPlayed);
+-            newRow.appendChild(playerShotsOnTarget);
+-            newRow.appendChild(playerGoals);
+-            newRow.appendChild(playerAssists);
+-
+-            //Add row to table
+-            table.appendChild(newRow);
+-        }
+-    });
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //Get data from API
+-    loadData().then(function (result) {
+-        playerData = result;
+-        //create table from results ordered by goals
+-        createTable(playerData, "goals");
+-    });
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        //create table ordered by new values
+-        createTable(playerData, e.target.value);
+-    });
+-}
+-
+-
+Index: src/main/resources/static/js/attackersbymetric.js
+===================================================================
+diff --git a/src/main/resources/static/js/attackersbymetric.js b/src/main/resources/static/js/attackersbymetric.js
+deleted file mode 100644
+--- a/src/main/resources/static/js/attackersbymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,91 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData() {
+-    //Get data from API
+-    try {
+-        const response = await fetch('http://localhost:8080/players/attackers');
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const data = await response.json();
+-        const players = data;
+-        // Sort players by sortBy value (has to match the exact metric name as exists in player obj). Can sort by any metric
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-    console.log(players)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-    console.log(players)
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        // Exclude players that are not attacking pos as shots on target not recorded by system for anyone else and used in the table
+-        if (!(player.position == "Goalkeeper")) {
+-
+-            //Create table row and cells to display the info for player
+-            const newRow = document.createElement('tr');
+-            const playerPhotoCell = document.createElement('td');
+-            const playerName = document.createElement('td');
+-            const playerTeam = document.createElement('td');
+-            const playerMatchesPlayed = document.createElement('td');
+-            const playerShotsOnTarget = document.createElement('td');
+-            const playerGoals = document.createElement('td');
+-            const playerAssists = document.createElement('td');
+-
+-            //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-            const playerPhoto = document.createElement('img');
+-            playerPhoto.src = player.photoUrl;
+-            playerPhotoCell.className = 'photo';
+-            playerPhotoCell.appendChild(playerPhoto);
+-
+-            //Add the rest of the data to their cells
+-            playerName.innerText = `${player.firstName} ${player.lastName}`;
+-            playerTeam.innerText = player.team;
+-            playerMatchesPlayed.innerText = player.matchesPlayed;
+-            playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-            playerGoals.innerText = player.goals ? player.goals : 0;
+-            playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-            //Add cells to row
+-            newRow.appendChild(playerPhotoCell);
+-            newRow.appendChild(playerName);
+-            newRow.appendChild(playerTeam)
+-            newRow.appendChild(playerMatchesPlayed);
+-            newRow.appendChild(playerShotsOnTarget);
+-            newRow.appendChild(playerGoals);
+-            newRow.appendChild(playerAssists);
+-
+-            //Add row to table
+-            table.appendChild(newRow);
+-        }
+-    });
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //Get data from API
+-    loadData().then(function (result) {
+-        playerData = result;
+-        //create table from results ordered by goals
+-        createTable(playerData, "goals");
+-    });
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        //create table ordered by new values
+-        createTable(playerData, e.target.value);
+-    });
+-}
+-
+-
+Index: target/classes/static/js/attackersbymetric.js
+===================================================================
+diff --git a/target/classes/static/js/attackersbymetric.js b/target/classes/static/js/attackersbymetric.js
+deleted file mode 100644
+--- a/target/classes/static/js/attackersbymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,91 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData() {
+-    //Get data from API
+-    try {
+-        const response = await fetch('http://localhost:8080/players/attackers');
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const data = await response.json();
+-        const players = data;
+-        // Sort players by sortBy value (has to match the exact metric name as exists in player obj). Can sort by any metric
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-    console.log(players)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-    console.log(players)
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        // Exclude players that are not attacking pos as shots on target not recorded by system for anyone else and used in the table
+-        if (!(player.position == "Goalkeeper")) {
+-
+-            //Create table row and cells to display the info for player
+-            const newRow = document.createElement('tr');
+-            const playerPhotoCell = document.createElement('td');
+-            const playerName = document.createElement('td');
+-            const playerTeam = document.createElement('td');
+-            const playerMatchesPlayed = document.createElement('td');
+-            const playerShotsOnTarget = document.createElement('td');
+-            const playerGoals = document.createElement('td');
+-            const playerAssists = document.createElement('td');
+-
+-            //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-            const playerPhoto = document.createElement('img');
+-            playerPhoto.src = player.photoUrl;
+-            playerPhotoCell.className = 'photo';
+-            playerPhotoCell.appendChild(playerPhoto);
+-
+-            //Add the rest of the data to their cells
+-            playerName.innerText = `${player.firstName} ${player.lastName}`;
+-            playerTeam.innerText = player.team;
+-            playerMatchesPlayed.innerText = player.matchesPlayed;
+-            playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-            playerGoals.innerText = player.goals ? player.goals : 0;
+-            playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-            //Add cells to row
+-            newRow.appendChild(playerPhotoCell);
+-            newRow.appendChild(playerName);
+-            newRow.appendChild(playerTeam)
+-            newRow.appendChild(playerMatchesPlayed);
+-            newRow.appendChild(playerShotsOnTarget);
+-            newRow.appendChild(playerGoals);
+-            newRow.appendChild(playerAssists);
+-
+-            //Add row to table
+-            table.appendChild(newRow);
+-        }
+-    });
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //Get data from API
+-    loadData().then(function (result) {
+-        playerData = result;
+-        //create table from results ordered by goals
+-        createTable(playerData, "goals");
+-    });
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        //create table ordered by new values
+-        createTable(playerData, e.target.value);
+-    });
+-}
+-
+-
+Index: src/main/resources/static/css/style.css
+===================================================================
+diff --git a/src/main/resources/static/css/style.css b/src/main/resources/static/css/style.css
+deleted file mode 100644
+--- a/src/main/resources/static/css/style.css	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,153 +0,0 @@
+-@charset "UTF-8";
+-
+-html {
+-    font-family: Arial;
+-}
+-
+-body {
+-    margin: auto;
+-    padding: 0;
+-    max-width: 1200px;
+-}
+-
+-main {
+-    margin: auto;
+-}
+-
+-header {
+-    padding: 2rem;
+-}
+-
+-
+-h1, h2, h3 {
+-    margin: 0 auto;
+-    text-align: center;
+-}
+-
+-small{
+-    text-align: center;
+-    margin: 1rem auto;
+-}
+-
+-#tablecontainer {
+-    max-height: 800px;
+-    overflow-x: hidden;
+-    overflow-y: auto;
+-    border-radius: 6px;
+-}
+-
+-/* Positions table tightly inside container */
+-table.sortable {
+-    position: sticky;
+-    top: 0;
+-    width: 100%;
+-    border-collapse: collapse;
+-    font-size: 0.9em;
+-    min-width: 1200px;
+-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+-    text-align: center;
+-}
+-
+-table.scrolldown tbody {
+-    height: 600px;
+-    overflow-y: auto;
+-    overflow-x: hidden;
+-}
+-
+-#tablecontainer {
+-    padding-right: 12px;
+-}
+-
+-/* Scrollbar width */
+-#tablecontainer::-webkit-scrollbar {
+-    width: 12px;
+-}
+-
+-/* Scrollbar background colour */
+-#tablecontainer::-webkit-scrollbar-track {
+-    background: rgba(211, 211, 211, 1);
+-}
+-
+-/* Scroller thumb colour and shape, border makes it look spaced from the sides */
+-#tablecontainer::-webkit-scrollbar-thumb {
+-    background-color: grey;
+-    border-radius: 20px;
+-    border: 3px solid rgba(211, 211, 211, 1);
+-}
+-
+-.photo {
+-    margin: 0;
+-    padding: 0;
+-}
+-
+-.photo img {
+-    margin: 0;
+-    padding: 0;
+-}
+-
+-table.sortable thead tr {
+-    background-color: #009879;
+-    color: #ffffff;
+-    text-align: center;
+-}
+-
+-thead {
+-    position: sticky;
+-    top: 0;
+-}
+-
+-table.sortable th, td {
+-    padding: 12px 15px;
+-    max-height: 40px;
+-}
+-
+-
+-table.sortable tbody tr {
+-    border-bottom: 1px solid #dddddd;
+-}
+-
+-table.sortable tbody tr:nth-of-type(even) {
+-    background-color: #f3f3f3;
+-}
+-
+-table.sortable tbody tr:last-of-type {
+-    border-bottom: 2px solid #009879;
+-}
+-
+-.sortable th {
+-    cursor: pointer;
+-}
+-
+-.sortable th.no-sort {
+-    pointer-events: none;
+-}
+-
+-.sortable th.dir-d::after {
+-    content: "▾";
+-}
+-
+-.sortable th.dir-u::after {
+-    content: "▴";
+-}
+-
+-.sortable th.indicator-left::after {
+-    content: "";
+-}
+-
+-.sortable th.indicator-left::before {
+-    margin-right: 3px;
+-    content: "▸";
+-}
+-
+-.sortable th.indicator-left.dir-d::before {
+-    content: "▾";
+-}
+-
+-.sortable th.indicator-left.dir-u::before {
+-    content: "▴";
+-}
+-
+-select{
+-    margin-top: 1rem;
+-}
+-
+Index: target/classes/static/test.html
+===================================================================
+diff --git a/target/classes/static/test.html b/target/classes/static/test.html
+deleted file mode 100644
+--- a/target/classes/static/test.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,35 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Attacking Players by Goals Scored</title>
+-    <script src="js/test.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1>Attacking Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default.</h3>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th>Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: src/main/resources/static/js/sortable.min.js
+===================================================================
+diff --git a/src/main/resources/static/js/sortable.min.js b/src/main/resources/static/js/sortable.min.js
+deleted file mode 100644
+--- a/src/main/resources/static/js/sortable.min.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,8 +0,0 @@
+-document.addEventListener("click", function (b) {
+-    try {
+-        function f(a, c) { return a.nodeName === c ? a : f(a.parentNode, c) } var u = b.shiftKey || b.altKey, e = f(b.target, "TH"), m = f(e, "TR"), g = f(m, "TABLE"); function n(a, c) { a.classList.remove("dir-d"); a.classList.remove("dir-u"); c && a.classList.add(c) } function p(a) { return u && a.dataset["sort-alt"] || a.dataset.sort || a.textContent } if (g.classList.contains("sortable")) {
+-            var h, d = m.cells; for (b = 0; b < d.length; b++)d[b] === e ? h = parseInt(e.dataset["sort-col"]) || b : n(d[b], ""); d = "dir-d"; if (e.classList.contains("dir-d") ||
+-                g.classList.contains("asc") && !e.classList.contains("dir-u")) d = "dir-u"; n(e, d); var q = "dir-u" === d; for (b = 0; b < g.tBodies.length; b++) { var k = g.tBodies[b], l = [].slice.call(k.rows, 0); l.sort(function (a, c) { var r = p((q ? a : c).cells[h]); a = p((q ? c : a).cells[h]); c = parseFloat(r) - parseFloat(a); return isNaN(c) ? r.localeCompare(a) : c }); for (var t = k.cloneNode(); l.length;)t.appendChild(l.splice(0, 1)[0]); g.replaceChild(t, k) }
+-        }
+-    } catch (f) { }
+-});
+Index: target/classes/static/js/teambymetric.js
+===================================================================
+diff --git a/target/classes/static/js/teambymetric.js b/target/classes/static/js/teambymetric.js
+deleted file mode 100644
+--- a/target/classes/static/js/teambymetric.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,131 +0,0 @@
+-
+-// Would be best drafting this into proper functions in actual implementation to be used across all filter options
+-// - Sean
+-
+-let playerData;
+-
+-async function loadData(team) {
+-    //Get data from API
+-    try {
+-        const response = await fetch(`http://localhost:8080/team/${team}`);
+-        if (!response.ok) {
+-            throw new error(`HTTP Error: ${response.status}`);
+-        }
+-        const players = await response.json();
+-        // return players promise
+-        return players;
+-    }
+-    catch (error) {
+-        return error;
+-    }
+-}
+-
+-function createTable(players, sortBy) {
+-
+-    //Remove goalkeepers from list prior to sorting (as no goals stat)
+-    //Can have function in actual implementation that changes table labels based on
+-    //what stat is requested and filters players in results shown
+-    //For demo purposes players excl goalkeepers will do
+-    players.forEach(player => {
+-        if (player.position == "Goalkeeper") delete players[players.indexOf(player)];
+-    });
+-
+-    //Sort list of players by chosen stat (does not work if attribute doesn't exist in player obj)
+-    players.sort((a, b) => (a[sortBy] > b[sortBy]) ? -1 : 1)
+-
+-    //Get table and remove any existing data
+-    const table = document.getElementById('tableBody');
+-    table.innerHTML = "";
+-    players.forEach(player => {
+-
+-        //Create table row and cells to display the info for player
+-        const newRow = document.createElement('tr');
+-        const playerPhotoCell = document.createElement('td');
+-        const playerName = document.createElement('td');
+-        const playerTeam = document.createElement('td');
+-        const playerPosition = document.createElement('td');
+-        const playerMatchesPlayed = document.createElement('td');
+-        const playerShotsOnTarget = document.createElement('td');
+-        const playerGoals = document.createElement('td');
+-        const playerAssists = document.createElement('td');
+-
+-        //Create the img element to use in player photo cell and add url (src attribute), add in to cell
+-        const playerPhoto = document.createElement('img');
+-        playerPhoto.src = player.photoUrl;
+-        playerPhotoCell.className = 'photo';
+-        playerPhotoCell.appendChild(playerPhoto);
+-
+-        //Add the rest of the data to their cells
+-        playerName.innerText = `${player.firstName} ${player.lastName}`;
+-        playerTeam.innerText = player.team;
+-        playerPosition.innerText = player.position;
+-        playerMatchesPlayed.innerText = player.matchesPlayed;
+-        playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
+-        playerGoals.innerText = player.goals ? player.goals : 0;
+-        playerAssists.innerText = player.assists ? player.assists : 0;
+-
+-        //Add cells to row
+-        newRow.appendChild(playerPhotoCell);
+-        newRow.appendChild(playerName);
+-        newRow.appendChild(playerTeam)
+-        newRow.appendChild(playerPosition)
+-        newRow.appendChild(playerMatchesPlayed);
+-        newRow.appendChild(playerShotsOnTarget);
+-        newRow.appendChild(playerGoals);
+-        newRow.appendChild(playerAssists);
+-
+-        //Add row to table
+-        table.appendChild(newRow);
+-    }
+-    );
+-}
+-
+-//Runs on page load
+-window.onload = function () {
+-    //default value
+-    let teamSelection = "celtic";
+-    let statSelection = "goals";
+-    //Get data from api
+-    loadData(teamSelection).then(function (result) {
+-        //extract players from team obj
+-        playerData = result.players;
+-        //fill table. goals is again a default
+-        createTable(playerData, statSelection);
+-    });
+-
+-    //get stats selector obj and add event listener for change in selection
+-    const select = document.getElementById('selector');
+-    select.addEventListener('change', function (e) {
+-        statSelection = e.target.value;
+-        //update table with new results based on selection
+-        createTable(playerData, statSelection);
+-        //Update page heading
+-        updateTitle(teamSelection, statSelection);
+-    });
+-
+-    //get team selector obj and add event listener for change in selection
+-    const teamSelect = document.getElementById('teamSelector');
+-    teamSelect.addEventListener('change', function (e) {
+-        teamSelection = e.target.value;
+-        //get new team data from api and update table
+-        loadData(teamSelection).then(function (result) {
+-            playerData = result.players;
+-            createTable(playerData, statSelection);
+-            //Update page heading
+-            updateTitle(teamSelection, statSelection);
+-        });
+-    });
+-}
+-
+-const capitalise = function (str) {
+-    const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+-    return str2;
+-}
+-
+-const updateTitle = function (team, stat) {
+-    const title = document.getElementById('title');
+-    title.innerText = `${capitalise(team)} players by ${capitalise(stat)}`
+-}
+-
+-
+-
+Index: target/classes/static/teambymetric.html
+===================================================================
+diff --git a/target/classes/static/teambymetric.html b/target/classes/static/teambymetric.html
+deleted file mode 100644
+--- a/target/classes/static/teambymetric.html	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ /dev/null	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
+@@ -1,65 +0,0 @@
+-<html>
+-
+-<head>
+-    <title>Team Players</title>
+-    <script src="js/teambymetric.js"></script>
+-    <script src="js/sortable.min.js"></script>
+-    <link rel="stylesheet" href="css/style.css">
+-</head>
+-
+-<body>
+-    <main>
+-        <header>
+-            <h1 id="title">Players (Sortable)</h1>
+-            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+-            <small>Note: Goalkeepers are excluded as they do not use the same stats.</small><br>
+-            <select id="teamSelector">
+-            <option selected="selected">
+-                Choose Team...
+-                </option>
+-            <option value="celtic">Celtic</option>
+-            <option value="rangers">Rangers</option>
+-            <option value="heart of midlothian">Hearts</option>
+-            <option value="hibernian">Hibernian</option>
+-            <option value="aberdeen">Aberdeen</option>
+-            <option value="st mirren">St Mirren</option>
+-            <option value="livingston">Livingston</option>
+-            <option value="st johnstone">St Johnstone</option>
+-            <option value="motherwell">Motherwell</option>
+-            <option value="ross county">Ross County</option>
+-            <option value="kilmarnock">Kilmarnock</option>
+-            <option value="dundee utd">Dundee United</option>
+-        </select>
+-        <select id="selector">
+-            <option selected="selected">
+-                Choose Stat...
+-                </option>
+-            <option value="matchesPlayed">Matches Played</option>
+-            <option value="shotsOnTarget">Shots On Target</option>
+-            <option value="goals">Goals</option>
+-            <option value="assists">Assists</option>
+-        </select>
+-        </header>
+-        <div id="tablecontainer">
+-            <table id="playerTable" class="scrolldown sortable">
+-                <thead>
+-                    <tr>
+-                        <th class="no-sort">Photo</th>
+-                        <th>Name</th>
+-                        <th>Team</th>
+-                        <th>Position</th>
+-                        <th id="#matchesPlayed">Matches Played</th>
+-                        <th>Shots On Target</th>
+-                        <th>Goals</th>
+-                        <th>Assists</th>
+-                    </tr>
+-                </thead>
+-                <tbody id="tableBody">
+-                </tbody>
+-            </table>
+-        </div>
+-        
+-    </main>
+-</body>
+-
+-</html>
+\ No newline at end of file
+Index: app/ip3-app/src/css/Tabs.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>* {\r\n  box-sizing: border-box;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n\r\n/* Tab Container */\r\n.Tabs {\r\n  margin-right: auto;\r\n  margin-left: auto;\r\n  width: 80%;\r\n  overflow: hidden;\r\n  min-height: 400px;\r\n  background: transparent;\r\n  padding: 2rem 1rem;\r\n  color: #000000;\r\n  border: 1px solid #000000;\r\n\r\n  border-radius: 2rem;\r\n  @media (max-width: 769px) {\r\n    padding: 2rem 0;\r\n  }\r\n\r\n}\r\n\r\n.Tabs small{\r\n    font-size: 1rem;\r\n}\r\n\r\n.pitch{\r\n    position: relative;\r\n    width: 100%;\r\n    height: auto;\r\n    background-size: contain;\r\n/*    background-repeat: no-repeat;*/\r\n    border: 0.25rem solid rgba(000, 0, 0, 1) ;\r\n    border-radius: 1%;\r\n}\r\n\r\n.player{\r\n    position: absolute;\r\n    width: 7%;\r\n    height: 10.5%;\r\n    border-radius: 50%;\r\n    border: 3px rgba(000, 32, 96, 1) solid;\r\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    font-size: 0.8rem;\r\n    cursor: pointer;\r\n}\r\n\r\n.playerPosMarker{\r\n    color: white;\r\n    font-size: 1.75rem;\r\n    font-weight: bold;\r\n    -webkit-text-stroke: 2px rgba(000, 32, 96, 1);\r\n     position: absolute;\r\n     display: inline-block;\r\n     text-align: center;\r\n     top: 110%;\r\n     right: 25%;\r\n}\r\n\r\n.player::before {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 50%;\r\n  margin-left: -13px;\r\n  border-width: 13px;\r\n  border-style: solid;\r\n  border-color: rgba(000, 32, 96, 1) transparent transparent transparent;\r\n}\r\n\r\n.playerToolTip{\r\n  position: relative;\r\n  display: inline-block;\r\n  border: 1px solid white;\r\n}\r\n\r\n.playerToolTip tr, .playerToolTip td, .playerToolTip th{\r\n    padding: 0.2rem;\r\n}\r\n\r\n.player .playerToolTip {\r\n  visibility: hidden;\r\n  width: 300%;\r\n  background-color: rgba(000, 32, 96, 1);\r\n  color: #fff;\r\n  text-align: center;\r\n  border-radius: 6px;\r\n  padding: 2px 0;\r\n  position: absolute;\r\n  z-index: 50;\r\n  bottom: 110%;\r\n  left: -100%;\r\n  opacity: 0;\r\n  transition: opacity 0.3s;\r\n}\r\n\r\n.player .playerToolTip::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 50%;\r\n  margin-left: -10px;\r\n  border-width: 10px;\r\n  border-style: solid;\r\n  border-color: #fff transparent transparent transparent;\r\n}\r\n\r\n\r\n\r\n.player:hover .playerToolTip {\r\n  visibility: visible;\r\n  opacity: 1;\r\n}\r\n\r\n.Best11tab img{\r\n    visibility: hidden;\r\n}\r\n\r\n.pitch img{\r\n    width: 100%;\r\n    border-radius: 1%;\r\n}\r\n\r\n/* Tab Navigation */\r\nul.Tabnav {\r\n  width: 60%;\r\n  margin: 0 auto 2rem;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  /* border: 1px solid #39A2DB; */\r\n  border: 1px solid #000000;\r\n\r\n  border-radius: 2rem;\r\n  padding-left: 0px;\r\n\r\n  @media (max-width: 768px) {\r\n    width: 90%;\r\n  }\r\n}\r\n\r\nul.Tabnav li {\r\n  width: 50%;\r\n  padding: 1rem;\r\n  list-style: none;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  transition: all 0.7s;\r\n  background-color: \t#87CEEB;\r\n}\r\n\r\nul.Tabnav li:first-child {\r\n  border-bottom-left-radius: 2rem;\r\n  border-top-left-radius: 2rem;\r\n}\r\n\r\nul.Tabnav li:last-child {\r\n  border-bottom-right-radius: 2rem;\r\n  border-top-right-radius: 2rem;\r\n}\r\n\r\nul.Tabnav li:hover {\r\n  /* background: rgba(50, 224, 196, 0.15); */\r\n  background: rgb(65,105,225);\r\n\r\n}\r\n\r\nul.Tabnav li.active {\r\n  /* background: #39A2DB; */\r\n  background:rgb(65,105,225);\r\n\r\n}\r\n\r\n/* Tab Content Styles */\r\n.TabContent {\r\n  font-size: 2rem;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/ip3-app/src/css/Tabs.css b/app/ip3-app/src/css/Tabs.css
+--- a/app/ip3-app/src/css/Tabs.css	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/app/ip3-app/src/css/Tabs.css	(date 1680086966562)
+@@ -11,7 +11,7 @@
+   width: 80%;
+   overflow: hidden;
+   min-height: 400px;
+-  background: transparent;
++  background: white;
+   padding: 2rem 1rem;
+   color: #000000;
+   border: 1px solid #000000;
+@@ -80,7 +80,9 @@
+ }
+ 
+ .playerToolTip tr, .playerToolTip td, .playerToolTip th{
++    background-color: transparent;
+     padding: 0.2rem;
++    color: white;
+ }
+ 
+ .player .playerToolTip {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e9a962e8-ecf3-4633-8ea0-69cb6ba4a991\" name=\"Changes\" comment=\"CSS update#1\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_21_21__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_21_21__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_18_28__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_18_28__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"origin/ubaid\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"seanlaughlin2 &lt;seanslaughlin@gmail.com&gt;\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"PlayerPage\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"JpbToolWindowState\">\r\n    <option name=\"myId2FirstActivated\">\r\n      <map>\r\n        <entry key=\"com.haulmont.jpb.jpaStructure\" value=\"true\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"myId2Visible\">\r\n      <map>\r\n        <entry key=\"com.haulmont.jpb.jpaStructure\" value=\"true\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2M6Pt692RK26KIejGE1ehO35jxr\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\r\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\r\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\r\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Best11Application\">\r\n    <configuration name=\"Best11Application\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"17\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.IP3G11.Best11.Best11Application\" />\r\n      <module name=\"Best11\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Heapsort\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.IP3G11.Best11.Heapsort\" />\r\n      <module name=\"Best11\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.IP3G11.Best11.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MergeSort\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.IP3G11.Best11.MergeSort\" />\r\n      <module name=\"Best11\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.IP3G11.Best11.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Best11Application\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Best11\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.IP3G11.Best11.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.IP3G11.Best11.Best11Application\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.Best11Application\" />\r\n      <item itemvalue=\"Application.Heapsort\" />\r\n      <item itemvalue=\"Application.MergeSort\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.MergeSort\" />\r\n        <item itemvalue=\"Application.Heapsort\" />\r\n        <item itemvalue=\"Application.MergeSort\" />\r\n        <item itemvalue=\"Application.Heapsort\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e9a962e8-ecf3-4633-8ea0-69cb6ba4a991\" name=\"Changes\" comment=\"\" />\r\n      <created>1677085270696</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1677085270696</updated>\r\n      <workItem from=\"1678722552717\" duration=\"3915000\" />\r\n      <workItem from=\"1679065598209\" duration=\"3738000\" />\r\n      <workItem from=\"1679526419701\" duration=\"932000\" />\r\n      <workItem from=\"1679528831240\" duration=\"5314000\" />\r\n      <workItem from=\"1679663253030\" duration=\"2113000\" />\r\n      <workItem from=\"1679766101849\" duration=\"1387000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\r\n      <created>1677089207658</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677089207658</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"changed team name variable name\">\r\n      <created>1677089448280</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677089448280</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added PlayerApiRepo and PlayerService, getTeams() to get all Team Names and ID from SPL and getTeamId() to get the id of a team by name.\">\r\n      <created>1677093945762</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677093945762</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Added PlayerApiRepo and PlayerService, getTeams() to get all Team Names and ID from SPL and getTeamId() to get the id of a team by name.\">\r\n      <created>1677094086306</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677094086306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Added PlayerApiRepo and PlayerService, getTeams() to get all Team Names and ID from SPL and getTeamId() to get the id of a team by name.\">\r\n      <created>1677094582525</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677094582525</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Fix on file issue\">\r\n      <created>1677094701028</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677094701028</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Fix on file issue\">\r\n      <created>1677095074160</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677095074160</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Fix on file issue\">\r\n      <created>1677095148768</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677095148768</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Fix on file issue\">\r\n      <created>1677095706441</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677095706441</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Fix on file issue\">\r\n      <created>1677107270420</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677107270420</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Changed usage of repo in controller to service, repo is now instantiable and saves team list on instantiation\">\r\n      <created>1677108029716</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677108029716</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\".\">\r\n      <created>1677184182404</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677184182404</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Team Page with Basic CSS Working\">\r\n      <created>1679600336199</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679600336199</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"CSS update#1\">\r\n      <created>1680054952690</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680054952690</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial Commit\" />\r\n    <MESSAGE value=\"changed team name variable name\" />\r\n    <MESSAGE value=\"Added PlayerApiRepo and PlayerService, getTeams() to get all Team Names and ID from SPL and getTeamId() to get the id of a team by name.\" />\r\n    <MESSAGE value=\"Fix on file issue\" />\r\n    <MESSAGE value=\"Changed usage of repo in controller to service, repo is now instantiable and saves team list on instantiation\" />\r\n    <MESSAGE value=\"Added method to determine subclass of player and populate fields\" />\r\n    <MESSAGE value=\"Basic Team Page Functionality\" />\r\n    <MESSAGE value=\"Team Page with Basic CSS Working\" />\r\n    <MESSAGE value=\"CSS update#1\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"CSS update#1\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/.idea/workspace.xml	(date 1680179278873)
+@@ -4,33 +4,55 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="CSS update#1">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_12_58__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_00__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023_13_02__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_21_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_03_2023_21_21__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_18_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_2023_18_28__Changes_.xml" afterDir="false" />
++    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="added box shadow to search results box">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/Navbar.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Teams.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Teams.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/table.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/controllers/PlayerController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/repositories/PlayerRepo.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/FixtureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/FixtureService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/PlayerService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/allplayersbymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/attackersbymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/allbymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/attackersbymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/sortable.min.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/teambymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/teambymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/test.html" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/PlayerController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Attacker.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Defender.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Goalkeeper.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Midfielder.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/Player.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/model/TeamStats.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/PlayerService.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/allplayersbymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/attackersbymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/js/allbymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/js/attackersbymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/js/sortable.min.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/js/teambymetric.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/teambymetric.html" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/static/test.html" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -71,12 +93,16 @@
+   <component name="JpbToolWindowState">
+     <option name="myId2FirstActivated">
+       <map>
++        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
++        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+       </map>
+     </option>
+     <option name="myId2Visible">
+       <map>
+-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
++        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
++        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
++        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+       </map>
+     </option>
+   </component>
+@@ -286,7 +312,91 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680054952690</updated>
+     </task>
+-    <option name="localTasksCounter" value="15" />
++    <task id="LOCAL-00015" summary="updated playerservice and playerrepo">
++      <created>1680096035714</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1680096035714</updated>
++    </task>
++    <task id="LOCAL-00016" summary="updated playerservice and playerrepo">
++      <created>1680096736142</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1680096736142</updated>
++    </task>
++    <task id="LOCAL-00017" summary="Added get last 5 and next 3 by team">
++      <created>1680108962237</created>
++      <option name="number" value="00017" />
++      <option name="presentableId" value="LOCAL-00017" />
++      <option name="project" value="LOCAL" />
++      <updated>1680108962238</updated>
++    </task>
++    <task id="LOCAL-00018" summary="Added get last 5 and next 3 by team">
++      <created>1680109032069</created>
++      <option name="number" value="00018" />
++      <option name="presentableId" value="LOCAL-00018" />
++      <option name="project" value="LOCAL" />
++      <updated>1680109032069</updated>
++    </task>
++    <task id="LOCAL-00019" summary="Added live search for player">
++      <created>1680113534998</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1680113534998</updated>
++    </task>
++    <task id="LOCAL-00020" summary="added code to scroll results table to top upon hiding">
++      <created>1680113903274</created>
++      <option name="number" value="00020" />
++      <option name="presentableId" value="LOCAL-00020" />
++      <option name="project" value="LOCAL" />
++      <updated>1680113903274</updated>
++    </task>
++    <task id="LOCAL-00021" summary="position absolute added to search">
++      <created>1680116068860</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1680116068860</updated>
++    </task>
++    <task id="LOCAL-00022" summary="height auto for search results">
++      <created>1680116182960</created>
++      <option name="number" value="00022" />
++      <option name="presentableId" value="LOCAL-00022" />
++      <option name="project" value="LOCAL" />
++      <updated>1680116182960</updated>
++    </task>
++    <task id="LOCAL-00023" summary="polished and sized search bar">
++      <created>1680121080138</created>
++      <option name="number" value="00023" />
++      <option name="presentableId" value="LOCAL-00023" />
++      <option name="project" value="LOCAL" />
++      <updated>1680121080138</updated>
++    </task>
++    <task id="LOCAL-00024" summary="polished and sized search bar">
++      <created>1680121776542</created>
++      <option name="number" value="00024" />
++      <option name="presentableId" value="LOCAL-00024" />
++      <option name="project" value="LOCAL" />
++      <updated>1680121776542</updated>
++    </task>
++    <task id="LOCAL-00025" summary="polished and sized search bar">
++      <created>1680129837468</created>
++      <option name="number" value="00025" />
++      <option name="presentableId" value="LOCAL-00025" />
++      <option name="project" value="LOCAL" />
++      <updated>1680129837468</updated>
++    </task>
++    <task id="LOCAL-00026" summary="added box shadow to search box">
++      <created>1680130110451</created>
++      <option name="number" value="00026" />
++      <option name="presentableId" value="LOCAL-00026" />
++      <option name="project" value="LOCAL" />
++      <updated>1680130110451</updated>
++    </task>
++    <option name="localTasksCounter" value="27" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -313,7 +423,15 @@
+     <MESSAGE value="Basic Team Page Functionality" />
+     <MESSAGE value="Team Page with Basic CSS Working" />
+     <MESSAGE value="CSS update#1" />
+-    <option name="LAST_COMMIT_MESSAGE" value="CSS update#1" />
++    <MESSAGE value="updated playerservice and playerrepo" />
++    <MESSAGE value="Added get last 5 and next 3 by team" />
++    <MESSAGE value="Added live search for player" />
++    <MESSAGE value="added code to scroll results table to top upon hiding" />
++    <MESSAGE value="position absolute added to search" />
++    <MESSAGE value="height auto for search results" />
++    <MESSAGE value="polished and sized search bar" />
++    <MESSAGE value="added box shadow to search box" />
++    <option name="LAST_COMMIT_MESSAGE" value="added box shadow to search box" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: app/ip3-app/node_modules/.cache/.eslintcache
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[{\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\index.js\":\"1\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\App.js\":\"2\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\reportWebVitals.js\":\"3\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Ranking.js\":\"4\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Footer.js\":\"5\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Teams.js\":\"6\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Player.js\":\"7\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Managers.js\":\"8\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Navbar.js\":\"9\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Home.js\":\"10\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Helpers\\\\sortable.min.js\":\"11\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Helpers\\\\Api.js\":\"12\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Table.js\":\"13\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\SearchBar.js\":\"14\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\Tabs.js\":\"15\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\TabNavItem.js\":\"16\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\TabContent.js\":\"17\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerCompare.js\":\"18\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\AllTabs\\\\FirstTab.js\":\"19\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerResultsCard.js\":\"20\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\DonutChart.js\":\"21\",\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerCard.js\":\"22\"},{\"size\":672,\"mtime\":1680015879360,\"results\":\"23\",\"hashOfConfig\":\"24\"},{\"size\":1229,\"mtime\":1680015879338,\"results\":\"25\",\"hashOfConfig\":\"24\"},{\"size\":375,\"mtime\":1680015879361,\"results\":\"26\",\"hashOfConfig\":\"24\"},{\"size\":796,\"mtime\":1680051467483,\"results\":\"27\",\"hashOfConfig\":\"24\"},{\"size\":190,\"mtime\":1680020582899,\"results\":\"28\",\"hashOfConfig\":\"24\"},{\"size\":18707,\"mtime\":1680052382325,\"results\":\"29\",\"hashOfConfig\":\"24\"},{\"size\":6726,\"mtime\":1680054862435,\"results\":\"30\",\"hashOfConfig\":\"24\"},{\"size\":6591,\"mtime\":1680015879345,\"results\":\"31\",\"hashOfConfig\":\"24\"},{\"size\":960,\"mtime\":1680027320281,\"results\":\"32\",\"hashOfConfig\":\"24\"},{\"size\":1246,\"mtime\":1680053358828,\"results\":\"33\",\"hashOfConfig\":\"24\"},{\"size\":1160,\"mtime\":1680015879344,\"results\":\"34\",\"hashOfConfig\":\"24\"},{\"size\":103,\"mtime\":1680015879343,\"results\":\"35\",\"hashOfConfig\":\"24\"},{\"size\":839,\"mtime\":1680020403183,\"results\":\"36\",\"hashOfConfig\":\"24\"},{\"size\":1199,\"mtime\":1680015879341,\"results\":\"37\",\"hashOfConfig\":\"24\"},{\"size\":1169,\"mtime\":1680015879343,\"results\":\"38\",\"hashOfConfig\":\"24\"},{\"size\":304,\"mtime\":1680015879342,\"results\":\"39\",\"hashOfConfig\":\"24\"},{\"size\":226,\"mtime\":1680015879342,\"results\":\"40\",\"hashOfConfig\":\"24\"},{\"size\":3493,\"mtime\":1680054634056,\"results\":\"41\",\"hashOfConfig\":\"24\"},{\"size\":9573,\"mtime\":1680054862435,\"results\":\"42\",\"hashOfConfig\":\"24\"},{\"size\":1719,\"mtime\":1680015879340,\"results\":\"43\",\"hashOfConfig\":\"24\"},{\"size\":11981,\"mtime\":1680015879339,\"results\":\"44\",\"hashOfConfig\":\"24\"},{\"size\":1800,\"mtime\":1680015879340,\"results\":\"45\",\"hashOfConfig\":\"24\"},{\"filePath\":\"46\",\"messages\":\"47\",\"suppressedMessages\":\"48\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},\"1afn2mu\",{\"filePath\":\"49\",\"messages\":\"50\",\"suppressedMessages\":\"51\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"52\",\"messages\":\"53\",\"suppressedMessages\":\"54\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"55\",\"messages\":\"56\",\"suppressedMessages\":\"57\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":2,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"58\",\"messages\":\"59\",\"suppressedMessages\":\"60\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"61\",\"messages\":\"62\",\"suppressedMessages\":\"63\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":8,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"64\",\"messages\":\"65\",\"suppressedMessages\":\"66\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":5,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"67\",\"messages\":\"68\",\"suppressedMessages\":\"69\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":5,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"70\",\"messages\":\"71\",\"suppressedMessages\":\"72\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"73\",\"messages\":\"74\",\"suppressedMessages\":\"75\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"76\",\"messages\":\"77\",\"suppressedMessages\":\"78\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":4,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"79\",\"messages\":\"80\",\"suppressedMessages\":\"81\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"82\",\"messages\":\"83\",\"suppressedMessages\":\"84\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"85\",\"messages\":\"86\",\"suppressedMessages\":\"87\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"88\",\"messages\":\"89\",\"suppressedMessages\":\"90\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"91\",\"messages\":\"92\",\"suppressedMessages\":\"93\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"94\",\"messages\":\"95\",\"suppressedMessages\":\"96\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0},{\"filePath\":\"97\",\"messages\":\"98\",\"suppressedMessages\":\"99\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":4,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"100\",\"messages\":\"101\",\"suppressedMessages\":\"102\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":25,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"103\",\"messages\":\"104\",\"suppressedMessages\":\"105\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":2,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"106\",\"messages\":\"107\",\"suppressedMessages\":\"108\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":11,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"109\",\"messages\":\"110\",\"suppressedMessages\":\"111\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":2,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\index.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\App.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\reportWebVitals.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Ranking.js\",[\"112\",\"113\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Footer.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Teams.js\",[\"114\",\"115\",\"116\",\"117\",\"118\",\"119\",\"120\",\"121\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Player.js\",[\"122\",\"123\",\"124\",\"125\",\"126\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Managers.js\",[\"127\",\"128\",\"129\",\"130\",\"131\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Navbar.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Pages\\\\Home.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Helpers\\\\sortable.min.js\",[\"132\",\"133\",\"134\",\"135\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Helpers\\\\Api.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\Table.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\SearchBar.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\Tabs.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\TabNavItem.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\TabContent.js\",[],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerCompare.js\",[\"136\",\"137\",\"138\",\"139\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\TabComponent\\\\AllTabs\\\\FirstTab.js\",[\"140\",\"141\",\"142\",\"143\",\"144\",\"145\",\"146\",\"147\",\"148\",\"149\",\"150\",\"151\",\"152\",\"153\",\"154\",\"155\",\"156\",\"157\",\"158\",\"159\",\"160\",\"161\",\"162\",\"163\",\"164\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerResultsCard.js\",[\"165\",\"166\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\DonutChart.js\",[\"167\",\"168\",\"169\",\"170\",\"171\",\"172\",\"173\",\"174\",\"175\",\"176\",\"177\"],[],\"C:\\\\Users\\\\mohsi\\\\IdeaProjects\\\\IP3\\\\app\\\\ip3-app\\\\src\\\\Component\\\\PlayerCard.js\",[\"178\",\"179\"],[],{\"ruleId\":\"180\",\"severity\":1,\"message\":\"181\",\"line\":2,\"column\":8,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":2,\"endColumn\":11},{\"ruleId\":\"184\",\"severity\":1,\"message\":\"185\",\"line\":12,\"column\":17,\"nodeType\":\"186\",\"endLine\":12,\"endColumn\":89},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"187\",\"line\":1,\"column\":27,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":36},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"188\",\"line\":5,\"column\":8,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":5,\"endColumn\":16},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"189\",\"line\":9,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":9,\"endColumn\":20},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"190\",\"line\":11,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":11,\"endColumn\":21},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"191\",\"line\":12,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":12,\"endColumn\":25},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"192\",\"line\":13,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":13,\"endColumn\":25},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"193\",\"line\":14,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":14,\"endColumn\":23},{\"ruleId\":\"194\",\"severity\":1,\"message\":\"195\",\"line\":152,\"column\":39,\"nodeType\":\"196\",\"messageId\":\"197\",\"endLine\":152,\"endColumn\":41},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"187\",\"line\":1,\"column\":10,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":19},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":67,\"column\":28,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":67,\"endColumn\":30},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":92,\"column\":28,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":92,\"endColumn\":30},{\"ruleId\":\"202\",\"severity\":1,\"message\":\"203\",\"line\":139,\"column\":37,\"nodeType\":\"186\",\"endLine\":139,\"endColumn\":70},{\"ruleId\":\"202\",\"severity\":1,\"message\":\"203\",\"line\":174,\"column\":37,\"nodeType\":\"186\",\"endLine\":174,\"endColumn\":70},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"187\",\"line\":1,\"column\":10,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":19},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":65,\"column\":28,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":65,\"endColumn\":30},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":90,\"column\":28,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":90,\"endColumn\":30},{\"ruleId\":\"202\",\"severity\":1,\"message\":\"203\",\"line\":137,\"column\":37,\"nodeType\":\"186\",\"endLine\":137,\"endColumn\":70},{\"ruleId\":\"202\",\"severity\":1,\"message\":\"203\",\"line\":172,\"column\":37,\"nodeType\":\"186\",\"endLine\":172,\"endColumn\":70},{\"ruleId\":\"204\",\"severity\":1,\"message\":\"205\",\"line\":3,\"column\":297,\"nodeType\":\"206\",\"messageId\":\"207\",\"endLine\":3,\"endColumn\":299},{\"ruleId\":\"204\",\"severity\":1,\"message\":\"205\",\"line\":3,\"column\":322,\"nodeType\":\"206\",\"messageId\":\"207\",\"endLine\":3,\"endColumn\":324},{\"ruleId\":\"204\",\"severity\":1,\"message\":\"208\",\"line\":4,\"column\":179,\"nodeType\":\"206\",\"messageId\":\"207\",\"endLine\":4,\"endColumn\":181},{\"ruleId\":\"204\",\"severity\":1,\"message\":\"208\",\"line\":5,\"column\":45,\"nodeType\":\"206\",\"messageId\":\"207\",\"endLine\":5,\"endColumn\":47},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"209\",\"line\":7,\"column\":8,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":7,\"endColumn\":18},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"210\",\"line\":37,\"column\":29,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":37,\"endColumn\":47},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":84,\"column\":44,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":84,\"endColumn\":46},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":89,\"column\":45,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":89,\"endColumn\":47},{\"ruleId\":\"211\",\"severity\":1,\"message\":\"212\",\"line\":8,\"column\":26,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":8,\"endColumn\":38},{\"ruleId\":\"211\",\"severity\":1,\"message\":\"212\",\"line\":9,\"column\":23,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":9,\"endColumn\":35},{\"ruleId\":\"211\",\"severity\":1,\"message\":\"212\",\"line\":13,\"column\":22,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":13,\"endColumn\":34},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"215\",\"line\":18,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":18,\"endColumn\":18},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"216\",\"line\":18,\"column\":20,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":18,\"endColumn\":29},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"217\",\"line\":19,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":19,\"endColumn\":19},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"218\",\"line\":20,\"column\":12,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":20,\"endColumn\":16},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"219\",\"line\":20,\"column\":18,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":20,\"endColumn\":25},{\"ruleId\":\"220\",\"severity\":1,\"message\":\"221\",\"line\":110,\"column\":8,\"nodeType\":\"222\",\"endLine\":110,\"endColumn\":10,\"suggestions\":\"223\"},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":120,\"column\":26,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":120,\"endColumn\":37},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":121,\"column\":25,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":121,\"endColumn\":36},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":122,\"column\":27,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":122,\"endColumn\":38},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":123,\"column\":27,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":123,\"endColumn\":38},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":124,\"column\":34,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":124,\"endColumn\":45},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":125,\"column\":36,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":125,\"endColumn\":47},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":126,\"column\":31,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":126,\"endColumn\":42},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":127,\"column\":32,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":127,\"endColumn\":43},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":128,\"column\":27,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":128,\"endColumn\":38},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":129,\"column\":28,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":129,\"endColumn\":39},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":130,\"column\":30,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":130,\"endColumn\":41},{\"ruleId\":\"226\",\"severity\":1,\"message\":\"227\",\"line\":133,\"column\":13,\"nodeType\":\"228\",\"messageId\":\"229\",\"endLine\":167,\"endColumn\":14},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":170,\"column\":24,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":170,\"endColumn\":35},{\"ruleId\":\"224\",\"severity\":1,\"message\":\"225\",\"line\":185,\"column\":28,\"nodeType\":\"213\",\"messageId\":\"214\",\"endLine\":185,\"endColumn\":39},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":188,\"column\":40,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":188,\"endColumn\":42},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":188,\"column\":83,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":188,\"endColumn\":85},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"230\",\"line\":1,\"column\":17,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":25},{\"ruleId\":\"202\",\"severity\":1,\"message\":\"203\",\"line\":26,\"column\":17,\"nodeType\":\"186\",\"endLine\":26,\"endColumn\":69},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"187\",\"line\":1,\"column\":16,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":25},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"230\",\"line\":1,\"column\":27,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":35},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"231\",\"line\":10,\"column\":10,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":10,\"endColumn\":24},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"232\",\"line\":81,\"column\":9,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":81,\"endColumn\":17},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":109,\"column\":23,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":109,\"endColumn\":25},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"233\",\"line\":138,\"column\":11,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":138,\"endColumn\":16},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":169,\"column\":30,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":169,\"endColumn\":32},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":234,\"column\":30,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":234,\"endColumn\":32},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"233\",\"line\":263,\"column\":11,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":263,\"endColumn\":16},{\"ruleId\":\"198\",\"severity\":1,\"message\":\"199\",\"line\":294,\"column\":30,\"nodeType\":\"200\",\"messageId\":\"201\",\"endLine\":294,\"endColumn\":32},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"233\",\"line\":323,\"column\":11,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":323,\"endColumn\":16},{\"ruleId\":\"180\",\"severity\":1,\"message\":\"230\",\"line\":1,\"column\":17,\"nodeType\":\"182\",\"messageId\":\"183\",\"endLine\":1,\"endColumn\":25},{\"ruleId\":\"184\",\"severity\":1,\"message\":\"185\",\"line\":13,\"column\":21,\"nodeType\":\"186\",\"endLine\":13,\"endColumn\":90},\"no-unused-vars\",\"'Api' is defined but never used.\",\"Identifier\",\"unusedVar\",\"jsx-a11y/img-redundant-alt\",\"Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop.\",\"JSXOpeningElement\",\"'useEffect' is defined but never used.\",\"'Sortable' is defined but never used.\",\"'teamData' is assigned a value but never used.\",\"'teamStats' is assigned a value but never used.\",\"'teamHomeStats' is assigned a value but never used.\",\"'teamAwayStats' is assigned a value but never used.\",\"'teamGrounds' is assigned a value but never used.\",\"array-callback-return\",\"Array.prototype.map() expects a return value from arrow function.\",\"ArrowFunctionExpression\",\"expectedInside\",\"eqeqeq\",\"Expected '===' and instead saw '=='.\",\"BinaryExpression\",\"unexpected\",\"jsx-a11y/alt-text\",\"img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.\",\"no-mixed-operators\",\"Unexpected mix of '&&' and '||'. Use parentheses to clarify the intended order of operations.\",\"LogicalExpression\",\"unexpectedMixedOperator\",\"Unexpected mix of '||' and '&&'. Use parentheses to clarify the intended order of operations.\",\"'DonutChart' is defined but never used.\",\"'setSelectedPlayers' is assigned a value but never used.\",\"no-new-object\",\"The object literal notation {} is preferable.\",\"NewExpression\",\"preferLiteral\",\"'player' is assigned a value but never used.\",\"'setPlayer' is assigned a value but never used.\",\"'players' is assigned a value but never used.\",\"'test' is assigned a value but never used.\",\"'setTest' is assigned a value but never used.\",\"react-hooks/exhaustive-deps\",\"React Hook useEffect has a missing dependency: 'searchPlayers'. Either include it or remove the dependency array.\",\"ArrayExpression\",[\"234\"],\"no-array-constructor\",\"The array literal notation [] is preferable.\",\"default-case\",\"Expected a default case.\",\"SwitchStatement\",\"missingDefaultCase\",\"'useState' is defined but never used.\",\"'AnimatedNumber' is defined but never used.\",\"'options4' is assigned a value but never used.\",\"'data4' is assigned a value but never used.\",{\"desc\":\"235\",\"fix\":\"236\"},\"Update the dependencies array to be: [searchPlayers]\",{\"range\":\"237\",\"text\":\"238\"},[4288,4290],\"[searchPlayers]\"]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/ip3-app/node_modules/.cache/.eslintcache b/app/ip3-app/node_modules/.cache/.eslintcache
+--- a/app/ip3-app/node_modules/.cache/.eslintcache	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/app/ip3-app/node_modules/.cache/.eslintcache	(date 1680180383608)
+@@ -1,1 +1,1 @@
+-[{"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\index.js":"1","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\App.js":"2","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\reportWebVitals.js":"3","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Ranking.js":"4","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Footer.js":"5","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Teams.js":"6","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Player.js":"7","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Managers.js":"8","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Navbar.js":"9","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Home.js":"10","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Helpers\\sortable.min.js":"11","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Helpers\\Api.js":"12","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Table.js":"13","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\SearchBar.js":"14","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\Tabs.js":"15","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\TabNavItem.js":"16","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\TabContent.js":"17","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerCompare.js":"18","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\AllTabs\\FirstTab.js":"19","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerResultsCard.js":"20","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\DonutChart.js":"21","C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerCard.js":"22"},{"size":672,"mtime":1680015879360,"results":"23","hashOfConfig":"24"},{"size":1229,"mtime":1680015879338,"results":"25","hashOfConfig":"24"},{"size":375,"mtime":1680015879361,"results":"26","hashOfConfig":"24"},{"size":796,"mtime":1680051467483,"results":"27","hashOfConfig":"24"},{"size":190,"mtime":1680020582899,"results":"28","hashOfConfig":"24"},{"size":18707,"mtime":1680052382325,"results":"29","hashOfConfig":"24"},{"size":6726,"mtime":1680054862435,"results":"30","hashOfConfig":"24"},{"size":6591,"mtime":1680015879345,"results":"31","hashOfConfig":"24"},{"size":960,"mtime":1680027320281,"results":"32","hashOfConfig":"24"},{"size":1246,"mtime":1680053358828,"results":"33","hashOfConfig":"24"},{"size":1160,"mtime":1680015879344,"results":"34","hashOfConfig":"24"},{"size":103,"mtime":1680015879343,"results":"35","hashOfConfig":"24"},{"size":839,"mtime":1680020403183,"results":"36","hashOfConfig":"24"},{"size":1199,"mtime":1680015879341,"results":"37","hashOfConfig":"24"},{"size":1169,"mtime":1680015879343,"results":"38","hashOfConfig":"24"},{"size":304,"mtime":1680015879342,"results":"39","hashOfConfig":"24"},{"size":226,"mtime":1680015879342,"results":"40","hashOfConfig":"24"},{"size":3493,"mtime":1680054634056,"results":"41","hashOfConfig":"24"},{"size":9573,"mtime":1680054862435,"results":"42","hashOfConfig":"24"},{"size":1719,"mtime":1680015879340,"results":"43","hashOfConfig":"24"},{"size":11981,"mtime":1680015879339,"results":"44","hashOfConfig":"24"},{"size":1800,"mtime":1680015879340,"results":"45","hashOfConfig":"24"},{"filePath":"46","messages":"47","suppressedMessages":"48","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},"1afn2mu",{"filePath":"49","messages":"50","suppressedMessages":"51","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"52","messages":"53","suppressedMessages":"54","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"55","messages":"56","suppressedMessages":"57","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"58","messages":"59","suppressedMessages":"60","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"61","messages":"62","suppressedMessages":"63","errorCount":0,"fatalErrorCount":0,"warningCount":8,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"64","messages":"65","suppressedMessages":"66","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"67","messages":"68","suppressedMessages":"69","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"70","messages":"71","suppressedMessages":"72","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"73","messages":"74","suppressedMessages":"75","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"76","messages":"77","suppressedMessages":"78","errorCount":0,"fatalErrorCount":0,"warningCount":4,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"79","messages":"80","suppressedMessages":"81","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"82","messages":"83","suppressedMessages":"84","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"85","messages":"86","suppressedMessages":"87","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"88","messages":"89","suppressedMessages":"90","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"91","messages":"92","suppressedMessages":"93","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"94","messages":"95","suppressedMessages":"96","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"97","messages":"98","suppressedMessages":"99","errorCount":0,"fatalErrorCount":0,"warningCount":4,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"100","messages":"101","suppressedMessages":"102","errorCount":0,"fatalErrorCount":0,"warningCount":25,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"103","messages":"104","suppressedMessages":"105","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"106","messages":"107","suppressedMessages":"108","errorCount":0,"fatalErrorCount":0,"warningCount":11,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"109","messages":"110","suppressedMessages":"111","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\index.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\App.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\reportWebVitals.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Ranking.js",["112","113"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Footer.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Teams.js",["114","115","116","117","118","119","120","121"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Player.js",["122","123","124","125","126"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Managers.js",["127","128","129","130","131"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Navbar.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Pages\\Home.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Helpers\\sortable.min.js",["132","133","134","135"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Helpers\\Api.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\Table.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\SearchBar.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\Tabs.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\TabNavItem.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\TabContent.js",[],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerCompare.js",["136","137","138","139"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\TabComponent\\AllTabs\\FirstTab.js",["140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerResultsCard.js",["165","166"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\DonutChart.js",["167","168","169","170","171","172","173","174","175","176","177"],[],"C:\\Users\\mohsi\\IdeaProjects\\IP3\\app\\ip3-app\\src\\Component\\PlayerCard.js",["178","179"],[],{"ruleId":"180","severity":1,"message":"181","line":2,"column":8,"nodeType":"182","messageId":"183","endLine":2,"endColumn":11},{"ruleId":"184","severity":1,"message":"185","line":12,"column":17,"nodeType":"186","endLine":12,"endColumn":89},{"ruleId":"180","severity":1,"message":"187","line":1,"column":27,"nodeType":"182","messageId":"183","endLine":1,"endColumn":36},{"ruleId":"180","severity":1,"message":"188","line":5,"column":8,"nodeType":"182","messageId":"183","endLine":5,"endColumn":16},{"ruleId":"180","severity":1,"message":"189","line":9,"column":12,"nodeType":"182","messageId":"183","endLine":9,"endColumn":20},{"ruleId":"180","severity":1,"message":"190","line":11,"column":12,"nodeType":"182","messageId":"183","endLine":11,"endColumn":21},{"ruleId":"180","severity":1,"message":"191","line":12,"column":12,"nodeType":"182","messageId":"183","endLine":12,"endColumn":25},{"ruleId":"180","severity":1,"message":"192","line":13,"column":12,"nodeType":"182","messageId":"183","endLine":13,"endColumn":25},{"ruleId":"180","severity":1,"message":"193","line":14,"column":12,"nodeType":"182","messageId":"183","endLine":14,"endColumn":23},{"ruleId":"194","severity":1,"message":"195","line":152,"column":39,"nodeType":"196","messageId":"197","endLine":152,"endColumn":41},{"ruleId":"180","severity":1,"message":"187","line":1,"column":10,"nodeType":"182","messageId":"183","endLine":1,"endColumn":19},{"ruleId":"198","severity":1,"message":"199","line":67,"column":28,"nodeType":"200","messageId":"201","endLine":67,"endColumn":30},{"ruleId":"198","severity":1,"message":"199","line":92,"column":28,"nodeType":"200","messageId":"201","endLine":92,"endColumn":30},{"ruleId":"202","severity":1,"message":"203","line":139,"column":37,"nodeType":"186","endLine":139,"endColumn":70},{"ruleId":"202","severity":1,"message":"203","line":174,"column":37,"nodeType":"186","endLine":174,"endColumn":70},{"ruleId":"180","severity":1,"message":"187","line":1,"column":10,"nodeType":"182","messageId":"183","endLine":1,"endColumn":19},{"ruleId":"198","severity":1,"message":"199","line":65,"column":28,"nodeType":"200","messageId":"201","endLine":65,"endColumn":30},{"ruleId":"198","severity":1,"message":"199","line":90,"column":28,"nodeType":"200","messageId":"201","endLine":90,"endColumn":30},{"ruleId":"202","severity":1,"message":"203","line":137,"column":37,"nodeType":"186","endLine":137,"endColumn":70},{"ruleId":"202","severity":1,"message":"203","line":172,"column":37,"nodeType":"186","endLine":172,"endColumn":70},{"ruleId":"204","severity":1,"message":"205","line":3,"column":297,"nodeType":"206","messageId":"207","endLine":3,"endColumn":299},{"ruleId":"204","severity":1,"message":"205","line":3,"column":322,"nodeType":"206","messageId":"207","endLine":3,"endColumn":324},{"ruleId":"204","severity":1,"message":"208","line":4,"column":179,"nodeType":"206","messageId":"207","endLine":4,"endColumn":181},{"ruleId":"204","severity":1,"message":"208","line":5,"column":45,"nodeType":"206","messageId":"207","endLine":5,"endColumn":47},{"ruleId":"180","severity":1,"message":"209","line":7,"column":8,"nodeType":"182","messageId":"183","endLine":7,"endColumn":18},{"ruleId":"180","severity":1,"message":"210","line":37,"column":29,"nodeType":"182","messageId":"183","endLine":37,"endColumn":47},{"ruleId":"198","severity":1,"message":"199","line":84,"column":44,"nodeType":"200","messageId":"201","endLine":84,"endColumn":46},{"ruleId":"198","severity":1,"message":"199","line":89,"column":45,"nodeType":"200","messageId":"201","endLine":89,"endColumn":47},{"ruleId":"211","severity":1,"message":"212","line":8,"column":26,"nodeType":"213","messageId":"214","endLine":8,"endColumn":38},{"ruleId":"211","severity":1,"message":"212","line":9,"column":23,"nodeType":"213","messageId":"214","endLine":9,"endColumn":35},{"ruleId":"211","severity":1,"message":"212","line":13,"column":22,"nodeType":"213","messageId":"214","endLine":13,"endColumn":34},{"ruleId":"180","severity":1,"message":"215","line":18,"column":12,"nodeType":"182","messageId":"183","endLine":18,"endColumn":18},{"ruleId":"180","severity":1,"message":"216","line":18,"column":20,"nodeType":"182","messageId":"183","endLine":18,"endColumn":29},{"ruleId":"180","severity":1,"message":"217","line":19,"column":12,"nodeType":"182","messageId":"183","endLine":19,"endColumn":19},{"ruleId":"180","severity":1,"message":"218","line":20,"column":12,"nodeType":"182","messageId":"183","endLine":20,"endColumn":16},{"ruleId":"180","severity":1,"message":"219","line":20,"column":18,"nodeType":"182","messageId":"183","endLine":20,"endColumn":25},{"ruleId":"220","severity":1,"message":"221","line":110,"column":8,"nodeType":"222","endLine":110,"endColumn":10,"suggestions":"223"},{"ruleId":"224","severity":1,"message":"225","line":120,"column":26,"nodeType":"213","messageId":"214","endLine":120,"endColumn":37},{"ruleId":"224","severity":1,"message":"225","line":121,"column":25,"nodeType":"213","messageId":"214","endLine":121,"endColumn":36},{"ruleId":"224","severity":1,"message":"225","line":122,"column":27,"nodeType":"213","messageId":"214","endLine":122,"endColumn":38},{"ruleId":"224","severity":1,"message":"225","line":123,"column":27,"nodeType":"213","messageId":"214","endLine":123,"endColumn":38},{"ruleId":"224","severity":1,"message":"225","line":124,"column":34,"nodeType":"213","messageId":"214","endLine":124,"endColumn":45},{"ruleId":"224","severity":1,"message":"225","line":125,"column":36,"nodeType":"213","messageId":"214","endLine":125,"endColumn":47},{"ruleId":"224","severity":1,"message":"225","line":126,"column":31,"nodeType":"213","messageId":"214","endLine":126,"endColumn":42},{"ruleId":"224","severity":1,"message":"225","line":127,"column":32,"nodeType":"213","messageId":"214","endLine":127,"endColumn":43},{"ruleId":"224","severity":1,"message":"225","line":128,"column":27,"nodeType":"213","messageId":"214","endLine":128,"endColumn":38},{"ruleId":"224","severity":1,"message":"225","line":129,"column":28,"nodeType":"213","messageId":"214","endLine":129,"endColumn":39},{"ruleId":"224","severity":1,"message":"225","line":130,"column":30,"nodeType":"213","messageId":"214","endLine":130,"endColumn":41},{"ruleId":"226","severity":1,"message":"227","line":133,"column":13,"nodeType":"228","messageId":"229","endLine":167,"endColumn":14},{"ruleId":"224","severity":1,"message":"225","line":170,"column":24,"nodeType":"213","messageId":"214","endLine":170,"endColumn":35},{"ruleId":"224","severity":1,"message":"225","line":185,"column":28,"nodeType":"213","messageId":"214","endLine":185,"endColumn":39},{"ruleId":"198","severity":1,"message":"199","line":188,"column":40,"nodeType":"200","messageId":"201","endLine":188,"endColumn":42},{"ruleId":"198","severity":1,"message":"199","line":188,"column":83,"nodeType":"200","messageId":"201","endLine":188,"endColumn":85},{"ruleId":"180","severity":1,"message":"230","line":1,"column":17,"nodeType":"182","messageId":"183","endLine":1,"endColumn":25},{"ruleId":"202","severity":1,"message":"203","line":26,"column":17,"nodeType":"186","endLine":26,"endColumn":69},{"ruleId":"180","severity":1,"message":"187","line":1,"column":16,"nodeType":"182","messageId":"183","endLine":1,"endColumn":25},{"ruleId":"180","severity":1,"message":"230","line":1,"column":27,"nodeType":"182","messageId":"183","endLine":1,"endColumn":35},{"ruleId":"180","severity":1,"message":"231","line":10,"column":10,"nodeType":"182","messageId":"183","endLine":10,"endColumn":24},{"ruleId":"180","severity":1,"message":"232","line":81,"column":9,"nodeType":"182","messageId":"183","endLine":81,"endColumn":17},{"ruleId":"198","severity":1,"message":"199","line":109,"column":23,"nodeType":"200","messageId":"201","endLine":109,"endColumn":25},{"ruleId":"180","severity":1,"message":"233","line":138,"column":11,"nodeType":"182","messageId":"183","endLine":138,"endColumn":16},{"ruleId":"198","severity":1,"message":"199","line":169,"column":30,"nodeType":"200","messageId":"201","endLine":169,"endColumn":32},{"ruleId":"198","severity":1,"message":"199","line":234,"column":30,"nodeType":"200","messageId":"201","endLine":234,"endColumn":32},{"ruleId":"180","severity":1,"message":"233","line":263,"column":11,"nodeType":"182","messageId":"183","endLine":263,"endColumn":16},{"ruleId":"198","severity":1,"message":"199","line":294,"column":30,"nodeType":"200","messageId":"201","endLine":294,"endColumn":32},{"ruleId":"180","severity":1,"message":"233","line":323,"column":11,"nodeType":"182","messageId":"183","endLine":323,"endColumn":16},{"ruleId":"180","severity":1,"message":"230","line":1,"column":17,"nodeType":"182","messageId":"183","endLine":1,"endColumn":25},{"ruleId":"184","severity":1,"message":"185","line":13,"column":21,"nodeType":"186","endLine":13,"endColumn":90},"no-unused-vars","'Api' is defined but never used.","Identifier","unusedVar","jsx-a11y/img-redundant-alt","Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop.","JSXOpeningElement","'useEffect' is defined but never used.","'Sortable' is defined but never used.","'teamData' is assigned a value but never used.","'teamStats' is assigned a value but never used.","'teamHomeStats' is assigned a value but never used.","'teamAwayStats' is assigned a value but never used.","'teamGrounds' is assigned a value but never used.","array-callback-return","Array.prototype.map() expects a return value from arrow function.","ArrowFunctionExpression","expectedInside","eqeqeq","Expected '===' and instead saw '=='.","BinaryExpression","unexpected","jsx-a11y/alt-text","img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.","no-mixed-operators","Unexpected mix of '&&' and '||'. Use parentheses to clarify the intended order of operations.","LogicalExpression","unexpectedMixedOperator","Unexpected mix of '||' and '&&'. Use parentheses to clarify the intended order of operations.","'DonutChart' is defined but never used.","'setSelectedPlayers' is assigned a value but never used.","no-new-object","The object literal notation {} is preferable.","NewExpression","preferLiteral","'player' is assigned a value but never used.","'setPlayer' is assigned a value but never used.","'players' is assigned a value but never used.","'test' is assigned a value but never used.","'setTest' is assigned a value but never used.","react-hooks/exhaustive-deps","React Hook useEffect has a missing dependency: 'searchPlayers'. Either include it or remove the dependency array.","ArrayExpression",["234"],"no-array-constructor","The array literal notation [] is preferable.","default-case","Expected a default case.","SwitchStatement","missingDefaultCase","'useState' is defined but never used.","'AnimatedNumber' is defined but never used.","'options4' is assigned a value but never used.","'data4' is assigned a value but never used.",{"desc":"235","fix":"236"},"Update the dependencies array to be: [searchPlayers]",{"range":"237","text":"238"},[4288,4290],"[searchPlayers]"]
+\ No newline at end of file
++[{"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\index.js":"1","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\App.js":"2","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\reportWebVitals.js":"3","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Player.js":"4","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Teams.js":"5","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Footer.js":"6","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Home.js":"7","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Ranking.js":"8","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Managers.js":"9","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Navbar.js":"10","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Helpers\\Api.js":"11","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Helpers\\sortable.min.js":"12","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\SearchBar.js":"13","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Table.js":"14","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\Tabs.js":"15","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\TabContent.js":"16","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\TabNavItem.js":"17","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerCompare.js":"18","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\AllTabs\\FirstTab.js":"19","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerCard.js":"20","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerResultsCard.js":"21","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\DonutChart.js":"22"},{"size":672,"mtime":1679421456108,"results":"23","hashOfConfig":"24"},{"size":1229,"mtime":1679421456094,"results":"25","hashOfConfig":"24"},{"size":375,"mtime":1679421456109,"results":"26","hashOfConfig":"24"},{"size":5990,"mtime":1680180222549,"results":"27","hashOfConfig":"24"},{"size":18281,"mtime":1680180383398,"results":"28","hashOfConfig":"24"},{"size":190,"mtime":1680085559036,"results":"29","hashOfConfig":"24"},{"size":1232,"mtime":1680085559846,"results":"30","hashOfConfig":"24"},{"size":796,"mtime":1680085559041,"results":"31","hashOfConfig":"24"},{"size":6591,"mtime":1679832146990,"results":"32","hashOfConfig":"24"},{"size":928,"mtime":1680086195617,"results":"33","hashOfConfig":"24"},{"size":103,"mtime":1679421456101,"results":"34","hashOfConfig":"24"},{"size":1160,"mtime":1679830762342,"results":"35","hashOfConfig":"24"},{"size":1199,"mtime":1679659189800,"results":"36","hashOfConfig":"24"},{"size":839,"mtime":1680085559040,"results":"37","hashOfConfig":"24"},{"size":1169,"mtime":1679421456100,"results":"38","hashOfConfig":"24"},{"size":226,"mtime":1679421456099,"results":"39","hashOfConfig":"24"},{"size":304,"mtime":1679421456099,"results":"40","hashOfConfig":"24"},{"size":3493,"mtime":1680085559039,"results":"41","hashOfConfig":"24"},{"size":9573,"mtime":1679851692154,"results":"42","hashOfConfig":"24"},{"size":1800,"mtime":1680010266887,"results":"43","hashOfConfig":"24"},{"size":1719,"mtime":1680010266888,"results":"44","hashOfConfig":"24"},{"size":11981,"mtime":1680010266887,"results":"45","hashOfConfig":"24"},{"filePath":"46","messages":"47","suppressedMessages":"48","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},"s46bn6",{"filePath":"49","messages":"50","suppressedMessages":"51","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"52","messages":"53","suppressedMessages":"54","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"55","messages":"56","suppressedMessages":"57","errorCount":0,"fatalErrorCount":0,"warningCount":9,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"58","messages":"59","suppressedMessages":"60","errorCount":0,"fatalErrorCount":0,"warningCount":8,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"61","messages":"62","suppressedMessages":"63","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"64"},{"filePath":"65","messages":"66","suppressedMessages":"67","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"64"},{"filePath":"68","messages":"69","suppressedMessages":"70","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":"71","usedDeprecatedRules":"64"},{"filePath":"72","messages":"73","suppressedMessages":"74","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"75","messages":"76","suppressedMessages":"77","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"78","messages":"79","suppressedMessages":"80","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"81","messages":"82","suppressedMessages":"83","errorCount":0,"fatalErrorCount":0,"warningCount":4,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"84","messages":"85","suppressedMessages":"86","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"87","messages":"88","suppressedMessages":"89","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"64"},{"filePath":"90","messages":"91","suppressedMessages":"92","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"93","messages":"94","suppressedMessages":"95","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"96","messages":"97","suppressedMessages":"98","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0},{"filePath":"99","messages":"100","suppressedMessages":"101","errorCount":0,"fatalErrorCount":0,"warningCount":4,"fixableErrorCount":0,"fixableWarningCount":0,"source":"102","usedDeprecatedRules":"64"},{"filePath":"103","messages":"104","suppressedMessages":"105","errorCount":0,"fatalErrorCount":0,"warningCount":25,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"106","messages":"107","suppressedMessages":"108","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"109","messages":"110","suppressedMessages":"111","errorCount":0,"fatalErrorCount":0,"warningCount":2,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"112","messages":"113","suppressedMessages":"114","errorCount":0,"fatalErrorCount":0,"warningCount":11,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\index.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\App.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\reportWebVitals.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Player.js",["115","116","117","118","119","120","121","122","123"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Teams.js",["124","125","126","127","128","129","130","131"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Footer.js",[],[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Home.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Ranking.js",["132","133"],[],"import React from \"react\";\r\nimport Api from '../Helpers/Api';\r\nimport rankingimage2 from \"../images/rankingimage2.jpg\";\r\nimport Tabs from \"../Component/TabComponent/Tabs\";\r\n\r\n\r\nfunction Ranking() {\r\n\r\n    return (\r\n        <div className=\"Ranking\">\r\n            <div className=\"backgroundImage\">\r\n                <img className=\"rankingImage\" src={rankingimage2} alt=\"Ranking Image\" />\r\n            </div>\r\n            <div className=\"rankingMain\">\r\n                <div className=\"componentTabSection\">\r\n                    {/* <h1>This is the Component Tab Section</h1> */}\r\n                    <div className=\"TabComponent\">\r\n                        <Tabs />\r\n                    </div>\r\n\r\n                </div>\r\n\r\n            </div>\r\n\r\n\r\n        </div>\r\n    );\r\n\r\n};\r\nexport default Ranking;","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Pages\\Managers.js",["134","135","136","137","138"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Navbar.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Helpers\\Api.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Helpers\\sortable.min.js",["139","140","141","142"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\SearchBar.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\Table.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\Tabs.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\TabContent.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\TabNavItem.js",[],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerCompare.js",["143","144","145","146"],[],"import {React, useState} from \"react\";\r\nimport Api from '../Helpers/Api'; \r\nimport SearchBar from \"./SearchBar\";\r\nimport { useDrop } from \"react-dnd\";\r\nimport { PlayerResultsCard } from \"./PlayerResultsCard\";\r\nimport PlayerCard from \"./PlayerCard\";\r\nimport DonutChart from \"./DonutChart\";\r\n\r\n\r\nfunction PlayerCompare(){\r\n\r\n    const [player, setPlayer] = useState(\"\");\r\n    const [players, setPlayers] = useState([]); \r\n    const [showElement, setShowElement] = useState(false); \r\n\r\n    const searchPlayer = () => {\r\n        console.log(\"search button clicked\"); \r\n        Api.get(`search-player/${player}`)\r\n    .then(res => {\r\n        console.log(res.data); \r\n        setPlayers(res.data);\r\n        setShowElement(true);\r\n    })\r\n    .catch( err => {\r\n        console.log(err);\r\n    });\r\n};\r\n\r\n\r\nconst updatePlayer = (player) => {\r\n    setPlayer(player);\r\n }\r\n\r\n    const [basket, setBasket] = useState([]);\r\n    const [basket2, setBasket2] = useState([]);\r\n\r\n    const [selectedPlayers, setSelectedPlayers] = useState([]); \r\n\r\n    const [dropPlayer1, setDropPlayer1] = useState(\"\");\r\n    const [dropPlayer2, setDropPlayer2] = useState(\"\");\r\n\r\n    const [{ isOver }, dropRef] = useDrop({\r\n        accept: 'player',\r\n        drop: (item) => { \r\n            setBasket([]); \r\n            setBasket((basket) => \r\n                            !basket.includes(item.player) ? [...basket, item.player] : basket);\r\n                            selectedPlayers.push(item.player);\r\n                            setDropPlayer1(item.player);\r\n                        },\r\n        collect: (monitor) => ({\r\n            isOver: monitor.isOver()\r\n        }),\r\n    });\r\n\r\n    \r\n    const [{ isOver2 }, dropRef2] = useDrop({\r\n        accept: 'player',\r\n        drop: (item) => { \r\n            setBasket2([]); \r\n            setBasket2((basket2) => \r\n                            !basket2.includes(item.player) ? [...basket2, item.player] : basket2);\r\n                            selectedPlayers.push(item.player);\r\n                            setDropPlayer2(item.player);\r\n                        },\r\n        collect: (monitor) => ({\r\n            isOver2: monitor.isOver()\r\n        }),\r\n    });\r\n\r\n    const setToFalse = (e) => {\r\n        setShowElement(false);\r\n    };\r\n\r\n\r\n    return(\r\n        <div className=\"Player\" onClick={e => setToFalse(e)}>\r\n            <SearchBar keyword={player} onChange={updatePlayer} fun={searchPlayer}/>\r\n            <div className=\"playerSearch-Section\">\r\n                {showElement ? players.map(player => <PlayerResultsCard draggable player={player}/>) : <div></div>}\r\n            </div>\r\n            <div className=\"PlayerCompareSection\">\r\n                <div className=\"PlayerCardSection\">\r\n                    <div className={basket == \"\" ? \"CardSection1\" : \"CardSection1WithBasket\"} ref={dropRef}>\r\n                        {basket.map(player => <PlayerCard player={player} />)}\r\n                        {isOver && !basket.includes(dropPlayer1) ? <p>Drop Player Here</p> : <p></p>}\r\n                        \r\n                    </div>\r\n                    <div className={basket2 == \"\" ? \"CardSection2\" : \"CardSection2WithBasket\"} ref={dropRef2}>\r\n                        {basket2.map(player => <PlayerCard player={player} />)}\r\n                        {isOver2 && !basket2.includes(dropPlayer2) ? <p>Drop Player Here</p> : <p></p>}\r\n\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n\r\n        </div>\r\n    )\r\n\r\n}\r\n\r\nexport default PlayerCompare; ","C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\TabComponent\\AllTabs\\FirstTab.js",["147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerCard.js",["172","173"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\PlayerResultsCard.js",["174","175"],[],"C:\\Users\\seanl\\IdeaProjects\\s\\C3Project\\app\\ip3-app\\src\\Component\\DonutChart.js",["176","177","178","179","180","181","182","183","184","185","186"],[],{"ruleId":"187","severity":1,"message":"188","line":12,"column":26,"nodeType":"189","messageId":"190","endLine":12,"endColumn":41},{"ruleId":"191","severity":1,"message":"192","line":23,"column":31,"nodeType":"193","messageId":"194","endLine":23,"endColumn":33},{"ruleId":"195","severity":1,"message":"196","line":40,"column":9,"nodeType":"197","endLine":40,"endColumn":11,"suggestions":"198"},{"ruleId":"187","severity":1,"message":"199","line":56,"column":14,"nodeType":"189","messageId":"190","endLine":56,"endColumn":27},{"ruleId":"187","severity":1,"message":"200","line":66,"column":14,"nodeType":"189","messageId":"190","endLine":66,"endColumn":35},{"ruleId":"191","severity":1,"message":"192","line":72,"column":28,"nodeType":"193","messageId":"194","endLine":72,"endColumn":30},{"ruleId":"191","severity":1,"message":"201","line":88,"column":28,"nodeType":"193","messageId":"194","endLine":88,"endColumn":30},{"ruleId":"202","severity":1,"message":"203","line":130,"column":47,"nodeType":"204","endLine":130,"endColumn":79},{"ruleId":"202","severity":1,"message":"203","line":163,"column":33,"nodeType":"204","endLine":163,"endColumn":66},{"ruleId":"187","severity":1,"message":"188","line":8,"column":26,"nodeType":"189","messageId":"190","endLine":8,"endColumn":41},{"ruleId":"187","severity":1,"message":"205","line":10,"column":12,"nodeType":"189","messageId":"190","endLine":10,"endColumn":20},{"ruleId":"187","severity":1,"message":"206","line":12,"column":12,"nodeType":"189","messageId":"190","endLine":12,"endColumn":21},{"ruleId":"187","severity":1,"message":"207","line":13,"column":12,"nodeType":"189","messageId":"190","endLine":13,"endColumn":25},{"ruleId":"187","severity":1,"message":"208","line":14,"column":12,"nodeType":"189","messageId":"190","endLine":14,"endColumn":25},{"ruleId":"187","severity":1,"message":"209","line":15,"column":12,"nodeType":"189","messageId":"190","endLine":15,"endColumn":23},{"ruleId":"195","severity":1,"message":"210","line":62,"column":9,"nodeType":"197","endLine":62,"endColumn":11,"suggestions":"211"},{"ruleId":"202","severity":1,"message":"203","line":405,"column":49,"nodeType":"204","endLine":405,"endColumn":81},{"ruleId":"187","severity":1,"message":"212","line":2,"column":8,"nodeType":"189","messageId":"190","endLine":2,"endColumn":11},{"ruleId":"213","severity":1,"message":"214","line":12,"column":17,"nodeType":"204","endLine":12,"endColumn":89},{"ruleId":"187","severity":1,"message":"215","line":1,"column":10,"nodeType":"189","messageId":"190","endLine":1,"endColumn":19},{"ruleId":"191","severity":1,"message":"192","line":65,"column":28,"nodeType":"193","messageId":"194","endLine":65,"endColumn":30},{"ruleId":"191","severity":1,"message":"192","line":90,"column":28,"nodeType":"193","messageId":"194","endLine":90,"endColumn":30},{"ruleId":"202","severity":1,"message":"203","line":137,"column":37,"nodeType":"204","endLine":137,"endColumn":70},{"ruleId":"202","severity":1,"message":"203","line":172,"column":37,"nodeType":"204","endLine":172,"endColumn":70},{"ruleId":"216","severity":1,"message":"217","line":3,"column":297,"nodeType":"218","messageId":"219","endLine":3,"endColumn":299},{"ruleId":"216","severity":1,"message":"217","line":3,"column":322,"nodeType":"218","messageId":"219","endLine":3,"endColumn":324},{"ruleId":"216","severity":1,"message":"220","line":4,"column":179,"nodeType":"218","messageId":"219","endLine":4,"endColumn":181},{"ruleId":"216","severity":1,"message":"220","line":5,"column":45,"nodeType":"218","messageId":"219","endLine":5,"endColumn":47},{"ruleId":"187","severity":1,"message":"221","line":7,"column":8,"nodeType":"189","messageId":"190","endLine":7,"endColumn":18},{"ruleId":"187","severity":1,"message":"222","line":37,"column":29,"nodeType":"189","messageId":"190","endLine":37,"endColumn":47},{"ruleId":"191","severity":1,"message":"192","line":84,"column":44,"nodeType":"193","messageId":"194","endLine":84,"endColumn":46},{"ruleId":"191","severity":1,"message":"192","line":89,"column":45,"nodeType":"193","messageId":"194","endLine":89,"endColumn":47},{"ruleId":"223","severity":1,"message":"224","line":8,"column":26,"nodeType":"225","messageId":"226","endLine":8,"endColumn":38},{"ruleId":"223","severity":1,"message":"224","line":9,"column":23,"nodeType":"225","messageId":"226","endLine":9,"endColumn":35},{"ruleId":"223","severity":1,"message":"224","line":13,"column":22,"nodeType":"225","messageId":"226","endLine":13,"endColumn":34},{"ruleId":"187","severity":1,"message":"227","line":18,"column":12,"nodeType":"189","messageId":"190","endLine":18,"endColumn":18},{"ruleId":"187","severity":1,"message":"228","line":18,"column":20,"nodeType":"189","messageId":"190","endLine":18,"endColumn":29},{"ruleId":"187","severity":1,"message":"229","line":19,"column":12,"nodeType":"189","messageId":"190","endLine":19,"endColumn":19},{"ruleId":"187","severity":1,"message":"230","line":20,"column":12,"nodeType":"189","messageId":"190","endLine":20,"endColumn":16},{"ruleId":"187","severity":1,"message":"231","line":20,"column":18,"nodeType":"189","messageId":"190","endLine":20,"endColumn":25},{"ruleId":"195","severity":1,"message":"232","line":110,"column":8,"nodeType":"197","endLine":110,"endColumn":10,"suggestions":"233"},{"ruleId":"234","severity":1,"message":"235","line":120,"column":26,"nodeType":"225","messageId":"226","endLine":120,"endColumn":37},{"ruleId":"234","severity":1,"message":"235","line":121,"column":25,"nodeType":"225","messageId":"226","endLine":121,"endColumn":36},{"ruleId":"234","severity":1,"message":"235","line":122,"column":27,"nodeType":"225","messageId":"226","endLine":122,"endColumn":38},{"ruleId":"234","severity":1,"message":"235","line":123,"column":27,"nodeType":"225","messageId":"226","endLine":123,"endColumn":38},{"ruleId":"234","severity":1,"message":"235","line":124,"column":34,"nodeType":"225","messageId":"226","endLine":124,"endColumn":45},{"ruleId":"234","severity":1,"message":"235","line":125,"column":36,"nodeType":"225","messageId":"226","endLine":125,"endColumn":47},{"ruleId":"234","severity":1,"message":"235","line":126,"column":31,"nodeType":"225","messageId":"226","endLine":126,"endColumn":42},{"ruleId":"234","severity":1,"message":"235","line":127,"column":32,"nodeType":"225","messageId":"226","endLine":127,"endColumn":43},{"ruleId":"234","severity":1,"message":"235","line":128,"column":27,"nodeType":"225","messageId":"226","endLine":128,"endColumn":38},{"ruleId":"234","severity":1,"message":"235","line":129,"column":28,"nodeType":"225","messageId":"226","endLine":129,"endColumn":39},{"ruleId":"234","severity":1,"message":"235","line":130,"column":30,"nodeType":"225","messageId":"226","endLine":130,"endColumn":41},{"ruleId":"236","severity":1,"message":"237","line":133,"column":13,"nodeType":"238","messageId":"239","endLine":167,"endColumn":14},{"ruleId":"234","severity":1,"message":"235","line":170,"column":24,"nodeType":"225","messageId":"226","endLine":170,"endColumn":35},{"ruleId":"234","severity":1,"message":"235","line":185,"column":28,"nodeType":"225","messageId":"226","endLine":185,"endColumn":39},{"ruleId":"191","severity":1,"message":"192","line":188,"column":40,"nodeType":"193","messageId":"194","endLine":188,"endColumn":42},{"ruleId":"191","severity":1,"message":"192","line":188,"column":83,"nodeType":"193","messageId":"194","endLine":188,"endColumn":85},{"ruleId":"187","severity":1,"message":"240","line":1,"column":17,"nodeType":"189","messageId":"190","endLine":1,"endColumn":25},{"ruleId":"213","severity":1,"message":"214","line":13,"column":21,"nodeType":"204","endLine":13,"endColumn":90},{"ruleId":"187","severity":1,"message":"240","line":1,"column":17,"nodeType":"189","messageId":"190","endLine":1,"endColumn":25},{"ruleId":"202","severity":1,"message":"203","line":26,"column":17,"nodeType":"204","endLine":26,"endColumn":69},{"ruleId":"187","severity":1,"message":"215","line":1,"column":16,"nodeType":"189","messageId":"190","endLine":1,"endColumn":25},{"ruleId":"187","severity":1,"message":"240","line":1,"column":27,"nodeType":"189","messageId":"190","endLine":1,"endColumn":35},{"ruleId":"187","severity":1,"message":"241","line":10,"column":10,"nodeType":"189","messageId":"190","endLine":10,"endColumn":24},{"ruleId":"187","severity":1,"message":"242","line":81,"column":9,"nodeType":"189","messageId":"190","endLine":81,"endColumn":17},{"ruleId":"191","severity":1,"message":"192","line":109,"column":23,"nodeType":"193","messageId":"194","endLine":109,"endColumn":25},{"ruleId":"187","severity":1,"message":"243","line":138,"column":11,"nodeType":"189","messageId":"190","endLine":138,"endColumn":16},{"ruleId":"191","severity":1,"message":"192","line":169,"column":30,"nodeType":"193","messageId":"194","endLine":169,"endColumn":32},{"ruleId":"191","severity":1,"message":"192","line":234,"column":30,"nodeType":"193","messageId":"194","endLine":234,"endColumn":32},{"ruleId":"187","severity":1,"message":"243","line":263,"column":11,"nodeType":"189","messageId":"190","endLine":263,"endColumn":16},{"ruleId":"191","severity":1,"message":"192","line":294,"column":30,"nodeType":"193","messageId":"194","endLine":294,"endColumn":32},{"ruleId":"187","severity":1,"message":"243","line":323,"column":11,"nodeType":"189","messageId":"190","endLine":323,"endColumn":16},"no-unused-vars","'setSearchParams' is assigned a value but never used.","Identifier","unusedVar","eqeqeq","Expected '===' and instead saw '=='.","BinaryExpression","unexpected","react-hooks/exhaustive-deps","React Hook useEffect has missing dependencies: 'searchParams' and 'showDetail'. Either include them or remove the dependency array.","ArrayExpression",["244"],"'hidePlayerBio' is defined but never used.","'togglePlayerSelection' is defined but never used.","Expected '!==' and instead saw '!='.","jsx-a11y/alt-text","img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.","JSXOpeningElement","'teamData' is assigned a value but never used.","'teamStats' is assigned a value but never used.","'teamHomeStats' is assigned a value but never used.","'teamAwayStats' is assigned a value but never used.","'teamGrounds' is assigned a value but never used.","React Hook useEffect has missing dependencies: 'searchParams' and 'searchTeamById'. Either include them or remove the dependency array.",["245"],"'Api' is defined but never used.","jsx-a11y/img-redundant-alt","Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop.","'useEffect' is defined but never used.","no-mixed-operators","Unexpected mix of '&&' and '||'. Use parentheses to clarify the intended order of operations.","LogicalExpression","unexpectedMixedOperator","Unexpected mix of '||' and '&&'. Use parentheses to clarify the intended order of operations.","'DonutChart' is defined but never used.","'setSelectedPlayers' is assigned a value but never used.","no-new-object","The object literal notation {} is preferable.","NewExpression","preferLiteral","'player' is assigned a value but never used.","'setPlayer' is assigned a value but never used.","'players' is assigned a value but never used.","'test' is assigned a value but never used.","'setTest' is assigned a value but never used.","React Hook useEffect has a missing dependency: 'searchPlayers'. Either include it or remove the dependency array.",["246"],"no-array-constructor","The array literal notation [] is preferable.","default-case","Expected a default case.","SwitchStatement","missingDefaultCase","'useState' is defined but never used.","'AnimatedNumber' is defined but never used.","'options4' is assigned a value but never used.","'data4' is assigned a value but never used.",{"desc":"247","fix":"248"},{"desc":"249","fix":"250"},{"desc":"251","fix":"252"},"Update the dependencies array to be: [searchParams, showDetail]",{"range":"253","text":"254"},"Update the dependencies array to be: [searchParams, searchTeamById]",{"range":"255","text":"256"},"Update the dependencies array to be: [searchPlayers]",{"range":"257","text":"258"},[1237,1239],"[searchParams, showDetail]",[2872,2874],"[searchParams, searchTeamById]",[4288,4290],"[searchPlayers]"]
+\ No newline at end of file
+Index: app/ip3-app/src/Component/Navbar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Link, useMatch, useResolvedPath } from \"react-router-dom\"\r\nimport logo from \"../images/logo.png\";\r\n\r\n\r\nexport default function Navbar() {\r\n  return (\r\n    <nav className=\"nav\">\r\n      <Link to=\"/\" className=\"site-title\">\r\n      <img src={logo} alt=\"Logo\" width={120}height={100}></img>\r\n        \r\n      </Link>\r\n      \r\n      <ul>\r\n        \r\n        <CustomLink to=\"/player\"> <b>Players</b></CustomLink>\r\n        <CustomLink to=\"/team\"><b>Teams</b></CustomLink>\r\n        <CustomLink to=\"/manager\"><b>Managers</b></CustomLink>\r\n        <CustomLink to=\"/ranking\"><b>Ranking</b></CustomLink>\r\n        \r\n      </ul>\r\n    </nav>\r\n  )\r\n}\r\n\r\nfunction CustomLink({ to, children, ...props }) {\r\n  const resolvedPath = useResolvedPath(to)\r\n  const isActive = useMatch({ path: resolvedPath.pathname, end: true })\r\n\r\n  return (\r\n    <li className={isActive ? \"active\" : \"\"}>\r\n      <Link to={to} {...props}>\r\n        {children}\r\n      </Link>\r\n    </li>\r\n\r\n  )\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/ip3-app/src/Component/Navbar.js b/app/ip3-app/src/Component/Navbar.js
+--- a/app/ip3-app/src/Component/Navbar.js	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/app/ip3-app/src/Component/Navbar.js	(date 1680086195616)
+@@ -6,8 +6,8 @@
+   return (
+     <nav className="nav">
+       <Link to="/" className="site-title">
+-      <img src={logo} alt="Logo" width={120}height={100}></img>
+-        
++      <img src={logo} alt="Logo"></img>
++
+       </Link>
+       
+       <ul>
+Index: app/ip3-app/src/css/table.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>table {\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n  }\r\n  table th, table td {\r\n    padding: 8px;\r\n  }\r\n   table th{\r\n    background-color: #FFA500;\r\n    color: black;\r\n  }\r\n\r\n  tr{\r\n  height: 1rem;\r\n  }\r\n  \r\n  #homeStats tr:nth-child(1){\r\nbackground-color: #90EE90;\r\n  }\r\n    \r\n   #homeStats tr:nth-child(2){\r\n    background-color: #87CEEB;\r\n      }\r\n       #homeStats tr:nth-child(3){\r\n        background-color: rgb(216,191,216);\r\n          }\r\n\r\n          \r\n                \r\n          \r\n          \r\n  
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/ip3-app/src/css/table.css b/app/ip3-app/src/css/table.css
+--- a/app/ip3-app/src/css/table.css	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/app/ip3-app/src/css/table.css	(date 1680127694808)
+@@ -1,32 +1,31 @@
+ table {
+-    border-collapse: collapse;
+-    width: 100%;
+-  }
+-  table th, table td {
+-    padding: 8px;
+-  }
+-   table th{
+-    background-color: #FFA500;
+-    color: black;
+-  }
++  border-collapse: collapse;
++  width: 100%;
++  margin: 0;
++  padding: 0;
++}
++
++table th, table td {
++  padding: 8px;
++}
++
++table th {
++  background-color: #FFA500;
++  color: black;
++}
+ 
+-  tr{
++tr {
+   height: 1rem;
+-  }
+-  
+-  #homeStats tr:nth-child(1){
+-background-color: #90EE90;
+-  }
+-    
+-   #homeStats tr:nth-child(2){
+-    background-color: #87CEEB;
+-      }
+-       #homeStats tr:nth-child(3){
+-        background-color: rgb(216,191,216);
+-          }
+-
+-          
+-                
+-          
+-          
+-  
+\ No newline at end of file
++}
++
++#homeStats tr:nth-child(1) {
++  background-color: #90EE90;
++}
++
++#homeStats tr:nth-child(2) {
++  background-color: #87CEEB;
++}
++
++#homeStats tr:nth-child(3) {
++  background-color: rgb(216, 191, 216);
++}
+\ No newline at end of file
+Index: app/ip3-app/src/css/Navbar.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>* {\r\n    box-sizing: border-box;\r\n  }\r\n  \r\n  body {\r\n    margin: 0;\r\n  }\r\n  \r\n  /* .container {\r\n    margin: 1rem;\r\n    text-align: center;\r\n  } */\r\n  \r\n  .nav {\r\n    background-color: rgb(000, 32, 96);\r\n    color: white;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: stretch;\r\n    gap: 2rem;\r\n    height: auto;\r\n/*    padding: 1rem;*/\r\n   \r\n  }\r\n  \r\n  .site-title {\r\n    font-size: 2rem;\r\n    \r\n    \r\n  }\r\n  \r\n  .nav ul {\r\n    padding: 0;\r\n    margin: 0;\r\n    list-style: none;\r\n    display: flex;\r\n    \r\n/*    gap: 1rem;*/\r\n  }\r\n\r\n  .nav li{\r\n  padding: 1rem;\r\n  \r\n  }\r\n  \r\n  .nav a {\r\n    color: inherit;\r\n    text-decoration: none;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    padding: .25rem;\r\n  \r\n  }\r\n  \r\n  .nav li.active {\r\n    background-color: #027ac0;\r\n  }\r\n  \r\n  .nav li:hover {\r\n    background-color: rgb(65,105,225);\r\n  }\r\n 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/ip3-app/src/css/Navbar.css b/app/ip3-app/src/css/Navbar.css
+--- a/app/ip3-app/src/css/Navbar.css	(revision 2fcf7f8fb16479dc1c99d3a063581186ec815548)
++++ b/app/ip3-app/src/css/Navbar.css	(date 1680086195613)
+@@ -19,9 +19,15 @@
+     align-items: stretch;
+     gap: 2rem;
+     height: auto;
++    max-height: 5rem;
+ /*    padding: 1rem;*/
+    
+   }
++
++  .nav img {
++    object-fit: contain;
++    max-height: 4rem;
++  }
+   
+   .site-title {
+     font-size: 2rem;
+@@ -54,10 +60,10 @@
+   }
+   
+   .nav li.active {
+-    background-color: #027ac0;
++    background-color: rgb(0, 11, 72);
+   }
+-  
++
+   .nav li:hover {
+-    background-color: rgb(65,105,225);
++    background-color: rgb(39, 53, 121);
+   }
+  
+\ No newline at end of file

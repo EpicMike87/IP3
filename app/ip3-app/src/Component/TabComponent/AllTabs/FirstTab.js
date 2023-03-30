@@ -207,26 +207,33 @@ const FirstTab = () => {
 
         const playerDetails = document.createElement('table');
 
+        const idRow = document.createElement('tr');
         const nameRow = document.createElement('tr');
         const teamRow = document.createElement('tr');
         const posRow = document.createElement('tr');
 
+        const idHead = document.createElement('th');
         const nameHead = document.createElement('th');
         const teamHead = document.createElement('th');
         const posHead = document.createElement('th');
 
+        idHead.textContent = "Name:"
         nameHead.textContent = "Name:"
         teamHead.textContent = "Team:"
         posHead.textContent = "Position:"
 
+        const idCell = document.createElement('td');
         const nameCell = document.createElement('td');
         const posCell = document.createElement('td');
         const teamCell = document.createElement('td');
 
+        idCell.textContent = `${topPlayer.id}`;
         nameCell.textContent = `${topPlayer.firstName + " " + topPlayer.lastName}`;
         posCell.textContent = `${topPlayer.position}`;
         teamCell.textContent = `${topPlayer.team}`;
 
+        idRow.appendChild(idHead);
+        idRow.appendChild(idCell);
         nameRow.appendChild(nameHead);
         nameRow.appendChild(nameCell);
         posRow.appendChild(posHead);
@@ -234,15 +241,24 @@ const FirstTab = () => {
         teamRow.appendChild(teamHead);
         teamRow.appendChild(teamCell);
 
+        idRow.style.display = 'none';
+
+        playerDetails.appendChild(idRow);
         playerDetails.appendChild(nameRow);
         playerDetails.appendChild(posRow);
         playerDetails.appendChild(teamRow);
 
         tooltip.appendChild(playerDetails);
+        playerIcon.onclick = gotoPlayer;
         playerIcon.appendChild(tooltip);
 
 
         return playerIcon;
+    }
+
+    const gotoPlayer = (e) =>{
+        const playerId = parseInt(e.target.firstChild.firstChild.firstChild.children[1].textContent);
+        window.location.href = `/player?id=${playerId}`;
     }
 
     return (
