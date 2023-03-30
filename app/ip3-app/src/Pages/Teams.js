@@ -264,7 +264,7 @@ function Teams() {
                 </div>
                 <div className="teamStats">
                     <div className="statsBox">
-                        <h2>Season Stats {season}</h2>
+                        <h2>Season Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
@@ -304,7 +304,7 @@ function Teams() {
 
                     </div>
                     <div className="statsBox">
-                        <h2>Home Stats {season}</h2>
+                        <h2>Home Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
@@ -344,7 +344,7 @@ function Teams() {
 
                     </div>
                     <div className="statsBox">
-                        <h2>Away Stats {season}</h2>
+                        <h2>Away Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
