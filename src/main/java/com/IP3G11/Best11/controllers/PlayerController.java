@@ -23,9 +23,19 @@ public class PlayerController {
         return playerService.getPlayerByName(name);
     }
 
+    @GetMapping("/search-player/")
+    public List<Player> searchPlayer(){
+        return playerService.getAllPlayers();
+    }
+
     @GetMapping("/players/top5/{position}")
     public List<Player> getTop5ByPosition(@PathVariable String position){
         return playerService.getTop5ByPosition(position);
+    }
+
+    @GetMapping("/players/id/{id}")
+    public List<Player> getById(@PathVariable int id){
+        return playerService.getById(id);
     }
 
     @GetMapping("/players/{position}")
@@ -37,4 +47,7 @@ public class PlayerController {
     public List<Player> getAll(){
         return playerService.getAllPlayers();
     }
+
+
+
 }

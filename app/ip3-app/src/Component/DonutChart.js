@@ -7,7 +7,6 @@ import {
   } from 'chart.js'; 
 
   import {Doughnut} from 'react-chartjs-2';
-  import AnimatedNumber from 'animated-number-react'; 
 
   ChartJS.register(
     ArcElement,
@@ -105,44 +104,51 @@ function DonutChart({player}) {
   //   },
   // };
 
+  if((player.position == "Left-Back") || (player.position == "Right-Back")){
 
-  if (player.position == "Defender" && player.matchesPlayed > 0){
+    if(!player.duels){
+      player.duels = 0;
+      player.duelsWon = 0;
+    }
+
+    const duelsLost = player.duels - player.duelsWon; 
 
     const data1 = {
-      labels: ['Duels', 'Duels Won'],
+      labels: ['Duels Lost', 'Duels Won'],
       datasets: [{
-        data: [player.duels, player.duelsWon],
+        data: [duelsLost, player.duelsWon],
         backgroundColor: ['black', 'red'],
         borderColor: ['black', 'red'],
       }],
     }
 
     const data2 = {
-      labels: ['Tackles', 'Total Fouls', 'Cards', 'Cards'],
+      labels: ['Blocks', 'Interceptions'],
       datasets: [{
-        data: [player.tackles, player.foulsCommitted, player.redCards, player.yellowCards],
-        backgroundColor: ['orange', 'black', 'red', 'yellow'],
-        borderColor: ['orange', 'black', 'red', 'yellow'],
+        data: [player.blocks, player.interceptions],
+        backgroundColor: ['orange', '#00D100'],
+        borderColor: ['orange', '#00D100'],
       }]
     }
+
 
     const data3 = {
-      labels: ['Blocks', 'Interceptions', 'Passes'],
+      labels: ['Tackles Won', 'Fouls', 'Cards', 'Cards'],
       datasets: [{
-        data: [player.blocks, player.interceptions, player.passes],
-        backgroundColor: ['blue', '#43A6C6', 'purple'],
-        borderColor: ['blue', '#43A6C6', 'purple'],
+        data: [player.tackles, player.foulsCommitted, player.redCards, player.yellowCards],
+        backgroundColor: ['blue', '#43A6C6', 'red', 'yellow'],
+        borderColor: ['blue', '#43A6C6', 'red', 'yellow'],
       }]
     }
 
-    const data4 = {
-      labels: ['Overall Performance'],
-      datasets: [{
-        data: [player.rating],
-        backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-        borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-      }]
-    }
+    // const data4 = {
+    //   labels: ['Overall Performance'],
+    //   datasets: [{
+    //     data: [player.rating],
+    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //   }]
+    // }
 
     return(
       <>
@@ -150,51 +156,132 @@ function DonutChart({player}) {
           <div className={data1.datasets[0].data[0] === 0 && data1.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Doughnut1'}>
           <Doughnut data={data1} options={options} />
           </div>
-          <div className={data2.datasets[0].data[0] === 0 && data2.datasets[0].data[1]  === 0 && data2.datasets[0].data[2] === 0 && data2.datasets[0].data[3] === 0  ? 'DoughnutHide' : 'Doughnut2'}>
+          <div className={data2.datasets[0].data[0] === 0 && data2.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Doughnut2'}>
           <Doughnut data={data2} options={options2} />
           </div>
-          <div className={data3.datasets[0].data[0] === 0 && data3.datasets[0].data[1]  === 0 && data3.datasets[0].data[2] === 0 ? 'DoughnutHide' : 'Doughnut3'}>
+          <div className={data3.datasets[0].data[0] === 0 && data3.datasets[0].data[1]  === 0 && data3.datasets[0].data[2] === 0 && data3.datasets[0].data[3] === 0? 'DoughnutHide' : 'Doughnut3'}>
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
         {/* <div className='DoughnutRating'>
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
-        <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-          {/* <AnimatedNumber value={player.rating} className='animNumber' duration={1000}/> */}
-          <p>{player.rating.toFixed(2)}</p>
+        <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
+          <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
       </>
     )
-  } else if (player.position == "Midfielder" && player.matchesPlayed > 0){
+      
+  } else if ((player.positionType == "Defender") && (player.matchesPlayed > 0) && (player.position !== "Left-Back") && (player.position !== ("Right-Back"))){
 
-    if(!player.duels && !player.duelsWon){
+    if(!player.duels){
       player.duels = 0;
       player.duelsWon = 0;
     }
 
+
+    const duelsLost = player.duels - player.duelsWon; 
+
     const data1 = {
-      labels: ['Duels', 'Duels Won'],
+      labels: ['Duels Lost', 'Duels Won'],
       datasets: [{
-        data: [player.duels, player.duelsWon],
+        data: [duelsLost, player.duelsWon],
         backgroundColor: ['black', 'red'],
         borderColor: ['black', 'red'],
       }],
     }
 
     const data2 = {
-      labels: [ 'Passes', 'Pass Accuracy', 'Assists'],
-      datasets: [{
-        data: [player.passes, player.passAccuracy, player.assists],
-        backgroundColor: ['orange', 'black', 'red'],
-        borderColor: ['orange', 'black', 'red'],
-      }]
-    }
-
-    const data3 = {
       labels: ['Blocks', 'Interceptions'],
       datasets: [{
         data: [player.blocks, player.interceptions],
+        backgroundColor: ['orange', '#00D100'],
+        borderColor: ['orange', '#00D100'],
+      }]
+    }
+
+
+    const data3 = {
+      labels: ['Tackles Won', 'Fouls', 'Cards', 'Cards'],
+      datasets: [{
+        data: [player.tackles, player.foulsCommitted, player.redCards, player.yellowCards],
+        backgroundColor: ['blue', '#43A6C6', 'red', 'yellow'],
+        borderColor: ['blue', '#43A6C6', 'red', 'yellow'],
+      }]
+    }
+
+    // const data4 = {
+    //   labels: ['Overall Performance'],
+    //   datasets: [{
+    //     data: [player.rating],
+    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //   }]
+    // }
+
+    return(
+      <>
+        <div className='Doughnuts'>
+          <div className={data1.datasets[0].data[0] === 0 && data1.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Doughnut1'}>
+          <Doughnut data={data1} options={options} />
+          </div>
+          <div className={data2.datasets[0].data[0] === 0 && data2.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Doughnut2'}>
+          <Doughnut data={data2} options={options2} />
+          </div>
+          <div className={data3.datasets[0].data[0] === 0 && data3.datasets[0].data[1]  === 0 && data3.datasets[0].data[2] === 0 && data3.datasets[0].data[3] === 0 ? 'DoughnutHide' : 'Doughnut3'}>
+          <Doughnut data={data3} options={options3} />
+          </div>
+        </div>
+        {/* <div className='DoughnutRating'>
+          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
+        </div> */}
+        <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
+          <p>Rating: {player.rating.toFixed(2)}</p>
+        </div>
+      </>
+    )
+  } else if (player.positionType == "Midfielder" && player.matchesPlayed > 0){
+
+    if(!player.duels){
+      player.duels = 0;
+      player.duelsWon = 0;
+    }
+
+    const duelsLost = player.duels - player.duelsWon; 
+
+    const data1 = {
+      labels: ['Duels Lost', 'Duels Won'],
+      datasets: [{
+        data: [duelsLost, player.duelsWon],
+        backgroundColor: ['black', 'red'],
+        borderColor: ['black', 'red'],
+      }],
+    }
+
+    const passesCompleted = player.passes * player.passAccuracy / 100;
+    const passesIncompleted = player.passes - passesCompleted; 
+    const data2 = {
+      labels: ['Passes Completed', 'Passes Incomplete', 'Assists'],
+      datasets: [{
+        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0), player.assists],
+        backgroundColor: ['orange', '#00D100', 'purple'],
+        borderColor: ['orange', '#00D100', 'purple'],
+      }],
+    }
+
+    // const data3 = {
+    //   labels: ['Blocks', 'Interceptions'],
+    //   datasets: [{
+    //     data: [player.blocks, player.interceptions],
+    //     backgroundColor: ['blue', '#43A6C6'],
+    //     borderColor: ['blue', '#43A6C6'],
+    //   }]
+    // }
+
+    const data3 = {
+      labels: ['Tackles Won', 'Fouls'],
+      datasets: [{
+        data: [player.tackles, player.foulsCommitted],
         backgroundColor: ['blue', '#43A6C6'],
         borderColor: ['blue', '#43A6C6'],
       }]
@@ -225,30 +312,38 @@ function DonutChart({player}) {
         {/* <div className='DoughnutRating'>
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
-        <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        {/* <AnimatedNumber value={player.rating}/> */}
-        <p>{player.rating.toFixed(2)}</p>
+        <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
+        <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
       </>
     )
-  } else if (player.position == "Attacker" && player.matchesPlayed > 0){
+  } else if (player.positionType == "Attacker" && player.matchesPlayed > 0){
 
-    const data1 = {
-      labels: ['Passes', 'Pass Accuracy', 'Assists'],
-      datasets: [{
-        data: [player.passes, player.passAccuracy, player.assists],
-        backgroundColor: ['black', 'red', 'purple'],
-        borderColor: ['black', 'red', 'purple'],
-      }],
+    if(!player.penaltiesTaken){
+      player.penaltiesTaken = 0;
+      player.penaltiesScored = 0;
     }
 
-    const data2 = {
-      labels: [ 'Penalties Taken', 'Penalties Scored'],
+    const penaltiesMissed = player.penaltiesTaken - player.penaltiesScored; 
+
+    const data1 = {
+      labels: [ 'Penalties Scored', 'Penalties Missed'],
       datasets: [{
-        data: [player.penaltiesTaken, player.penaltiesScored],
-        backgroundColor: ['orange', 'black'],
-        borderColor: ['orange', 'black'],
+        data: [player.penaltiesScored, penaltiesMissed],
+        backgroundColor: ['black', 'red'],
+        borderColor: ['black', 'red'],
       }]
+    }
+
+    const passesCompleted = player.passes * player.passAccuracy / 100;
+    const passesIncompleted = player.passes - passesCompleted; 
+    const data2 = {
+      labels: ['Passes Completed', 'Passes Incomplete', 'Assists'],
+      datasets: [{
+        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0), player.assists],
+        backgroundColor: ['orange', '#00D100', 'purple'],
+        borderColor: ['orange', '#00D100', 'purple'],
+      }],
     }
 
     const data3 = {
@@ -260,22 +355,22 @@ function DonutChart({player}) {
       }]
     }
 
-    const data4 = {
-      labels: ['Overall Performance'],
-      datasets: [{
-        data: [player.rating],
-        backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-        borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-      }]
-    }
+    // const data4 = {
+    //   labels: ['Overall Performance'],
+    //   datasets: [{
+    //     data: [player.rating],
+    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //   }]
+    // }
 
     return(
       <>
         <div className='Doughnuts'>
-          <div className={data1.datasets[0].data[0] === 0 && data1.datasets[0].data[1] === 0  && data1.datasets[0].data[2] === 0 ? 'DoughnutHide' : 'Doughnut1'}>
+          <div className={data1.datasets[0].data[0] === 0 && data1.datasets[0].data[1] === 0 ? 'DoughnutHide' : 'Doughnut1'}>
           <Doughnut data={data1} options={options} />
           </div>
-          <div className={data2.datasets[0].data[0] === 0 && data2.datasets[0].data[1] === 0 ? 'DoughnutHide' : 'Doughnut2'}>
+          <div className={data2.datasets[0].data[0] === 0 && data2.datasets[0].data[1] === 0 && data2.datasets[0].data[2] === 0 ? 'DoughnutHide' : 'Doughnut2'}>
           <Doughnut data={data2} options={options2} />
           </div>
           <div className={data3.datasets[0].data[0] === 0 && data3.datasets[0].data[1]  === 0 && data3.datasets[0].data[2] === 0 ? 'DoughnutHide' : 'Doughnut3'}>
@@ -285,9 +380,8 @@ function DonutChart({player}) {
         {/* <div className='DoughnutRating'>
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
-        <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        {/* <AnimatedNumber value={player.rating}/> */}
-        <p>{player.rating.toFixed(2)}</p>
+        <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
+        <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
       </>
     )
@@ -320,14 +414,14 @@ function DonutChart({player}) {
       }]
     }
 
-    const data4 = {
-      labels: ['Overall Performance'],
-      datasets: [{
-        data: [player.rating],
-        backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-        borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-      }]
-    }
+    // const data4 = {
+    //   labels: ['Overall Performance'],
+    //   datasets: [{
+    //     data: [player.rating],
+    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
+    //   }]
+    // }
 
     return(
       <>
@@ -345,9 +439,8 @@ function DonutChart({player}) {
         {/* <div className='DoughnutRating'>
           <Doughnut data={data4} options={options4} plugins={[textCenter]} />
         </div> */}
-        <div className='Rating' style={{color: player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"}}>
-        {/* <AnimatedNumber value={player.rating}/> */}
-        <p>{player.rating.toFixed(2)}</p>
+        <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
+        <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
       </>
     )
