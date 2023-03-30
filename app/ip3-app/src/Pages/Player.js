@@ -145,7 +145,7 @@ return (
                 <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
             )}
 
-            <table>
+            <table >
                 <thead >
                     <tr>
                         <th>No</th>

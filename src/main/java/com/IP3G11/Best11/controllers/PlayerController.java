@@ -33,6 +33,11 @@ public class PlayerController {
         return playerService.getTop5ByPosition(position);
     }
 
+    @GetMapping("/players/id/{id}")
+    public List<Player> getById(@PathVariable int id){
+        return playerService.getById(id);
+    }
+
     @GetMapping("/players/{position}")
     public List<Player> getByPosition(@PathVariable String position){
         return playerService.getByPosition(position);
@@ -43,8 +48,6 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @GetMapping("/players/id/{id}")
-    public List<Player> getById(@PathVariable int id){
-        return playerService.getById(id);
-    }
+
+
 }
