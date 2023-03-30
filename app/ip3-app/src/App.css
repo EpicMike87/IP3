@@ -2,6 +2,10 @@ html {
   overflow-y: scroll;
 }
 
+img{
+  display: block;
+}
+
 #root {
   position: relative;
   min-height: 100vh;
@@ -14,7 +18,7 @@ html {
 }
 
 
-#playerSelection {
+#playerSelection, #teamSelection {
   background-color: #fff;
   position: absolute;
   z-index: 555;
@@ -37,22 +41,22 @@ html {
 }
 
 /* Scrollbar width */
-#playerSelection::-webkit-scrollbar {
+#playerSelection::-webkit-scrollbar, #teamSelection::-webkit-scrollbar{
   width: 10px;
   z-index: 999;
 }
 
-#playerSelection:hover{
+#playerSelection:hover, #teamSelection:hover{
   overflow-y: overlay;
 }
 
 /* Scrollbar background colour */
-#playerSelection::-webkit-scrollbar-track {
+#playerSelection::-webkit-scrollbar-track, #teamSelection::-webkit-scrollbar-track {
   background: rgba(211, 211, 211, 0.7);
 }
 
 /* Scroller thumb colour and shape, border makes it look spaced from the sides */
-#playerSelection::-webkit-scrollbar-thumb {
+#playerSelection::-webkit-scrollbar-thumb, #teamSelection::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.2);
 }
 
@@ -114,7 +118,31 @@ html {
   justify-content: center;
   align-content: center;
   margin: 0 auto;
-  width: 100%;
+}
+
+.bioRowBox{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.bioRowBox img {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 40%;
+  max-height: 60%;
+  border-radius: 3%;
+  margin: auto;
+}
+
+.imageBorder{
+  border: 2px lightgray solid;
 }
 
 .teamStats {
@@ -128,16 +156,6 @@ html {
 }
 
 
-.teamBio {
-  min-width: 50%;
-  display: flex;
-  flex-direction: column;
-  margin: 0rem;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
-  padding: 1rem;
-}
 
 .rowBox {
   display: flex;
@@ -156,26 +174,6 @@ html {
 .playerTable {
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-#photoBox {
-  width: 150px;
-  max-width: 150px;
-}
-
-#nameBox {
-  width: 370px;
-  max-width: 370px;
-}
-
-#posBox {
-  width: 125px;
-  max-width: 125px;
-}
-
-#teamBox {
-  width: 137px;
-  max-width: 137px;
 }
 
 .playerTable th {
@@ -216,28 +214,6 @@ html {
   min-width: 30%;
   min-height: 90%;
 
-}
-
-.groundsBio {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
-  padding: 1rem;
-}
-
-.groundsBio img {
-  object-fit: contain;
-  width: auto;
-  height: auto;
-  max-width: 40%;
-  max-height: 60%;
-  border-radius: 3%;
-  border: 2px lightgray solid;
-  margin: auto;
 }
 
 .statsBox {
