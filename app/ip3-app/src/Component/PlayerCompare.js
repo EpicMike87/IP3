@@ -36,12 +36,12 @@ function PlayerCompare() {
         fetchData()
     }, [player])
 
-    document.addEventListener('click', function (event) {
+    document.addEventListener('click', function(event) {
         const searchBar = document.getElementsByClassName('searchBar')[0];
         const outsideClick = !searchBar.contains(event.target);
-        if (outsideClick) changeSelectionVisibility(false);
-        else if (player != "") changeSelectionVisibility(true);
-    });
+        if(player != "" || !outsideClick) changeSelectionVisibility(true);
+        else changeSelectionVisibility(false);
+      });
 
     const searchPlayer = () => {
         console.log("search button clicked");

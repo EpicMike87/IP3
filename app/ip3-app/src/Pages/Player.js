@@ -64,8 +64,8 @@ function Player() {
     document.addEventListener('click', function(event) {
         const searchBar = document.getElementsByClassName('searchBar')[0];
         const outsideClick = !searchBar.contains(event.target);
-        if(outsideClick) changeSelectionVisibility(false);
-        else if(playerName != "") changeSelectionVisibility(true);
+        if(playerName != "" || !outsideClick) changeSelectionVisibility(true);
+        else changeSelectionVisibility(false);
       });
 
     const changeSelectionVisibility = (on) => {
