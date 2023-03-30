@@ -42,4 +42,9 @@ public class PlayerController {
     public List<Player> getAll(){
         return playerService.getAllPlayers();
     }
+
+    @GetMapping("/players/id/{id}")
+    public List<Player> getById(@PathVariable int id){
+        return playerService.getById(id);
+    }
 }

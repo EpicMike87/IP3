@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import Api from '../Helpers/Api';
 import SearchBar from "../Component/SearchBar";
 import playerImage from "../images/playerImage.jpg";
+import { useSearchParams } from "react-router-dom";
 
 
 function Player() {
     const [playerName, setPlayerName] = useState("");
     const [players, setPlayers] = useState([]);
     const [playerInfo, setPlayerInfo] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const searchPlayer = () => {
-        console.log(players[0].firstName)
-        showDetail(players[0].firstName + " " + players[0].lastName);
+        showDetail(players[0].id);
     }
 
     useEffect(() => {
@@ -23,6 +24,7 @@ function Player() {
                     disablePlayerSelection()
                 }
                 setPlayers(data)
+                console.log(data)
             } catch (error) {
                 console.error(error)
             }
@@ -30,29 +32,35 @@ function Player() {
         fetchData()
     }, [playerName])
 
+    useEffect(()=>{
+        const playerId = searchParams.get("id");
+        if(playerId != null){
+            showDetail(playerId);
+        }
+     }, [])
 
-    const showDetail = (playerFullName) => {
-        Api.get(`search-player/${playerFullName}`)
+
+    const showDetail = (playerId) => {
+        Api.get(`players/id/${playerId}`)
             .then(res => {
-                console.log(res.data);
                 setPlayerInfo(res.data);
                 disablePlayerSelection();
+                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);
             });
-        console.log(playerInfo);
         showPlayerBio();
     }
 
     function hidePlayerBio() {
-        var x = document.getElementById("playerBio");
-        x.style.display = "none";
+        const playerBio = document.getElementById("playerBio");
+        playerBio.style.display = "none";
     }
 
     function showPlayerBio() {
-        var x = document.getElementById("playerBio");
-        x.style.display = "block";
+        const playerBio = document.getElementById("playerBio");
+        playerBio.style.display = "block";
     }
 
     function togglePlayerSelection() {
@@ -71,14 +79,15 @@ function Player() {
 
         }
     }
-    
-    const searchBar = document.getElementsByClassName('searchBar')[0];
+
 
     document.addEventListener('click', function(event) {
+        const searchBar = document.getElementsByClassName('searchBar')[0];
         const outsideClick = !searchBar.contains(event.target);
         if(outsideClick) disablePlayerSelection();
         else if(playerName != "") enablePlayerSelection();
       });
+
 
     function enablePlayerSelection() {
         var playerSelectEle = document.getElementById('playerSelection');
@@ -97,6 +106,10 @@ function Player() {
         searchBar.style.borderBottom = "none";
     }
 
+    const gotoTeam = (teamId) =>{
+        window.location = `/team?id=${teamId}`;
+    }
+
 return (
     <div className="Players">
         <div className="backgroundImage">
@@ -113,7 +126,7 @@ return (
                 <tbody>
 
                     {players.map((playersData, index) =>
-                        <tr key={index} onClick={(e) => showDetail(`${playersData.firstName} ${playersData.lastName}`)} data-toggle="modal" data-target="#myModal" className='hoverRows'>
+                        <tr key={index} onClick={(e) => showDetail(`${playersData.id}`)}>
                             <td id="photoBox"><img src={playersData.photoUrl}></img></td>
                             <td id="nameBox">{`${playersData.firstName} ${playersData.lastName}`}</td>
                             <td id="posBox">{playersData.position}</td>
@@ -132,7 +145,7 @@ return (
                 <h3>{`${playersData.firstName} ${playersData.lastName}`} Bio</h3>
             )}
 
-            <table >
+            <table>
                 <thead >
                     <tr>
                         <th>No</th>
@@ -146,11 +159,11 @@ return (
 
                     {playerInfo.map((playersData, index) =>
                         <tr key={index}>
-                            <td>{playersData.idNo}</td>
+                            <td>{playersData.id}</td>
                             <td><img src={playersData.photoUrl} ></img></td>
                             <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
                             <td>{playersData.age}</td>
-                            <td>{playersData.team}</td>
+                            <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>
                         </tr>
                     )}
 

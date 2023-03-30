@@ -42,4 +42,8 @@ public class PlayerService {
         return playerRepo.findByPosition(position);
     }
 
+    public List<Player> getById(int id){
+        return playerRepo.findById(id);
+    }
+
 }

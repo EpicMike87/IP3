@@ -13,6 +13,7 @@ public interface PlayerRepo extends JpaRepository<Player, Integer> {
     List<Player> findTop5ByPositionOrderByRatingDesc(String position);
     List<Player> findByPosition(String position);
     boolean existsById(int id);
+    List<Player> findById(int id);
     void deleteByPosition(String position);
     List<Player> findAllByFirstNameContainingOrLastNameContaining(String fname, String lname);
 }

@@ -61,7 +61,11 @@ public class FixtureService {
         Instances inst = lc.createInstance(homeTeam.getHomeAttStrLast20(), awayTeam.getAwayAttStrLast20(),
                 homeTeam.getHomeDefStrLast20(), awayTeam.getAwayDefStrLast20(), homeTeam.getHomeFormLast20(),
                 awayTeam.getAwayFormLast20(), homeTeam.getHomeDefStrLast10(), homeTeam.getHomeFormLast10());
+        System.out.println("Home Team: " + homeTeam.getTeamName());
+        System.out.println("Away Team: " + awayTeam.getTeamName());
+        System.out.println(inst);
         fixture.setPrediction(lc.Classify(inst).toCharArray()[0]);
+        System.out.println("Prediction: " + lc.Classify(inst).toCharArray()[0] + "\n\n");
     }
 
     public List<Fixture> getNext3(String name){
