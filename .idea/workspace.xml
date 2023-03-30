@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCompare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCompare.js" afterDir="false" />
-    </list>
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Player Bios working per position type and Homepage working except player stats, Top Goal Scorer, etc." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +49,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -178,6 +161,7 @@
       <workItem from="1679528831240" duration="5314000" />
       <workItem from="1679663253030" duration="2113000" />
       <workItem from="1679766101849" duration="1387000" />
+      <workItem from="1680272592311" duration="353000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
@@ -277,7 +261,42 @@
       <option name="project" value="LOCAL" />
       <updated>1680054952690</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updated playerservice and playerrepo">
+      <created>1680183811219</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680183811219</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated playerservice and playerrepo">
+      <created>1680183849396</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680183849396</updated>
+    </task>
+    <task id="LOCAL-00017" summary="updated playerservice and playerrepo">
+      <created>1680183959279</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680183959279</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Player Bios working per position type and Homepage working except player stats, Top Goal Scorer, etc.">
+      <created>1680233041810</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680233041810</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Player Bios working per position type and Homepage working except player stats, Top Goal Scorer, etc.">
+      <created>1680272746327</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680272746327</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +312,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
@@ -304,7 +324,10 @@
     <MESSAGE value="Basic Team Page Functionality" />
     <MESSAGE value="Team Page with Basic CSS Working" />
     <MESSAGE value="CSS update#1" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS update#1" />
+    <MESSAGE value="Player Page &amp; Manager Page Finished. Needs some styling on player list and bio" />
+    <MESSAGE value="updated playerservice and playerrepo" />
+    <MESSAGE value="Player Bios working per position type and Homepage working except player stats, Top Goal Scorer, etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Player Bios working per position type and Homepage working except player stats, Top Goal Scorer, etc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
