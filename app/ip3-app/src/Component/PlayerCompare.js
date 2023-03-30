@@ -4,8 +4,6 @@ import SearchBar from "./SearchBar";
 import { useDrop } from "react-dnd";
 import { PlayerResultsCard } from "./PlayerResultsCard";
 import PlayerCard from "./PlayerCard";
-import DonutChart from "./DonutChart";
-
 
 function PlayerCompare(){
 
@@ -77,7 +75,9 @@ const updatePlayer = (player) => {
         <div className="Player" onClick={e => setToFalse(e)}>
             <SearchBar keyword={player} onChange={updatePlayer} fun={searchPlayer}/>
             <div className="playerSearch-Section">
-                {showElement ? players.map(player => <PlayerResultsCard draggable player={player}/>) : <div></div>}
+                <div className="results-section">
+                    {showElement ? players.map(player => <PlayerResultsCard draggable player={player}/>) : <div></div>}
+                </div>
             </div>
             <div className="PlayerCompareSection">
                 <div className="PlayerCardSection">

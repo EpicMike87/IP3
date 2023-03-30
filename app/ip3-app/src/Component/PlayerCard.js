@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DonutChart from "./DonutChart";
 
 function PlayerCard({player}){
@@ -14,7 +14,7 @@ function PlayerCard({player}){
                 </div>
                 <div className="PlayerInformation">
                     <span className="PlayerCardNameInformation">
-                    <p className="PlayerCardName">{`${player.firstName} ${player.lastName}`}</p>
+                    <h4 className="PlayerCardName">{`${player.firstName} ${player.lastName}`}</h4>
                     </span>
                     <span className="PlayerCardTeamInformation">
                     <h1 id="PlayerCardInfoH1">Team: </h1>

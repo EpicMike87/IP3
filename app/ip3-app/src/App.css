@@ -532,23 +532,43 @@ select {
 
 .playerSearch-Section {
   position: relative;
+  width: 100%;
 
 }
 
-.player-results-card {
+.results-section{
+  overflow-y: auto;
+  max-height: 410px;
+  margin-right: 350px;
+  margin-left: 350px;
+  
+}
+
+/* Scrollbar width */
+.results-section::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Scrollbar background colour */
+.results-section::-webkit-scrollbar-track {
+  background: rgba(211, 211, 211, 1);
+}
+
+/* Scroller thumb colour and shape, border makes it look spaced from the sides */
+.results-section::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 20px;
+  border: 3px solid rgba(211, 211, 211, 1);
+}
+
+.player-results-card{
   display: flex;
   position: relative;
   justify-content: center;
-
-  /* font-size: 25;
-  font-weight: bold;
-  cursor: move; */
-
-
 }
 
 .liEls {
-  width: 70%;
+  width: 100%;
   height: 150px;
   display: flex;
   border-radius: inherit;
@@ -566,7 +586,7 @@ select {
   height: 100%;
 }
 
-.HeaderBox {
+.HeaderBox{
   width: 50%;
   display: flex;
   align-content: left;
@@ -576,7 +596,7 @@ select {
   text-align: center;
   padding: 15px;
   border-left-style: solid;
-  border-left-color: #009879;
+  border-left-color: rgb(000, 32, 96);
 }
 
 .playerName {
@@ -591,7 +611,7 @@ select {
 
 }
 
-.statistics {
+.statistics{
   width: 50%;
   display: flex;
   justify-content: space-between;
@@ -601,7 +621,7 @@ select {
   padding-left: 10px;
   padding-right: 10px;
   border-left-style: solid;
-  border-left-color: #009879;
+  border-left-color: rgb(000, 32, 96);
 }
 
 .matchesPlayed {
@@ -812,11 +832,11 @@ select {
 
 }
 
-.CardSection1WithBasket:hover {
+/* .CardSection1WithBasket:hover {
   background-color: #cccccc;
   cursor: pointer;
 
-}
+} */
 
 .CardSection2 {
   display: flex;
@@ -846,16 +866,15 @@ select {
   display: flex;
   width: 50%;
   background-color: #ffffff;
-  height: 700px;
   border-left-style: solid;
   border-left-color: #ffffff;
   margin-left: 10px;
 }
 
-.CardSection2WithBasket:hover {
+/* .CardSection2WithBasket:hover {
   background-color: #cccccc;
   cursor: pointer;
-}
+} */
 
 .basket1 {
   position: absolute;
@@ -927,12 +946,9 @@ select {
   justify-content: space-between;
 }
 
-.PlayerCardNameInformation {
+.PlayerCardNameInformation{
   display: inline-block;
   justify-content: left;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: x-large;
-  padding: 2px;
 }
 
 .PlayerCardTeamInformation {
@@ -944,17 +960,17 @@ select {
   margin-top: 5px;
 }
 
-#PlayerCardInfoH1 {
+#PlayerCardInfoH1{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
+  font-size: x-large;
   margin: 0;
   margin-right: 5px;
 }
 
-.PlayerCardTeamInformation>p {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: large;
+.PlayerCardTeamInformation > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
 }
 
 .PlayerCardAgeInformation {
@@ -966,10 +982,10 @@ select {
   margin-top: 5px;
 }
 
-.PlayerCardAgeInformation>p {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: large;
+.PlayerCardAgeInformation > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
 }
 
 .PlayerCardMatchesInformation {
@@ -982,10 +998,10 @@ select {
 
 }
 
-.PlayerCardMatchesInformation>p {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: large;
+.PlayerCardMatchesInformation > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
 }
 
 .PlayerCardPositionInformation {
@@ -998,10 +1014,10 @@ select {
 
 }
 
-.PlayerCardPositionInformation>p {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 900;
-  font-size: large;
+.PlayerCardPositionInformation > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
 }
 
 .PlayerStatistics {
@@ -1049,7 +1065,7 @@ select {
   height: 50%;
 } */
 
-.Rating {
+.Rating{
   position: relative;
   display: flex;
   width: 100%;
@@ -1059,11 +1075,10 @@ select {
   margin-top: 70px;
   font-size: 60px;
   -webkit-animation: fadein 3s;
-  -moz-animation: fadein 3s;
-  -ms-animation: fadein 3s;
-  -o-animation: fadein 3s;
-  animation: fadein 3s;
-  text-decoration: underline;
+  -moz-animation: fadein 3s; 
+   -ms-animation: fadein 3s; 
+    -o-animation: fadein 3s;
+       animation: fadein 3s;
 }
 
 
