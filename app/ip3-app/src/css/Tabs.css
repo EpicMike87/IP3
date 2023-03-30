@@ -81,6 +81,8 @@
 
 .playerToolTip tr, .playerToolTip td, .playerToolTip th{
     padding: 0.2rem;
+    background-color: inherit;
+    color: inherit;
 }
 
 .player .playerToolTip {
@@ -109,8 +111,6 @@
   border-style: solid;
   border-color: #fff transparent transparent transparent;
 }
-
-
 
 .player:hover .playerToolTip {
   visibility: visible;
