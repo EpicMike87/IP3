@@ -17,7 +17,7 @@ import java.util.Set;
 @Service
 public class TeamService {
 
-    private TeamRepo teamRepo;
+    private final TeamRepo teamRepo;
 
     @Autowired
     public TeamService(TeamRepo teamRepo){
@@ -38,7 +38,7 @@ public class TeamService {
     }
 
     public TeamDto getTeamByName(String teamName){
-        teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
+//        teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
         return new TeamDto(teamRepo.findByTeamNameContainingIgnoreCase(teamName));
     }
 
