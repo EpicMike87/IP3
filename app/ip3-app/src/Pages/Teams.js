@@ -201,7 +201,7 @@ function Teams() {
             </div>
             <div id="message">Search to view team information.</div>
             <div className="playerSection">
-                <div className="teamInfo">
+                <div className="teamInfo" id>
                     <div className="bioRowBox">
                         <h2>Team Bio</h2>
                         <div className="rowBox">

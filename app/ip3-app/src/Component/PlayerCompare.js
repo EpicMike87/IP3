@@ -36,12 +36,12 @@ function PlayerCompare() {
         fetchData()
     }, [player])
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const searchBar = document.getElementsByClassName('searchBar')[0];
         const outsideClick = !searchBar.contains(event.target);
-        if(player != "" || !outsideClick) changeSelectionVisibility(true);
-        else changeSelectionVisibility(false);
-      });
+        if (outsideClick) changeSelectionVisibility(false);
+        else if (player != "") changeSelectionVisibility(true);
+    });
 
     const searchPlayer = () => {
         console.log("search button clicked");
@@ -85,6 +85,10 @@ function PlayerCompare() {
         }),
     });
 
+    const setToFalse = (e) => {
+        setShowElement(false);
+    };
+
     const changeSelectionVisibility = (on) => {
         const searchBar = document.getElementsByClassName('searchBarInput')[0];
 
@@ -101,7 +105,7 @@ function PlayerCompare() {
     }
 
     return (
-        <div className="Player">
+        <div className="Player" onClick={e => setToFalse(e)}>
             <SearchBar keyword={player} onChange={setPlayer} fun={searchPlayer} />
             <div id="playerSelection" style={{ maxHeight: "300px" }}>
                 <table className="playerTable sortable">
@@ -124,6 +128,8 @@ function PlayerCompare() {
                     </div>
                 </div>
             </div>
+
+
         </div>
     )
 

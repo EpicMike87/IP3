@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,6 +40,16 @@ public class TeamService {
     public TeamDto getTeamByName(String teamName){
         teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
         return new TeamDto(teamRepo.findByTeamNameContainingIgnoreCase(teamName));
+    }
+
+    public List<TeamDto> findListByName(String teamName){
+        teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
+        List<Team> teams = teamRepo.findListByTeamNameContainingIgnoreCase(teamName);
+        List<TeamDto> teamsDto = new ArrayList<>();
+        for(Team t : teams){
+            teamsDto.add(new TeamDto(t));
+        }
+        return teamsDto;
     }
 
     public TeamDto getTeam(int teamId){

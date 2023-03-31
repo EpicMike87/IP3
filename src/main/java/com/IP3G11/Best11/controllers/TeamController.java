@@ -37,6 +37,11 @@ public class TeamController {
         return team;
     }
 
+    @GetMapping("/team/list/{name}")
+    public List<TeamDto> getTeamListByName(@PathVariable String name) {
+        return teamService.findListByName(name);
+    }
+
     @GetMapping("/team/id/{id}")
     public TeamDto getTeamById(@PathVariable int id) {
         return teamService.getTeam(id);
