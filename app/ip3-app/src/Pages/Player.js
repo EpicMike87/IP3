@@ -190,7 +190,7 @@ function Player() {
                 {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`}</h1>)}
                 <div className="teamStats">
                     <div className="rowBox alignCenterTop minWidth250">
-                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo"  className='playerProfileImage'></img>)}
+                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
                     </div>
                     <div className="rowBox alignTop">
                         <table>
@@ -236,6 +236,11 @@ function Player() {
 
                             </tr>
                             <tr>
+                                <th>Penalties Taken:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.penaltiesTaken} </td>)}
+
+                            </tr>
+                            <tr>
                                 <th>Penalties Scored:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
 
@@ -261,7 +266,7 @@ function Player() {
                             </tr>
                             <tr>
                                 <th>Pass Accuracy:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy} </td>)}
+                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
 
                             </tr>
                         </table>
@@ -274,99 +279,7 @@ function Player() {
                 {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`}</h1>)}
                 <div className="teamStats">
                     <div className="rowBox alignCenterTop minWidth250">
-                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo"  className='playerProfileImage'></img>)}
-                        <table>
-                            <tr>
-                                <th>Name:</th>
-                                {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
-                            </tr>
-                            <tr>
-                                <th>Age:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
-                            </tr>
-                            <tr>
-                                <th>Position:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
-                            </tr>
-                            <tr>
-                                <th>Team:</th>
-                                {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
-                            </tr>
-
-                            <tr>
-                                <th>Rating:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
-                            </tr>
-                            <tr>
-                                <th>Matches Played:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
-
-                            </tr>
-                        </table>
-                    </div>
-                    <div className="rowBox alignTop">
-                        <table>
-                            <tr>
-                                <th>Goals:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Assists:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Penalties Scored:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Shots:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shots} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Shots On Target:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shotsOnTarget} </td>)}
-
-                            </tr>
-                        </table>
-                    </div>
-                    <div className="rowBox alignTop">
-                        <table>
-                            <tr>
-                                <th>Passes:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Pass Accuracy:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Red Cards:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.redCards} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Yellow Cards:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.yellowCards} </td>)}
-
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id='defenderplayerBio' className="playerInfoSection">
-                {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`}</h1>)}
-                <div className="teamStats">
-
-                    <div className="rowBox alignCenterRop minWidth250">
-                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo"  className='playerProfileImage'></img>)}
+                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
                     </div>
                     <div className='rowBox alignTop'>
                         <table>
@@ -391,15 +304,15 @@ function Player() {
                                 <th>Rating:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
                             </tr>
-                        </table>
-                    </div>
-                    <div className="rowBox alignTop">
-                        <table>
                             <tr>
                                 <th>Matches Played:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
 
                             </tr>
+                        </table>
+                    </div>
+                    <div className="rowBox alignTop">
+                        <table>
                             <tr>
                                 <th>Goals:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
@@ -411,18 +324,18 @@ function Player() {
 
                             </tr>
                             <tr>
-                                <th>Penalties Scored:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
+                                <th>Tackles:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.tackles} </td>)}
 
                             </tr>
                             <tr>
-                                <th>Shots:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shots} </td>)}
+                                <th>Blocks:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.blocks} </td>)}
 
                             </tr>
                             <tr>
-                                <th>Shots On Target:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shotsOnTarget} </td>)}
+                                <th>Interceptions:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.interceptions} </td>)}
 
                             </tr>
                         </table>
@@ -436,7 +349,7 @@ function Player() {
                             </tr>
                             <tr>
                                 <th>Pass Accuracy:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy} </td>)}
+                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
 
                             </tr>
                             <tr>
@@ -447,6 +360,101 @@ function Player() {
                             <tr>
                                 <th>Yellow Cards:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.yellowCards} </td>)}
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id='defenderplayerBio' className="playerInfoSection">
+                {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`}</h1>)}
+                <div className="teamStats">
+
+                    <div className="rowBox alignCenterRop minWidth250">
+                        {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
+                    </div>
+                    <div className='rowBox alignTop'>
+                        <table>
+                            <tr>
+                                <th>Name:</th>
+                                {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
+                            </tr>
+                            <tr>
+                                <th>Position:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
+                            </tr>
+                            <tr>
+                                <th>Team:</th>
+                                {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
+                            </tr>
+
+                            <tr>
+                                <th>Rating:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
+                            </tr>
+                            <tr>
+                                <th>Matches Played:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div className="rowBox alignTop">
+                        <table>
+
+                            <tr>
+                                <th>Goals:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Assists:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Duels:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.duels} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Duels Won:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.duelsWon} </td>)}
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div className="rowBox alignTop">
+                        <table>
+                            <tr>
+                                <th>Tackles:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.tackles} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Blocks:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.blocks} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Interceptions:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.interceptions} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Passes:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Pass Accuracy:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
 
                             </tr>
                         </table>
@@ -486,44 +494,30 @@ function Player() {
                                 {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
                             </tr>
 
-                        </table>
-                    </div>
-                    <div className="rowBox alignTop">
-                        <table>
-                            <tr>
-                                <th>Goals:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Assists:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Penalties Scored:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Shots:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shots} </td>)}
-
-                            </tr>
-                            <tr>
-                                <th>Shots On Target:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.shotsOnTarget} </td>)}
-
-                            </tr>
-                        </table>
-                    </div>
-                    <div className="rowBox alignTop">
-                        <table>
                             <tr>
                                 <th>Matches Played:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
 
                             </tr>
+                        </table>
+                    </div>
+                    <div className="rowBox alignTop">
+                        <table>
+                            <tr>
+                                <th>Saves:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.saves} </td>)}
+
+                            </tr>
+                            <tr>
+                                <th>Goals Conceded:</th>
+                                {playerInfo.map((playersData, index) => <td>{playersData.goalsConceded} </td>)}
+
+                            </tr>
+                        </table>
+                    </div>
+                    <div className="rowBox alignTop">
+                        <table>
+
                             <tr>
                                 <th>Passes:</th>
                                 {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
@@ -531,7 +525,7 @@ function Player() {
                             </tr>
                             <tr>
                                 <th>Pass Accuracy:</th>
-                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy} </td>)}
+                                {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
 
                             </tr>
                             <tr>
