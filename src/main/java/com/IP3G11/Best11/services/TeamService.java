@@ -38,7 +38,7 @@ public class TeamService {
 
     public TeamDto getTeamByName(String teamName){
         teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
-        return new TeamDto(teamRepo.findByTeamName(teamName));
+        return new TeamDto(teamRepo.findByTeamNameContainingIgnoreCase(teamName));
     }
 
     public TeamDto getTeam(int teamId){
