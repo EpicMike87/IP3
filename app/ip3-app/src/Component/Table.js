@@ -6,7 +6,6 @@ const Table = ({ data, column }) => {
       <thead>
         <tr >
           {column.map((item, index) => <TableHeadItem item={item} />)}
-          <th>Team Info</th>
         </tr>
       </thead>
       <tbody >

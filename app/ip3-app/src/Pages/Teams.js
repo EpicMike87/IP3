@@ -54,36 +54,36 @@ function Teams() {
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
 
-    useEffect(()=>{
+    useEffect(() => {
         const teamId = searchParams.get("id");
-        if(teamId != null){
+        if (teamId != null) {
             searchTeamById(teamId);
         }
-     }, [])
-     
+    }, [])
 
-     const searchTeamById = (id) => {
+
+    const searchTeamById = (id) => {
         Api.get(`/team/id/${id}`)
-        .then(res => {
-            console.log(res.data);
-            setTeamData(res.data);
-            setPlayers(res.data.players);
-            console.log(players);
-            mapTeamData(res.data)
-            mapTeamStats(res.data.allStats)
-            mapTeamHomeStats(res.data.homeStats)
-            mapTeamAwayStats(res.data.awayStats)
-            mapTeamGrounds(res.data.grounds)
-            const playerSection = document.getElementsByClassName('playerSection')[0];
-            const message = document.getElementById('message');
-            message.style.display = 'none';
-            playerSection.style.display = 'flex';
+            .then(res => {
+                console.log(res.data);
+                setTeamData(res.data);
+                setPlayers(res.data.players);
+                console.log(players);
+                mapTeamData(res.data)
+                mapTeamStats(res.data.allStats)
+                mapTeamHomeStats(res.data.homeStats)
+                mapTeamAwayStats(res.data.awayStats)
+                mapTeamGrounds(res.data.grounds)
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                const message = document.getElementById('message');
+                message.style.display = 'none';
+                playerSection.style.display = 'flex';
 
-        })
-        .catch(err => {
-            console.log(err);
-        });
-     }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 
 
     const searchTeam = () => {
@@ -183,7 +183,7 @@ function Teams() {
         setTeam(team);
     }
 
-    const gotoPlayer = (id) =>{
+    const gotoPlayer = (id) => {
         window.location = `/player?id=${id}`
     }
 
@@ -384,6 +384,11 @@ function Teams() {
 
                     </div>
                 </div>
+                <br></br>
+                <div className='leaguePlayerStats'>
+                    <h2>Upcoming Fixture Predictions</h2>
+                </div>
+                <br></br>
                 <div className="teamStats">
                     <div className="colBox">
                         <h2>Current Squad</h2>
