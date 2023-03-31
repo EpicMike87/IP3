@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="">
+    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="CSS update Homepage update#2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/DonutChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCompare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PlayerCompare.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +158,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="" />
+      <changelist id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="CSS update Homepage update#2" />
       <created>1677085270696</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -276,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680054952690</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="CSS update Homepage update#2">
+      <created>1680189897106</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680189897106</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +302,8 @@
     <MESSAGE value="Basic Team Page Functionality" />
     <MESSAGE value="Team Page with Basic CSS Working" />
     <MESSAGE value="CSS update#1" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS update#1" />
+    <MESSAGE value="CSS update Homepage update#2" />
+    <option name="LAST_COMMIT_MESSAGE" value="CSS update Homepage update#2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
