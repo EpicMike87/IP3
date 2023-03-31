@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Team Players</title>
+    <script src="js/teambymetric.js"></script>
+    <script src="js/sortable.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1 id="title">Players (Sortable)</h1>
+            <h3>Click on table headers to sort. Sorted by goals scored as default. Or use dropdown:</h3>
+            <small>Note: Goalkeepers are excluded as they do not use the same stats.</small><br>
+            <select id="teamSelector">
+            <option selected="selected">
+                Choose Team...
+                </option>
+            <option value="celtic">Celtic</option>
+            <option value="rangers">Rangers</option>
+            <option value="heart of midlothian">Hearts</option>
+            <option value="hibernian">Hibernian</option>
+            <option value="aberdeen">Aberdeen</option>
+            <option value="st mirren">St Mirren</option>
+            <option value="livingston">Livingston</option>
+            <option value="st johnstone">St Johnstone</option>
+            <option value="motherwell">Motherwell</option>
+            <option value="ross county">Ross County</option>
+            <option value="kilmarnock">Kilmarnock</option>
+            <option value="dundee utd">Dundee United</option>
+        </select>
+        <select id="selector">
+            <option selected="selected">
+                Choose Stat...
+                </option>
+            <option value="matchesPlayed">Matches Played</option>
+            <option value="shotsOnTarget">Shots On Target</option>
+            <option value="goals">Goals</option>
+            <option value="assists">Assists</option>
+        </select>
+        </header>
+        <div id="tablecontainer">
+            <table id="playerTable" class="scrolldown sortable">
+                <thead>
+                    <tr>
+                        <th class="no-sort">Photo</th>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th id="#matchesPlayed">Matches Played</th>
+                        <th>Shots On Target</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+</body>
+
+</html>
