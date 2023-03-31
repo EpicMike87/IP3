@@ -92,7 +92,6 @@ function Teams() {
                 console.log(res.data);
                 setTeamData(res.data);
                 setPlayers(res.data.players);
-                console.log(players);
                 mapTeamData(res.data)
                 mapTeamStats(res.data.allStats)
                 mapTeamHomeStats(res.data.homeStats)
@@ -202,8 +201,8 @@ function Teams() {
             </div>
             <div id="message">Search to view team information.</div>
             <div className="playerSection">
-                <div className="teamInfo">
-                    <div className="teamBio">
+                <div className="teamInfo" id>
+                    <div className="bioRowBox">
                         <h2>Team Bio</h2>
                         <div className="rowBox">
                             <img src={logoOfTeam} alt="teamLogo"></img>
@@ -232,10 +231,10 @@ function Teams() {
                         </div>
 
                     </div>
-                    <div className="groundsBio">
+                    <div className="bioRowBox">
                         <h2>Grounds</h2>
                         <div className="rowBox">
-                            <img src={groundsImage} alt="teamGrounds"></img>
+                            <img src={groundsImage} alt="teamGrounds" className="imageBorder"></img>
                             <table>
                                 <tr>
                                     <th>Name:</th>

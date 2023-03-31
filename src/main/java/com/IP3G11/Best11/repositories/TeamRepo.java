@@ -9,11 +9,11 @@ import java.util.List;
 
 
 @Repository
-@EnableJpaRepositories(basePackages = {"com.IP3G11.Best11.repositories"})
 public interface TeamRepo extends JpaRepository<Team, Integer> {
     Team save(Team t);
     Team findById(int id);
     Team findByTeamRank(int rank);
-    Team findByTeamName(String name);
+    Team findByTeamNameContainingIgnoreCase(String name);
+    List<Team> findListByTeamNameContainingIgnoreCase(String name);
     List<Team> findAll();
 }

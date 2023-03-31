@@ -2,6 +2,10 @@ html {
   overflow-y: scroll;
 }
 
+img{
+  display: block;
+}
+
 #root {
   position: relative;
   min-height: 100vh;
@@ -13,8 +17,12 @@ html {
   pointer-events: none;
 }
 
+.searchImage{
+  max-height: 80px;
+}
 
-#playerSelection {
+
+#playerSelection, #teamSelection {
   background-color: #fff;
   position: absolute;
   z-index: 555;
@@ -22,7 +30,7 @@ html {
   margin-right: auto;
   left: 0;
   right: 101px;
-  display: none;
+  /* display: none; */
   height: auto;
   max-height: 400px;
   overflow-x: hidden;
@@ -37,22 +45,22 @@ html {
 }
 
 /* Scrollbar width */
-#playerSelection::-webkit-scrollbar {
+#playerSelection::-webkit-scrollbar, #teamSelection::-webkit-scrollbar{
   width: 10px;
   z-index: 999;
 }
 
-#playerSelection:hover{
+#playerSelection:hover, #teamSelection:hover{
   overflow-y: overlay;
 }
 
 /* Scrollbar background colour */
-#playerSelection::-webkit-scrollbar-track {
+#playerSelection::-webkit-scrollbar-track, #teamSelection::-webkit-scrollbar-track {
   background: rgba(211, 211, 211, 0.7);
 }
 
 /* Scroller thumb colour and shape, border makes it look spaced from the sides */
-#playerSelection::-webkit-scrollbar-thumb {
+#playerSelection::-webkit-scrollbar-thumb, #teamSelection::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,.2);
 }
 
@@ -101,6 +109,20 @@ html {
   z-index: 2;
 }
 
+.playerInfoSection {
+  margin: 0 auto;
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  width: auto;
+  z-index: 2;
+  max-width: 70%;
+}
+
+#playerBio {
+  display: none;
+}
+
 #message {
   margin: 0 auto;
   width: 100%;
@@ -117,31 +139,80 @@ html {
   width: 100%;
 }
 
+.bioRowBox{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.bioRowBox img {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 40%;
+  max-height: 60%;
+  border-radius: 3%;
+  margin: auto;
+}
+
+.imageBorder{
+  border: 2px lightgray solid;
+}
+
 .teamStats {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  background-color: lightgray;
+  background-color: white;
   margin: 0;
   width: 100%;
 }
 
 
-.teamBio {
-  min-width: 50%;
-  display: flex;
-  flex-direction: column;
-  margin: 0rem;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
-  padding: 1rem;
-}
 
 .rowBox {
   display: flex;
   flex-direction: row;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.alignTop{
+  align-items:flex-start;
+  justify-content: flex-start;
+}
+
+.alignCenter{
+  align-items:center;
+  justify-content: center;
+}
+
+.alignCenterTop{
+  align-items:flex-start;
+  justify-content: center;
+}
+
+.minWidth250{
+  min-width: 250px;
+}
+
+.rowBox img{
+  object-fit: cover;
+  margin: 1rem;
+}
+
+.playerProfileImage{
+  width: 250px;
+  height: 250px;
+  border-radius: 6%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 
 .rowBox th {
@@ -158,26 +229,6 @@ html {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#photoBox {
-  width: 150px;
-  max-width: 150px;
-}
-
-#nameBox {
-  width: 370px;
-  max-width: 370px;
-}
-
-#posBox {
-  width: 125px;
-  max-width: 125px;
-}
-
-#teamBox {
-  width: 137px;
-  max-width: 137px;
-}
-
 .playerTable th {
   color: white;
   background-color: rgb(000, 32, 96);
@@ -189,7 +240,6 @@ html {
   background-color: white;
   padding: 0;
   text-align: center;
-  height: 2rem;
   overflow: hidden;
 }
 
@@ -218,28 +268,6 @@ html {
 
 }
 
-.groundsBio {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 0;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
-  padding: 1rem;
-}
-
-.groundsBio img {
-  object-fit: contain;
-  width: auto;
-  height: auto;
-  max-width: 40%;
-  max-height: 60%;
-  border-radius: 3%;
-  border: 2px lightgray solid;
-  margin: auto;
-}
-
 .statsBox {
   display: flex;
   flex-basis: 33.333%;
@@ -264,7 +292,8 @@ html {
 
 .rowBox table {
   text-align: left;
-  margin: 1rem 1rem;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .rowBox th,

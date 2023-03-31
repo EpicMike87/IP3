@@ -11,7 +11,7 @@
   width: 80%;
   overflow: hidden;
   min-height: 400px;
-  background: transparent;
+  background: whitesmoke;
   padding: 2rem 1rem;
   color: #000000;
   border: 1px solid #000000;
@@ -81,6 +81,8 @@
 
 .playerToolTip tr, .playerToolTip td, .playerToolTip th{
     padding: 0.2rem;
+    background-color: inherit;
+    color: inherit;
 }
 
 .player .playerToolTip {
@@ -109,8 +111,6 @@
   border-style: solid;
   border-color: #fff transparent transparent transparent;
 }
-
-
 
 .player:hover .playerToolTip {
   visibility: visible;
@@ -174,10 +174,5 @@ ul.Tabnav li.active {
   /* background: #39A2DB; */
   background:rgb(65,105,225);
 
-}
-
-/* Tab Content Styles */
-.TabContent {
-  font-size: 2rem;
 }
 
