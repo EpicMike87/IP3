@@ -25,7 +25,7 @@ public class TeamDto {
     private TeamStats homeStats;
     private TeamStats awayStats;
     private List<Player> players;
-    private List<Fixture> fixtures;
+    private List<FixtureDto> fixtures;
 
     public TeamDto(Team t){
         this.id = t.getId();
@@ -55,7 +55,11 @@ public class TeamDto {
         fixtures.addAll(t.getHomeFixtures());
         fixtures.addAll(t.getAwayFixtures());
         Collections.sort(fixtures);
-        this.fixtures = fixtures;
+        List<FixtureDto> fixturesDto = new ArrayList<>();
+        for(Fixture f : fixtures){
+            fixturesDto.add(new FixtureDto(f));
+        }
+        this.fixtures = fixturesDto;
     }
 }
 
