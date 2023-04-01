@@ -20,8 +20,6 @@ public class Defender extends Player{
     private int assists;
     private int goals;
     private int shotsOnTarget;
-    private int duels;
-    private int duelsWon;
     private int tackles;
     private int blocks;
     private int interceptions;
