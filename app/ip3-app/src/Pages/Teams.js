@@ -9,6 +9,7 @@ function Teams() {
     const [team, setTeam] = useState("");
     const [teamData, setTeamData,] = useState("");
     const [players, setPlayers] = useState([]);
+    const [fixtures, setFixtures] = useState([]);
     const [teamStats, setTeamStats] = useState()
     const [teamHomeStats, setTeamHomeStats] = useState()
     const [teamAwayStats, setTeamAwayStats] = useState()
@@ -68,7 +69,7 @@ function Teams() {
                 console.log(res.data);
                 setTeamData(res.data);
                 setPlayers(res.data.players);
-                console.log(players);
+                setFixtures(res.data.fixtures.slice(0, 3).reverse());
                 mapTeamData(res.data)
                 mapTeamStats(res.data.allStats)
                 mapTeamHomeStats(res.data.homeStats)
@@ -87,25 +88,31 @@ function Teams() {
 
 
     const searchTeam = () => {
+        if(team.length > 2){
         Api.get(`/team/${team}`)
             .then(res => {
                 console.log(res.data);
                 setTeamData(res.data);
                 setPlayers(res.data.players);
+                setFixtures(res.data.fixtures.slice(0, 3).reverse());
+                console.log(res.data.fixtures[0].dateTime)
                 mapTeamData(res.data)
                 mapTeamStats(res.data.allStats)
                 mapTeamHomeStats(res.data.homeStats)
                 mapTeamAwayStats(res.data.awayStats)
                 mapTeamGrounds(res.data.grounds)
-                const playerSection = document.getElementsByClassName('playerSection')[0];
-                const message = document.getElementById('message');
-                message.style.display = 'none';
-                playerSection.style.display = 'flex';
-
-            })
+            }).then(showPlayerSection())
             .catch(err => {
                 console.log(err);
             });
+        }
+    }
+
+    const showPlayerSection = () => {
+        const playerSection = document.getElementsByClassName('playerSection')[0];
+        const message = document.getElementById('message');
+        message.style.display = 'none';
+        playerSection.style.display = 'flex';
     }
 
     const mapTeamData = (data) => {
@@ -178,6 +185,11 @@ function Teams() {
         }))
     }
 
+    useEffect(() => {
+        if(team != "")
+        searchTeam();
+    }, [team])
+
     const updateTeam = (team) => {
         setTeam(team);
     }
@@ -197,7 +209,7 @@ function Teams() {
             </div>
 
             <div className="searchBarArea">
-                <SearchBar keyword={team} placeholders={"Please Enter Team Name"} onChange={updateTeam} fun={searchTeam} />
+                <SearchBar keyword={team} placeholders={"Please Enter Team Name"} onChange={setTeam} fun={searchTeam} />
             </div>
             <div id="message">Search to view team information.</div>
             <div className="playerSection">
@@ -383,11 +395,42 @@ function Teams() {
 
                     </div>
                 </div>
-                <br></br>
-                <div className='leaguePlayerStats'>
-                    <h2>Upcoming Fixture Predictions</h2>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
+                    <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
+                    <div className="rowBox">
+
+                        {fixtures.map((fixture, index) =>
+
+                            <div className="statsBox">
+                                <div className="rowBox" style={{ justifyContent: "center" }}>
+                                    <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                </div>
+                                <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.homeTeamName)
+                                        }}></img>
+                                        <h4>{fixture.homeTeamName}</h4>
+                                    </div>
+                                    <div className="colBox" style={{ justifyContent: "center" }}>
+                                        <h2> V </h2>
+                                    </div>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.awayTeamName)
+                                        }}></img>
+                                        <h4>{fixture.awayTeamName}</h4>
+                                    </div>
+                                </div>
+                                <div className="rowBox" style={{ justifyContent: "center" }}>
+                                    <h4>Prediction: {fixture.prediction == 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                </div>
+                            </div>
+
+
+                        )}
+                    </div>
                 </div>
-                <br></br>
                 <div className="teamStats">
                     <div className="colBox">
                         <h2>Current Squad</h2>

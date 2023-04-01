@@ -289,7 +289,6 @@ img {
   flex-direction: column;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
   padding: 1rem;
   flex-basis: 0;
   flex-grow: 1;
@@ -415,11 +414,11 @@ img {
 
 .statsBox {
   display: flex;
-  flex-basis: 33.333%;
+  flex-basis: 0;
+  flex-grow: 1;
   flex-direction: column;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
   padding: 1rem;
   margin: 0;
 }
@@ -428,10 +427,8 @@ img {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 100%;
-  border: 1px solid lightgray;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  padding-top: 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
 }
 
 
