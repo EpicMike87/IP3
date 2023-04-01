@@ -2,10 +2,7 @@ package com.IP3G11.Best11.tools;
 
 import com.IP3G11.Best11.model.Fixture;
 import com.IP3G11.Best11.model.Team;
-<<<<<<< HEAD
 //import com.groupdocs.merger.Merger;
-=======
->>>>>>> 8746db58a906cd6224bee9fd2a7a9164b89a59b6
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
