@@ -1,9 +1,6 @@
 package com.IP3G11.Best11.dto;
 
 import com.IP3G11.Best11.model.Fixture;
-import com.IP3G11.Best11.model.Team;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
