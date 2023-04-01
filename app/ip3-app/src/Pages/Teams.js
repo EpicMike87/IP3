@@ -69,7 +69,7 @@ function Teams() {
                 console.log(res.data);
                 setTeamData(res.data);
                 setPlayers(res.data.players);
-                setFixtures(res.data.fixtures.slice(0, 3).reverse());
+                setFixtures(res.data.fixtures);
                 mapTeamData(res.data)
                 mapTeamStats(res.data.allStats)
                 mapTeamHomeStats(res.data.homeStats)
@@ -88,24 +88,30 @@ function Teams() {
 
 
     const searchTeam = () => {
-        if(team.length > 2){
-        Api.get(`/team/${team}`)
-            .then(res => {
-                console.log(res.data);
-                setTeamData(res.data);
-                setPlayers(res.data.players);
-                setFixtures(res.data.fixtures.slice(0, 3).reverse());
-                console.log(res.data.fixtures[0].dateTime)
-                mapTeamData(res.data)
-                mapTeamStats(res.data.allStats)
-                mapTeamHomeStats(res.data.homeStats)
-                mapTeamAwayStats(res.data.awayStats)
-                mapTeamGrounds(res.data.grounds)
-            }).then(showPlayerSection())
-            .catch(err => {
-                console.log(err);
-            });
+        if (team.length > 2) {
+            Api.get(`/team/${team}`)
+                .then(res => {
+                    mapData(res.data);
+                }).then(showPlayerSection()).then(initSlider())
+                .catch(err => {
+                    console.log(err);
+                });
         }
+    }
+
+    const mapData = (data) =>{
+
+        //Current season start date
+        const seasonStart = new Date("07/30/2022");
+        setTeamData(data);
+        setPlayers(data.players);
+        //Set and sort by date, filter for current season
+        setFixtures(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart));
+        mapTeamData(data)
+        mapTeamStats(data.allStats)
+        mapTeamHomeStats(data.homeStats)
+        mapTeamAwayStats(data.awayStats)
+        mapTeamGrounds(data.grounds)
     }
 
     const showPlayerSection = () => {
@@ -186,8 +192,8 @@ function Teams() {
     }
 
     useEffect(() => {
-        if(team != "")
-        searchTeam();
+        if (team != "")
+            searchTeam();
     }, [team])
 
     const updateTeam = (team) => {
@@ -197,6 +203,42 @@ function Teams() {
     const gotoPlayer = (id) => {
         window.location = `/player?id=${id}`
     }
+
+    const initSlider = () => {
+
+        const slidesContainer = document.getElementById("slides-container");
+        const slidesContainer2 = document.getElementById("slides-container2");
+        const slide = document.querySelector(".slide");
+        const prevButton = document.getElementById("slide-arrow-prev");
+        const nextButton = document.getElementById("slide-arrow-next");
+        const prevButton2 = document.getElementById("slide-arrow-prev2");
+        const nextButton2 = document.getElementById("slide-arrow-next2");
+
+        nextButton.addEventListener("click", () => {
+            const slideWidth = slide.clientWidth;
+            const slideMarginLeft = slide.offsetLeft;
+            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft*7;
+        });
+    
+        prevButton.addEventListener("click", () => {
+            const slideWidth = slide.clientWidth;
+            const slideMarginRight = slide.offsetRight;
+            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight*7;
+        });
+
+        nextButton2.addEventListener("click", () => {
+            const slideWidth = slide.clientWidth;
+            const slideMarginLeft = slide.offsetLeft;
+            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft*7;
+        });
+    
+        prevButton2.addEventListener("click", () => {
+            const slideWidth = slide.clientWidth;
+            const slideMarginRight = slide.offsetRight;
+            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight*7;
+        });
+    }
+
 
     return (
         <div className="Team">
@@ -398,37 +440,93 @@ function Teams() {
                 <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
                     <div className="rowBox">
+                        <section class="slider-wrapper">
+                            <button class="slide-arrow" id="slide-arrow-prev">
+                                &#8249;
+                            </button>
+                            <button class="slide-arrow" id="slide-arrow-next">
+                                &#8250;
+                            </button>
+                            <div className="slides-container" id="slides-container">
+                                {fixtures.filter(f => f.fullTimeResult == "?").map((fixture, index) =>
 
-                        {fixtures.map((fixture, index) =>
+                                    <div className="slide" style={{padding: "0 3rem"}}>
 
-                            <div className="statsBox">
-                                <div className="rowBox" style={{ justifyContent: "center" }}>
-                                    <small>{new Date(fixture.dateTime).toUTCString()}</small>
-                                </div>
-                                <div className="rowBox" style={{ marginBottom: "1rem" }}>
-                                    <div className="colBox" style={{ alignItems: "center" }}>
-                                        <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                            updateTeam(fixture.homeTeamName)
-                                        }}></img>
-                                        <h4>{fixture.homeTeamName}</h4>
+                                        <div className="rowBox" style={{ justifyContent: "center" }}>
+                                            <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                        </div>
+                                        <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                            <div className="colBox" style={{ alignItems: "center" }}>
+                                                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                                    updateTeam(fixture.homeTeamName)
+                                                }}></img>
+                                                <h4>{fixture.homeTeamName}</h4>
+                                            </div>
+                                            <div className="colBox" style={{ justifyContent: "center" }}>
+                                                <h2> V </h2>
+                                            </div>
+                                            <div className="colBox" style={{ alignItems: "center" }}>
+                                                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                                    updateTeam(fixture.awayTeamName)
+                                                }}></img>
+                                                <h4>{fixture.awayTeamName}</h4>
+                                            </div>
+                                        </div>
+                                        <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                            <h4>Prediction: {fixture.prediction == 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                        </div>
+
+
                                     </div>
-                                    <div className="colBox" style={{ justifyContent: "center" }}>
-                                        <h2> V </h2>
-                                    </div>
-                                    <div className="colBox" style={{ alignItems: "center" }}>
-                                        <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                            updateTeam(fixture.awayTeamName)
-                                        }}></img>
-                                        <h4>{fixture.awayTeamName}</h4>
-                                    </div>
-                                </div>
-                                <div className="rowBox" style={{ justifyContent: "center" }}>
-                                    <h4>Prediction: {fixture.prediction == 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
-                                </div>
+                                )}
                             </div>
+                        </section>
+                    </div>
+                </div>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
+                    <h2 style={{ marginBottom: "1rem" }}>Past Results</h2>
+                    <div className="rowBox">
+                        <section class="slider-wrapper">
+                            <button class="slide-arrow" id="slide-arrow-prev2">
+                                &#8249;
+                            </button>
+                            <button class="slide-arrow" id="slide-arrow-next2">
+                                &#8250;
+                            </button>
+                            <div className="slides-container" id="slides-container2">
+                                {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
+
+                                    <div className="slide" style={{padding: "0 3rem"}}>
+
+                                        <div className="rowBox" style={{ justifyContent: "center" }}>
+                                            <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                        </div>
+                                        <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                            <div className="colBox" style={{ alignItems: "center" }}>
+                                                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                                    updateTeam(fixture.homeTeamName)
+                                                }}></img>
+                                                <h4>{fixture.homeTeamName}</h4>
+                                            </div>
+                                            <div className="colBox" style={{ justifyContent: "center" }}>
+                                                <h2>{fixture.homeTeamGoals} : {fixture.awayTeamGoals}</h2>
+                                            </div>
+                                            <div className="colBox" style={{ alignItems: "center" }}>
+                                                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                                    updateTeam(fixture.awayTeamName)
+                                                }}></img>
+                                                <h4>{fixture.awayTeamName}</h4>
+                                            </div>
+                                        </div>
+                                        <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                            <h4>{fixture.fullTimeResult == "H" ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                        </div>
 
 
-                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div className="teamStats">
