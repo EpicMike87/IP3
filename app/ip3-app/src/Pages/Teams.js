@@ -473,7 +473,7 @@ function Teams() {
                                             </div>
                                         </div>
                                         <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                            <h4>Prediction: {fixture.prediction == 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                            <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
                                         </div>
 
 
@@ -519,7 +519,7 @@ function Teams() {
                                             </div>
                                         </div>
                                         <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                            <h4>{fixture.fullTimeResult == "H" ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                            <h4>{fixture.fullTimeResult != 'D' ? (fixture == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
                                         </div>
 
 
