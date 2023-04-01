@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="CSS update Homepage update#2">
+    <list default="true" id="e9a962e8-ecf3-4633-8ea0-69cb6ba4a991" name="Changes" comment="Updated stats for player bio (WIP)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_03_2023_14_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_03_2023_14_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/7.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/services/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/TeamService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +63,16 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -275,7 +289,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680189897106</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="player bio integration">
+      <created>1680267075798</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680267075798</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated stats for player bio (WIP)">
+      <created>1680268026220</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680268026220</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +331,9 @@
     <MESSAGE value="Team Page with Basic CSS Working" />
     <MESSAGE value="CSS update#1" />
     <MESSAGE value="CSS update Homepage update#2" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS update Homepage update#2" />
+    <MESSAGE value="player bio integration" />
+    <MESSAGE value="Updated stats for player bio (WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated stats for player bio (WIP)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
