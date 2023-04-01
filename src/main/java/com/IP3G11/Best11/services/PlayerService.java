@@ -39,11 +39,11 @@ public class PlayerService {
     }
 
     public List<Player> getTop5ByPosition(String position){
-        return playerRepo.findTop5ByPositionOrderByRatingDesc(position);
+        return playerRepo.findTop5ByPositionTypeOrderByRatingDesc(position);
     }
 
     public List<Player> getByPosition(String position){
-        return playerRepo.findByPosition(position);
+        return playerRepo.findByPositionType(position);
     }
 
 
