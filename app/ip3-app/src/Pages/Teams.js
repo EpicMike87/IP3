@@ -217,25 +217,25 @@ function Teams() {
         nextButton.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginLeft = slide.offsetLeft;
-            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft*7;
+            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft*6.75;
         });
     
         prevButton.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginRight = slide.offsetRight;
-            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight*7;
+            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight*6.75;
         });
 
         nextButton2.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginLeft = slide.offsetLeft;
-            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft*7;
+            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft*6.75;
         });
     
         prevButton2.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginRight = slide.offsetRight;
-            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight*7;
+            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight*6.75;
         });
     }
 
