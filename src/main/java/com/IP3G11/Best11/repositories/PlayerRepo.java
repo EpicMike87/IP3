@@ -10,10 +10,10 @@ import java.util.List;
 public interface PlayerRepo extends JpaRepository<Player, Integer> {
     List<Player> findByLastName(String lastName);
     List<Player> findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(String firstName, String lastName);
-    List<Player> findTop5ByPositionOrderByRatingDesc(String position);
-    List<Player> findByPosition(String position);
+    List<Player> findTop5ByPositionTypeOrderByRatingDesc(String position);
+    List<Player> findByPositionType(String position);
     boolean existsById(int id);
     List<Player> findById(int id);
-    void deleteByPosition(String position);
+    void deleteByPositionType(String position);
     List<Player> findAllByFirstNameContainingOrLastNameContaining(String fname, String lname);
 }

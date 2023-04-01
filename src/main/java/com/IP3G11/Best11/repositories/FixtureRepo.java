@@ -15,6 +15,6 @@ public interface FixtureRepo extends JpaRepository<Fixture, Integer> {
     Fixture findByHomeTeamNameAndDateTime(String homeTeamName, Date dateTime);
     Fixture findById(int id);
     boolean existsByHomeTeamNameAndDateTime(String homeTeamName, Date dateTime);
-    List<Fixture> findTop3ByHomeTeamNameOrAwayTeamNameOrderByDateTimeDesc(String homeName, String awayName);
-    List<Fixture> findTop5ByHomeTeamNameOrAwayTeamNameAndDateTimeBeforeOrderByDateTimeDesc(String homeName, String awayName, Date date);
+    List<Fixture> findByDateTimeAfterAndHomeTeamNameOrDateTimeAfterAndAwayTeamNameOrderByDateTimeDesc(Date date, String homeName, Date date2, String awayName);
+    List<Fixture> findTop5ByDateTimeBeforeAndHomeTeamNameOrDateTimeBeforeAndAwayTeamNameOrderByDateTimeDesc(Date date, String homeName,Date date2, String awayName);
 }
