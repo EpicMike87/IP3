@@ -30,6 +30,10 @@ public class PlayerService {
         return playerRepo.findAllByFirstNameContainingOrLastNameContaining(name, name);
     }
 
+    public List<Player> getById(int id){
+        return playerRepo.findById(id);
+    }
+
     public List<Player> getPlayerByNames(String firstName, String lastName) {
         return playerRepo.findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(firstName, lastName);
     }
@@ -41,5 +45,6 @@ public class PlayerService {
     public List<Player> getByPosition(String position){
         return playerRepo.findByPosition(position);
     }
+
 
 }

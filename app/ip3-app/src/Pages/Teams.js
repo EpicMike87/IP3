@@ -2,12 +2,13 @@ import { React, useState, useEffect } from "react";
 import SearchBar from "../Component/SearchBar";
 import Api from '../Helpers/Api';
 import teamImage from "../images/teamImage.jpg";
-import Sortable from "../Helpers/sortable.min.js";
+import { useSearchParams } from "react-router-dom";
 
 function Teams() {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [team, setTeam] = useState("");
     const [teamData, setTeamData,] = useState("");
-    const [players, setPlayers] = useState()
+    const [players, setPlayers] = useState([]);
     const [teamStats, setTeamStats] = useState()
     const [teamHomeStats, setTeamHomeStats] = useState()
     const [teamAwayStats, setTeamAwayStats] = useState()
@@ -53,13 +54,44 @@ function Teams() {
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
 
+    useEffect(() => {
+        const teamId = searchParams.get("id");
+        if (teamId != null) {
+            searchTeamById(teamId);
+        }
+    }, [])
+
+
+    const searchTeamById = (id) => {
+        Api.get(`/team/id/${id}`)
+            .then(res => {
+                console.log(res.data);
+                setTeamData(res.data);
+                setPlayers(res.data.players);
+                console.log(players);
+                mapTeamData(res.data)
+                mapTeamStats(res.data.allStats)
+                mapTeamHomeStats(res.data.homeStats)
+                mapTeamAwayStats(res.data.awayStats)
+                mapTeamGrounds(res.data.grounds)
+                const playerSection = document.getElementsByClassName('playerSection')[0];
+                const message = document.getElementById('message');
+                message.style.display = 'none';
+                playerSection.style.display = 'flex';
+
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
 
     const searchTeam = () => {
         Api.get(`/team/${team}`)
             .then(res => {
                 console.log(res.data);
                 setTeamData(res.data);
-                mapPlayers(res.data.players);
+                setPlayers(res.data.players);
                 mapTeamData(res.data)
                 mapTeamStats(res.data.allStats)
                 mapTeamHomeStats(res.data.homeStats)
@@ -146,53 +178,12 @@ function Teams() {
         }))
     }
 
-    const mapPlayers = (players) => {
-        const table = document.getElementById('tableBody');
-        table.innerHTML = "";
-        setPlayers(players.map(player => {
-
-            //Create table row and cells to display the info for player
-            const newRow = document.createElement('tr');
-            const playerPhotoCell = document.createElement('td');
-            const playerName = document.createElement('td');
-            const playerPosition = document.createElement('td');
-            const playerMatchesPlayed = document.createElement('td');
-            const playerShotsOnTarget = document.createElement('td');
-            const playerGoals = document.createElement('td');
-            const playerAssists = document.createElement('td');
-
-            //Create the img element to use in player photo cell and add url (src attribute), add in to cell
-            const playerPhoto = document.createElement('img');
-            playerPhoto.src = player.photoUrl;
-            playerPhotoCell.className = 'photo';
-            playerPhotoCell.appendChild(playerPhoto);
-
-            //Add the rest of the data to their cells
-            playerName.innerText = `${player.firstName} ${player.lastName}`;
-            playerPosition.innerText = player.position;
-            playerMatchesPlayed.innerText = player.matchesPlayed;
-            playerShotsOnTarget.innerText = player.shotsOnTarget ? player.shotsOnTarget : 0;
-            playerGoals.innerText = player.goals ? player.goals : 0;
-            playerAssists.innerText = player.assists ? player.assists : 0;
-
-            //Add cells to row
-            newRow.appendChild(playerPhotoCell);
-            newRow.appendChild(playerName);
-            newRow.appendChild(playerPosition)
-            newRow.appendChild(playerMatchesPlayed);
-            newRow.appendChild(playerShotsOnTarget);
-            newRow.appendChild(playerGoals);
-            newRow.appendChild(playerAssists);
-
-            //Add row to table
-            table.appendChild(newRow);
-
-
-        }))
-    }
-
     const updateTeam = (team) => {
         setTeam(team);
+    }
+
+    const gotoPlayer = (id) => {
+        window.location = `/player?id=${id}`
     }
 
     return (
@@ -210,8 +201,8 @@ function Teams() {
             </div>
             <div id="message">Search to view team information.</div>
             <div className="playerSection">
-                <div className="teamInfo">
-                    <div className="teamBio">
+                <div className="teamInfo" id>
+                    <div className="bioRowBox">
                         <h2>Team Bio</h2>
                         <div className="rowBox">
                             <img src={logoOfTeam} alt="teamLogo"></img>
@@ -240,10 +231,10 @@ function Teams() {
                         </div>
 
                     </div>
-                    <div className="groundsBio">
+                    <div className="bioRowBox">
                         <h2>Grounds</h2>
                         <div className="rowBox">
-                            <img src={groundsImage} alt="teamGrounds"></img>
+                            <img src={groundsImage} alt="teamGrounds" className="imageBorder"></img>
                             <table>
                                 <tr>
                                     <th>Name:</th>
@@ -272,7 +263,7 @@ function Teams() {
                 </div>
                 <div className="teamStats">
                     <div className="statsBox">
-                        <h2>Season Stats {season}</h2>
+                        <h2>Season Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
@@ -312,7 +303,7 @@ function Teams() {
 
                     </div>
                     <div className="statsBox">
-                        <h2>Home Stats {season}</h2>
+                        <h2>Home Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
@@ -352,7 +343,7 @@ function Teams() {
 
                     </div>
                     <div className="statsBox">
-                        <h2>Away Stats {season}</h2>
+                        <h2>Away Stats</h2>
                         <div className="rowBox">
                             <table>
                                 <tr>
@@ -392,32 +383,42 @@ function Teams() {
 
                     </div>
                 </div>
+                <br></br>
+                <div className='leaguePlayerStats'>
+                    <h2>Upcoming Fixture Predictions</h2>
+                </div>
+                <br></br>
                 <div className="teamStats">
                     <div className="colBox">
                         <h2>Current Squad</h2>
-                            <div id="tablecontainer">
-                                <table id="playerTable" class="scrolldown sortable">
-                                    <thead>
-                                        <tr id="teampagerow">
-                                            <th class="no-sort">Photo</th>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th id="#matchesPlayed">Matches Played</th>
-                                            <th>Shots On Target</th>
-                                            <th>Goals</th>
-                                            <th>Assists</th>
+                        <div id="tablecontainer">
+                            <table id="playerTable" class="playerTable sortable">
+                                <thead>
+                                    <tr id="teampagerow">
+                                        <th class="no-sort">Photo</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Position</th>
+                                        <th id="#matchesPlayed">Matches Played</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                    {players.map((playersData, index) =>
+                                        <tr key={index} onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                                            <td><img src={playersData.photoUrl}></img></td>
+                                            <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
+                                            <td>{playersData.age}</td>
+                                            <td>{playersData.position}</td>
+                                            <td>{playersData.matchesPlayed}</td>
+                                            <td>{playersData.rating}</td>
                                         </tr>
-                                    </thead>
-                                    <tbody id="tableBody">
-                                    </tbody>
-                                </table>
-                                <br></br>
-                            </div>
-                            <ul>
-                                {players}
-                            </ul>
+                                    )}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                </div>
                 <div className="teamStatsSection">
                     <br></br>
                     <div className="teamNLG">

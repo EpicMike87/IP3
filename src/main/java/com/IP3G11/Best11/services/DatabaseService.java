@@ -42,12 +42,17 @@ public class DatabaseService {
         }
     }
 
-    public void loadFixtures() throws IOException, ParseException, InterruptedException {
+    public void loadFixtures() throws Exception {
 
-        /*FixtureCsvTool.getCSV();*/
+        try {
+            FixtureCsvTool.getCSV();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
 
         List<Team> teams = teamRepo.findAll();
-        List<Fixture> fixtures = FixtureCsvTool.getFixturesFromCsv("./fixturedata/seasonFixtures.csv", teams);
+        List<Fixture> fixtures = FixtureCsvTool.getFixturesFromCsv("./fixturedata/fixture-data.csv", teams);
         TeamStrengthTool tsc = new TeamStrengthTool();
         tsc.setFixtures(fixtures);
         tsc.setTeams(teams);
