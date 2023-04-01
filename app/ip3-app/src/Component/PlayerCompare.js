@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Api from '../Helpers/Api';
 import SearchBar from "./SearchBar";
 import { useDrop } from "react-dnd";
-import { PlayerResultsCard } from "./PlayerResultsCard";
+import {PlayerResultsCard} from './PlayerResultsCard';
 import PlayerCard from "./PlayerCard";
 
 function PlayerCompare() {
@@ -114,21 +114,23 @@ function PlayerCompare() {
                     </tbody>
                 </table>
             </div>
-            <div className="PlayerCompareSection">
-                <div className="PlayerCardSection">
+            <div className="CompareSection">
+                <div className="CardSections">
                     <div className={basket == "" ? "CardSection1" : "CardSection1WithBasket"} ref={dropRef}>
                         {basket.map(player => <PlayerCard player={player} />)}
-                        {isOver && !basket.includes(dropPlayer1) ? <p>Drop Player Here</p> : <p></p>}
+                        {isOver && !basket.includes(dropPlayer1) ? <p>Drop Player Here</p> : <p style={{display: "none"}}></p>}
+                        {!isOver && !basket.includes(dropPlayer1) ? <p>Search and Drag Player Here</p> : <p style={{display: "none"}}></p>}
+
 
                     </div>
                     <div className={basket2 == "" ? "CardSection2" : "CardSection2WithBasket"} ref={dropRef2}>
                         {basket2.map(player => <PlayerCard player={player} />)}
-                        {isOver2 && !basket2.includes(dropPlayer2) ? <p>Drop Player Here</p> : <p></p>}
+                        {isOver2 && !basket2.includes(dropPlayer2) ? <p>Drop Player Here</p> : <p style={{display: "none"}}></p>}
+                        {!isOver2 && !basket2.includes(dropPlayer2) ? <p>Search and Drag Player Here</p> : <p style={{display: "none"}}></p>}
 
                     </div>
                 </div>
             </div>
-
 
         </div>
     )

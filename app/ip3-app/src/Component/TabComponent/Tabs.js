@@ -4,6 +4,7 @@ import TabContent from "./TabContent";
 import "../../css/Tabs.css";
 import FirstTab from "./AllTabs/FirstTab";
 import PlayerCompare from "../PlayerCompare";
+import TeamCompare from "../TeamCompare";
  
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -24,7 +25,7 @@ const Tabs = () => {
           <PlayerCompare />
         </TabContent>
         <TabContent id="Team Comparison" activeTab={activeTab}>
-          
+          <TeamCompare />
         </TabContent>
       </div>
     </div>
