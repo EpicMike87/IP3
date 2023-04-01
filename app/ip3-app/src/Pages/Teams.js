@@ -437,7 +437,7 @@ function Teams() {
 
                     </div>
                 </div>
-                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
                     <div className="rowBox">
                         <section class="slider-wrapper">
@@ -483,7 +483,7 @@ function Teams() {
                         </section>
                     </div>
                 </div>
-                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Past Results</h2>
                     <div className="rowBox">
                         <section class="slider-wrapper">
