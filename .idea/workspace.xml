@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="" />
-=======
     <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="Homepage Updated.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
@@ -28,7 +26,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/Best11Application.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" afterDir="false" />
     </list>
->>>>>>> ac4b5359f3ffcfa0e482a0a53f3969187c874d51
+    &gt;&gt;&gt;&gt;&gt;&gt;&gt; ac4b5359f3ffcfa0e482a0a53f3969187c874d51
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +105,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager" selected="Spring Boot.Best11Application">
+  <component name="RunManager" selected="Application.Best11Application">
     <configuration name="Best11Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -160,11 +158,9 @@
       <item itemvalue="Application.Best11Application" />
       <item itemvalue="Application.Heapsort" />
       <item itemvalue="Application.MergeSort" />
-      <item itemvalue="Spring Boot.Best11Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Best11Application" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.Heapsort" />
         <item itemvalue="Application.MergeSort" />
