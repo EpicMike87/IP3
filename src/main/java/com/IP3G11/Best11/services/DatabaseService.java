@@ -58,7 +58,7 @@ public class DatabaseService {
         tsc.setTeams(teams);
         tsc.setLeagueAvgs();
         Set<Fixture> fixSet = new HashSet<>(fixtures);
-        Set<Fixture> upcomingFixSet = FixtureApiTool.getFutureXFixtures(3, teams);
+        Set<Fixture> upcomingFixSet = FixtureApiTool.getFutureXFixtures(10, teams);
         fixSet.addAll(upcomingFixSet);
         for(Fixture f : fixSet){
             try {
