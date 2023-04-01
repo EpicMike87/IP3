@@ -6,6 +6,9 @@ img {
   display: block;
 }
 
+.leagueStats tr{
+    cursor: pointer;
+    }
 
 .leaguePlayerStats {
   border-collapse: collapse;
