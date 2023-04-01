@@ -2,8 +2,145 @@ html {
   overflow-y: scroll;
 }
 
-img{
+img {
   display: block;
+}
+
+
+.leaguePlayerStats {
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid lightgray;
+  padding: 1rem;
+}
+
+#homeStats {
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#homeStats th,
+#homeStats td {
+  padding: 8px;
+
+}
+
+#homeStats th {
+  background-color: rgb(000, 32, 96);
+  color: white;
+}
+
+#homeStats tr {
+  height: 1rem;
+}
+
+#homeStats tr:nth-child(1) {
+  background-color: #FFD700;
+
+}
+
+#homeStats tr:nth-child(1):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(2):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(3):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(4):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(5):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(6):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(7):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(8):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(9):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(10):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(11):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(12):hover {
+  filter: brightness(85%);
+}
+
+#homeStats tr:nth-child(2) {
+  background-color: #87CEEB;
+}
+
+#homeStats tr:nth-child(3) {
+  background-color: #CD7F32;
+}
+
+#homeStats tr:nth-child(4) {
+  background-color: #CD7F32;
+}
+
+#homeStats tr:nth-child(5) {
+  background-color: #CD7F32;
+}
+
+#homeStats tr:nth-child(6) {
+  background-color: lightgray;
+}
+
+#homeStats tr:nth-child(7) {
+  background-color: lightgray;
+}
+
+#homeStats tr:nth-child(8) {
+  background-color: lightgray;
+}
+
+#homeStats tr:nth-child(9) {
+  background-color: lightgray;
+}
+
+#homeStats tr:nth-child(10) {
+  background-color: lightgray;
+}
+
+#homeStats tr:nth-child(11) {
+  background-color: #D3494E;
+}
+
+#homeStats tr:nth-child(12) {
+  background-color: #D3494E;
 }
 
 #root {
@@ -17,12 +154,13 @@ img{
   pointer-events: none;
 }
 
-.searchImage{
+.searchImage {
   max-height: 80px;
 }
 
 
-#playerSelection, #teamSelection {
+#playerSelection,
+#teamSelection {
   background-color: #fff;
   position: absolute;
   z-index: 555;
@@ -41,27 +179,31 @@ img{
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
-  
+
 }
 
 /* Scrollbar width */
-#playerSelection::-webkit-scrollbar, #teamSelection::-webkit-scrollbar{
+#playerSelection::-webkit-scrollbar,
+#teamSelection::-webkit-scrollbar {
   width: 10px;
   z-index: 999;
 }
 
-#playerSelection:hover, #teamSelection:hover{
+#playerSelection:hover,
+#teamSelection:hover {
   overflow-y: overlay;
 }
 
 /* Scrollbar background colour */
-#playerSelection::-webkit-scrollbar-track, #teamSelection::-webkit-scrollbar-track {
+#playerSelection::-webkit-scrollbar-track,
+#teamSelection::-webkit-scrollbar-track {
   background: rgba(211, 211, 211, 0.7);
 }
 
 /* Scroller thumb colour and shape, border makes it look spaced from the sides */
-#playerSelection::-webkit-scrollbar-thumb, #teamSelection::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2);
+#playerSelection::-webkit-scrollbar-thumb,
+#teamSelection::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .2);
 }
 
 
@@ -139,7 +281,7 @@ img{
   width: 100%;
 }
 
-.bioRowBox{
+.bioRowBox {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -160,7 +302,7 @@ img{
   margin: auto;
 }
 
-.imageBorder{
+.imageBorder {
   border: 2px lightgray solid;
 }
 
@@ -183,31 +325,31 @@ img{
   flex-grow: 1;
 }
 
-.alignTop{
-  align-items:flex-start;
+.alignTop {
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
-.alignCenter{
-  align-items:center;
+.alignCenter {
+  align-items: center;
   justify-content: center;
 }
 
-.alignCenterTop{
-  align-items:flex-start;
+.alignCenterTop {
+  align-items: flex-start;
   justify-content: center;
 }
 
-.minWidth250{
+.minWidth250 {
   min-width: 250px;
 }
 
-.rowBox img{
+.rowBox img {
   object-fit: cover;
   margin: 1rem;
 }
 
-.playerProfileImage{
+.playerProfileImage {
   width: 250px;
   height: 250px;
   border-radius: 6%;
@@ -246,9 +388,9 @@ img{
 .playerTable tbody tr:hover td,
 .playerTable tbody tr:hover th,
 .playerTable tbody tr:focus td,
-.playerTable tbody tr:focus th  {
-    background-color: #ccc;
-    cursor: pointer;
+.playerTable tbody tr:focus th {
+  background-color: #ccc;
+  cursor: pointer;
 }
 
 .playerTable td {
@@ -256,7 +398,7 @@ img{
   overflow: hidden;
 }
 
-#teamCell{
+#teamCell {
   cursor: pointer;
 }
 
@@ -574,12 +716,12 @@ select {
 
 }
 
-.results-section{
+.results-section {
   overflow-y: auto;
   max-height: 410px;
   margin-right: 350px;
   margin-left: 350px;
-  
+
 }
 
 /* Scrollbar width */
@@ -599,7 +741,7 @@ select {
   border: 3px solid rgba(211, 211, 211, 1);
 }
 
-.player-results-card{
+.player-results-card {
   display: flex;
   position: relative;
   justify-content: center;
@@ -624,7 +766,7 @@ select {
   height: 100%;
 }
 
-.HeaderBox{
+.HeaderBox {
   width: 50%;
   display: flex;
   align-content: left;
@@ -649,7 +791,7 @@ select {
 
 }
 
-.statistics{
+.statistics {
   width: 50%;
   display: flex;
   justify-content: space-between;
@@ -984,7 +1126,7 @@ select {
   justify-content: space-between;
 }
 
-.PlayerCardNameInformation{
+.PlayerCardNameInformation {
   display: inline-block;
   justify-content: left;
 }
@@ -998,14 +1140,14 @@ select {
   margin-top: 5px;
 }
 
-#PlayerCardInfoH1{
+#PlayerCardInfoH1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: x-large;
   margin: 0;
   margin-right: 5px;
 }
 
-.PlayerCardTeamInformation > p {
+.PlayerCardTeamInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1020,7 +1162,7 @@ select {
   margin-top: 5px;
 }
 
-.PlayerCardAgeInformation > p {
+.PlayerCardAgeInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1036,7 +1178,7 @@ select {
 
 }
 
-.PlayerCardMatchesInformation > p {
+.PlayerCardMatchesInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1052,7 +1194,7 @@ select {
 
 }
 
-.PlayerCardPositionInformation > p {
+.PlayerCardPositionInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1103,7 +1245,7 @@ select {
   height: 50%;
 } */
 
-.Rating{
+.Rating {
   position: relative;
   display: flex;
   width: 100%;
@@ -1113,10 +1255,10 @@ select {
   margin-top: 70px;
   font-size: 60px;
   -webkit-animation: fadein 3s;
-  -moz-animation: fadein 3s; 
-   -ms-animation: fadein 3s; 
-    -o-animation: fadein 3s;
-       animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  -ms-animation: fadein 3s;
+  -o-animation: fadein 3s;
+  animation: fadein 3s;
 }
 
 

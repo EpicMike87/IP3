@@ -11,7 +11,7 @@ Step 2.
 load up MySQL command line client and run:
 
 create database ip3b11;
-use database ip3b11;
+use ip3b11;
 
 then paste in the contents of db.sql (in root directory of project)
 
