@@ -1,14 +1,17 @@
 package com.IP3G11.Best11.services;
 
+import com.IP3G11.Best11.dto.FixtureDto;
 import com.IP3G11.Best11.model.Fixture;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.FixtureRepo;
 import com.IP3G11.Best11.tools.ModelClassifier;
+import com.groupdocs.merger.internal.c.a.i.internal.b.F;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import weka.core.Instances;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -44,14 +47,18 @@ public class FixtureService {
         }
     }
 
-    public Fixture getById(int id) {
-        return fixtureRepo.findById(id);
+    public FixtureDto getById(int id) {
+        return new FixtureDto(fixtureRepo.findById(id));
     }
 
-    public List<Fixture> getAll() {
+    public List<FixtureDto> getAll() {
         List<Fixture> fixtures = fixtureRepo.findAll();
         Collections.sort(fixtures);
-        return fixtures;
+        List<FixtureDto> fixturesDto = new ArrayList<>();
+        for(Fixture f : fixtures){
+            fixturesDto.add(new FixtureDto(f));
+        }
+        return fixturesDto;
     }
 
     private void addPrediction(Fixture fixture) {
@@ -63,16 +70,28 @@ public class FixtureService {
                 awayTeam.getAwayFormLast20(), homeTeam.getHomeDefStrLast10(), homeTeam.getHomeFormLast10());
         System.out.println("Home Team: " + homeTeam.getTeamName());
         System.out.println("Away Team: " + awayTeam.getTeamName());
-        System.out.println(inst);
+        char prediction = lc.Classify(inst).toCharArray()[0];
         fixture.setPrediction(lc.Classify(inst).toCharArray()[0]);
         System.out.println("Prediction: " + lc.Classify(inst).toCharArray()[0] + "\n\n");
     }
 
-    public List<Fixture> getNext3(String name){
-        return fixtureRepo.findTop3ByHomeTeamNameOrAwayTeamNameOrderByDateTimeDesc(name, name);
+    public List<FixtureDto> getNext3(String name){
+        List<Fixture> fixtures = fixtureRepo.findTop3ByHomeTeamNameOrAwayTeamNameOrderByDateTimeDesc(name, name);
+        Collections.sort(fixtures);
+        List<FixtureDto> fixturesDto = new ArrayList<>();
+        for(Fixture f : fixtures){
+            fixturesDto.add(new FixtureDto(f));
+        }
+        return fixturesDto;
     }
 
-    public List<Fixture> getLast5(String name){
-        return fixtureRepo.findTop5ByHomeTeamNameOrAwayTeamNameAndDateTimeBeforeOrderByDateTimeDesc(name, name, new Date());
+    public List<FixtureDto> getLast5(String name){
+        List<Fixture> fixtures = fixtureRepo.findTop5ByHomeTeamNameOrAwayTeamNameAndDateTimeBeforeOrderByDateTimeDesc(name, name, new Date());
+        Collections.sort(fixtures);
+        List<FixtureDto> fixturesDto = new ArrayList<>();
+        for(Fixture f : fixtures){
+            fixturesDto.add(new FixtureDto(f));
+        }
+        return fixturesDto;
     }
 }
