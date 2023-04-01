@@ -1,5 +1,6 @@
 package com.IP3G11.Best11.controllers;
 
+import com.IP3G11.Best11.dto.FixtureDto;
 import com.IP3G11.Best11.model.Fixture;
 import com.IP3G11.Best11.services.FixtureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,19 @@ public class FixtureController {
     private FixtureService fixtureService;
 
     @GetMapping("fixtures/all")
-    public List<Fixture> getAllFixtures(){
-        List<Fixture> fixtures = fixtureService.getAll();
+    public List<FixtureDto> getAllFixtures(){
+        List<FixtureDto> fixtures = fixtureService.getAll();
         Collections.sort(fixtures);
         return fixtures;
     }
 
     @GetMapping("fixtures/next3/{name}")
-    public List<Fixture> getNext3(@PathVariable String name){
+    public List<FixtureDto> getNext3(@PathVariable String name){
         return fixtureService.getNext3(name);
     }
 
     @GetMapping("fixtures/last5/{name}")
-    public List<Fixture> getLast5(@PathVariable String name){
+    public List<FixtureDto> getLast5(@PathVariable String name){
         return fixtureService.getLast5(name);
     }
 }
