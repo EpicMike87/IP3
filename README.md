@@ -11,7 +11,7 @@ Step 2.
 load up MySQL command line client and run:
 
 create database ip3b11;
-use database ip3b11;
+use ip3b11;
 
 then paste in the contents of db.sql (in root directory of project)
 
@@ -28,3 +28,13 @@ You should see a message once the fixtures are loaded in
 Step 5. 
 
 Use it, and please don't run into any errors :( :(
+
+## To Rebuild Database
+
+Step 1.
+
+Go to MySQL Command Line Client and run drop database ip3b11;
+
+Step 2.
+
+Follow steps described above to initialise and rebuild new db.

@@ -6,6 +6,9 @@ img {
   display: block;
 }
 
+.leagueStats tr{
+    cursor: pointer;
+    }
 
 .leaguePlayerStats {
   border-collapse: collapse;
@@ -286,7 +289,6 @@ img {
   flex-direction: column;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
   padding: 1rem;
   flex-basis: 0;
   flex-grow: 1;
@@ -412,11 +414,11 @@ img {
 
 .statsBox {
   display: flex;
-  flex-basis: 33.333%;
+  flex-basis: 0;
+  flex-grow: 1;
   flex-direction: column;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid lightgray;
   padding: 1rem;
   margin: 0;
 }
@@ -425,10 +427,8 @@ img {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 100%;
-  border: 1px solid lightgray;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  padding-top: 1rem;
+  flex-basis: 0;
+  flex-grow: 1;
 }
 
 
@@ -963,7 +963,7 @@ select {
 
 }
 
-.PlayerCompareSection {
+.CompareSection {
   position: relative;
   margin-top: 70px;
   width: 100%;
@@ -972,7 +972,7 @@ select {
   flex-direction: column;
 }
 
-.PlayerCardSection {
+.CardSections {
   display: flex;
   flex-direction: row;
   border-top: solid;
@@ -987,7 +987,7 @@ select {
   background-color: #c0c2c0;
   padding-bottom: 25%;
   padding-top: 25%;
-
+  
 }
 
 .CardSection1>p {
@@ -1009,6 +1009,7 @@ select {
   border-right-style: solid;
   border-right-color: #ffffff;
   margin-right: 10px;
+  /* height: fit-content; */
 
 }
 
@@ -1022,7 +1023,6 @@ select {
   display: flex;
   width: 50%;
   background-color: #c0c2c0;
-  padding-bottom: 50%;
   border-left-color: #ffffff;
   border-left-style: solid;
   padding-bottom: 25%;
@@ -1049,6 +1049,7 @@ select {
   border-left-style: solid;
   border-left-color: #ffffff;
   margin-left: 10px;
+  /* height: fit-content; */
 }
 
 /* .CardSection2WithBasket:hover {
@@ -1080,7 +1081,7 @@ select {
   text-align: center;
 }
 
-.PlayerCard {
+.CardSectionCard {
   background-color: #ffffff;
   position: relative;
   display: flex;
@@ -1093,7 +1094,7 @@ select {
 
 }
 
-.PlayerHeader {
+.CardSectionHeader {
   display: flex;
   flex-direction: row;
   /* position: absolute; */
@@ -1103,7 +1104,7 @@ select {
   border-color: #ebebeb;
 }
 
-.PlayerImgContainer {
+.CardSectionImgContainer {
   width: 35%;
   padding: 2px;
   display: flex;
@@ -1112,12 +1113,12 @@ select {
   border-color: #ebebeb;
 }
 
-.PlayerImg {
+.CardSectionImg {
   width: 100%;
   border-radius: 25px;
 }
 
-.PlayerInformation {
+.CardSectionInformation {
   display: flex;
   position: relative;
   padding: 2px;
@@ -1126,9 +1127,17 @@ select {
   justify-content: space-between;
 }
 
-.PlayerCardNameInformation {
+.CardSectionNameInformation {
   display: inline-block;
   justify-content: left;
+  font-size: xx-large;
+}
+
+#CardSectionInfoH1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  margin: 0;
+  margin-right: 5px;
 }
 
 .PlayerCardTeamInformation {
@@ -1140,14 +1149,22 @@ select {
   margin-top: 5px;
 }
 
-#PlayerCardInfoH1 {
+.PlayerCardTeamInformation>p {
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
   font-size: x-large;
-  margin: 0;
-  margin-right: 5px;
 }
 
-.PlayerCardTeamInformation>p {
+.TeamGroundInformation {
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+}
+
+.TeamGroundInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1168,7 +1185,22 @@ select {
   font-size: x-large;
 }
 
-.PlayerCardMatchesInformation {
+.TeamSeasonInformation {
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+}
+
+.TeamSeasonInformation>p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.CardMatchesInformation {
   display: inline-flex;
   float: left;
   flex-wrap: nowrap;
@@ -1178,7 +1210,7 @@ select {
 
 }
 
-.PlayerCardMatchesInformation>p {
+.CardMatchesInformation>p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: x-large;
@@ -1200,7 +1232,23 @@ select {
   font-size: x-large;
 }
 
-.PlayerStatistics {
+.TeamPointsInformation {
+  display: inline-flex;
+  float: left;
+  flex-wrap: nowrap;
+  justify-content: start;
+  white-space: normal;
+  margin-top: 5px;
+
+}
+
+.TeamPointsInformation>p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.CardSectionStatistics {
   position: relative;
   display: flex;
   flex-direction: column;

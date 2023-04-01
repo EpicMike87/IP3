@@ -36,6 +36,8 @@ public class Player {
     private int redCards;
     private int passes;
     private double passAccuracy;
+    private int duels;
+    private int duelsWon;
 
     public void setAge(){
         age = Period.between(dateOfBirth, LocalDate.now()).getYears();

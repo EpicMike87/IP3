@@ -49,6 +49,8 @@ CREATE TABLE Player (
     red_cards INT,
     passes INT,
     pass_accuracy FLOAT(24),
+    duels INT,
+    duels_won INT,
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 
@@ -78,8 +80,6 @@ CREATE TABLE Defender_Stats (
     assists INT NOT NULL,
     goals INT NOT NULL,
     shots_on_target INT NOT NULL,
-    duels INT NOT NULL,
-    duels_won INT NOT NULL,
     tackles INT NOT NULL,
     blocks INT NOT NULL,
     interceptions INT NOT NULL
