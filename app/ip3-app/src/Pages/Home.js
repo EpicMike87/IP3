@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from 'react';
 import Api from '../Helpers/Api';
 import playerImage from "../images/homepage2.jpg";
@@ -7,8 +8,11 @@ function Home() {
   const [dataTable, setDataTable] = useState([]);
   const [playerStats, setPlayerStats] = useState([]);
 
-  const [topGoalScorer, setTopGoalScorer] = useState();
-  const [Goals, setGoals] = useState("");
+  const [topGoalScorer, setTopGoalScorer] = useState([]);
+  const [mostAssists, setMostAssists] = useState([]);
+  const [mostSavesStat, setLeastGoalsConc] = useState([]);
+  const [topRatedPlayer, setTopRatedPlayer] = useState([]);
+
 
 
 
@@ -20,44 +24,170 @@ function Home() {
       })
       .catch(err => console.log(err))
 
-    Api.get(`/players/all`)
+    //let ignore = false;
+
+    //if (!ignore) 
+    searchPlayers()
+    //return () => { ignore = true; }
+
+  }, []);
+
+  const searchPlayers = () => {
+    Api.get(`players/all`)
       .then(res => {
-        console.log(res.data);
-        //setPlayerStats(res.data);
-        //setTopScorer(res.data)
+        //console.log(res.data);
+
+        findTopScorer(res.data)
+        findMostAssits(res.data);
+        findMostSaves(res.data);
+        findTopRatedPlayer(res.data);
+
+
       })
       .catch(err => {
         console.log(err);
       });
-
-
-  }, []);
-
-
-
-  /*
-  const setTopScorer = (data) => {
-    var maxValueIndex = fun(data);
-    console.log(maxValueIndex);
-    //playerStats.map((playersData, index) => console.log(playersData[maxValueIndex]))
-    setTopGoalScorer(Object.keys(data).forEach(function (key, index) {
-      //console.log(data[maxValueIndex])
-      //setGoals(data[maxValueIndex].goals)
-    }))
   }
-  // Returns max value of
-  // attribute 'a' in array
-  function fun(data) {
-    var maxValue = Number.MIN_VALUE;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].goals > maxValue) {
-        maxValue = data[i].goals;
+
+
+
+  const findTopScorer = (data) => {
+    let topScorer = new Array();
+
+    data.forEach(data => {
+      switch (data.positionType) {
+        case "Attacker":
+          topScorer.push(data);
+          break;
+        case "Midfielder":
+          topScorer.push(data);
+          break;
+        case "Defender":
+          topScorer.push(data);
+          break;
       }
-    }
-    return i;
-  }
-*/
+    });
 
+    const allPos = new Array();
+    allPos.push(topScorer);
+    allPos.forEach(pos => {
+      pos.sort((a, b) => (a.goals > b.goals) ? -1 : 1)
+    })
+    const topPlayerGoals = new Array();
+    allPos.forEach(playersPos => {
+      topPlayerGoals.push(playersPos[0])
+      if (playersPos[0].position == "Centre-Back" || playersPos[0].position == "Central Midfield") {
+        topPlayerGoals.push(playersPos[1])
+      }
+    })
+    console.log(topPlayerGoals);
+
+    setTopGoalScorer(topPlayerGoals)
+  }
+
+  const findMostAssits = (data) => {
+    let mostAssits = new Array();
+
+    data.forEach(data => {
+      switch (data.positionType) {
+        case "Attacker":
+          mostAssits.push(data);
+          break;
+        case "Midfielder":
+          mostAssits.push(data);
+          break;
+        case "Defender":
+          mostAssits.push(data);
+          break;
+      }
+    });
+
+    const allPosAssists = new Array();
+    allPosAssists.push(mostAssits);
+    allPosAssists.forEach(pos => {
+      pos.sort((a, b) => (a.assists > b.assists) ? -1 : 1)
+    })
+    const topPlayerAssists = new Array();
+    allPosAssists.forEach(playersPos => {
+      topPlayerAssists.push(playersPos[0])
+      // if (playersPos[0].position == "Centre-Back" || playersPos[0].position == "Central Midfield") {
+      //  topPlayerAssists.push(playersPos[1])
+      // }
+    })
+    //console.log(topPlayerAssists);
+
+    setMostAssists(topPlayerAssists)
+  }
+
+
+  const findMostSaves = (data) => {
+    let MostSaves = new Array();
+
+    data.forEach(data => {
+      switch (data.positionType) {
+        case "Goalkeeper":
+          MostSaves.push(data);
+          break;
+      }
+    });
+
+    const allPosSaves = new Array();
+    allPosSaves.push(MostSaves);
+
+    allPosSaves.forEach(pos => {
+      pos.sort((a, b) => (a.saves > b.saves) ? -1 : 1)
+    })
+    const topPlayerSaves = new Array();
+    allPosSaves.forEach(playersPos => {
+      topPlayerSaves.push(playersPos[0])
+      // if (playersPos[0].position == "Centre-Back" || playersPos[0].position == "Central Midfield") {
+      //  topPlayerAssists.push(playersPos[1])
+      // }
+    })
+    //console.log(topPlayerSaves);
+
+    setLeastGoalsConc(topPlayerSaves)
+  }
+
+
+  const findTopRatedPlayer = (data) => {
+    let HighestRated = new Array();
+
+    data.forEach(data => {
+      switch (data.positionType) {
+        case "Attacker":
+          HighestRated.push(data);
+          break;
+        case "Midfielder":
+          HighestRated.push(data);
+          break;
+        case "Defender":
+          HighestRated.push(data);
+          break;
+        case "Goalkeeper":
+          HighestRated.push(data);
+          break;
+      }
+    });
+
+    const allPosRating = new Array();
+    allPosRating.push(HighestRated);
+    allPosRating.forEach(pos => {
+      pos.sort((a, b) => (a.rating > b.rating) ? -1 : 1)
+    })
+    const topPlayerRating = new Array();
+    allPosRating.forEach(playersPos => {
+      topPlayerRating.push(playersPos[0])
+    })
+    //console.log(topPlayerRating);
+    setTopRatedPlayer(topPlayerRating)
+  }
+
+
+
+  const gotoPlayer = (playerId) => {
+    window.location = `/player?id=${playerId}`;
+  }
 
   const gotoTeam = (teamId) => {
     window.location = `/team?id=${teamId}`;
@@ -233,25 +363,27 @@ function Home() {
               <h3>Top Goal Scorer</h3>
               <div className="rowBox">
                 <table>
-                  <tr>
-                    <th>Image:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.goals} </td>)}
+                  {topGoalScorer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      {topGoalScorer.map((playersData, index) => <img src={playersData.photoUrl} className="searchImage"></img>)}
+                    </tr>)}
 
+                  <tr>
                     <th>Goals:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.assists} </td>)}
+                    {topGoalScorer.map((playersData, index) => <td>{playersData.goals} </td>)}
 
                   </tr>
+                  {topGoalScorer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      <th>Name:</th>
+                      {topGoalScorer.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`} </td>)}
 
-                  <tr>
-                    <th>Name:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
-
-                  </tr>
-                  <tr>
-                    <th>Team:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.shots} </td>)}
-
-                  </tr>
+                    </tr>)}
+                  {topGoalScorer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoTeam(`${playersData.teamId}`)}>
+                      <th>Team:</th>
+                      <td>{playersData.team} </td>
+                    </tr>)}
                 </table>
               </div>
             </div>
@@ -260,50 +392,58 @@ function Home() {
               <h3>Most Assists</h3>
               <div className="rowBox">
                 <table>
-                  <tr>
-                    <th>Image:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.goals} </td>)}
+                  {mostAssists.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      {mostAssists.map((playersData, index) => <img src={playersData.photoUrl} className="searchImage"></img>)}
+                    </tr>)}
 
+                  <tr>
                     <th>Assists:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.assists} </td>)}
-                  </tr>
-
-                  <tr>
-                    <th>Name:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
+                    {mostAssists.map((playersData, index) => <td>{playersData.assists} </td>)}
 
                   </tr>
-                  <tr>
-                    <th>Team:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.shots} </td>)}
 
-                  </tr>
+                  {mostAssists.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      <th>Name:</th>
+                      {mostAssists.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`} </td>)}
+
+                    </tr>)}
+                  {mostAssists.map((playersData, index) =>
+                    <tr onClick={(e) => gotoTeam(`${playersData.teamId}`)}>
+                      <th>Team:</th>
+                      <td>{playersData.team} </td>
+                    </tr>)}
                 </table>
               </div>
             </div>
 
             <div className="statsBox">
-              <h3>Most Clean Sheets</h3>
+              <h3>Most Saves</h3>
               <div className="rowBox">
                 <table>
-                  <tr>
-                    <th>Image:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.goals} </td>)}
-
-                    <th>Clean Sheets:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.assists} </td>)}
-                  </tr>
+                  {mostSavesStat.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      {mostSavesStat.map((playersData, index) => <img src={playersData.photoUrl} className="searchImage"></img>)}
+                    </tr>)}
 
                   <tr>
-                    <th>Name:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
+                    <th>Saves:</th>
+                    {mostSavesStat.map((playersData, index) => <td>{playersData.saves} </td>)}
 
                   </tr>
-                  <tr>
-                    <th>Team:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.shots} </td>)}
 
-                  </tr>
+                  {mostSavesStat.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      <th>Name:</th>
+                      {mostSavesStat.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`} </td>)}
+
+                    </tr>)}
+                  {mostSavesStat.map((playersData, index) =>
+                    <tr onClick={(e) => gotoTeam(`${playersData.teamId}`)}>
+                      <th>Team:</th>
+                      <td>{playersData.team} </td>
+                    </tr>)}
                 </table>
               </div>
             </div>
@@ -312,24 +452,28 @@ function Home() {
               <h3>Highest Rated</h3>
               <div className="rowBox">
                 <table>
-                  <tr>
-                    <th>Image:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.goals} </td>)}
+                  {topRatedPlayer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      {topRatedPlayer.map((playersData, index) => <img src={playersData.photoUrl} className="searchImage"></img>)}
+                    </tr>)}
 
+                  <tr>
                     <th>Rating:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.assists} </td>)}
-                  </tr>
-
-                  <tr>
-                    <th>Name:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
+                    {topRatedPlayer.map((playersData, index) => <td>{playersData.rating} </td>)}
 
                   </tr>
-                  <tr>
-                    <th>Team:</th>
-                    {playerStats.map((playersData, index) => <td>{playersData.shots} </td>)}
 
-                  </tr>
+                  {topRatedPlayer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoPlayer(`${playersData.id}`)}>
+                      <th>Name:</th>
+                      {topRatedPlayer.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`} </td>)}
+
+                    </tr>)}
+                  {topRatedPlayer.map((playersData, index) =>
+                    <tr onClick={(e) => gotoTeam(`${playersData.teamId}`)}>
+                      <th>Team:</th>
+                      <td>{playersData.team} </td>
+                    </tr>)}
                 </table>
               </div>
             </div>
