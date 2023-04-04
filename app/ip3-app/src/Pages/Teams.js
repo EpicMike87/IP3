@@ -123,7 +123,7 @@ function Teams() {
         const last5 = data.filter(f => f.fullTimeResult != '?').slice(0, 5)
         const results = new Array();
         for(let i = 0; i < last5.length; i++){
-            if(last5[i].result == 'D'){
+            if(last5[i].fullTimeResult == 'D'){
                 results.push('D');
             }
             else{
