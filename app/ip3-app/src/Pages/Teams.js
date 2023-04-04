@@ -14,6 +14,7 @@ function Teams() {
     const [teamHomeStats, setTeamHomeStats] = useState()
     const [teamAwayStats, setTeamAwayStats] = useState()
     const [teamGrounds, setTeamGrounds] = useState()
+    const [showElement, setShowElement] = useState(false);
 
     const [nameOfTeam, setTeamName] = useState("")
     const [rankOfTeam, setTeamRank] = useState("")
@@ -92,7 +93,8 @@ function Teams() {
             Api.get(`/team/${team}`)
                 .then(res => {
                     mapData(res.data);
-                }).then(showPlayerSection()).then(initSlider())
+                    showPlayerSection();
+                })
                 .catch(err => {
                     console.log(err);
                 });
@@ -119,6 +121,7 @@ function Teams() {
         const message = document.getElementById('message');
         message.style.display = 'none';
         playerSection.style.display = 'flex';
+        setShowElement(true)
     }
 
     const mapTeamData = (data) => {
