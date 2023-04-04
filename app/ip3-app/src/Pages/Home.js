@@ -53,6 +53,7 @@ function Home() {
 
   const findTopScorer = (data) => {
     let topScorer = new Array();
+    data = data.filter(a => a.matchesPlayed > 5);
 
     data.forEach(data => {
       switch (data.positionType) {
@@ -86,6 +87,7 @@ function Home() {
   }
 
   const findMostAssits = (data) => {
+    data = data.filter(a => a.matchesPlayed > 5);
     let mostAssits = new Array();
 
     data.forEach(data => {
@@ -121,6 +123,7 @@ function Home() {
 
 
   const findMostSaves = (data) => {
+    data = data.filter(a => a.matchesPlayed > 5);
     let MostSaves = new Array();
 
     data.forEach(data => {
@@ -151,6 +154,7 @@ function Home() {
 
 
   const findTopRatedPlayer = (data) => {
+    data = data.filter(a => a.matchesPlayed > 5);
     let HighestRated = new Array();
 
     data.forEach(data => {

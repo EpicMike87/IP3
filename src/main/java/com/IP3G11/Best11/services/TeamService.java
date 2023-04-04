@@ -1,7 +1,6 @@
 package com.IP3G11.Best11.services;
 
 import com.IP3G11.Best11.dto.TeamDto;
-import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
 import com.IP3G11.Best11.tools.TeamDataReader;
