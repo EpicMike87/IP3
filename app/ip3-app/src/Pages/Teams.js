@@ -535,7 +535,7 @@ function Teams() {
                                             </div>
                                         </div>
                                         <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                            <h4>{fixture.fullTimeResult != 'D' ? (fixture == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
+                                            <h4>{fixture.fullTimeResult != 'D' ? (fixture.fullTimeResult == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
                                         </div>
 
 
