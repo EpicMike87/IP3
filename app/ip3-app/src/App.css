@@ -50,7 +50,7 @@ img {
 }
 
 #homeStats tr:nth-child(1) {
-  background-color: #FFD700;
+  background-color: #F5E446;
 
 }
 
@@ -103,47 +103,47 @@ img {
 }
 
 #homeStats tr:nth-child(2) {
-  background-color: #87CEEB;
+  background-color: #DCF0F4;
 }
 
 #homeStats tr:nth-child(3) {
-  background-color: #CD7F32;
+  background-color: #F0D0B2;
 }
 
 #homeStats tr:nth-child(4) {
-  background-color: #CD7F32;
+  background-color: #E9CFB7;
 }
 
 #homeStats tr:nth-child(5) {
-  background-color: #CD7F32;
+  background-color: #F0D0B2;
 }
 
 #homeStats tr:nth-child(6) {
-  background-color: lightgray;
+  background-color: #E9E9E9;
 }
 
 #homeStats tr:nth-child(7) {
-  background-color: lightgray;
+  background-color: #F4F4F4;
 }
 
 #homeStats tr:nth-child(8) {
-  background-color: lightgray;
+  background-color: #E9E9E9;
 }
 
 #homeStats tr:nth-child(9) {
-  background-color: lightgray;
+  background-color: #F4F4F4;
 }
 
 #homeStats tr:nth-child(10) {
-  background-color: lightgray;
+  background-color: #E9E9E9;
 }
 
 #homeStats tr:nth-child(11) {
-  background-color: #D3494E;
+  background-color: #FFAD61;
 }
 
 #homeStats tr:nth-child(12) {
-  background-color: #D3494E;
+  background-color: #F1ADAD;
 }
 
 #root {
