@@ -93,7 +93,8 @@ function Teams() {
             Api.get(`/team/${team}`)
                 .then(res => {
                     mapData(res.data);
-                    showPlayerSection();
+                    showPlayerSection()
+                    initSlider()
                 })
                 .catch(err => {
                     console.log(err);
@@ -101,7 +102,7 @@ function Teams() {
         }
     }
 
-    const mapData = (data) =>{
+    const mapData = (data) => {
 
         //Current season start date
         const seasonStart = new Date("07/30/2022");
@@ -220,25 +221,25 @@ function Teams() {
         nextButton.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginLeft = slide.offsetLeft;
-            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft*6.75;
+            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
         });
-    
+
         prevButton.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginRight = slide.offsetRight;
-            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight*6.75;
+            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
         });
 
         nextButton2.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginLeft = slide.offsetLeft;
-            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft*6.75;
+            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
         });
-    
+
         prevButton2.addEventListener("click", () => {
             const slideWidth = slide.clientWidth;
             const slideMarginRight = slide.offsetRight;
-            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight*6.75;
+            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
         });
     }
 
@@ -324,6 +325,10 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((matchesWon * 3 + matchesDrew) / matchesPlayed).toFixed(2)}</td>
+                                </tr>
+                                <tr>
                                     <th>Points:</th>
                                     <td>{points}</td>
                                 </tr>
@@ -364,6 +369,10 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((homeMatchesWon * 3 + homeMatchesDrew) / homeMatchesPlayed).toFixed(2)}</td>
+                                </tr>
+                                <tr>
                                     <th>Points:</th>
                                     <td>{homePoints}</td>
                                 </tr>
@@ -403,6 +412,10 @@ function Teams() {
                         <h2>Away Stats</h2>
                         <div className="rowBox">
                             <table>
+                                <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((awayMatchesWon * 3 + awayMatchesDrew) / awayMatchesPlayed).toFixed(2)}</td>
+                                </tr>
                                 <tr>
                                     <th>Points:</th>
                                     <td>{awayPoints}</td>
@@ -453,7 +466,7 @@ function Teams() {
                             <div className="slides-container" id="slides-container">
                                 {fixtures.filter(f => f.fullTimeResult == "?").map((fixture, index) =>
 
-                                    <div className="slide" style={{padding: "0 3rem"}}>
+                                    <div className="slide" style={{ padding: "0 3rem" }}>
 
                                         <div className="rowBox" style={{ justifyContent: "center" }}>
                                             <small>{new Date(fixture.dateTime).toUTCString()}</small>
@@ -499,7 +512,7 @@ function Teams() {
                             <div className="slides-container" id="slides-container2">
                                 {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
 
-                                    <div className="slide" style={{padding: "0 3rem"}}>
+                                    <div className="slide" style={{ padding: "0 3rem" }}>
 
                                         <div className="rowBox" style={{ justifyContent: "center" }}>
                                             <small>{new Date(fixture.dateTime).toUTCString()}</small>
