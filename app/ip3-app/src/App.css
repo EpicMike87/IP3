@@ -4,6 +4,7 @@ html {
 
 img {
   display: block;
+  border-radius: 5%;
 }
 
 .leagueStats tr{
@@ -1408,6 +1409,18 @@ select {
   font-size: 0.8rem;
   padding: 0.4rem;
   min-width: 26.75px;
+}
+
+.topPlayerNumber{
+  font-size: 3.75rem;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: rgb(000, 32, 96);
+}
+
+.link:hover{
+  color: rgb(67, 75, 147);
 }
 
 @keyframes App-logo-spin {
