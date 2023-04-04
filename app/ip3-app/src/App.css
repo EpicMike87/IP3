@@ -1384,6 +1384,42 @@ select {
   margin: 0 0.5rem;
 }
 
+.last5Box{
+  display: flex;
+  flex-direction: row;
+  padding: 0 2px;
+  width: 100%;
+}
+
+.winBox{
+  background-color: green;
+}
+
+.drawBox{
+  background-color: orange;
+}
+
+.loseBox{
+  background-color: red;
+}
+
+.resultBox{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  border: 1px solid black;
+  margin: 0 0.1rem;
+  border-radius: 20%;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  min-width: 26.75px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

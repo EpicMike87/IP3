@@ -500,7 +500,7 @@ function Teams() {
                                 &#8250;
                             </button>
                             <div className="slides-container" id="slides-container">
-                                {fixtures.filter(f => f.fullTimeResult == "?").map((fixture, index) =>
+                                {fixtures.filter(f => f.fullTimeResult == "?").reverse().map((fixture, index) =>
 
                                     <div className="slide" style={{ padding: "0 3rem" }}>
 
