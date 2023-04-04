@@ -21,8 +21,6 @@ public class Attacker extends Player{
     private int goals;
     private int shots;
     private int shotsOnTarget;
-    private int penaltiesTaken;
-    private int penaltiesScored;
 
 
 }
