@@ -284,10 +284,6 @@ img {
   width: 100%;
 }
 
-.teamStats table, .bioRowBox table{
-  line-height: 0.5rem;
-}
-
 .bioRowBox {
   display: flex;
   flex-direction: column;
@@ -590,12 +586,6 @@ table.sortable thead tr {
 thead {
   position: sticky;
   top: 0;
-}
-
-table.sortable th,
-td {
-  padding: 12px 15px;
-  max-height: 40px;
 }
 
 
