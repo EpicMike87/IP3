@@ -55,6 +55,7 @@ function Teams() {
     const [awayGoalDifference, setAwayGoalDifference] = useState("")
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
+    const [last5Result, setLast5Result] = useState([])
 
     useEffect(() => {
         const teamId = searchParams.get("id");
@@ -93,9 +94,8 @@ function Teams() {
             Api.get(`/team/${team}`)
                 .then(res => {
                     mapData(res.data);
-                    showPlayerSection()
-                    initSlider()
-                })
+                    setLast5(res.data)
+                }).then(showPlayerSection())
                 .catch(err => {
                     console.log(err);
                 });
@@ -112,9 +112,30 @@ function Teams() {
         setFixtures(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart));
         mapTeamData(data)
         mapTeamStats(data.allStats)
+        setLast5(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart).filter(a => a.fullTimeResult != '?'))
         mapTeamHomeStats(data.homeStats)
         mapTeamAwayStats(data.awayStats)
         mapTeamGrounds(data.grounds)
+        setLast5(data.fixtures, data.teamName)
+    }
+
+    const setLast5 = (data, teamName) => {
+        const last5 = data.filter(f => f.fullTimeResult != '?').slice(0, 5)
+        const results = new Array();
+        for(let i = 0; i < last5.length; i++){
+            if(last5[i].result == 'D'){
+                results.push('D');
+            }
+            else{
+                console.log(nameOfTeam)
+                if((last5[i].fullTimeResult == 'H' && teamName == last5[i].homeTeamName) || (last5[i].fullTimeResult == 'A' && teamName == last5[i].awayTeamName))
+                    results.push('W')
+                else results.push('L')    
+            }
+        }
+        console.log(last5)
+        console.log(results)
+        setLast5Result(results);
     }
 
     const showPlayerSection = () => {
@@ -123,6 +144,8 @@ function Teams() {
         message.style.display = 'none';
         playerSection.style.display = 'flex';
         setShowElement(true)
+
+        initSlider();
     }
 
     const mapTeamData = (data) => {
@@ -284,6 +307,19 @@ function Teams() {
                                 <tr>
                                     <th>City:</th>
                                     <td>{groundsCity}</td>
+                                </tr>
+                                <tr>
+                                    <th>Last 5:</th>
+                                    <td>
+                                    <div className="last5Box">
+                                        {last5Result.map((result, index) =>
+                                        
+                                            <div>{result == 'D' ? <div className="resultBox drawBox">D</div> : (result == 'W' ? <div className="resultBox winBox">W</div> : <div className="resultBox loseBox">L</div>)}</div>
+                                            
+                                            
+                                        )}
+                                        </div>
+                                        </td>
                                 </tr>
                             </table>
                         </div>
