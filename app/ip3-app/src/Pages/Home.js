@@ -24,11 +24,11 @@ function Home() {
       })
       .catch(err => console.log(err))
 
-    //let ignore = false;
+    let ignore = false;
 
-    //if (!ignore) 
-    searchPlayers()
-    //return () => { ignore = true; }
+    if (!ignore)
+      searchPlayers()
+    return () => { ignore = true; }
 
   }, []);
 
@@ -190,7 +190,7 @@ function Home() {
 
 
   const gotoPlayer = (playerId) => {
-    window.location = `/player?id=${playerId}`;
+    window.location.href = `/player?id=${playerId}`;
   }
 
   const gotoTeam = (teamId) => {
