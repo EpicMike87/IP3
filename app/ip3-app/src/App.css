@@ -525,7 +525,6 @@ small {
 
 /* Positions table tightly inside container */
 table.sortable {
-  position: sticky;
   top: 0;
   width: 100%;
   border-collapse: collapse;
@@ -584,13 +583,7 @@ table.sortable thead tr {
 }
 
 thead {
-  position: sticky;
   top: 0;
-}
-
-
-table.sortable tbody tr {
-  border-bottom: 1px solid #dddddd;
 }
 
 table.sortable tbody tr:nth-of-type(even) {
@@ -1306,23 +1299,6 @@ select {
   animation: fadein 3s;
 }
 
-.slider-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.slides-container {
-  height: auto;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-  scroll-behavior: smooth;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
 .slide-arrow {
   position: absolute;
   display: flex;
@@ -1339,35 +1315,6 @@ select {
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 100ms;
-}
-
-.slide-arrow:hover,
-.slide-arrow:focus {
-  opacity: 1;
-}
-
-#slide-arrow-prev {
-  left: 0;
-  padding-left: 0.25rem;
-  border-radius: 0 1rem 1rem 0;
-}
-
-#slide-arrow-next {
-  right: 0;
-  padding-left: 0.75rem;
-  border-radius: 1rem 0 0 1rem;
-}
-
-#slide-arrow-prev2 {
-  left: 0;
-  padding-left: 0.25rem;
-  border-radius: 0 1rem 1rem 0;
-}
-
-#slide-arrow-next2 {
-  right: 0;
-  padding-left: 0.75rem;
-  border-radius: 1rem 0 0 1rem;
 }
 
 .slide {

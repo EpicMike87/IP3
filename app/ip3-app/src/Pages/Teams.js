@@ -5,6 +5,7 @@ import teamImage from "../images/teamImage.jpg";
 import { useSearchParams } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import "../Helpers/sortable.min.js";
 
 function Teams() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -95,8 +96,8 @@ function Teams() {
         Api.get(`/team/id/${id}`)
             .then(res => {
                 mapData(res.data);
-                setLast5(res.data)
-            }).then(showPlayerSection())
+                showPlayerSection();
+            })
             .catch(err => {
                 console.log(err);
             });
@@ -106,7 +107,9 @@ function Teams() {
         Api.get(`/team/${name}`)
             .then(res => {
                 mapData(res.data);
-            }).then(showPlayerSection())
+                showPlayerSection();
+
+            })
             .catch(err => {
                 console.log(err);
             });
@@ -118,7 +121,8 @@ function Teams() {
             Api.get(`/team/${team}`)
                 .then(res => {
                     mapData(res.data);
-                }).then(showPlayerSection())
+                    showPlayerSection();
+                })
                 .catch(err => {
                     console.log(err);
                 });
@@ -142,7 +146,6 @@ function Teams() {
     }
 
     const setLast5 = (fixtureData, teamName) => {
-        console.log(fixtureData)
         const last5 = fixtureData.filter(f => f.fullTimeResult != '?').slice(0, 5)
         const results = new Array();
         for (let i = 0; i < last5.length; i++) {
@@ -150,14 +153,11 @@ function Teams() {
                 results.push('D');
             }
             else {
-                console.log(nameOfTeam)
                 if ((last5[i].fullTimeResult == 'H' && teamName == last5[i].homeTeamName) || (last5[i].fullTimeResult == 'A' && teamName == last5[i].awayTeamName))
                     results.push('W')
                 else results.push('L')
             }
         }
-        console.log(last5)
-        console.log(results)
         setLast5Result(results);
     }
 
@@ -254,40 +254,6 @@ function Teams() {
         window.location = `/player?id=${id}`
     }
 
-    // const initSlider = () => {
-
-    //     const slidesContainer = document.getElementById("slides-container");
-    //     const slidesContainer2 = document.getElementById("slides-container2");
-    //     const slide = document.querySelector(".slide");
-    //     const prevButton = document.getElementById("slide-arrow-prev");
-    //     const nextButton = document.getElementById("slide-arrow-next");
-    //     const prevButton2 = document.getElementById("slide-arrow-prev2");
-    //     const nextButton2 = document.getElementById("slide-arrow-next2");
-
-    //     nextButton.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginLeft = slide.offsetLeft;
-    //         slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-    //     });
-
-    //     prevButton.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginRight = slide.offsetRight;
-    //         slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-    //     });
-
-    //     nextButton2.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginLeft = slide.offsetLeft;
-    //         slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-    //     });
-
-    //     prevButton2.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginRight = slide.offsetRight;
-    //         slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-    //     });
-    // }
 
 
     return (
@@ -588,7 +554,7 @@ function Teams() {
                         <h2>Current Squad</h2>
                         <div id="tablecontainer">
                             <table id="playerTable" class="playerTable sortable">
-                                <thead>
+                                <thead style={{position: "sticky"}}>
                                     <tr id="teampagerow">
                                         <th class="no-sort">Photo</th>
                                         <th>Name</th>

@@ -4,8 +4,7 @@ import Api from '../Helpers/Api';
 import playerImage from "../images/homepage2.jpg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
-
+import "../Helpers/sortable.min.js";
 
 function Home() {
   const [dataTable, setDataTable] = useState([]);
@@ -42,8 +41,6 @@ function Home() {
     Api.get(`/team/all`)
       .then(res => {
         setDataTable(res.data)
-        sortTableNum(0)
-        setAverages(res.data)
         getFixtures()
       })
       .catch(err => console.log(err))
@@ -81,33 +78,6 @@ function Home() {
       });
   }
 
-  const setAverages = (data) => {
-
-    let avgGoalsScoredAll = 0;
-    let avgGoalsScoredHome = 0;
-    let avgGoalsScoredAway = 0;
-    let avgGoalsConcededAll = 0;
-    let avgGoalsConcededHome = 0;
-    let avgGoalsConcededAway = 0;
-    let matchesPlayed = 0;
-    let homeMatchesPlayed = 0;
-    let awayMatchesPlayed = 0;
-
-    for (let i = 0; i < data.length; i++) {
-      const team = data[i];
-      console.log(team)
-      avgGoalsScoredAll += team.allStats.goalsFor;
-      avgGoalsScoredHome += team.homeStats.goalsFor;
-      avgGoalsScoredAway += team.awayStats.goalsFor;
-      avgGoalsConcededAll += team.allStats.goalsAgainst;
-      avgGoalsConcededHome += team.homeStats.goalsAgainst;
-      avgGoalsConcededAway += team.awayStats.goalsAgainst;
-      matchesPlayed += team.allStats.matchesPlayed;
-      homeMatchesPlayed += team.homeStats.matchesPlayed;
-      awayMatchesPlayed += team.awayStats.matchesPlayed;
-    }
-
-  }
 
   const findTopScorer = (data) => {
     let topScorer = new Array();
@@ -259,116 +229,6 @@ function Home() {
     window.location = `/team?name=${teamName}`;
   }
 
-  function sortTableWord(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("homeStats");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("td")[n];
-        y = rows[i + 1].getElementsByTagName("td")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
-  }
-
-  function sortTableNum(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("homeStats");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-      // Start by saying: no switching is done:
-      switching = false;
-      rows = table.rows;
-      /* Loop through all table rows (except the
-      first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
-        // Start by saying there should be no switching:
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
-        /* Check if the two rows should switch place,
-        based on the direction, asc or desc: */
-        if (dir == "asc") {
-          if (Number(x.innerHTML) > Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        } else if (dir == "desc") {
-          if (Number(x.innerHTML) < Number(y.innerHTML)) {
-            // If so, mark as a switch and break the loop:
-            shouldSwitch = true;
-            break;
-          }
-        }
-      }
-      if (shouldSwitch) {
-        /* If a switch has been marked, make the switch
-        and mark that a switch has been done: */
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-        switching = true;
-        // Each time a switch is done, increase this count by 1:
-        switchcount++;
-      } else {
-        /* If no switching has been done AND the direction is "asc",
-        set the direction to "desc" and run the while loop again. */
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
-      }
-    }
-  }
-
   return (
 
     <div className="Home">
@@ -387,19 +247,19 @@ function Home() {
       <br></br>
 
       <div className='leagueStats'>
-        <table id="homeStats">
+        <table id="homeStats" className="sortable">
           <thead>
             <tr id="teampagerow">
-              <th onClick={(e) => sortTableNum(0)}>Position</th>
-              <th onClick={(e) => sortTableWord(1)}>Team Name</th>
-              <th onClick={(e) => sortTableNum(2)}>Points</th>
-              <th onClick={(e) => sortTableNum(3)}>GD</th>
-              <th onClick={(e) => sortTableNum(4)}>GA</th>
-              <th onClick={(e) => sortTableNum(5)}>GF</th>
-              <th onClick={(e) => sortTableNum(6)}>Played</th>
-              <th onClick={(e) => sortTableNum(7)}>Won</th>
-              <th onClick={(e) => sortTableNum(8)}>Drew</th>
-              <th onClick={(e) => sortTableNum(9)}>Lost</th>
+              <th>Position</th>
+              <th>Team Name</th>
+              <th>Points</th>
+              <th>GD</th>
+              <th>GA</th>
+              <th>GF</th>
+              <th>Played</th>
+              <th>Won</th>
+              <th>Drew</th>
+              <th>Lost</th>
             </tr>
           </thead>
           <tbody id="tableBodyHome">
@@ -485,7 +345,7 @@ function Home() {
       </div>
       <div className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
         <h2>Upcoming Fixtures</h2>
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} slidesToSlide={3}>
           {upcomingFixtures.map(fixture =>
             <div className="slide" style={{ padding: "0 3rem" }}>
 
