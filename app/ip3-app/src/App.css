@@ -350,6 +350,15 @@ img {
   margin: 1rem;
 }
 
+.player{
+  animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .playerProfileImage {
   width: 250px;
   height: 250px;
@@ -1378,6 +1387,7 @@ select {
 
 .link{
   margin-bottom: 0;
+  cursor: pointer;
 }
 
 .link:hover{

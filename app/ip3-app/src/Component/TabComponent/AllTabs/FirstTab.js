@@ -2,100 +2,20 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Api from '../../../Helpers/Api';
 import pitchImage from "../../../images/pitch4.jpg";
-const FirstTab = () => {
+import formations from '../../../data/formations.json';
 
-    //!!Store these in JSON file
-    const playerStyles = new Object();
-    const rightBack = new Object();
-    rightBack.left = '29%';
-    rightBack.bottom = '16%';
-    playerStyles.rightBack = rightBack;
-    const leftBack = new Object();
-    leftBack.left = '29%';
-    leftBack.bottom = '84%';
-    playerStyles.leftBack = leftBack;
+const FirstTab = () => {
 
     const [player, setPlayer] = useState("");
     const [players, setPlayers] = useState([]);
     const [test, setTest] = useState();
 
-    const searchPlayers = () => {
+    const searchPlayers = (formNo) => {
         Api.get(`players/all`)
             .then(res => {
                 console.log(res.data);
-                const topPlayers = findTopPerPos(res.data);
                 setPlayers(res.data);
-
-                const pitch = document.getElementsByClassName('pitch')[0];
-
-                const rightBack = getPlayerIcon(topPlayers[0]);
-                rightBack.style.left = playerStyles.rightBack.left;
-                rightBack.style.bottom = playerStyles.rightBack.bottom;
-                rightBack.appendChild(getMarkerEle('RB'));
-                pitch.appendChild(rightBack);
-
-                const leftBack = getPlayerIcon(topPlayers[1]);
-                leftBack.style.left = playerStyles.leftBack.left;
-                leftBack.style.bottom = playerStyles.leftBack.bottom;
-                leftBack.appendChild(getMarkerEle('LB'));
-                pitch.appendChild(leftBack);
-
-
-                const centreBack = getPlayerIcon(topPlayers[2]);
-                centreBack.style.left = "22%";
-                centreBack.style.bottom = '64%';
-                centreBack.appendChild(getMarkerEle('CB'));
-                pitch.appendChild(centreBack);
-
-
-                const centreBack2 = getPlayerIcon(topPlayers[3]);
-                centreBack2.style.left = "22%";
-                centreBack2.style.bottom = '38%';
-                centreBack2.appendChild(getMarkerEle('CB'));
-                pitch.appendChild(centreBack2);
-
-                const goalkeeper = getPlayerIcon(topPlayers[4]);
-                goalkeeper.style.left = "14%";
-                goalkeeper.style.bottom = '52%';
-                goalkeeper.appendChild(getMarkerEle('GK'));
-                pitch.appendChild(goalkeeper);
-
-                const defMid = getPlayerIcon(topPlayers[7]);
-                defMid.style.left = "37.3%";
-                defMid.style.bottom = '52%';
-                defMid.appendChild(getMarkerEle('DM'));
-                pitch.appendChild(defMid);
-
-                const cenMid = getPlayerIcon(topPlayers[5]);
-                cenMid.style.left = "50%";
-                cenMid.style.bottom = '65%';
-                cenMid.appendChild(getMarkerEle('CM'));
-                pitch.appendChild(cenMid);
-
-                const cenMid2 = getPlayerIcon(topPlayers[6]);
-                cenMid2.style.left = "50%";
-                cenMid2.style.bottom = '38%';
-                cenMid2.appendChild(getMarkerEle('CM'));
-                pitch.appendChild(cenMid2);
-
-                const leftWing = getPlayerIcon(topPlayers[10]);
-                leftWing.style.left = "59%";
-                leftWing.style.bottom = '80%';
-                leftWing.appendChild(getMarkerEle('LW'));
-                pitch.appendChild(leftWing);
-
-                const rightWing = getPlayerIcon(topPlayers[11]);
-                rightWing.style.left = "59%";
-                rightWing.style.bottom = '15%';
-                rightWing.appendChild(getMarkerEle('RW'));
-                pitch.appendChild(rightWing);
-
-                const cenForward = getPlayerIcon(topPlayers[12]);
-                cenForward.style.left = "65%";
-                cenForward.style.bottom = '52%';
-                cenForward.appendChild(getMarkerEle('CF'));
-                pitch.appendChild(cenForward);
-
+                setUpField(res.data, formNo);
             })
             .catch(err => {
                 console.log(err);
@@ -104,25 +24,57 @@ const FirstTab = () => {
 
     useEffect(() => {
         let ignore = false;
-
-        if (!ignore) searchPlayers()
+        if (!ignore) {
+            searchPlayers(433)
+        }
         return () => { ignore = true; }
     }, []);
 
-    const getMarkerEle = (pos) => {
-        const marker = document.createElement('span');
-        marker.className = 'playerPosMarker';
-        marker.textContent = pos;
-        return marker;
+    const getFormation = (number) => {
+        console.log(number)
+        console.log(formations)
+        console.log(formations.filter(a => a.formation == number)[0])
+        return formations.filter(a => a.formation == number)[0].positions;
+    }
+
+    const changeFormation = (e) => {
+        const number = parseInt(e.target.textContent);
+        console.log(number)
+        const pitch = document.getElementsByClassName('pitch')[0];
+        const playerEles = pitch.getElementsByClassName('player');
+        while (playerEles.length > 0) {
+            playerEles[0].parentNode.removeChild(playerEles[0]);
+        }
+        searchPlayers(number);
+    }
+
+    const setUpField = (data, formNo) => {
+        const topPlayers = findTopPerPos(data);
+        const positions = [...getFormation(formNo)];
+        const playerIcons = new Array();
+        while (positions.length > 0) {
+            const pos = positions.pop();
+            const posPlayers = topPlayers.find(players => players.position == pos.position).players;
+            const player = posPlayers.reverse().pop();
+            const playerIcon = getPlayerIcon(player);
+            playerIcon.style.left = pos.left;
+            playerIcon.style.bottom = pos.bottom;
+            playerIcon.appendChild(getMarkerEle(pos.marker));
+            playerIcons.push(playerIcon);
+        }
+        const pitch = document.getElementsByClassName('pitch')[0];
+        playerIcons.forEach(p => pitch.appendChild(p));
     }
 
     const findTopPerPos = (data) => {
+
         let rightBacks = new Array();
         let leftBacks = new Array();
         let centreBacks = new Array();
         let goalKeepers = new Array();
         let centralMidfielders = new Array();
         let defensiveMidfielders = new Array();
+        let attackingMidfielders = new Array();
         let leftMidfielders = new Array();
         let rightMidfielders = new Array();
         let leftWingers = new Array();
@@ -150,6 +102,9 @@ const FirstTab = () => {
                     case "Defensive Midfield":
                         defensiveMidfielders.push(data);
                         break;
+                    case "Attacking Midfield":
+                        attackingMidfielders.push(data);
+                        break;
                     case "Left Midfield":
                         leftMidfielders.push(data);
                         break;
@@ -167,34 +122,83 @@ const FirstTab = () => {
                         break;
                 }
             }
+
         });
 
+        rightBacks = rightBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
+        leftBacks = leftBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
+        centreBacks = centreBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        goalKeepers = goalKeepers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
+        centralMidfielders = centralMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        defensiveMidfielders = defensiveMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        attackingMidfielders = attackingMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        leftMidfielders = leftMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        rightMidfielders = rightMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        leftWingers = leftWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        rightMidfielders = rightMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        leftWingers = leftWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        rightWingers = rightWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+        centreForwards = centreForwards.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
+
         const allPos = new Array();
-        allPos.push(rightBacks);
-        allPos.push(leftBacks);
-        allPos.push(centreBacks);
-        allPos.push(goalKeepers);
-        allPos.push(centralMidfielders);
-        allPos.push(defensiveMidfielders);
-        allPos.push(leftMidfielders);
-        allPos.push(rightMidfielders);
-        allPos.push(leftWingers);
-        allPos.push(rightWingers);
-        allPos.push(centreForwards);
-        allPos.forEach(pos => {
-            pos.sort((a, b) => (a.rating > b.rating) ? -1 : 1)
-        })
-        const topPlayers = new Array();
-        allPos.forEach(playersPos => {
-            topPlayers.push(playersPos[0])
-            if (playersPos[0].position == "Centre-Back" || playersPos[0].position == "Central Midfield") {
-                topPlayers.push(playersPos[1])
-            }
-        })
+        allPos.push({
+            position: "Right-Back",
+            players: rightBacks
+        });
+        allPos.push({
+            position: "Left-Back",
+            players: leftBacks
+        });
+        allPos.push({
+            position: "Centre-Back",
+            players: centreBacks
+        });
+        allPos.push({
+            position: "Goalkeeper",
+            players: goalKeepers
+        });
+        allPos.push({
+            position: "Central Midfield",
+            players: centralMidfielders
+        });
+        allPos.push({
+            position: "Defensive Midfield",
+            players: defensiveMidfielders
+        });
+        allPos.push({
+            position: "Attacking Midfield",
+            players: attackingMidfielders
+        });
+        allPos.push({
+            position: "Left Midfield",
+            players: leftMidfielders
+        });
+        allPos.push({
+            position: "Right Midfield",
+            players: rightMidfielders
+        });
+        allPos.push({
+            position: "Left Winger",
+            players: leftWingers
+        });
+        allPos.push({
+            position: "Right Winger",
+            players: rightWingers
+        });
+        allPos.push({
+            position: "Centre-Forward",
+            players: centreForwards
+        });
         console.log(allPos);
-        return topPlayers;
+        return allPos;
     }
 
+    const getMarkerEle = (pos) => {
+        const marker = document.createElement('span');
+        marker.className = 'playerPosMarker';
+        marker.textContent = pos;
+        return marker;
+    }
 
     const getPlayerIcon = (topPlayer) => {
 
@@ -267,6 +271,11 @@ const FirstTab = () => {
         <div className="Best11Tab">
             <h2>Best 11 SPFL Team </h2>
             <small>Hover over players to view information.</small>
+            <div className="rowBox">
+                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>433</h3>
+                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>4231</h3>
+                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>442</h3>
+            </div>
             <div className="pitch" style={{ backgroundImage: `url(${pitchImage})` }}>
                 <img src={pitchImage} alt="A pitch" />
             </div>
