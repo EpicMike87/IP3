@@ -285,13 +285,15 @@ function Home() {
 
           <div className="teamStats">
 
-            <div className="statsBox">
+            <div className="statsBox" style={{padding: "1rem 0"}}>
               <h3>Most Goals</h3>
               {topGoalScorer.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <span className="topPlayerNumber">{playersData.goals}</span>
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.goals}
+                    </div>
                   </div>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
@@ -299,13 +301,15 @@ function Home() {
               )}
             </div>
 
-            <div className="statsBox">
+            <div className="statsBox" style={{padding: "1rem 0"}}>
               <h3>Most Assists</h3>
               {mostAssists.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <span className="topPlayerNumber">{playersData.assists}</span>
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.assists}
+                    </div>
                   </div>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
@@ -313,13 +317,15 @@ function Home() {
               )}
             </div>
 
-            <div className="statsBox">
+            <div className="statsBox" style={{padding: "1rem 0"}}>
               <h3>Most Saves</h3>
               {mostSavesStat.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <span className="topPlayerNumber">{playersData.saves}</span>
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.saves}
+                    </div>
                   </div>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
@@ -327,13 +333,15 @@ function Home() {
               )}
             </div>
 
-            <div className="statsBox">
+            <div className="statsBox" style={{padding: "1rem 0"}}>
               <h3>Highest Rated</h3>
               {topRatedPlayer.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <span className="topPlayerNumber">{parseFloat(playersData.rating).toFixed(2)}</span>
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle" style={{fontSize: "2.25rem", paddingBottom: "3px"}}>
+                      {parseFloat(playersData.rating).toFixed(2)}
+                    </div>
                   </div>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
                   <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
