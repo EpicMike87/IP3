@@ -4,14 +4,13 @@ import com.IP3G11.Best11.dto.TeamDto;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
 import com.IP3G11.Best11.tools.TeamDataReader;
+import com.IP3G11.Best11.tools.TeamStrengthTool;
+import com.IP3G11.Best11.tools.TestClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class TeamService {
@@ -30,6 +29,12 @@ public class TeamService {
         for(Team t : setTeams){
             teamRepo.save(t);
         }
+    }
+
+    public HashMap<String, Double> getLeagueAverages(){
+        TestClass tc = new TestClass(teamRepo.findAll());
+        tc.NLGMessage();
+        return TeamStrengthTool.getSeasonAverages(teamRepo.findAll());
     }
 
     public void saveTeam(Team t){

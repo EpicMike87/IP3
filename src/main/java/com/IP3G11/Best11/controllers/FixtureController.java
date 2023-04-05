@@ -26,6 +26,13 @@ public class FixtureController {
         return fixtures;
     }
 
+    @GetMapping("fixtures/upcoming")
+    public List<FixtureDto> getUpcomingFixtures(){
+        List<FixtureDto> fixtures = fixtureService.getUpcoming();
+        Collections.sort(fixtures);
+        return fixtures;
+    }
+
     @GetMapping("fixtures/next/{name}")
     public List<FixtureDto> getNext(@PathVariable String name){
         return fixtureService.getNext(name);

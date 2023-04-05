@@ -41,9 +41,11 @@ public class TeamStrengthTool {
             awayMatchesPlayed += t.getTeamStats().get(2).getMatchesPlayed();
         }
         HashMap<String, Double> averages = new HashMap<>();
-        averages.put("Total Average", Double.valueOf((decfor.format(goalsScoredAll/matchesPlayed))));
-        averages.put("Home Average", Double.valueOf(decfor.format(goalsScoredHome/homeMatchesPlayed)));
-        averages.put("Away Average", Double.valueOf(decfor.format(goalsScoredAway/awayMatchesPlayed)));
+        averages.put("Total Average", Double.valueOf((decfor.format(goalsScoredAll/12))));
+        averages.put("Home For", Double.valueOf(decfor.format(goalsScoredHome/12)));
+        averages.put("Away For", Double.valueOf(decfor.format(goalsScoredAway/12)));
+        averages.put("Home Against", Double.valueOf(decfor.format(goalsScoredAway/12)));
+        averages.put("Away Against", Double.valueOf(decfor.format(goalsScoredHome/12)));
 
         return averages;
     }

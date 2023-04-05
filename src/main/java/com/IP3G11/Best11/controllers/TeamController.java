@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -28,6 +29,11 @@ public class TeamController {
     @GetMapping("/team/all")
     public List<TeamDto> getTeams() throws IOException, InterruptedException {
         return teamService.getAllTeams();
+    }
+
+    @GetMapping("/season/averages")
+    public HashMap<String, Double> getSeasonAverages(){
+        return teamService.getLeagueAverages();
     }
 
     @GetMapping("/team/{name}")
