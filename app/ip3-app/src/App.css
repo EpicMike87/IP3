@@ -1,7 +1,6 @@
 html {
   overflow-y: scroll;
 }
-
 img {
   display: block;
   border-radius: 5%;
@@ -504,7 +503,7 @@ header {
 h1,
 h2,
 h3 {
-  margin: 0 auto;
+  margin-bottom: 1rem;
   text-align: center;
 
 }
@@ -897,7 +896,7 @@ select {
   height: 350px;
 }
 
-.backgroundImage img{
+.backgroundImage img, table img{
   border-radius: 0%;
 }
 
@@ -1373,7 +1372,7 @@ select {
 
 .slide {
   min-width: calc(33.33% - 1rem);
-  height: auto;
+  height: 100%;
   flex: auto;
   border: 1px lightgrey dotted;
   margin: 0 0.5rem;
@@ -1426,6 +1425,23 @@ select {
 .link:hover{
   color: rgb(67, 75, 147);
 }
+
+.react-multiple-carousel__arrow--left{
+  left: 0 !important;
+  background-color: rgb(000, 32, 96) !important;
+  opacity: 0.5 !important;
+}
+
+.react-multiple-carousel__arrow--right{
+  right: 0 !important;
+  background-color: rgb(000, 32, 96) !important;
+  opacity: 0.5 !important;
+}
+
+.react-multiple-carousel__arrow--left:hover, .react-multiple-carousel__arrow--right:hover{
+  opacity: 1 !important;
+}
+
 
 @keyframes App-logo-spin {
   from {

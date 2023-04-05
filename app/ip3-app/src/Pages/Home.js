@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import Api from '../Helpers/Api';
 import playerImage from "../images/homepage2.jpg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 
 
 function Home() {
@@ -12,8 +15,28 @@ function Home() {
   const [mostAssists, setMostAssists] = useState([]);
   const [mostSavesStat, setLeastGoalsConc] = useState([]);
   const [topRatedPlayer, setTopRatedPlayer] = useState([]);
+  const [leagueAverages, setLeagueAverages] = useState({});
+  const [upcomingFixtures, setUpcomingFixtures] = useState([]);
 
-
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
 
   useEffect(() => {
@@ -21,6 +44,8 @@ function Home() {
       .then(res => {
         setDataTable(res.data)
         sortTableNum(0)
+        setAverages(res.data)
+        getFixtures()
       })
       .catch(err => console.log(err))
 
@@ -31,6 +56,14 @@ function Home() {
     //return () => { ignore = true; }
 
   }, []);
+
+  const getFixtures = () => {
+    Api.get('/fixtures/upcoming')
+      .then(res => {
+        setUpcomingFixtures(res.data.reverse());
+        console.log(res.data)
+      })
+  }
 
   const searchPlayers = () => {
     Api.get(`players/all`)
@@ -49,7 +82,43 @@ function Home() {
       });
   }
 
+  const setAverages = (data) => {
 
+    let avgGoalsScoredAll = 0;
+    let avgGoalsScoredHome = 0;
+    let avgGoalsScoredAway = 0;
+    let avgGoalsConcededAll = 0;
+    let avgGoalsConcededHome = 0;
+    let avgGoalsConcededAway = 0;
+    let matchesPlayed = 0;
+    let homeMatchesPlayed = 0;
+    let awayMatchesPlayed = 0;
+
+    for (let i = 0; i < data.length; i++) {
+      const team = data[i];
+      console.log(team)
+      avgGoalsScoredAll += team.allStats.goalsFor;
+      avgGoalsScoredHome += team.homeStats.goalsFor;
+      avgGoalsScoredAway += team.awayStats.goalsFor;
+      avgGoalsConcededAll += team.allStats.goalsAgainst;
+      avgGoalsConcededHome += team.homeStats.goalsAgainst;
+      avgGoalsConcededAway += team.awayStats.goalsAgainst;
+      matchesPlayed += team.allStats.matchesPlayed;
+      homeMatchesPlayed += team.homeStats.matchesPlayed;
+      awayMatchesPlayed += team.awayStats.matchesPlayed;
+    }
+
+    const averages = {
+      goals: parseFloat((avgGoalsScoredAll / matchesPlayed)).toFixed(2),
+      homeGoals: parseFloat((avgGoalsScoredHome / homeMatchesPlayed)).toFixed(2),
+      awayGoals: parseFloat((avgGoalsScoredAway / awayMatchesPlayed)).toFixed(2),
+      conceded: parseFloat((avgGoalsConcededAll / matchesPlayed)).toFixed(2),
+      homeConceded: parseFloat((avgGoalsConcededHome / homeMatchesPlayed)).toFixed(2),
+      awayConceded: parseFloat((avgGoalsConcededAway / awayMatchesPlayed)).toFixed(2)
+    }
+    console.log(averages)
+    setLeagueAverages(averages);
+  }
 
   const findTopScorer = (data) => {
     let topScorer = new Array();
@@ -195,6 +264,10 @@ function Home() {
 
   const gotoTeam = (teamId) => {
     window.location = `/team?id=${teamId}`;
+  }
+
+  const gotoTeamByName = (teamName) => {
+    window.location = `/team?name=${teamName}`;
   }
 
   function sortTableWord(n) {
@@ -368,11 +441,11 @@ function Home() {
               {topGoalScorer.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}></img>
+                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
                     <span className="topPlayerNumber">{playersData.goals}</span>
                   </div>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
                 </div>
               )}
             </div>
@@ -382,11 +455,11 @@ function Home() {
               {mostAssists.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}></img>
+                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
                     <span className="topPlayerNumber">{playersData.assists}</span>
                   </div>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
                 </div>
               )}
             </div>
@@ -396,11 +469,11 @@ function Home() {
               {mostSavesStat.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}></img>
+                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
                     <span className="topPlayerNumber">{playersData.saves}</span>
                   </div>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
                 </div>
               )}
             </div>
@@ -410,26 +483,53 @@ function Home() {
               {topRatedPlayer.map((playersData, index) =>
                 <div className="colBox">
                   <div className="rowBox">
-                    <img src={playersData.photoUrl} className="searchImage" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}></img>
+                    <img src={playersData.photoUrl} className="searchImage" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
                     <span className="topPlayerNumber">{parseFloat(playersData.rating).toFixed(2)}</span>
                   </div>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{cursor: "pointer"}} onClick={(e) =>gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+      <div className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
+        <h2>Upcoming Fixtures</h2>
+        <Carousel responsive={responsive}>
+          {upcomingFixtures.map(fixture =>
+          <div className="slide" style={{ padding: "0 3rem" }}>
 
-      <br></br>
-      <div className='leaguePlayerStats'>
-        <h2>Upcoming Fixture Predictions</h2>
+            <div className="rowBox" style={{ justifyContent: "center" }}>
+              <small>{new Date(fixture.dateTime).toUTCString()}</small>
+            </div>
+            <div className="rowBox" style={{ marginBottom: "1rem" }}>
+              <div className="colBox" style={{ alignItems: "center" }}>
+                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                  gotoTeamByName(fixture.homeTeamName)
+                }}></img>
+                <h4>{fixture.homeTeamName}</h4>
+              </div>
+              <div className="colBox" style={{ justifyContent: "center" }}>
+                <h2> V </h2>
+              </div>
+              <div className="colBox" style={{ alignItems: "center" }}>
+                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                  gotoTeamByName(fixture.awayTeamName)
+                }}></img>
+                <h4>{fixture.awayTeamName}</h4>
+              </div>
+            </div>
+            <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+              <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+            </div>
+
+
+          </div>
+          )}
+        </Carousel>
       </div>
-
-      <br></br>
-      <br></br>
-    </div >
+    </div>
 
   )
 
