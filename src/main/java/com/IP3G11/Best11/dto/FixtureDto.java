@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -43,6 +45,14 @@ public class FixtureDto implements Comparable<FixtureDto>{
         this.dateTime = f.getDateTime();
         this.fullTimeResult = f.getFullTimeResult();
         this.prediction = f.getPrediction();
+    }
+
+    public static List<FixtureDto> convertList(List<Fixture> fixtures){
+        List<FixtureDto> fixtureDtos = new ArrayList<>();
+        for(Fixture f : fixtures){
+            fixtureDtos.add(new FixtureDto(f));
+        }
+        return fixtureDtos;
     }
 
     @Override

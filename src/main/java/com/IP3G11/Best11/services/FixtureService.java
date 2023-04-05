@@ -60,6 +60,13 @@ public class FixtureService {
         return fixturesDto;
     }
 
+    public List<FixtureDto> getUpcoming(){
+        List<Fixture> fixtures = fixtureRepo.findAll();
+        Date date = new Date();
+        fixtures = fixtures.stream().filter(f -> f.getDateTime().after(date)).toList();
+        return FixtureDto.convertList(fixtures);
+    }
+
     private void addPrediction(Fixture fixture) {
         Team homeTeam = fixture.getHomeTeam();
         Team awayTeam = fixture.getAwayTeam();
