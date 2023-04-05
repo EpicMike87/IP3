@@ -31,10 +31,10 @@ public class TeamController {
         return teamService.getAllTeams();
     }
 
-    @GetMapping("/season/averages")
-    public HashMap<String, Double> getSeasonAverages(){
-        return teamService.getLeagueAverages();
-    }
+    //@GetMapping("/season/averages")
+    //public HashMap<String, Double> getSeasonAverages(){
+      //  return teamService.getLeagueAverages();
+    //}
 
     @GetMapping("/team/{name}")
     public TeamDto getTeamByName(@PathVariable String name) {

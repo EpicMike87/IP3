@@ -58,6 +58,7 @@ function Teams() {
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
     const [last5Result, setLast5Result] = useState([])
+    const [nlgString, setNLGString] = useState("")
 
     const responsive = {
         superLargeDesktop: {
@@ -139,6 +140,8 @@ function Teams() {
         mapTeamAwayStats(data.awayStats)
         mapTeamGrounds(data.grounds)
         setLast5(data.fixtures, data.teamName)
+        setNLGString(data.nlgString)
+        console.log(data.nlgString)
     }
 
     const setLast5 = (fixtureData, teamName) => {
@@ -509,7 +512,12 @@ function Teams() {
                                 </tr>
                             </table>
                         </div>
-
+                    </div>
+                </div>
+                <div className="teamNLG">
+                    <h3>Team Report</h3>
+                    <div>
+                        {nlgString}
                     </div>
                 </div>
                 <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
@@ -616,9 +624,7 @@ function Teams() {
                 </div>
                 <div className="teamStatsSection">
                     <br></br>
-                    <div className="teamNLG">
-                        <h3>NLG/Visual Data Placeholder</h3>
-                    </div>
+
                     <br></br>
 
                 </div>

@@ -4,8 +4,7 @@ import com.IP3G11.Best11.dto.TeamDto;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.TeamRepo;
 import com.IP3G11.Best11.tools.TeamDataReader;
-import com.IP3G11.Best11.tools.TeamStrengthTool;
-import com.IP3G11.Best11.tools.TestClass;
+import com.IP3G11.Best11.tools.TeamNLG;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,19 +30,15 @@ public class TeamService {
         }
     }
 
-    public HashMap<String, Double> getLeagueAverages(){
-        TestClass tc = new TestClass(teamRepo.findAll());
-        tc.NLGMessage();
-        return TeamStrengthTool.getSeasonAverages(teamRepo.findAll());
-    }
-
     public void saveTeam(Team t){
         teamRepo.save(t);
     }
 
     public TeamDto getTeamByName(String teamName){
-//        teamName = teamName.substring(0, 1).toUpperCase() + teamName.substring(1);
-        return new TeamDto(teamRepo.findByTeamNameContainingIgnoreCase(teamName));
+        TeamDto DTO = new TeamDto(teamRepo.findByTeamNameContainingIgnoreCase(teamName));
+        TeamNLG TC = new TeamNLG(teamRepo.findAll());
+        DTO.setNlgString(TC.teamText(teamRepo.findByTeamNameContainingIgnoreCase(teamName)));
+        return DTO;
     }
 
     public List<TeamDto> findListByName(String teamName){
@@ -57,7 +52,10 @@ public class TeamService {
     }
 
     public TeamDto getTeam(int teamId){
-        return new TeamDto(teamRepo.findById(teamId));
+        TeamDto DTO = new TeamDto(teamRepo.findById(teamId));
+        TeamNLG TC = new TeamNLG(teamRepo.findAll());
+        DTO.setNlgString(TC.teamText(teamRepo.findById(teamId)));
+        return DTO;
     }
 
     public TeamDto getTeamByRank(int rank){
