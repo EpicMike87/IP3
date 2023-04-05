@@ -38,7 +38,8 @@ const FirstTab = () => {
     }
 
     const changeFormation = (e) => {
-        const number = parseInt(e.target.textContent);
+        console.log(e)
+        const number = e.target.value;
         console.log(number)
         const pitch = document.getElementsByClassName('pitch')[0];
         const playerEles = pitch.getElementsByClassName('player');
@@ -50,6 +51,7 @@ const FirstTab = () => {
 
     const setUpField = (data, formNo) => {
         const topPlayers = findTopPerPos(data);
+        console.log(topPlayers);
         const positions = [...getFormation(formNo)];
         const playerIcons = new Array();
         while (positions.length > 0) {
@@ -125,69 +127,54 @@ const FirstTab = () => {
 
         });
 
-        rightBacks = rightBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
-        leftBacks = leftBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
-        centreBacks = centreBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        goalKeepers = goalKeepers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
-        centralMidfielders = centralMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        defensiveMidfielders = defensiveMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        attackingMidfielders = attackingMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        leftMidfielders = leftMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        rightMidfielders = rightMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        leftWingers = leftWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        rightMidfielders = rightMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        leftWingers = leftWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        rightWingers = rightWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-        centreForwards = centreForwards.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
-
         const allPos = new Array();
         allPos.push({
             position: "Right-Back",
-            players: rightBacks
+            players: rightBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
         });
         allPos.push({
             position: "Left-Back",
-            players: leftBacks
+            players: leftBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
         });
         allPos.push({
             position: "Centre-Back",
-            players: centreBacks
+            players: centreBacks.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 4)
         });
         allPos.push({
             position: "Goalkeeper",
-            players: goalKeepers
+            players: goalKeepers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 1)
         });
         allPos.push({
             position: "Central Midfield",
-            players: centralMidfielders
+            players: centralMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Defensive Midfield",
-            players: defensiveMidfielders
+            players: defensiveMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Attacking Midfield",
-            players: attackingMidfielders
+            players: attackingMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Left Midfield",
-            players: leftMidfielders
+            players: leftMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Right Midfield",
-            players: rightMidfielders
+            players: rightMidfielders.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Left Winger",
-            players: leftWingers
+            players: leftWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Right Winger",
-            players: rightWingers
+            players: rightWingers.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 2)
         });
         allPos.push({
             position: "Centre-Forward",
-            players: centreForwards
+            players: centreForwards.sort((a, b) => (a.rating > b.rating) ? -1 : 1).slice(0, 3)
         });
         console.log(allPos);
         return allPos;
@@ -271,13 +258,18 @@ const FirstTab = () => {
         <div className="Best11Tab">
             <h2>Best 11 SPFL Team </h2>
             <small>Hover over players to view information.</small>
-            <div className="rowBox">
-                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>433</h3>
-                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>4231</h3>
-                <h3 style={{ margin: "0 1rem" }} className="link" onClick={(e) => changeFormation(e)}>442</h3>
-            </div>
             <div className="pitch" style={{ backgroundImage: `url(${pitchImage})` }}>
                 <img src={pitchImage} alt="A pitch" />
+                <select className="formationSelect" id="formation" onChange={changeFormation}>
+                    <option selected hidden>Select Formation</option>
+                    <option value={433}>4-3-3</option>
+                    <option value={442}>4-4-2</option>
+                    <option value={"442 Diamond"}>4-4-2 (Diamond)</option>
+                    <option value={4231}>4-2-3-1</option>
+                    <option value={4141}>4-1-4-1</option>
+                    <option value={4411}>4-4-1-1</option>
+                    <option value={352}>3-5-2</option>
+                </select>
             </div>
             <p>content</p>
             <p>content</p>

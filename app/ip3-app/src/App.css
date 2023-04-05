@@ -351,7 +351,7 @@ img {
 }
 
 .player{
-  animation: fadeIn 0.8s;
+  animation: fadeIn 2s;
 }
 
 @keyframes fadeIn {
@@ -558,6 +558,28 @@ table.scrolldown tbody {
   padding-bottom: 2rem;
 }
 
+.formationSelect{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  height: 3rem;
+  font-size: 2rem;
+  opacity: 0.95;
+  color: white;
+  background-color: rgb(000, 32, 96);
+  border: 1px solid white;
+  border-radius: 2%;
+}
+
+.formationSelect option{
+  opacity: 0.9;
+  color: white;
+  background-color: rgb(000, 32, 96);
+  font-size: 2rem;
+}
 /* Scrollbar width */
 #tablecontainer::-webkit-scrollbar {
   margin-left: 1rem;
