@@ -15,7 +15,6 @@ function Home() {
   const [mostAssists, setMostAssists] = useState([]);
   const [mostSavesStat, setLeastGoalsConc] = useState([]);
   const [topRatedPlayer, setTopRatedPlayer] = useState([]);
-  const [leagueAverages, setLeagueAverages] = useState({});
   const [upcomingFixtures, setUpcomingFixtures] = useState([]);
 
   const responsive = {
@@ -108,16 +107,6 @@ function Home() {
       awayMatchesPlayed += team.awayStats.matchesPlayed;
     }
 
-    const averages = {
-      goals: parseFloat((avgGoalsScoredAll / matchesPlayed)).toFixed(2),
-      homeGoals: parseFloat((avgGoalsScoredHome / homeMatchesPlayed)).toFixed(2),
-      awayGoals: parseFloat((avgGoalsScoredAway / awayMatchesPlayed)).toFixed(2),
-      conceded: parseFloat((avgGoalsConcededAll / matchesPlayed)).toFixed(2),
-      homeConceded: parseFloat((avgGoalsConcededHome / homeMatchesPlayed)).toFixed(2),
-      awayConceded: parseFloat((avgGoalsConcededAway / awayMatchesPlayed)).toFixed(2)
-    }
-    console.log(averages)
-    setLeagueAverages(averages);
   }
 
   const findTopScorer = (data) => {
@@ -498,34 +487,34 @@ function Home() {
         <h2>Upcoming Fixtures</h2>
         <Carousel responsive={responsive}>
           {upcomingFixtures.map(fixture =>
-          <div className="slide" style={{ padding: "0 3rem" }}>
+            <div className="slide" style={{ padding: "0 3rem" }}>
 
-            <div className="rowBox" style={{ justifyContent: "center" }}>
-              <small>{new Date(fixture.dateTime).toUTCString()}</small>
-            </div>
-            <div className="rowBox" style={{ marginBottom: "1rem" }}>
-              <div className="colBox" style={{ alignItems: "center" }}>
-                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                  gotoTeamByName(fixture.homeTeamName)
-                }}></img>
-                <h4>{fixture.homeTeamName}</h4>
+              <div className="rowBox" style={{ justifyContent: "center" }}>
+                <small>{new Date(fixture.dateTime).toUTCString()}</small>
               </div>
-              <div className="colBox" style={{ justifyContent: "center" }}>
-                <h2> V </h2>
+              <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                <div className="colBox" style={{ alignItems: "center" }}>
+                  <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                    gotoTeamByName(fixture.homeTeamName)
+                  }}></img>
+                  <h4>{fixture.homeTeamName}</h4>
+                </div>
+                <div className="colBox" style={{ justifyContent: "center" }}>
+                  <h2> V </h2>
+                </div>
+                <div className="colBox" style={{ alignItems: "center" }}>
+                  <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                    gotoTeamByName(fixture.awayTeamName)
+                  }}></img>
+                  <h4>{fixture.awayTeamName}</h4>
+                </div>
               </div>
-              <div className="colBox" style={{ alignItems: "center" }}>
-                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                  gotoTeamByName(fixture.awayTeamName)
-                }}></img>
-                <h4>{fixture.awayTeamName}</h4>
+              <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
               </div>
-            </div>
-            <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-              <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
-            </div>
 
 
-          </div>
+            </div>
           )}
         </Carousel>
       </div>
