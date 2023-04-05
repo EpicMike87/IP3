@@ -3,6 +3,8 @@ import SearchBar from "../Component/SearchBar";
 import Api from '../Helpers/Api';
 import teamImage from "../images/teamImage.jpg";
 import { useSearchParams } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function Teams() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -57,10 +59,34 @@ function Teams() {
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
     const [last5Result, setLast5Result] = useState([])
 
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
+
     useEffect(() => {
         const teamId = searchParams.get("id");
+        const teamName = searchParams.get("name");
         if (teamId != null) {
             searchTeamById(teamId);
+        }
+        if (teamName != null) {
+            searchTeamByName(teamName);
         }
     }, [])
 
@@ -76,13 +102,22 @@ function Teams() {
             });
     }
 
+    const searchTeamByName = (name) => {
+        Api.get(`/team/${name}`)
+            .then(res => {
+                mapData(res.data);
+            }).then(showPlayerSection())
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
 
     const searchTeam = () => {
         if (team.length > 2) {
             Api.get(`/team/${team}`)
                 .then(res => {
                     mapData(res.data);
-                    setLast5(res.data)
                 }).then(showPlayerSection())
                 .catch(err => {
                     console.log(err);
@@ -100,15 +135,15 @@ function Teams() {
         setFixtures(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart));
         mapTeamData(data)
         mapTeamStats(data.allStats)
-        setLast5(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart).filter(a => a.fullTimeResult != '?'))
         mapTeamHomeStats(data.homeStats)
         mapTeamAwayStats(data.awayStats)
         mapTeamGrounds(data.grounds)
         setLast5(data.fixtures, data.teamName)
     }
 
-    const setLast5 = (data, teamName) => {
-        const last5 = data.filter(f => f.fullTimeResult != '?').slice(0, 5)
+    const setLast5 = (fixtureData, teamName) => {
+        console.log(fixtureData)
+        const last5 = fixtureData.filter(f => f.fullTimeResult != '?').slice(0, 5)
         const results = new Array();
         for (let i = 0; i < last5.length; i++) {
             if (last5[i].fullTimeResult == 'D') {
@@ -133,7 +168,7 @@ function Teams() {
         playerSection.style.display = 'flex';
         setShowElement(true)
 
-        initSlider();
+        // initSlider();
     }
 
     const mapTeamData = (data) => {
@@ -219,40 +254,40 @@ function Teams() {
         window.location = `/player?id=${id}`
     }
 
-    const initSlider = () => {
+    // const initSlider = () => {
 
-        const slidesContainer = document.getElementById("slides-container");
-        const slidesContainer2 = document.getElementById("slides-container2");
-        const slide = document.querySelector(".slide");
-        const prevButton = document.getElementById("slide-arrow-prev");
-        const nextButton = document.getElementById("slide-arrow-next");
-        const prevButton2 = document.getElementById("slide-arrow-prev2");
-        const nextButton2 = document.getElementById("slide-arrow-next2");
+    //     const slidesContainer = document.getElementById("slides-container");
+    //     const slidesContainer2 = document.getElementById("slides-container2");
+    //     const slide = document.querySelector(".slide");
+    //     const prevButton = document.getElementById("slide-arrow-prev");
+    //     const nextButton = document.getElementById("slide-arrow-next");
+    //     const prevButton2 = document.getElementById("slide-arrow-prev2");
+    //     const nextButton2 = document.getElementById("slide-arrow-next2");
 
-        nextButton.addEventListener("click", () => {
-            const slideWidth = slide.clientWidth;
-            const slideMarginLeft = slide.offsetLeft;
-            slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-        });
+    //     nextButton.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginLeft = slide.offsetLeft;
+    //         slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
+    //     });
 
-        prevButton.addEventListener("click", () => {
-            const slideWidth = slide.clientWidth;
-            const slideMarginRight = slide.offsetRight;
-            slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-        });
+    //     prevButton.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginRight = slide.offsetRight;
+    //         slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
+    //     });
 
-        nextButton2.addEventListener("click", () => {
-            const slideWidth = slide.clientWidth;
-            const slideMarginLeft = slide.offsetLeft;
-            slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-        });
+    //     nextButton2.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginLeft = slide.offsetLeft;
+    //         slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
+    //     });
 
-        prevButton2.addEventListener("click", () => {
-            const slideWidth = slide.clientWidth;
-            const slideMarginRight = slide.offsetRight;
-            slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-        });
-    }
+    //     prevButton2.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginRight = slide.offsetRight;
+    //         slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
+    //     });
+    // }
 
 
     return (
@@ -479,95 +514,74 @@ function Teams() {
                 </div>
                 <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
-                    <div className="rowBox">
-                        <section class="slider-wrapper">
-                            <button class="slide-arrow" id="slide-arrow-prev">
-                                &#8249;
-                            </button>
-                            <button class="slide-arrow" id="slide-arrow-next">
-                                &#8250;
-                            </button>
-                            <div className="slides-container" id="slides-container">
-                                {fixtures.filter(f => f.fullTimeResult == "?").reverse().map((fixture, index) =>
+                    <Carousel responsive={responsive} slidesToSlide={3}>
+                        {fixtures.filter(f => f.fullTimeResult == "?").reverse().map((fixture) =>
 
-                                    <div className="slide" style={{ padding: "0 3rem" }}>
+                            <div className="slide" style={{ padding: "0 3rem" }}>
 
-                                        <div className="rowBox" style={{ justifyContent: "center" }}>
-                                            <small>{new Date(fixture.dateTime).toUTCString()}</small>
-                                        </div>
-                                        <div className="rowBox" style={{ marginBottom: "1rem" }}>
-                                            <div className="colBox" style={{ alignItems: "center" }}>
-                                                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                                    updateTeam(fixture.homeTeamName)
-                                                }}></img>
-                                                <h4>{fixture.homeTeamName}</h4>
-                                            </div>
-                                            <div className="colBox" style={{ justifyContent: "center" }}>
-                                                <h2> V </h2>
-                                            </div>
-                                            <div className="colBox" style={{ alignItems: "center" }}>
-                                                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                                    updateTeam(fixture.awayTeamName)
-                                                }}></img>
-                                                <h4>{fixture.awayTeamName}</h4>
-                                            </div>
-                                        </div>
-                                        <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                            <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
-                                        </div>
-
-
+                                <div className="rowBox" style={{ justifyContent: "center" }}>
+                                    <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                </div>
+                                <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.homeTeamName)
+                                        }}></img>
+                                        <h4>{fixture.homeTeamName}</h4>
                                     </div>
-                                )}
+                                    <div className="colBox" style={{ justifyContent: "center" }}>
+                                        <h2> V </h2>
+                                    </div>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.awayTeamName)
+                                        }}></img>
+                                        <h4>{fixture.awayTeamName}</h4>
+                                    </div>
+                                </div>
+                                <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                    <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                </div>
+
+
                             </div>
-                        </section>
-                    </div>
+                        )}
+                    </Carousel>
                 </div>
                 <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Past Results</h2>
-                    <div className="rowBox">
-                        <section class="slider-wrapper">
-                            <button class="slide-arrow" id="slide-arrow-prev2">
-                                &#8249;
-                            </button>
-                            <button class="slide-arrow" id="slide-arrow-next2">
-                                &#8250;
-                            </button>
-                            <div className="slides-container" id="slides-container2">
-                                {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
+                    <Carousel responsive={responsive} slidesToSlide={3}>
+                        {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
 
-                                    <div className="slide" style={{ padding: "0 3rem" }}>
+                            <div className="slide" style={{ padding: "0 3rem" }} key={index}>
 
-                                        <div className="rowBox" style={{ justifyContent: "center" }}>
-                                            <small>{new Date(fixture.dateTime).toUTCString()}</small>
-                                        </div>
-                                        <div className="rowBox" style={{ marginBottom: "1rem" }}>
-                                            <div className="colBox" style={{ alignItems: "center" }}>
-                                                <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                                    updateTeam(fixture.homeTeamName)
-                                                }}></img>
-                                                <h4>{fixture.homeTeamName}</h4>
-                                            </div>
-                                            <div className="colBox" style={{ justifyContent: "center" }}>
-                                                <h2>{fixture.homeTeamGoals} : {fixture.awayTeamGoals}</h2>
-                                            </div>
-                                            <div className="colBox" style={{ alignItems: "center" }}>
-                                                <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
-                                                    updateTeam(fixture.awayTeamName)
-                                                }}></img>
-                                                <h4>{fixture.awayTeamName}</h4>
-                                            </div>
-                                        </div>
-                                        <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                            <h4>{fixture.fullTimeResult != 'D' ? (fixture.fullTimeResult == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
-                                        </div>
-
-
+                                <div className="rowBox" style={{ justifyContent: "center" }}>
+                                    <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                </div>
+                                <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.homeTeamName)
+                                        }}></img>
+                                        <h4>{fixture.homeTeamName}</h4>
                                     </div>
-                                )}
+                                    <div className="colBox" style={{ justifyContent: "center" }}>
+                                        <h2>{fixture.homeTeamGoals} : {fixture.awayTeamGoals}</h2>
+                                    </div>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.awayTeamName)
+                                        }}></img>
+                                        <h4>{fixture.awayTeamName}</h4>
+                                    </div>
+                                </div>
+                                <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                    <h4>{fixture.fullTimeResult != 'D' ? (fixture.fullTimeResult == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
+                                </div>
                             </div>
-                        </section>
-                    </div>
+                        )}
+                    </Carousel>
+
                 </div>
                 <div className="teamStats">
                     <div className="colBox">

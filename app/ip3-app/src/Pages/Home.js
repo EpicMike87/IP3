@@ -15,7 +15,6 @@ function Home() {
   const [mostAssists, setMostAssists] = useState([]);
   const [mostSavesStat, setLeastGoalsConc] = useState([]);
   const [topRatedPlayer, setTopRatedPlayer] = useState([]);
-  const [leagueAverages, setLeagueAverages] = useState({});
   const [upcomingFixtures, setUpcomingFixtures] = useState([]);
 
   const responsive = {
@@ -117,7 +116,6 @@ function Home() {
       awayConceded: parseFloat((avgGoalsConcededAway / awayMatchesPlayed)).toFixed(2)
     }
     console.log(averages)
-    setLeagueAverages(averages);
   }
 
   const findTopScorer = (data) => {
