@@ -897,6 +897,10 @@ select {
   height: 350px;
 }
 
+.backgroundImage img{
+  border-radius: 0%;
+}
+
 .backgroundOverlay {
   position: absolute;
   left: 0;
