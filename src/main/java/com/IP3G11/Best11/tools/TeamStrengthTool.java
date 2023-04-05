@@ -22,28 +22,24 @@ public class TeamStrengthTool {
     private Double leagueLast10AvgHomeAgainst;
     private Double leagueLast10AvgAwayAgainst;
 
-    private static final DecimalFormat decfor = new DecimalFormat("0.00");
+    private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
     public static HashMap<String, Double> getSeasonAverages(List<Team> teams){
         double goalsScoredAll = 0;
         double goalsScoredHome = 0;
         double goalsScoredAway = 0;
-        int matchesPlayed = 0;
-        int homeMatchesPlayed = 0;
-        int awayMatchesPlayed = 0;
 
         for(Team t : teams){
             goalsScoredAll += t.getTeamStats().get(0).getGoalsFor();
             goalsScoredHome += t.getTeamStats().get(1).getGoalsFor();
             goalsScoredAway += t.getTeamStats().get(2).getGoalsFor();
-            matchesPlayed += t.getTeamStats().get(0).getMatchesPlayed();
-            homeMatchesPlayed += t.getTeamStats().get(1).getMatchesPlayed();
-            awayMatchesPlayed += t.getTeamStats().get(2).getMatchesPlayed();
         }
         HashMap<String, Double> averages = new HashMap<>();
-        averages.put("Total Average", Double.valueOf((decfor.format(goalsScoredAll/matchesPlayed))));
-        averages.put("Home Average", Double.valueOf(decfor.format(goalsScoredHome/homeMatchesPlayed)));
-        averages.put("Away Average", Double.valueOf(decfor.format(goalsScoredAway/awayMatchesPlayed)));
+        averages.put("Total Average", Double.valueOf((DECIMAL_FORMAT.format(goalsScoredAll/teams.size()))));
+        averages.put("Home For", Double.valueOf(DECIMAL_FORMAT.format(goalsScoredHome/teams.size())));
+        averages.put("Away For", Double.valueOf(DECIMAL_FORMAT.format(goalsScoredAway/teams.size())));
+        averages.put("Home Against", Double.valueOf(DECIMAL_FORMAT.format(goalsScoredAway/teams.size())));
+        averages.put("Away Against", Double.valueOf(DECIMAL_FORMAT.format(goalsScoredHome/teams.size())));
 
         return averages;
     }
