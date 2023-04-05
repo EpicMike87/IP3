@@ -40,7 +40,7 @@ function Home() {
   useEffect(() => {
     Api.get(`/team/all`)
       .then(res => {
-        setDataTable(res.data)
+        setDataTable(res.data.sort((a, b) => (a.rank > b.rank)? 1 : -1))
         getFixtures()
       })
       .catch(err => console.log(err))
