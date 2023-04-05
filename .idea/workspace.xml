@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="added demo formations to best 11">
-      <change afterPath="$PROJECT_DIR$/app/ip3-app/src/data/formations.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_04_2023_18_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_04_2023_18_08__Changes_.xml" afterDir="false" />
+    <list default="true" id="30393c92-426e-4975-a6c2-9f8d4e38aff2" name="Changes" comment="CSS update Homepage update#2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/5.pack" afterDir="false" />
@@ -23,27 +19,8 @@
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/TabComponent/AllTabs/FirstTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/TabComponent/AllTabs/FirstTab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixturedata/fixture-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fixturedata/fixture-data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/TeamDataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/TeamDataReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/TeamStrengthTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/IP3G11/Best11/tools/TeamStrengthTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Teams.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Teams.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/Best11Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/FixtureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/FixtureController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/controllers/TeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/dto/FixtureDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/dto/FixtureDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/FixtureRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/FixtureRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/PlayerRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/repositories/TeamRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/FixtureService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/services/FixtureService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/FixtureCsvTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/FixtureCsvTool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/TeamDataReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/TeamDataReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/TeamStrengthTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/IP3G11/Best11/tools/TeamStrengthTool.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +45,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="testaverages" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,15 +61,11 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -116,6 +89,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -180,6 +154,7 @@
       <item itemvalue="Application.Best11Application" />
       <item itemvalue="Application.Heapsort" />
       <item itemvalue="Application.MergeSort" />
+      <item itemvalue="Spring Boot.Best11Application" />
     </list>
     <recent_temporary>
       <list>
@@ -210,6 +185,8 @@
       <workItem from="1680527866516" duration="686000" />
       <workItem from="1680535422449" duration="621000" />
       <workItem from="1680627892163" duration="1083000" />
+      <workItem from="1680717386518" duration="150000" />
+      <workItem from="1680717749693" duration="534000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
@@ -337,112 +314,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680478603281</updated>
     </task>
-    <task id="LOCAL-00019" summary="Css table line height fix">
-      <created>1680645195151</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1680645195151</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Suggested edit to home top player style">
-      <created>1680647745835</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1680647745835</updated>
-    </task>
-    <task id="LOCAL-00021" summary="fix for header images border radius">
-      <created>1680684738380</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1680684738380</updated>
-    </task>
-    <task id="LOCAL-00022" summary="implemented upcoming fixtures carousel on homepage">
-      <created>1680691533536</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1680691533536</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Added static method for league averages">
-      <created>1680693226392</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1680693226392</updated>
-    </task>
-    <task id="LOCAL-00024" summary="/">
-      <created>1680694311581</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1680694311581</updated>
-    </task>
-    <task id="LOCAL-00025" summary="/">
-      <created>1680694713202</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1680694713202</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Fixed carousel issue on team page">
-      <created>1680701010397</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1680701010398</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Fixed carousel issue on team page">
-      <created>1680701183406</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1680701183406</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Removed old unused css and tidied up code">
-      <created>1680704388900</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1680704388900</updated>
-    </task>
-    <task id="LOCAL-00029" summary="removed unused imports">
-      <created>1680704469066</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1680704469066</updated>
-    </task>
-    <task id="LOCAL-00030" summary="top players style tweaks to match wireframes">
-      <created>1680705825150</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1680705825150</updated>
-    </task>
-    <task id="LOCAL-00031" summary="re-added upcoming fixtures endpoint">
-      <created>1680706094314</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1680706094314</updated>
-    </task>
-    <task id="LOCAL-00032" summary="order of table fixed">
-      <created>1680711823398</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1680711823398</updated>
-    </task>
-    <task id="LOCAL-00033" summary="added demo formations to best 11">
-      <created>1680715681216</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1680715681216</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,6 +332,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
     <MESSAGE value="changed team name variable name" />
     <MESSAGE value="Added PlayerApiRepo and PlayerService, getTeams() to get all Team Names and ID from SPL and getTeamId() to get the id of a team by name." />
     <MESSAGE value="Fix on file issue" />
@@ -472,20 +345,7 @@
     <MESSAGE value="Homepage Updated." />
     <MESSAGE value="Homepage Updated, Player Stats with Player and team links" />
     <MESSAGE value="Player Bio Bug Fixed" />
-    <MESSAGE value="Css table line height fix" />
-    <MESSAGE value="Suggested edit to home top player style" />
-    <MESSAGE value="fix for header images border radius" />
-    <MESSAGE value="implemented upcoming fixtures carousel on homepage" />
-    <MESSAGE value="Added static method for league averages" />
-    <MESSAGE value="/" />
-    <MESSAGE value="Fixed carousel issue on team page" />
-    <MESSAGE value="Removed old unused css and tidied up code" />
-    <MESSAGE value="removed unused imports" />
-    <MESSAGE value="top players style tweaks to match wireframes" />
-    <MESSAGE value="re-added upcoming fixtures endpoint" />
-    <MESSAGE value="order of table fixed" />
-    <MESSAGE value="added demo formations to best 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="added demo formations to best 11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player Bio Bug Fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
