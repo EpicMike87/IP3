@@ -555,6 +555,7 @@ table.scrolldown tbody {
 .container {
   min-height: 100vh;
   height: 100%;
+  padding-bottom: 2rem;
 }
 
 /* Scrollbar width */
