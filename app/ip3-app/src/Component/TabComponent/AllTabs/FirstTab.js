@@ -109,7 +109,7 @@ const FirstTab = () => {
         return () => { ignore = true; }
     }, []);
 
-    const getMarkerEle = (pos) =>{
+    const getMarkerEle = (pos) => {
         const marker = document.createElement('span');
         marker.className = 'playerPosMarker';
         marker.textContent = pos;
@@ -130,40 +130,42 @@ const FirstTab = () => {
         let centreForwards = new Array();
 
         data.forEach(data => {
-            switch (data.position) {
-                case "Right-Back":
-                    rightBacks.push(data);
-                    break;
-                case "Left-Back":
-                    leftBacks.push(data);
-                    break;
-                case "Centre-Back":
-                    centreBacks.push(data);
-                    break;
-                case "Goalkeeper":
-                    goalKeepers.push(data);
-                    break;
-                case "Central Midfield":
-                    centralMidfielders.push(data);
-                    break;
-                case "Defensive Midfield":
-                    defensiveMidfielders.push(data);
-                    break;
-                case "Left Midfield":
-                    leftMidfielders.push(data);
-                    break;
-                case "Right Midfield":
-                    rightMidfielders.push(data);
-                    break;
-                case "Left Winger":
-                    leftWingers.push(data);
-                    break;
-                case "Right Winger":
-                    rightWingers.push(data);
-                    break;
-                case "Centre-Forward":
-                    centreForwards.push(data);
-                    break;
+            if (data.matchesPlayed > 5) {
+                switch (data.position) {
+                    case "Right-Back":
+                        rightBacks.push(data);
+                        break;
+                    case "Left-Back":
+                        leftBacks.push(data);
+                        break;
+                    case "Centre-Back":
+                        centreBacks.push(data);
+                        break;
+                    case "Goalkeeper":
+                        goalKeepers.push(data);
+                        break;
+                    case "Central Midfield":
+                        centralMidfielders.push(data);
+                        break;
+                    case "Defensive Midfield":
+                        defensiveMidfielders.push(data);
+                        break;
+                    case "Left Midfield":
+                        leftMidfielders.push(data);
+                        break;
+                    case "Right Midfield":
+                        rightMidfielders.push(data);
+                        break;
+                    case "Left Winger":
+                        leftWingers.push(data);
+                        break;
+                    case "Right Winger":
+                        rightWingers.push(data);
+                        break;
+                    case "Centre-Forward":
+                        centreForwards.push(data);
+                        break;
+                }
             }
         });
 
@@ -256,15 +258,15 @@ const FirstTab = () => {
         return playerIcon;
     }
 
-    const gotoPlayer = (e) =>{
+    const gotoPlayer = (e) => {
         const playerId = parseInt(e.target.firstChild.firstChild.firstChild.children[1].textContent);
         window.location.href = `/player?id=${playerId}`;
     }
 
     return (
         <div className="Best11Tab">
-        <h2>Best 11 SPFL Team </h2>
-        <small>Hover over players to view information.</small>
+            <h2>Best 11 SPFL Team </h2>
+            <small>Hover over players to view information.</small>
             <div className="pitch" style={{ backgroundImage: `url(${pitchImage})` }}>
                 <img src={pitchImage} alt="A pitch" />
             </div>

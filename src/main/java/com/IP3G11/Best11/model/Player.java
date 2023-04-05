@@ -38,6 +38,8 @@ public class Player {
     private double passAccuracy;
     private int duels;
     private int duelsWon;
+    private int penaltiesTaken;
+    private int penaltiesScored;
 
     public void setAge(){
         age = Period.between(dateOfBirth, LocalDate.now()).getYears();

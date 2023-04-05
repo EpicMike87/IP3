@@ -3,6 +3,9 @@ import SearchBar from "../Component/SearchBar";
 import Api from '../Helpers/Api';
 import teamImage from "../images/teamImage.jpg";
 import { useSearchParams } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import "../Helpers/sortable.min.js";
 
 function Teams() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -14,6 +17,7 @@ function Teams() {
     const [teamHomeStats, setTeamHomeStats] = useState()
     const [teamAwayStats, setTeamAwayStats] = useState()
     const [teamGrounds, setTeamGrounds] = useState()
+    const [showElement, setShowElement] = useState(false);
 
     const [nameOfTeam, setTeamName] = useState("")
     const [rankOfTeam, setTeamRank] = useState("")
@@ -54,11 +58,36 @@ function Teams() {
     const [awayGoalDifference, setAwayGoalDifference] = useState("")
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
+    const [last5Result, setLast5Result] = useState([])
+
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
 
     useEffect(() => {
         const teamId = searchParams.get("id");
+        const teamName = searchParams.get("name");
         if (teamId != null) {
             searchTeamById(teamId);
+        }
+        if (teamName != null) {
+            searchTeamByName(teamName);
         }
     }, [])
 
@@ -66,19 +95,19 @@ function Teams() {
     const searchTeamById = (id) => {
         Api.get(`/team/id/${id}`)
             .then(res => {
-                console.log(res.data);
-                setTeamData(res.data);
-                setPlayers(res.data.players);
-                setFixtures(res.data.fixtures.slice(0, 3).reverse());
-                mapTeamData(res.data)
-                mapTeamStats(res.data.allStats)
-                mapTeamHomeStats(res.data.homeStats)
-                mapTeamAwayStats(res.data.awayStats)
-                mapTeamGrounds(res.data.grounds)
-                const playerSection = document.getElementsByClassName('playerSection')[0];
-                const message = document.getElementById('message');
-                message.style.display = 'none';
-                playerSection.style.display = 'flex';
+                mapData(res.data);
+                showPlayerSection();
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    const searchTeamByName = (name) => {
+        Api.get(`/team/${name}`)
+            .then(res => {
+                mapData(res.data);
+                showPlayerSection();
 
             })
             .catch(err => {
@@ -88,24 +117,48 @@ function Teams() {
 
 
     const searchTeam = () => {
-        if(team.length > 2){
-        Api.get(`/team/${team}`)
-            .then(res => {
-                console.log(res.data);
-                setTeamData(res.data);
-                setPlayers(res.data.players);
-                setFixtures(res.data.fixtures.slice(0, 3).reverse());
-                console.log(res.data.fixtures[0].dateTime)
-                mapTeamData(res.data)
-                mapTeamStats(res.data.allStats)
-                mapTeamHomeStats(res.data.homeStats)
-                mapTeamAwayStats(res.data.awayStats)
-                mapTeamGrounds(res.data.grounds)
-            }).then(showPlayerSection())
-            .catch(err => {
-                console.log(err);
-            });
+        if (team.length > 2) {
+            Api.get(`/team/${team}`)
+                .then(res => {
+                    mapData(res.data);
+                    showPlayerSection();
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
+    }
+
+    const mapData = (data) => {
+
+        //Current season start date
+        const seasonStart = new Date("07/30/2022");
+        setTeamData(data);
+        setPlayers(data.players);
+        //Set and sort by date, filter for current season
+        setFixtures(data.fixtures.sort((a, b) => a.dateTime - b.dateTime).filter(a => new Date(a.dateTime) > seasonStart));
+        mapTeamData(data)
+        mapTeamStats(data.allStats)
+        mapTeamHomeStats(data.homeStats)
+        mapTeamAwayStats(data.awayStats)
+        mapTeamGrounds(data.grounds)
+        setLast5(data.fixtures, data.teamName)
+    }
+
+    const setLast5 = (fixtureData, teamName) => {
+        const last5 = fixtureData.filter(f => f.fullTimeResult != '?').slice(0, 5)
+        const results = new Array();
+        for (let i = 0; i < last5.length; i++) {
+            if (last5[i].fullTimeResult == 'D') {
+                results.push('D');
+            }
+            else {
+                if ((last5[i].fullTimeResult == 'H' && teamName == last5[i].homeTeamName) || (last5[i].fullTimeResult == 'A' && teamName == last5[i].awayTeamName))
+                    results.push('W')
+                else results.push('L')
+            }
+        }
+        setLast5Result(results);
     }
 
     const showPlayerSection = () => {
@@ -113,6 +166,9 @@ function Teams() {
         const message = document.getElementById('message');
         message.style.display = 'none';
         playerSection.style.display = 'flex';
+        setShowElement(true)
+
+        // initSlider();
     }
 
     const mapTeamData = (data) => {
@@ -186,8 +242,8 @@ function Teams() {
     }
 
     useEffect(() => {
-        if(team != "")
-        searchTeam();
+        if (team != "")
+            searchTeam();
     }, [team])
 
     const updateTeam = (team) => {
@@ -197,6 +253,8 @@ function Teams() {
     const gotoPlayer = (id) => {
         window.location = `/player?id=${id}`
     }
+
+
 
     return (
         <div className="Team">
@@ -239,6 +297,19 @@ function Teams() {
                                     <th>City:</th>
                                     <td>{groundsCity}</td>
                                 </tr>
+                                <tr>
+                                    <th>Last 5:</th>
+                                    <td>
+                                        <div className="last5Box">
+                                            {last5Result.map((result, index) =>
+
+                                                <div>{result == 'D' ? <div className="resultBox drawBox">D</div> : (result == 'W' ? <div className="resultBox winBox">W</div> : <div className="resultBox loseBox">L</div>)}</div>
+
+
+                                            )}
+                                        </div>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
 
@@ -278,6 +349,10 @@ function Teams() {
                         <h2>Season Stats</h2>
                         <div className="rowBox">
                             <table>
+                                <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((matchesWon * 3 + matchesDrew) / matchesPlayed).toFixed(2)}</td>
+                                </tr>
                                 <tr>
                                     <th>Points:</th>
                                     <td>{points}</td>
@@ -319,6 +394,10 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((homeMatchesWon * 3 + homeMatchesDrew) / homeMatchesPlayed).toFixed(2)}</td>
+                                </tr>
+                                <tr>
                                     <th>Points:</th>
                                     <td>{homePoints}</td>
                                 </tr>
@@ -359,6 +438,10 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
+                                    <th>Form:</th>
+                                    <td>{parseFloat((awayMatchesWon * 3 + awayMatchesDrew) / awayMatchesPlayed).toFixed(2)}</td>
+                                </tr>
+                                <tr>
                                     <th>Points:</th>
                                     <td>{awayPoints}</td>
                                 </tr>
@@ -395,13 +478,13 @@ function Teams() {
 
                     </div>
                 </div>
-                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem" }}>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
-                    <div className="rowBox">
+                    <Carousel responsive={responsive} slidesToSlide={3}>
+                        {fixtures.filter(f => f.fullTimeResult == "?").reverse().map((fixture) =>
 
-                        {fixtures.map((fixture, index) =>
+                            <div className="slide" style={{ padding: "0 3rem" }}>
 
-                            <div className="statsBox">
                                 <div className="rowBox" style={{ justifyContent: "center" }}>
                                     <small>{new Date(fixture.dateTime).toUTCString()}</small>
                                 </div>
@@ -422,21 +505,56 @@ function Teams() {
                                         <h4>{fixture.awayTeamName}</h4>
                                     </div>
                                 </div>
+                                <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                    <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                </div>
+
+
+                            </div>
+                        )}
+                    </Carousel>
+                </div>
+                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
+                    <h2 style={{ marginBottom: "1rem" }}>Past Results</h2>
+                    <Carousel responsive={responsive} slidesToSlide={3}>
+                        {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
+
+                            <div className="slide" style={{ padding: "0 3rem" }} key={index}>
+
                                 <div className="rowBox" style={{ justifyContent: "center" }}>
-                                    <h4>Prediction: {fixture.prediction == 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                    <small>{new Date(fixture.dateTime).toUTCString()}</small>
+                                </div>
+                                <div className="rowBox" style={{ marginBottom: "1rem" }}>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.homePhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.homeTeamName)
+                                        }}></img>
+                                        <h4>{fixture.homeTeamName}</h4>
+                                    </div>
+                                    <div className="colBox" style={{ justifyContent: "center" }}>
+                                        <h2>{fixture.homeTeamGoals} : {fixture.awayTeamGoals}</h2>
+                                    </div>
+                                    <div className="colBox" style={{ alignItems: "center" }}>
+                                        <img src={fixture.awayPhotoUrl} style={{ height: "80%", width: "80%", objectFit: "contain", margin: "0 auto", cursor: "pointer" }} onClick={() => {
+                                            updateTeam(fixture.awayTeamName)
+                                        }}></img>
+                                        <h4>{fixture.awayTeamName}</h4>
+                                    </div>
+                                </div>
+                                <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
+                                    <h4>{fixture.fullTimeResult != 'D' ? (fixture.fullTimeResult == 'H' ? fixture.homeTeamName : fixture.awayTeamName) + " Win" : 'Draw'}</h4>
                                 </div>
                             </div>
-
-
                         )}
-                    </div>
+                    </Carousel>
+
                 </div>
                 <div className="teamStats">
                     <div className="colBox">
                         <h2>Current Squad</h2>
                         <div id="tablecontainer">
                             <table id="playerTable" class="playerTable sortable">
-                                <thead>
+                                <thead style={{position: "sticky"}}>
                                     <tr id="teampagerow">
                                         <th class="no-sort">Photo</th>
                                         <th>Name</th>

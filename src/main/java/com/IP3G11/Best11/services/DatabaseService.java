@@ -2,7 +2,6 @@ package com.IP3G11.Best11.services;
 
 import com.IP3G11.Best11.model.Fixture;
 import com.IP3G11.Best11.model.Team;
-import com.IP3G11.Best11.repositories.FixtureRepo;
 import com.IP3G11.Best11.repositories.PlayerRepo;
 import com.IP3G11.Best11.repositories.TeamRepo;
 import com.IP3G11.Best11.tools.FixtureApiTool;

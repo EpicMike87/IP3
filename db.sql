@@ -51,6 +51,8 @@ CREATE TABLE Player (
     pass_accuracy FLOAT(24),
     duels INT,
     duels_won INT,
+    penalties_taken INT,
+    penalties_scored INT,
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 
@@ -59,9 +61,7 @@ CREATE TABLE Attacker_Stats (
     goals INT NOT NULL,
     assists INT NOT NULL,
     shots INT NOT NULL,
-    shots_on_target INT NOT NULL,
-    penalties_taken INT NOT NULL,
-    penalties_scored INT NOT NULL
+    shots_on_target INT NOT NULL
 );
 
 CREATE TABLE Midfielder_Stats (
