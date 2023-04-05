@@ -439,7 +439,6 @@ img {
   flex-grow: 1;
 }
 
-
 .rowBox table {
   text-align: left;
   margin: 0 auto;
@@ -450,7 +449,6 @@ img {
 .rowBox td {
   border: none;
 }
-
 
 .teamStatsSection {
   background-color: lightgray;
@@ -467,7 +465,9 @@ img {
 }
 
 .teamNLG {
-  background-color: gray;
+  background-color: white;
+  padding: 0.8em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-reduced-motion: no-preference) {

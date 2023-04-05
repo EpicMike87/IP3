@@ -59,6 +59,27 @@ function Teams() {
     const [awayGoalsFor, setAwayGoalsFor] = useState("")
     const [awayGoalsAgainst, setAwayGoalsAgainst] = useState("")
     const [last5Result, setLast5Result] = useState([])
+    const [nlgString, setNLGString] = useState("")
+
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
 
     const responsive = {
         superLargeDesktop: {
@@ -115,6 +136,16 @@ function Teams() {
             });
     }
 
+    const searchTeamByName = (name) => {
+        Api.get(`/team/${name}`)
+            .then(res => {
+                mapData(res.data);
+            }).then(showPlayerSection())
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
 
     const searchTeam = () => {
         if (team.length > 2) {
@@ -123,6 +154,7 @@ function Teams() {
                     mapData(res.data);
                     showPlayerSection();
                 })
+                }).then(showPlayerSection())
                 .catch(err => {
                     console.log(err);
                 });
@@ -143,9 +175,12 @@ function Teams() {
         mapTeamAwayStats(data.awayStats)
         mapTeamGrounds(data.grounds)
         setLast5(data.fixtures, data.teamName)
+        setNLGString(data.nlgString)
+        console.log(data.nlgString)
     }
 
     const setLast5 = (fixtureData, teamName) => {
+        console.log(fixtureData)
         const last5 = fixtureData.filter(f => f.fullTimeResult != '?').slice(0, 5)
         const results = new Array();
         for (let i = 0; i < last5.length; i++) {
@@ -254,7 +289,40 @@ function Teams() {
         window.location = `/player?id=${id}`
     }
 
+    // const initSlider = () => {
 
+    //     const slidesContainer = document.getElementById("slides-container");
+    //     const slidesContainer2 = document.getElementById("slides-container2");
+    //     const slide = document.querySelector(".slide");
+    //     const prevButton = document.getElementById("slide-arrow-prev");
+    //     const nextButton = document.getElementById("slide-arrow-next");
+    //     const prevButton2 = document.getElementById("slide-arrow-prev2");
+    //     const nextButton2 = document.getElementById("slide-arrow-next2");
+
+    //     nextButton.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginLeft = slide.offsetLeft;
+    //         slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
+    //     });
+
+    //     prevButton.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginRight = slide.offsetRight;
+    //         slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
+    //     });
+
+    //     nextButton2.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginLeft = slide.offsetLeft;
+    //         slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
+    //     });
+
+    //     prevButton2.addEventListener("click", () => {
+    //         const slideWidth = slide.clientWidth;
+    //         const slideMarginRight = slide.offsetRight;
+    //         slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
+    //     });
+    // }
 
     return (
         <div className="Team">
@@ -475,7 +543,12 @@ function Teams() {
                                 </tr>
                             </table>
                         </div>
-
+                    </div>
+                </div>
+                <div className="teamNLG">
+                    <h3>Team Report</h3>
+                    <div>
+                        {nlgString}
                     </div>
                 </div>
                 <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
@@ -582,9 +655,7 @@ function Teams() {
                 </div>
                 <div className="teamStatsSection">
                     <br></br>
-                    <div className="teamNLG">
-                        <h3>NLG/Visual Data Placeholder</h3>
-                    </div>
+
                     <br></br>
 
                 </div>
