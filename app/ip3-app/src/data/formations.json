@@ -1,0 +1,499 @@
+[
+    {
+        "formation": 433,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "37.3%",
+                "bottom": "52%",
+                "marker": "DM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "50%",
+                "bottom": "65%",
+                "marker": "CM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "50%",
+                "bottom": "38%",
+                "marker": "CM"
+            },
+            {
+                "position": "Left Winger",
+                "left": "59%",
+                "bottom": "80%",
+                "marker": "LW"
+            },
+            {
+                "position": "Right Winger",
+                "left": "59%",
+                "bottom": "15%",
+                "marker": "RW"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "65%",
+                "bottom": "52%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": 4231,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "39%",
+                "bottom": "42%",
+                "marker": "DM"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "39%",
+                "bottom": "60%",
+                "marker": "DM"
+            },
+            {
+                "position": "Attacking Midfield",
+                "left": "55%",
+                "bottom": "52%",
+                "marker": "AM"
+            },
+            {
+                "position": "Left Winger",
+                "left": "59%",
+                "bottom": "76%",
+                "marker": "LW"
+            },
+            {
+                "position": "Right Winger",
+                "left": "59%",
+                "bottom": "19%",
+                "marker": "RW"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "52%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": 442,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "65%",
+                "marker": "CM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "38%",
+                "marker": "CM"
+            },
+            {
+                "position": "Left Midfield",
+                "left": "51%",
+                "bottom": "80%",
+                "marker": "LM"
+            },
+            {
+                "position": "Right Midfield",
+                "left": "51%",
+                "bottom": "23%",
+                "marker": "RM"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "45%",
+                "marker": "CF"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "59%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": "442 Diamond",
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "46%",
+                "bottom": "65%",
+                "marker": "CM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "46%",
+                "bottom": "38%",
+                "marker": "CM"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "37.3%",
+                "bottom": "52%",
+                "marker": "DM"
+            },
+            {
+                "position": "Attacking Midfield",
+                "left": "55%",
+                "bottom": "52%",
+                "marker": "AM"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "45%",
+                "marker": "CF"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "59%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": 4141,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "37.3%",
+                "bottom": "52%",
+                "marker": "DM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "65%",
+                "marker": "CM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "38%",
+                "marker": "CM"
+            },
+            {
+                "position": "Left Midfield",
+                "left": "51%",
+                "bottom": "80%",
+                "marker": "LM"
+            },
+            {
+                "position": "Right Midfield",
+                "left": "51%",
+                "bottom": "23%",
+                "marker": "RM"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "65%",
+                "bottom": "52%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": 352,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "23%",
+                "bottom": "72%",
+                "marker": "LCB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "23%",
+                "bottom": "30%",
+                "marker": "RCB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "23%",
+                "bottom": "52%",
+                "marker": "CB"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "41%",
+                "bottom": "62%",
+                "marker": "LDM"
+            },
+            {
+                "position": "Defensive Midfield",
+                "left": "41%",
+                "bottom": "40%",
+                "marker": "RDM"
+            },
+            {
+                "position": "Attacking Midfield",
+                "left": "54%",
+                "bottom": "52%",
+                "marker": "AM"
+            },
+            {
+                "position": "Left Midfield",
+                "left": "51%",
+                "bottom": "80%",
+                "marker": "LM"
+            },
+            {
+                "position": "Right Midfield",
+                "left": "51%",
+                "bottom": "23%",
+                "marker": "RM"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "45%",
+                "marker": "CF"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "59%",
+                "marker": "CF"
+            }
+        ]
+    },
+    {
+        "formation": 4411,
+        "positions": [
+            {
+                "position": "Goalkeeper",
+                "left": "14%",
+                "bottom": "52%",
+                "marker": "GK"
+            },
+            {
+                "position": "Right-Back",
+                "left": "29%",
+                "bottom": "16%",
+                "marker": "RB"
+            },
+            {
+                "position": "Left-Back",
+                "left": "29%",
+                "bottom": "84%",
+                "marker": "LB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "64%",
+                "marker": "CB"
+            },
+            {
+                "position": "Centre-Back",
+                "left": "22%",
+                "bottom": "38%",
+                "marker": "CB"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "65%",
+                "marker": "CM"
+            },
+            {
+                "position": "Central Midfield",
+                "left": "45%",
+                "bottom": "38%",
+                "marker": "CM"
+            },
+            {
+                "position": "Left Midfield",
+                "left": "51%",
+                "bottom": "80%",
+                "marker": "LM"
+            },
+            {
+                "position": "Right Midfield",
+                "left": "51%",
+                "bottom": "23%",
+                "marker": "RM"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "58%",
+                "bottom": "52%",
+                "marker": "CF"
+            },
+            {
+                "position": "Centre-Forward",
+                "left": "67%",
+                "bottom": "52%",
+                "marker": "CF"
+            }
+        ]
+    }
+]

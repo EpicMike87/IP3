@@ -40,7 +40,7 @@ function Home() {
   useEffect(() => {
     Api.get(`/team/all`)
       .then(res => {
-        setDataTable(res.data)
+        setDataTable(res.data.sort((a, b) => (a.rank > b.rank)? 1 : -1))
         getFixtures()
       })
       .catch(err => console.log(err))
@@ -78,6 +78,42 @@ function Home() {
       });
   }
 
+  const setAverages = (data) => {
+
+    let avgGoalsScoredAll = 0;
+    let avgGoalsScoredHome = 0;
+    let avgGoalsScoredAway = 0;
+    let avgGoalsConcededAll = 0;
+    let avgGoalsConcededHome = 0;
+    let avgGoalsConcededAway = 0;
+    let matchesPlayed = 0;
+    let homeMatchesPlayed = 0;
+    let awayMatchesPlayed = 0;
+
+    for (let i = 0; i < data.length; i++) {
+      const team = data[i];
+      console.log(team)
+      avgGoalsScoredAll += team.allStats.goalsFor;
+      avgGoalsScoredHome += team.homeStats.goalsFor;
+      avgGoalsScoredAway += team.awayStats.goalsFor;
+      avgGoalsConcededAll += team.allStats.goalsAgainst;
+      avgGoalsConcededHome += team.homeStats.goalsAgainst;
+      avgGoalsConcededAway += team.awayStats.goalsAgainst;
+      matchesPlayed += team.allStats.matchesPlayed;
+      homeMatchesPlayed += team.homeStats.matchesPlayed;
+      awayMatchesPlayed += team.awayStats.matchesPlayed;
+    }
+
+    const averages = {
+      goals: parseFloat((avgGoalsScoredAll / matchesPlayed)).toFixed(2),
+      homeGoals: parseFloat((avgGoalsScoredHome / homeMatchesPlayed)).toFixed(2),
+      awayGoals: parseFloat((avgGoalsScoredAway / awayMatchesPlayed)).toFixed(2),
+      conceded: parseFloat((avgGoalsConcededAll / matchesPlayed)).toFixed(2),
+      homeConceded: parseFloat((avgGoalsConcededHome / homeMatchesPlayed)).toFixed(2),
+      awayConceded: parseFloat((avgGoalsConcededAway / awayMatchesPlayed)).toFixed(2)
+    }
+    console.log(averages)
+  }
 
   const findTopScorer = (data) => {
     let topScorer = new Array();

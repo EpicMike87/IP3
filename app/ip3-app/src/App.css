@@ -350,6 +350,15 @@ img {
   margin: 1rem;
 }
 
+.player{
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .playerProfileImage {
   width: 250px;
   height: 250px;
@@ -430,7 +439,6 @@ img {
   flex-grow: 1;
 }
 
-
 .rowBox table {
   text-align: left;
   margin: 0 auto;
@@ -441,7 +449,6 @@ img {
 .rowBox td {
   border: none;
 }
-
 
 .teamStatsSection {
   background-color: lightgray;
@@ -458,7 +465,9 @@ img {
 }
 
 .teamNLG {
-  background-color: gray;
+  background-color: white;
+  padding: 0.8em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -546,8 +555,31 @@ table.scrolldown tbody {
 .container {
   min-height: 100vh;
   height: 100%;
+  padding-bottom: 2rem;
 }
 
+.formationSelect{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  height: 3rem;
+  font-size: 2rem;
+  opacity: 0.95;
+  color: white;
+  background-color: rgb(000, 32, 96);
+  border: 1px solid white;
+  border-radius: 2%;
+}
+
+.formationSelect option{
+  opacity: 0.9;
+  color: white;
+  background-color: rgb(000, 32, 96);
+  font-size: 2rem;
+}
 /* Scrollbar width */
 #tablecontainer::-webkit-scrollbar {
   margin-left: 1rem;
@@ -1378,6 +1410,7 @@ select {
 
 .link{
   margin-bottom: 0;
+  cursor: pointer;
 }
 
 .link:hover{

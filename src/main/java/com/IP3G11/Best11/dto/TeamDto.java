@@ -26,6 +26,7 @@ public class TeamDto {
     private TeamStats awayStats;
     private List<Player> players;
     private List<FixtureDto> fixtures;
+    private String nlgString;
 
     public TeamDto(Team t){
         this.id = t.getId();
