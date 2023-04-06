@@ -1,5 +1,5 @@
 import React from "react";
-import DonutChart from "./DonutChart";
+import DonutChartPlayer from "./DonutCharts/DonutChartPlayer";
 
 function PlayerCard({player}){
 
@@ -35,7 +35,7 @@ function PlayerCard({player}){
                 </div>
             </div>
             <div className="CardSectionStatistics">
-            <DonutChart player={player}/>
+            <DonutChartPlayer player={player}/>
             </div>
         </div>
 
