@@ -1,7 +1,8 @@
 import React from "react";
-import DonutChart from "./DonutChart";
+import DonutChartTeam from "./DonutCharts/DonutChartTeam";
 
-function TeamCard({team}){
+function TeamCard({team, last5H2H}){
+    const lastResults = last5H2H; 
 
 
 
@@ -34,8 +35,19 @@ function TeamCard({team}){
                     </span>
                 </div>
             </div>
-            <div className="CardSectionStatistics">
-            {/* <DonutChart player={player}/> */}
+            <div className="CardSectionTeamStatistics">
+                <h2>Home Stats</h2>
+                <div className="HomeStatsCharts">
+                    <DonutChartTeam team={team.homeStats}/>
+                </div>
+                <h2>Away Stats</h2>
+                <div className="AwayStatsCharts">
+                    <DonutChartTeam team={team.awayStats} />
+                </div>
+                <h2>Head 2 Heads</h2>
+                <div className="H2Hresults">
+			        {lastResults.map((result, index) => <div>{result == 'D' ? <div className="resultBox drawBox">D</div> : (result == 'W' ? <div className="resultBox winBox">			  W</div> : <div className="resultBox loseBox">L</div>)}</div>)}
+                </div>
             </div>
         </div>
 

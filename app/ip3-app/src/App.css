@@ -1104,7 +1104,6 @@ select {
 }
 
 .CardSectionCard {
-  background-color: #ffffff;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1113,7 +1112,31 @@ select {
   border-radius: 25px;
   border-style: solid;
   border-color: #ebebeb;
+  overflow: hidden;
+  transition: transform .5s;
 
+}
+
+.CardSectionCard::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 2s cubic-bezier(.165, .84, .44, 1);
+  box-shadow: 0 0 17px 0 rgba(0, 0, 0, .2), 0 0 20px 0 rgba(0, 0, 0, .15);
+  content: '';
+  opacity: 0;
+  z-index: -1;
+}
+
+.CardSectionCard:hover,
+.CardSectionCard:focus {
+  transform: scale3d(1.006, 1.006, 1);
+}
+
+.CardSectionCard::after {
+    opacity: 1;
 }
 
 .CardSectionHeader {
@@ -1279,6 +1302,44 @@ select {
   margin-top: 5px;
 }
 
+.CardSectionTeamStatistics{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 65%;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.HomeStatsCharts{
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 33%;
+  justify-content: center;
+  /* transition: transform .5s; */
+  padding-bottom: 10px;
+}
+
+.AwayStatsCharts{
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 33%;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.H2Hresults{
+  display: flex;
+  flex-direction: row;
+  padding: 0 2px;
+  width: 100%;
+  justify-content: center;
+  height: 100px;
+}
+
+
 .Doughnuts {
   position: relative;
   display: flex;
@@ -1433,6 +1494,12 @@ select {
   opacity: 1 !important;
 }
 
+.backgroundImageRanking {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  height: 30px;
+}
 
 @keyframes App-logo-spin {
   from {
