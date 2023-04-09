@@ -168,14 +168,14 @@ function TeamCompare(){
                 <div className="CardSections">
                     <div className={basket == "" ? "CardSection1" : "CardSection1WithBasket"} ref={dropRef}>
                         {basket.map(team => <TeamCard team={team} last5H2H={team1CompareResults}/>)}
-                        {isOver && !basket.includes(dropTeam1) ? <p>Drop Player Here</p> : <p style={{display: "none"}}></p>}
-                        {!isOver && !basket.includes(dropTeam1) ? <p>Search and Drag Player Here</p> : <p style={{display: "none"}}></p>}
+                        {isOver && !basket.includes(dropTeam1) ? <p>Drop Team Here</p> : <p style={{display: "none"}}></p>}
+                        {!isOver && !basket.includes(dropTeam1) ? <p>Search and Drag Team Here</p> : <p style={{display: "none"}}></p>}
 
                     </div>
                     <div className={basket2 == "" ? "CardSection2" : "CardSection2WithBasket"} ref={dropRef2}>
                         {basket2.map(team => <TeamCard team={team}  last5H2H={team2CompareResults}/>)}  
-                        {isOver2 && !basket2.includes(dropTeam2) ? <p>Drop Player Here</p> : <p style={{display: "none"}}></p>}
-                        {!isOver2 && !basket2.includes(dropTeam2) ? <p>Search and Drag Player Here</p> : <p style={{display: "none"}}></p>}
+                        {isOver2 && !basket2.includes(dropTeam2) ? <p>Drop Team Here</p> : <p style={{display: "none"}}></p>}
+                        {!isOver2 && !basket2.includes(dropTeam2) ? <p>Search and Drag Team Here</p> : <p style={{display: "none"}}></p>}
 
 
                     </div>

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import TabNavItem from "./TabNavItem";
 import TabContent from "./TabContent";
 import "../../css/Tabs.css";
-import FirstTab from "./AllTabs/FirstTab";
+import Best11 from "./AllTabs/Best11";
 import PlayerCompare from "../PlayerCompare";
 import TeamCompare from "../TeamCompare";
  
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState("Best 11");
  
   return (
     <div className="Tabs">
@@ -19,7 +19,7 @@ const Tabs = () => {
  
       <div className="outlet">
         <TabContent id="Best 11" activeTab={activeTab}>
-          <FirstTab />
+          <Best11 />
         </TabContent>
         <TabContent id="Player Comparison" activeTab={activeTab}>
           <PlayerCompare />
