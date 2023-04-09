@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//Data transfer class for Teams. Used to make sure only required info is sent to front-end
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,6 +29,7 @@ public class TeamDto {
     private List<FixtureDto> fixtures;
     private String nlgString;
 
+    //Converts Team object to TeamDto
     public TeamDto(Team t){
         this.id = t.getId();
         this.teamName = t.getTeamName();
@@ -43,6 +45,7 @@ public class TeamDto {
         setFixtures(t);
     }
 
+    //Converts list of Team objects to list of TeamDto
     public static List<TeamDto> convertList(List<Team> teams){
         List<TeamDto> teamDtos = new ArrayList<>();
         for(Team t : teams){
@@ -51,6 +54,7 @@ public class TeamDto {
         return teamDtos;
     }
 
+    //Converts list of Fixtures to FixtureDto and sets as TeamDto fixtures
     public void setFixtures(Team t){
         List<Fixture> fixtures = new ArrayList<>();
         fixtures.addAll(t.getHomeFixtures());

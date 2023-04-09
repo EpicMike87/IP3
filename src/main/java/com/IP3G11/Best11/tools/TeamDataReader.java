@@ -124,6 +124,7 @@ public class TeamDataReader {
             int playerId = playersJson.get(i).getAsJsonObject().get("player").getAsJsonObject().get("id").getAsInt();
             if (squadIds.contains(playerId)) {
                 Player player = playerDataReader.populateFieldsOfPlayer(playersJson.get(i).getAsJsonObject());
+
                 if(!existsInList(playersList, player))
                     playersList.add(player);
             }
@@ -137,7 +138,8 @@ public class TeamDataReader {
         else addPositionsFromJson(team);
     }
 
-    //removes duplicate players from a list by converting to set then re-populating list
+    //removes duplicate players from a list by converting to set then re-populating list.
+    // Removes U18 and B team players too by checking if they have role-specific position
     private void removeDuplicates(List<Player> players){
         Set<Player> playersSet = new HashSet<>(players);
         players = playersSet.stream().toList();
@@ -216,7 +218,7 @@ public class TeamDataReader {
                         play = matchingPlayers.get(0);
                     }
                     else{
-                        System.out.println("No role-specific position exists for" + playerName);
+                        System.out.println("No role-specific position exists for " + playerName);
                     }
 
                     play.setPosition(player.getAsJsonObject().get("player").getAsJsonArray().get(1).getAsString());

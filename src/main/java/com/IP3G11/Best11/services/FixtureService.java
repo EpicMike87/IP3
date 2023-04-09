@@ -5,7 +5,6 @@ import com.IP3G11.Best11.model.Fixture;
 import com.IP3G11.Best11.model.Team;
 import com.IP3G11.Best11.repositories.FixtureRepo;
 import com.IP3G11.Best11.tools.ModelClassifier;
-//import com.groupdocs.merger.internal.c.a.i.internal.b.F;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import weka.core.Instances;
@@ -93,12 +92,10 @@ public class FixtureService {
 
     public List<FixtureDto> getLast5(String name){
         List<Fixture> fixtures = fixtureRepo.findTop5ByDateTimeBeforeAndHomeTeamNameOrDateTimeBeforeAndAwayTeamNameOrderByDateTimeDesc(new Date(), name, new Date(), name);
-        System.out.println(new Date().toGMTString());
         Collections.sort(fixtures);
         List<FixtureDto> fixturesDto = new ArrayList<>();
         for(Fixture f : fixtures){
             fixturesDto.add(new FixtureDto(f));
-            System.out.println(new Date().after(f.getDateTime()));
         }
         return fixturesDto;
     }

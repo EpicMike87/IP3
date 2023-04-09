@@ -19,6 +19,7 @@ public class FixtureController {
     @Autowired
     private FixtureService fixtureService;
 
+    //Returns all fixtures
     @GetMapping("fixtures/all")
     public List<FixtureDto> getAllFixtures(){
         List<FixtureDto> fixtures = fixtureService.getAll();
@@ -26,6 +27,7 @@ public class FixtureController {
         return fixtures;
     }
 
+    //Returns all upcoming fixtures
     @GetMapping("fixtures/upcoming")
     public List<FixtureDto> getUpcomingFixtures(){
         List<FixtureDto> fixtures = fixtureService.getUpcoming();
@@ -33,11 +35,13 @@ public class FixtureController {
         return fixtures;
     }
 
+    //Returns upcoming fixtures for specific team
     @GetMapping("fixtures/next/{name}")
     public List<FixtureDto> getNext(@PathVariable String name){
         return fixtureService.getNext(name);
     }
 
+    //Returns last 5 concluded fixtures for specific team
     @GetMapping("fixtures/last5/{name}")
     public List<FixtureDto> getLast5(@PathVariable String name){
         return fixtureService.getLast5(name);

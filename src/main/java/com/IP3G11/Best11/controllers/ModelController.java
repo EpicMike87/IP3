@@ -10,6 +10,7 @@ import weka.core.Instances;
 @Controller
 public class ModelController {
 
+    //Test for predictive model. should print an 'A' or 'H' to the console
     @GetMapping("model/test")
     public void testModel(){
         ModelClassifier mc = new ModelClassifier();

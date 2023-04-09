@@ -26,33 +26,32 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
+    //Returns all teams
     @GetMapping("/team/all")
     public List<TeamDto> getTeams() throws IOException, InterruptedException {
         return teamService.getAllTeams();
     }
 
-    //@GetMapping("/season/averages")
-    //public HashMap<String, Double> getSeasonAverages(){
-      //  return teamService.getLeagueAverages();
-    //}
-
+    //Returns team with matching name
     @GetMapping("/team/{name}")
     public TeamDto getTeamByName(@PathVariable String name) {
         TeamDto team = teamService.getTeamByName(name);
-        System.out.println(team.getPlayers());
         return team;
     }
 
+    //Returns a list of teams that match the parameter
     @GetMapping("/team/list/{name}")
     public List<TeamDto> getTeamListByName(@PathVariable String name) {
         return teamService.findListByName(name);
     }
 
+    //Returns team that matches ID parameter
     @GetMapping("/team/id/{id}")
     public TeamDto getTeamById(@PathVariable int id) {
         return teamService.getTeam(id);
     }
 
+    //Returns team that matches rank of parameter
     @GetMapping("/team/rank/{rank}")
     public TeamDto getTeamByRank(@PathVariable int rank) {
         return teamService.getTeamByRank(rank);

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//Data transfer class for fixtures. Used to make sure only required info is sent to front-end
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,6 +36,7 @@ public class FixtureDto implements Comparable<FixtureDto>{
 
     private Character prediction;
 
+    //Converts Fixture object to FixtureDto
     public FixtureDto(Fixture f){
         this.id = f.getId();
         this.homeTeamName = f.getHomeTeamName();
@@ -48,6 +50,7 @@ public class FixtureDto implements Comparable<FixtureDto>{
         this.prediction = f.getPrediction();
     }
 
+    //Converts list of Fixture objects to list of FixtureDto
     public static List<FixtureDto> convertList(List<Fixture> fixtures){
         List<FixtureDto> fixtureDtos = new ArrayList<>();
         for(Fixture f : fixtures){
@@ -56,6 +59,7 @@ public class FixtureDto implements Comparable<FixtureDto>{
         return fixtureDtos;
     }
 
+    //Used to sort FixtureDto objects by date
     @Override
     public int compareTo(FixtureDto f) {
         if (f.getDateTime().before(this.dateTime)) return -1;
@@ -63,6 +67,7 @@ public class FixtureDto implements Comparable<FixtureDto>{
         return 0;
     }
 
+    //Checks equality by comparing date and team names
     @Override
     public boolean equals(Object o) {
         if (!o.getClass().equals(Fixture.class)) return false;
