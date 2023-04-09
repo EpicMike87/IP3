@@ -1,5 +1,6 @@
 import React from "react";
 import DonutChartPlayer from "./DonutCharts/DonutChartPlayer";
+import { NavLink } from "react-router-dom";
 
 function PlayerCard({player}){
 
@@ -37,6 +38,14 @@ function PlayerCard({player}){
             <div className="CardSectionStatistics">
             <DonutChartPlayer player={player}/>
             </div>
+            <button className="learn-more" id='buttonCard'>
+            <span class="icon arrow"></span>
+                <span className="circle" aria-hidden="true"></span>
+                <NavLink to={`/player?id=${player.id}`}>
+
+                <span className="button-text">More About Player</span>
+                </NavLink>
+            </button>
         </div>
 
     );
