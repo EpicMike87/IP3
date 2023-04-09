@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from 'react';
+import {React} from 'react';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -141,15 +141,6 @@ function DonutChart({player}) {
       }]
     }
 
-    // const data4 = {
-    //   labels: ['Overall Performance'],
-    //   datasets: [{
-    //     data: [player.rating],
-    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //   }]
-    // }
-
     return(
       <>
         <div className='Doughnuts'>
@@ -163,9 +154,6 @@ function DonutChart({player}) {
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
-        {/* <div className='DoughnutRating'>
-          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
-        </div> */}
         <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
           <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
@@ -210,15 +198,6 @@ function DonutChart({player}) {
       }]
     }
 
-    // const data4 = {
-    //   labels: ['Overall Performance'],
-    //   datasets: [{
-    //     data: [player.rating],
-    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //   }]
-    // }
-
     return(
       <>
         <div className='Doughnuts'>
@@ -232,9 +211,6 @@ function DonutChart({player}) {
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
-        {/* <div className='DoughnutRating'>
-          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
-        </div> */}
         <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
           <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
@@ -269,15 +245,6 @@ function DonutChart({player}) {
       }],
     }
 
-    // const data3 = {
-    //   labels: ['Blocks', 'Interceptions'],
-    //   datasets: [{
-    //     data: [player.blocks, player.interceptions],
-    //     backgroundColor: ['blue', '#43A6C6'],
-    //     borderColor: ['blue', '#43A6C6'],
-    //   }]
-    // }
-
     const data3 = {
       labels: ['Tackles Won', 'Fouls'],
       datasets: [{
@@ -286,15 +253,6 @@ function DonutChart({player}) {
         borderColor: ['blue', '#43A6C6'],
       }]
     }
-
-    // const data4 = {
-    //   labels: ['Overall Performance'],
-    //   datasets: [{
-    //     data: [player.rating],
-    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //   }]
-    // }
 
     return(
       <>
@@ -309,9 +267,6 @@ function DonutChart({player}) {
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
-        {/* <div className='DoughnutRating'>
-          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
-        </div> */}
         <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
         <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
@@ -350,19 +305,10 @@ function DonutChart({player}) {
       labels: ['Shots', 'On Target', 'Goals'],
       datasets: [{
         data: [player.shots, player.shotsOnTarget, player.goals],
-        backgroundColor: ['blue', '#43A6C6', '#00D100'],
-        borderColor: ['blue', '#43A6C6' , '#00D100'],
+        backgroundColor: ['blue', '#43A6C6', 'red'],
+        borderColor: ['blue', '#43A6C6' , 'red'],
       }]
     }
-
-    // const data4 = {
-    //   labels: ['Overall Performance'],
-    //   datasets: [{
-    //     data: [player.rating],
-    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //   }]
-    // }
 
     return(
       <>
@@ -377,9 +323,6 @@ function DonutChart({player}) {
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
-        {/* <div className='DoughnutRating'>
-          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
-        </div> */}
         <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
         <p>Rating: {player.rating.toFixed(2)}</p>
         </div>
@@ -414,15 +357,6 @@ function DonutChart({player}) {
       }]
     }
 
-    // const data4 = {
-    //   labels: ['Overall Performance'],
-    //   datasets: [{
-    //     data: [player.rating],
-    //     backgroundColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //     borderColor: [player.rating < 7.0 ? "orange" : player.rating < 8.0 ? "#FFD700" : "#00D100"],
-    //   }]
-    // }
-
     return(
       <>
         <div className='Doughnuts'>
@@ -436,9 +370,6 @@ function DonutChart({player}) {
           <Doughnut data={data3} options={options3} />
           </div>
         </div>
-        {/* <div className='DoughnutRating'>
-          <Doughnut data={data4} options={options4} plugins={[textCenter]} />
-        </div> */}
         <div className='Rating' style={{color: player.rating < 6.5 ? "orange" : player.rating < 7.0 ? "#FFD700" : "#00D100"}}>
         <p>Rating: {player.rating.toFixed(2)}</p>
         </div>

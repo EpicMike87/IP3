@@ -4,11 +4,9 @@ import Api from '../../../Helpers/Api';
 import pitchImage from "../../../images/pitch4.jpg";
 import formations from '../../../data/formations.json';
 
-const FirstTab = () => {
+const Best11 = () => {
 
-    const [player, setPlayer] = useState("");
     const [players, setPlayers] = useState([]);
-    const [test, setTest] = useState();
 
     const searchPlayers = (formNo) => {
         Api.get(`players/all`)
@@ -276,4 +274,4 @@ const FirstTab = () => {
         </div>
     );
 };
-export default FirstTab;
+export default Best11;
