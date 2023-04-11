@@ -14,16 +14,15 @@ import java.net.http.HttpResponse;
 @UtilityClass
 public class APIUtility {
 
-    private static final String api_token = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
+    private static final String API_TOKEN = "9e3324bf83msh34dc07c79189889p1f8c13jsn975dfb9aa4c5";
 
-    //Makes API calls and returns data
+    //Makes API calls and returns data as JsonObject
     public static JsonObject getResponseAsJsonObject(String uriString) throws IOException, InterruptedException {
 
         String URIString = "https://api-football-v1.p.rapidapi.com/v3/" + uriString;
         HttpRequest request = HttpRequest.newBuilder()
-                //api-football only allows last name search, so only last name is used
                 .uri(URI.create(URIString))
-                .header("X-RapidAPI-Key", api_token)
+                .header("X-RapidAPI-Key", API_TOKEN)
                 .header("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();

@@ -33,11 +33,13 @@ public class Team {
     private Ground ground;
     @OneToMany(cascade = {CascadeType.ALL})
     @LazyCollection(LazyCollectionOption.FALSE)
+
     private List<TeamStats> teamStats;
     @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Player> players;
 
+    //These doubles by ML model to predict outcome of future fixtures
     private double homeAttStrLast20;
     private double awayAttStrLast20;
     private double homeDefStrLast20;

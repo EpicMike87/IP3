@@ -16,6 +16,7 @@ public class DatabaseController {
     @Autowired
     DatabaseService databaseService;
 
+    //Loads the database with data from api-football API
     @GetMapping("database/load")
     public String loadDatabase() throws IOException, ParseException, InterruptedException {
         try{
@@ -27,6 +28,7 @@ public class DatabaseController {
         return "Database loaded successfully.";
     }
 
+    //Loads fixtures in from CSV downloaded from football-data.org.uk and api-football
     @GetMapping("database/loadfixtures")
     public String loadFixtures() throws IOException, ParseException, InterruptedException {
         try {

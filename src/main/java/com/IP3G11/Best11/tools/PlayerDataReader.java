@@ -120,6 +120,12 @@ public class PlayerDataReader {
         player.setPenaltiesScored(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("penalty").getAsJsonObject().get("scored").isJsonNull() ? 0 :
                 playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("penalty").getAsJsonObject().get("scored").getAsInt());
 
+        player.setDribblesAttempted(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("dribbles").getAsJsonObject().get("attempts").isJsonNull() ? 0 :
+                playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("dribbles").getAsJsonObject().get("attempts").getAsInt());
+
+        player.setSuccessfulDribbles(playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("dribbles").getAsJsonObject().get("success").isJsonNull() ? 0 :
+                playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("dribbles").getAsJsonObject().get("success").getAsInt());
+
         player.setPenaltiesTaken(player.getPenaltiesScored() + (playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("penalty").getAsJsonObject().get("missed").isJsonNull() ? 0 :
                 playerJson.get("statistics").getAsJsonArray().get(0).getAsJsonObject().get("penalty").getAsJsonObject().get("missed").getAsInt()));
         player.setId(playerJson.get("player").getAsJsonObject().get("id").getAsInt());

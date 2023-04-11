@@ -53,6 +53,8 @@ CREATE TABLE Player (
     duels_won INT,
     penalties_taken INT,
     penalties_scored INT,
+    dribbles_attempted INT,
+    successful_dribbles INT,
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 

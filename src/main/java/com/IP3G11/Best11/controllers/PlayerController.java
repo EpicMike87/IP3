@@ -18,31 +18,37 @@ public class PlayerController {
     @Autowired
     PlayerService playerService;
 
+    //Returns player with matching name
     @GetMapping("/search-player/{name}")
     public List<Player> searchPlayerByName(@PathVariable String name){
         return playerService.getPlayerByName(name);
     }
 
+    //Returns all players (if no name supplied)
     @GetMapping("/search-player/")
     public List<Player> searchPlayer(){
         return playerService.getAllPlayers();
     }
 
+    //Returns top 5 players by position
     @GetMapping("/players/top5/{position}")
     public List<Player> getTop5ByPosition(@PathVariable String position){
         return playerService.getTop5ByPosition(position);
     }
 
+    //Returns player with ID that matches parameter
     @GetMapping("/players/id/{id}")
     public List<Player> getById(@PathVariable int id){
         return playerService.getById(id);
     }
 
+    //Returns all players with matching position
     @GetMapping("/players/{position}")
     public List<Player> getByPosition(@PathVariable String position){
         return playerService.getByPosition(position);
     }
 
+    //Returns all players
     @GetMapping("/players/all")
     public List<Player> getAll(){
         return playerService.getAllPlayers();

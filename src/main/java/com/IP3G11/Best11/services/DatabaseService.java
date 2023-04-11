@@ -29,6 +29,7 @@ public class DatabaseService {
     @Autowired
     private PlayerRepo playerRepo;
 
+    //Uses TeamDataReader to gather Team information from API-Football (and playerdata json files) and populate database
     public void loadDatabase() throws IOException, InterruptedException, ParseException {
         TeamDataReader db = new TeamDataReader();
         List<Team> teams = db.getTeams();
@@ -59,6 +60,7 @@ public class DatabaseService {
         Set<Fixture> fixSet = new HashSet<>(fixtures);
         Set<Fixture> upcomingFixSet = FixtureApiTool.getFutureXFixtures(10, teams);
         fixSet.addAll(upcomingFixSet);
+
         for(Fixture f : fixSet){
             try {
                 fixtureService.save(f);
