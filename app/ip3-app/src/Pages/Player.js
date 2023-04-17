@@ -3,6 +3,7 @@ import Api from '../Helpers/Api';
 import SearchBar from "../Component/SearchBar";
 import playerImage from "../images/playerImage.jpg";
 import { useSearchParams } from "react-router-dom";
+import PieChart from '../Component/PieChart';
 
 
 function Player() {
@@ -12,6 +13,7 @@ function Player() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [showElement, setShowElement] = useState(false);
     const [bioType, setBioType] = useState()
+    const [teamPhoto, setTeamPhoto] = useState(""); 
 
 
     const searchPlayer = () => {
@@ -47,13 +49,26 @@ function Player() {
             .then(res => {
                 setPlayerInfo(res.data);
                 changeSelectionVisibility(false);
-                //console.log(res.data);
+                console.log(res.data);
+                getTeamImage(res.data[0].team)
                 showPlayerBio(playerPositionType);
             })
             .catch(err => {
                 console.log(err);
             });
 
+    }
+
+    const getTeamImage = (teamName) => {
+        Api.get(`/team/${teamName}`)
+        .then(res => {
+            // console.log(res.data.photoUrl);
+            setTeamPhoto(res.data.photoUrl);
+            
+        })
+        .catch(err => {
+            console.log(err);
+        });
     }
 
 
@@ -189,358 +204,415 @@ function Player() {
                 <body onLoad={(e) => mapPlayerBioData(`${playersData.positionType}`)} >
 
                     <div id='attackerplayerBio' className='playerInfoSection' >
-                        {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Attackers)</h1>)}
-                        <div className="teamStats">
-                            <div className="rowBox alignCenterTop minWidth250">
-                                {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                                {playerInfo.map(player => <ul>
+                                    <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
+                                    <li><h2 >{`${player.position}`}</h2></li>
+                                    <li><p >{`${player.age}`}</p></li>
+                                    </ul>)}
+                                    {playerInfo.map(player => 
+                                        <div className='playerStatsCircles'>
+                                        <div>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Goals</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.goals}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Assists</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.assists}
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                        )}
                             </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Name:</th>
-                                        {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Age:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Position:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Team:</th>
-                                        {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Rating:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Matches Played:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
-
-                                    </tr>
-                                </table>
+                            <div className='playerStatTeamLogo'>
+                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
                             </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Goals:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
+                            {playerInfo.map(player => 
+                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
+                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
 
-                                    </tr>
-                                    <tr>
-                                        <th>Assists:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Penalties Taken:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.penaltiesTaken} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Penalties Scored:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.penaltiesScored} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Shots:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.shots} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Shots On Target:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.shotsOnTarget} </td>)}
-
-                                    </tr>
-                                </table>
-                            </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Passes:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Pass Accuracy:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
-
-                                    </tr>
-                                </table>
+                                    </div>
+                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Shots</p>
+                                                <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>On Target</p>
+                                                <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Passes</p>
+                                                <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Pass Acc.</p>
+                                                <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                                <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                                <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Taken</p>
+                                                <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Scored</p>
+                                                <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div style={{display: "flex", width: "100%"}}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
 
                     </div>
 
                     <div id='midfielderplayerBio' className='playerInfoSection'>
-                        {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Midfielders)</h1>)}
-                        <div className="teamStats">
-                            <div className="rowBox alignCenterTop minWidth250">
-                                {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
+                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Midfielders)</h1>)} */}
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                                {playerInfo.map(player => <ul>
+                                    <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
+                                    <li><h2 >{`${player.position}`}</h2></li>
+                                    <li><p >{`${player.age}`}</p></li>
+                                    </ul>)}
+                                    {playerInfo.map(player => 
+                                        <div className='playerStatsCircles'>
+                                        <div>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Goals</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.goals}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Assists</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.assists}
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                        )}
                             </div>
-                            <div className='rowBox alignTop'>
-                                <table>
-                                    <tr>
-                                        <th>Name:</th>
-                                        {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Age:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Position:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Team:</th>
-                                        {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Rating:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Matches Played:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
-
-                                    </tr>
-                                </table>
+                            <div className='playerStatTeamLogo'>
+                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
                             </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Goals:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
+                            {playerInfo.map(player => 
+                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
+                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
 
-                                    </tr>
-                                    <tr>
-                                        <th>Assists:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Tackles:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.tackles} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Blocks:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.blocks} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Interceptions:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.interceptions} </td>)}
-
-                                    </tr>
-                                </table>
-                            </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Passes:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Pass Accuracy:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Red Cards:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.redCards} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Yellow Cards:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.yellowCards} </td>)}
-
-                                    </tr>
-                                </table>
+                                    </div>
+                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Shots</p>
+                                                <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>On Target</p>
+                                                <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Passes</p>
+                                                <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Pass Acc.</p>
+                                                <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                                <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                                <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Taken</p>
+                                                <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Scored</p>
+                                                <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div style={{display: "flex", width: "100%"}}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
-
                     </div>
 
                     <div id='defenderplayerBio' className="playerInfoSection">
-                        {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Defenders)</h1>)}
-                        <div className="teamStats">
-
-                            <div className="rowBox alignCenterRop minWidth250">
-                                {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
+                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Defenders)</h1>)} */}
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                                {playerInfo.map(player => <ul>
+                                    <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
+                                    <li><h2 >{`${player.position}`}</h2></li>
+                                    <li><p >{`${player.age}`}</p></li>
+                                    </ul>)}
+                                    {playerInfo.map(player => 
+                                        <div className='playerStatsCircles'>
+                                        <div>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Blocks</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.blocks}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Interceptions</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.interceptions}
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                        )}
                             </div>
-                            <div className='rowBox alignTop'>
-                                <table>
-                                    <tr>
-                                        <th>Name:</th>
-                                        {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Age:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Position:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Team:</th>
-                                        {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Rating:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Matches Played:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
-
-                                    </tr>
-                                </table>
+                            <div className='playerStatTeamLogo'>
+                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
                             </div>
-                            <div className="rowBox alignTop">
-                                <table>
+                            {playerInfo.map(player => 
+                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
+                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
 
-                                    <tr>
-                                        <th>Goals:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.goals} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Assists:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.assists} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Duels:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.duels} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Duels Won:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.duelsWon} </td>)}
-
-                                    </tr>
-                                </table>
-                            </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Tackles:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.tackles} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Blocks:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.blocks} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Interceptions:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.interceptions} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Passes:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Pass Accuracy:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
-
-                                    </tr>
-                                </table>
+                                    </div>
+                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Shots</p>
+                                                <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>On Target</p>
+                                                <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Passes</p>
+                                                <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Pass Acc.</p>
+                                                <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                                <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                                <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Taken</p>
+                                                <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Scored</p>
+                                                <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div style={{display: "flex", width: "100%"}}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
 
                     </div>
 
                     <div id='goalkeeperplayerBio' className='playerInfoSection'>
-                        {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Goalkeepers)</h1>)}
-                        <div className="teamStats">
-
-                            <div className="rowBox alignCenterTop minWidth250">
-                                {playerInfo.map((playersData, index) => <img src={playersData.photoUrl} alt="teamLogo" className='playerProfileImage'></img>)}
+                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Goalkeepers)</h1>)} */}
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                                {playerInfo.map(player => <ul>
+                                    <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
+                                    <li><h2 >{`${player.position}`}</h2></li>
+                                    <li><p >{`${player.age}`}</p></li>
+                                    </ul>)}
+                                    {playerInfo.map(player => 
+                                        <div className='playerStatsCircles'>
+                                        <div>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Saves</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.saves}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Conceded</h2>
+                                            <div className='topPlayerCircle'>
+                                                {player.goalsConceded}
+                                            </div>
+                                        </div>
+                                        
+                                        </div>
+                                        )}
                             </div>
-                            <div className='rowBox alignTop'>
-                                <table>
-                                    <tr>
-                                        <th>Name:</th>
-                                        {playerInfo.map((playersData, index) => <td>{`${playersData.firstName} ${playersData.lastName}`}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Age:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.age}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Position:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.position}</td>)}
-                                    </tr>
-                                    <tr>
-                                        <th>Team:</th>
-                                        {playerInfo.map((playersData, index) => <td id="teamCell" onClick={(e) => gotoTeam(`${playersData.teamId}`)}>{playersData.team}</td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Rating:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.rating} </td>)}
-                                    </tr>
-
-                                    <tr>
-                                        <th>Matches Played:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.matchesPlayed} </td>)}
-
-                                    </tr>
-                                </table>
+                            <div className='playerStatTeamLogo'>
+                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
                             </div>
-                            <div className="rowBox alignTop">
-                                <table>
-                                    <tr>
-                                        <th>Saves:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.saves} </td>)}
+                            {playerInfo.map(player => 
+                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
+                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                            <p style={{fontWeight: "bold"}}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
 
-                                    </tr>
-                                    <tr>
-                                        <th>Goals Conceded:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.goalsConceded} </td>)}
+                                    </div>
+                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Shots</p>
+                                                <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>On Target</p>
+                                                <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Passes</p>
+                                                <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Pass Acc.</p>
+                                                <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                        <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                                <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                                <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Taken</p>
+                                                <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
+                                                <p style={{fontWeight: "bold"}}>PK Scored</p>
+                                                <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
 
-                                    </tr>
-                                </table>
-                            </div>
-                            <div className="rowBox alignTop">
-                                <table>
-
-                                    <tr>
-                                        <th>Passes:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passes} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Pass Accuracy:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.passAccuracy}% </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Red Cards:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.redCards} </td>)}
-
-                                    </tr>
-                                    <tr>
-                                        <th>Yellow Cards:</th>
-                                        {playerInfo.map((playersData, index) => <td>{playersData.yellowCards} </td>)}
-
-                                    </tr>
-                                </table>
+                            <div style={{display: "flex", width: "100%"}}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
 
