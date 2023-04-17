@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class FixtureService {
+public class FixtureService{
 
     private final FixtureRepo fixtureRepo;
     private final ModelClassifier lc;
@@ -76,8 +76,8 @@ public class FixtureService {
         System.out.println("Home Team: " + homeTeam.getTeamName());
         System.out.println("Away Team: " + awayTeam.getTeamName());
         char prediction = lc.Classify(inst).toCharArray()[0];
-        fixture.setPrediction(lc.Classify(inst).toCharArray()[0]);
-        System.out.println("Prediction: " + lc.Classify(inst).toCharArray()[0] + "\n\n");
+        fixture.setPrediction(prediction);
+        System.out.println("Prediction: " + prediction + "\n\n");
     }
 
     public List<FixtureDto> getNext(String name){

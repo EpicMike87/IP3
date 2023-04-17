@@ -20,6 +20,6 @@ public interface FixtureRepo extends JpaRepository<Fixture, Integer> {
     boolean existsByHomeTeamNameAndDateTime(String homeTeamName, Date dateTime);
     //Used to get a team's future fixtures, checks both date and home and away team names to find matching fixtures
     List<Fixture> findByDateTimeAfterAndHomeTeamNameOrDateTimeAfterAndAwayTeamNameOrderByDateTimeDesc(Date date, String homeName, Date date2, String awayName);
-    //Used to get a team's past fixtures, checks both date and home and away team names to find matching fixtures
+    //Used to get a team's past 5 fixtures, checks both date and home and away team names to find matching fixtures
     List<Fixture> findTop5ByDateTimeBeforeAndHomeTeamNameOrDateTimeBeforeAndAwayTeamNameOrderByDateTimeDesc(Date date, String homeName,Date date2, String awayName);
 }

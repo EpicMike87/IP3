@@ -39,7 +39,7 @@ public class Team {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Player> players;
 
-    //These doubles by ML model to predict outcome of future fixtures
+    //These doubles used by ML model to predict outcome of future fixtures
     private double homeAttStrLast20;
     private double awayAttStrLast20;
     private double homeDefStrLast20;

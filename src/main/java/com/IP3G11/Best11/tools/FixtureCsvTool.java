@@ -52,7 +52,7 @@ public class FixtureCsvTool {
 
             String line = br.readLine();
             if (i > 0)
-                line = br.readLine(); //just skip the first line
+                line = br.readLine(); //skip the first line
 
             while (line != null) {
                 fileWriter.println(line);
@@ -78,6 +78,7 @@ public class FixtureCsvTool {
             String awayTeamName = record.get("AwayTeam");
 
 
+            //Data source used for teams has different names for these two teams, this resolves issue
             if(homeTeamName.equalsIgnoreCase("Dundee United")) homeTeamName = "Dundee Utd";
             if(awayTeamName.equalsIgnoreCase("Dundee United")) awayTeamName = "Dundee Utd";
             if(homeTeamName.equalsIgnoreCase("Hearts")) homeTeamName = "Heart OF Midlothian";

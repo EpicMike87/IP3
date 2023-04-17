@@ -21,7 +21,8 @@ import {
       plugins: {
         legend: {
           display: true,
-          position: 'top',
+          position: 'bottom',
+        
   
   
           labels: {
@@ -94,7 +95,7 @@ import {
     }
 
     const data3 = {
-      labels: ['Played', 'Points Acheived', 'Goal Difference'],
+      labels: ['Played', 'Points', 'Goal Diff'],
       datasets: [{
         data: [team.matchesPlayed, team.points, team.goalDifference],
         backgroundColor: ['blue', '#43A6C6', 'red'],

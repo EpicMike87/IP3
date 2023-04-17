@@ -139,7 +139,6 @@ public class TeamDataReader {
     }
 
     //removes duplicate players from a list by converting to set then re-populating list.
-    // Removes U18 and B team players too by checking if they have role-specific position
     private void removeDuplicates(List<Player> players){
         Set<Player> playersSet = new HashSet<>(players);
         players = playersSet.stream().toList();
@@ -164,7 +163,7 @@ public class TeamDataReader {
         return ids;
     }
 
-    //Returns a TeamStats object from Json stats data from api and type of stats (all, home or away)
+    //Returns a TeamStats object from Json stats data from api which includes type of stats (all, home or away)
     public TeamStats getTeamStatsObj(JsonObject stats, String type) {
 
         int matchesPlayed = stats.get("played").getAsInt();
@@ -179,7 +178,7 @@ public class TeamDataReader {
         return new TeamStats(SEASON, type, matchesPlayed, matchesWon, matchesDrew, matchesLost, goalsFor, goalsAgainst, goalDifference, points);
     }
 
-    //Uses Json files stored in project to compare api data and add role-specific positions for players with matching names in files
+    //Uses Json files stored in project to compare with api data and add role-specific positions for players with matching names in files
     private void addPositionsFromJson(Team team) {
         String filePath = "./playerdata/" + team.getTeamName().replace(" ", "-") + ".json";
         JsonParser jp = new JsonParser();

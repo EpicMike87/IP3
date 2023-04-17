@@ -42,6 +42,7 @@ public class DatabaseService {
         }
     }
 
+    //Loads fixtures in from CSV, gets upcoming fixtures from API-Football and adds team strength data, saves to db
     public void loadFixtures() throws Exception {
 
         try {
