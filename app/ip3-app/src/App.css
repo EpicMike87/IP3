@@ -1690,7 +1690,6 @@ select {
 .playerStatsTeamImg{
   margin-top: 10px;
   width: 100px;
-  /* border-radius: 30%; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -1717,11 +1716,6 @@ select {
   position: relative;
   width: 100%;
   display: flex;
-  /* flex-wrap: nowrap; */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
-  /* margin-right: 100px;
-  margin-left: 100px; */
   margin-top: 20px;
   margin-bottom: 250px;
   flex: 1 1 0;
@@ -1746,22 +1740,6 @@ select {
   width: 500px !important;
   height: 250px !important;
 }
-
-/* .Pie1{
-  width: 50%;
-}
-
-.Pie2{
-  width: 50%;
-}
-
-.Pie3{
-  width: 50%;
-}
-
-.Pie4{
-  width: 50%;
-} */
 
 @keyframes App-logo-spin {
   from {

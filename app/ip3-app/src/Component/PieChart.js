@@ -335,9 +335,6 @@ function PieChart({player}){
                     <div className={data3.datasets[0].data[0] === 0 && data3.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Pie3'}>
                         <Pie data={data3} options={options} />
                     </div>
-                    {/* <div className={data4.datasets[0].data[0] === 0 && data4.datasets[0].data[1]  === 0 ? 'DoughnutHide' : 'Pie4'}>
-                        <Pie data={data4} options={options} />
-                    </div> */}
                 </div>
             </>
         )
