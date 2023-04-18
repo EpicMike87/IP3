@@ -8,7 +8,7 @@ function PlayerCard({player}){
 
     return (
 
-        <div className="CardSectionCard">
+        <section className="CardSectionCard">
             <div className="CardSectionHeader">
                 <div className="CardSectionImgContainer">
                     <img className="CardSectionImg" alt="Player Image" src={player.photoUrl}/> 
@@ -46,7 +46,7 @@ function PlayerCard({player}){
                 <span className="button-text">More About Player</span>
                 </NavLink>
             </button>
-        </div>
+        </section>
 
     );
 

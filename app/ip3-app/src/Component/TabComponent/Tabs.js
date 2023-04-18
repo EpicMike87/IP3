@@ -17,7 +17,7 @@ const Tabs = () => {
         <TabNavItem title="Team Comparison" id="Team Comparison" activeTab={activeTab} setActiveTab={setActiveTab}/>
       </ul>
  
-      <div className="outlet">
+      <nav className="outlet">
         <TabContent id="Best 11" activeTab={activeTab}>
           <Best11 />
         </TabContent>
@@ -27,7 +27,7 @@ const Tabs = () => {
         <TabContent id="Team Comparison" activeTab={activeTab}>
           <TeamCompare />
         </TabContent>
-      </div>
+      </nav>
     </div>
   );
 };

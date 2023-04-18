@@ -171,15 +171,15 @@ function Player() {
 
     return (
 
-        <div className="Players" >
-            <div className="backgroundImage">
+        <main className="Players" >
+            <div className="backgroundImage" role="banner">
                 <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
                 <div class="backgroundOverlay"></div>
-                <div class="pageHeaderBox"><h1>Player Search</h1></div>
+                <div class="pageHeaderBox" role="heading"><h1>Player Search</h1></div>
                 <br></br>
             </div>
 
-            <div className="searchBarArea">
+            <div className="searchBarArea" role="search">
                 <SearchBar keyword={playerName} placeholders={"Please Enter Player Name"} onChange={setPlayerName} fun={searchPlayer} />
 
                 <div id='playerSelection'>
@@ -203,7 +203,7 @@ function Player() {
             {playerInfo.map((playersData, index) =>
                 <body onLoad={(e) => mapPlayerBioData(`${playersData.positionType}`)} >
 
-                    <div id='attackerplayerBio' className='playerInfoSection' >
+                    <section id='attackerplayerBio' className='playerInfoSection' >
                         <div className="playerStats">
                             <div className="playerStatsImg">
                                 {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
@@ -303,10 +303,9 @@ function Player() {
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
+                    </section>
 
-                    </div>
-
-                    <div id='midfielderplayerBio' className='playerInfoSection'>
+                    <section id='midfielderplayerBio' className='playerInfoSection'>
                         {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Midfielders)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
@@ -407,9 +406,9 @@ function Player() {
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div id='defenderplayerBio' className="playerInfoSection">
+                    <section id='defenderplayerBio' className="playerInfoSection">
                         {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Defenders)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
@@ -511,9 +510,9 @@ function Player() {
                             </div>
                         </div>
 
-                    </div>
+                    </section>
 
-                    <div id='goalkeeperplayerBio' className='playerInfoSection'>
+                    <section id='goalkeeperplayerBio' className='playerInfoSection'>
                         {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Goalkeepers)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
@@ -615,17 +614,10 @@ function Player() {
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
-
-
-                    </div>
-
-                    <br></br>
-                    <br></br>
-
+                    </section>
                 </body>
             )}
-        </div>
-        // )}
+        </main>
     )
 }
 

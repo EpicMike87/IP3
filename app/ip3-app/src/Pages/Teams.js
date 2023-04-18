@@ -61,9 +61,9 @@ function Teams() {
     const [last5Result, setLast5Result] = useState([])
     const [nlgString, setNLGString] = useState("")
 
+    //Responsive options for carousel element
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
@@ -257,57 +257,23 @@ function Teams() {
         window.location = `/player?id=${id}`
     }
 
-    // const initSlider = () => {
-
-    //     const slidesContainer = document.getElementById("slides-container");
-    //     const slidesContainer2 = document.getElementById("slides-container2");
-    //     const slide = document.querySelector(".slide");
-    //     const prevButton = document.getElementById("slide-arrow-prev");
-    //     const nextButton = document.getElementById("slide-arrow-next");
-    //     const prevButton2 = document.getElementById("slide-arrow-prev2");
-    //     const nextButton2 = document.getElementById("slide-arrow-next2");
-
-    //     nextButton.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginLeft = slide.offsetLeft;
-    //         slidesContainer.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-    //     });
-
-    //     prevButton.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginRight = slide.offsetRight;
-    //         slidesContainer.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-    //     });
-
-    //     nextButton2.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginLeft = slide.offsetLeft;
-    //         slidesContainer2.scrollLeft += (slideWidth * 3) + slideMarginLeft * 6.75;
-    //     });
-
-    //     prevButton2.addEventListener("click", () => {
-    //         const slideWidth = slide.clientWidth;
-    //         const slideMarginRight = slide.offsetRight;
-    //         slidesContainer2.scrollLeft -= (slideWidth * 3) + slideMarginRight * 6.75;
-    //     });
-    // }
 
     return (
-        <div className="Team">
+        <main className="Team">
 
-            <div className="backgroundImage">
+            <div className="backgroundImage" role="banner">
                 <img src={teamImage} alt="teamPageImage" className="teamPageImage"></img>
                 <div class="backgroundOverlay"></div>
-                <div class="pageHeaderBox"><h1>Team Search</h1></div>
+                <div class="pageHeaderBox" role="heading"><h1>Team Search</h1></div>
                 <br></br>
             </div>
 
-            <div className="searchBarArea">
+            <div className="searchBarArea" role="search">
                 <SearchBar keyword={team} placeholders={"Please Enter Team Name"} onChange={setTeam} fun={searchTeam} />
             </div>
             <div id="message">Search to view team information.</div>
-            <div className="playerSection">
-                <div className="teamInfo" id>
+            <section className="playerSection">
+                <section className="teamInfo" id>
                     <div className="bioRowBox">
                         <h2>Team Bio</h2>
                         <div className="rowBox">
@@ -379,8 +345,8 @@ function Teams() {
                         </div>
 
                     </div>
-                </div>
-                <div className="teamStats">
+                </section>
+                <section className="teamStats">
                     <div className="statsBox">
                         <h2>Season Stats</h2>
                         <div className="rowBox">
@@ -512,14 +478,14 @@ function Teams() {
                             </table>
                         </div>
                     </div>
-                </div>
-                <div className="teamNLG">
+                </section>
+                <section className="teamNLG">
                     <h3>Team Report</h3>
                     <div>
                         {nlgString}
                     </div>
-                </div>
-                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
+                </section>
+                <section className="colBox" id="upcomingFixturesSection" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
                     <Carousel responsive={responsive} slidesToSlide={3}>
                         {fixtures.filter(f => f.fullTimeResult == "?").reverse().map((fixture) =>
@@ -554,8 +520,8 @@ function Teams() {
                             </div>
                         )}
                     </Carousel>
-                </div>
-                <div className="colBox" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
+                </section>
+                <section className="colBox" id="pastResultsSection" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Past Results</h2>
                     <Carousel responsive={responsive} slidesToSlide={3}>
                         {fixtures.filter(f => f.fullTimeResult != "?").map((fixture, index) =>
@@ -589,8 +555,8 @@ function Teams() {
                         )}
                     </Carousel>
 
-                </div>
-                <div className="teamStats">
+                </section>
+                <section className="teamStats" style={{marginBottom: "1.5rem"}}id="currentSquadSection">
                     <div className="colBox">
                         <h2>Current Squad</h2>
                         <div id="tablecontainer">
@@ -620,17 +586,10 @@ function Teams() {
                             </table>
                         </div>
                     </div>
-                </div>
-                <div className="teamStatsSection">
-                    <br></br>
+                </section>
+            </section>
 
-                    <br></br>
-
-                </div>
-
-            </div>
-
-        </div>
+        </main>
     )
 }
 

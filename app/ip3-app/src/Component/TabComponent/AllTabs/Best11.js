@@ -253,7 +253,7 @@ const Best11 = () => {
     }
 
     return (
-        <div className="Best11Tab">
+        <section className="Best11Tab">
             <h2>Best 11 SPFL Team </h2>
             <small>Hover over players to view information.</small>
             <div className="pitch" style={{ backgroundImage: `url(${pitchImage})` }}>
@@ -271,7 +271,7 @@ const Best11 = () => {
             </div>
             <p>content</p>
             <p>content</p>
-        </div>
+        </section>
     );
 };
 export default Best11;

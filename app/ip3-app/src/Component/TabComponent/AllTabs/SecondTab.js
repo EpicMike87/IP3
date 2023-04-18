@@ -1,10 +1,10 @@
 import React from "react";
 const SecondTab = () => {
   return (
-    <div className="SecondTab">
+    <section className="SecondTab">
       <p>Second Tab!! Hurray!!</p>
       {/* Second  tab content will go here */}
-    </div>
+    </section>
   );
 };
 export default SecondTab;

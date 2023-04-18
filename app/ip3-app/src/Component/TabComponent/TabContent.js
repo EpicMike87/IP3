@@ -2,9 +2,9 @@ import React from "react";
  
 const TabContent = ({id, activeTab, children}) => {
  return (
-   activeTab === id ? <div className="TabContent">
+   activeTab === id ? <section className="TabContent">
      { children }
-   </div>
+   </section>
    : null
  );
 };

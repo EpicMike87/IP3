@@ -102,7 +102,7 @@ function Managers() {
     }
 
     return (
-        <div>
+        <>
             <div className="backgroundImage">
                 <img src={managerImage} alt="teamPageImage" className="teamPageImage"></img>
                 <div class="backgroundOverlay"></div>
@@ -182,7 +182,7 @@ function Managers() {
 
             <br></br>
             <br></br>
-        </div>
+        </>
     )
 }
 

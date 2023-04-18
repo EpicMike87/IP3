@@ -13,7 +13,7 @@ function TeamCard({team, last5H2H}){
 
     return (
 
-        <div className="CardSectionCard">
+        <section className="CardSectionCard">
             <div className="CardSectionHeader">
                 <div className="CardSectionImgContainer">
                     <img className="CardSectionImg" alt="Player Image" src={team.photoUrl}/> 
@@ -66,7 +66,7 @@ function TeamCard({team, last5H2H}){
                 <span className="button-text">More About Team</span>
                 </NavLink>
             </button>
-        </div>
+        </section>
 
     );
 

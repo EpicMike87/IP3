@@ -6,22 +6,22 @@ import Tabs from "../Component/TabComponent/Tabs";
 function Ranking() {
 
     return (
-        <div className="Ranking">
-            <div className="backgroundImageRanking">
+        <main className="Ranking">
+            <div className="backgroundImageRanking" role="banner">
                 <img className="rankingImage" src={rankingimage2} alt="Ranking Image" />
             </div>
-            <div className="rankingMain">
-                <div className="componentTabSection">
+            <section className="rankingMain">
+                <section className="componentTabSection">
                     {/* <h1>This is the Component Tab Section</h1> */}
                     <div className="TabComponent">
                         <Tabs />
                     </div>
 
-                </div>
+                </section>
 
-            </div>
+            </section>
 
-        </div>
+        </main>
     );
 
 };

@@ -267,12 +267,12 @@ function Home() {
 
   return (
 
-    <div className="Home">
+    <main className="Home">
 
-      <div className="backgroundImage">
+      <div className="backgroundImage" role="banner">
         <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
         <div class="backgroundOverlay"></div>
-        <div class="pageHeaderBox"><h1>Best 11</h1></div>
+        <div class="pageHeaderBox" role="heading"><h1>Best 11</h1></div>
         <br></br>
       </div>
 
@@ -280,9 +280,7 @@ function Home() {
 
       <h1>Scottish Premiership 2022-2023</h1>
 
-      <br></br>
-
-      <div className='leagueStats'>
+      <section className='leagueStats'>
         <table id="homeStats" className="sortable">
           <thead>
             <tr id="teampagerow">
@@ -317,7 +315,7 @@ function Home() {
           </tbody>
         </table>
 
-        <div className='leaguePlayerStats'>
+        <section className='leaguePlayerStats'>
 
           <div className="teamStats">
 
@@ -385,9 +383,9 @@ function Home() {
               )}
             </div>
           </div>
-        </div>
-      </div>
-      <div className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
+        </section>
+      </section>
+      <section className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
         <h2>Upcoming Fixtures</h2>
         <Carousel responsive={responsive} slidesToSlide={3}>
           {upcomingFixtures.map(fixture =>
@@ -421,8 +419,8 @@ function Home() {
             </div>
           )}
         </Carousel>
-      </div>
-    </div>
+      </section>
+    </main>
 
   )
 
