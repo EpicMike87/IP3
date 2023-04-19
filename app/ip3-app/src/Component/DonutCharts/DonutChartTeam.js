@@ -21,7 +21,7 @@ import {
       plugins: {
         legend: {
           display: true,
-          position: 'bottom',
+          position: 'top',
         
   
   
