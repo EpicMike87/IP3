@@ -211,24 +211,32 @@ function Player() {
                                     <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
                                     <li><h2 >{`${player.position}`}</h2></li>
                                     <li><p >{`${player.age}`}</p></li>
+                                    <li>
+                                        <div className='playerStatTeamLogo'>
+                                            <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                                {playerInfo.map(player => 
+                                                    <h2>{`${player.team}`}</h2>
+                                                )}
+                                        </div>
+                                    </li>
                                     </ul>)}
                                     {playerInfo.map(player => 
                                         <div className='playerStatsCircles'>
-                                        <div>
+                                        <div style={{marginRight: '30px'}}>
                                             <h2>Rating</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.rating.toFixed(2)}
                                             </div>
                                         </div>
                                         <div>
                                             <h2>Goals</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.goals}
                                             </div>
                                         </div>
-                                        <div>
+                                        <div style={{marginLeft: '30px'}}>
                                             <h2>Assists</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.assists}
                                             </div>
                                         </div>
@@ -236,13 +244,9 @@ function Player() {
                                         </div>
                                         )}
                             </div>
-                            <div className='playerStatTeamLogo'>
-                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
-                            </div>
                             {playerInfo.map(player => 
-                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
-                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                <div className='teamStats'>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                             <p style={{fontWeight: "bold"}}>Appearences</p>
                                             <p>{player.matchesPlayed}</p>
@@ -261,7 +265,7 @@ function Player() {
                                         </div>
 
                                     </div>
-                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Shots</p>
                                                 <p>{player.shots}</p>
@@ -279,7 +283,7 @@ function Player() {
                                                 <p>{player.passAccuracy}%</p>
                                         </div>
                                     </div>
-                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
                                                 <p>{player.dribblesAttempted}</p>
@@ -299,14 +303,13 @@ function Player() {
                                     </div>
                                 </div>
                             )}
-                            <div style={{display: "flex", width: "100%"}}>
+                            <div style={{display: "flex", width: "100%", boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'}}>
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
                     </section>
 
                     <section id='midfielderplayerBio' className='playerInfoSection'>
-                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Midfielders)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
                                 {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
@@ -314,24 +317,32 @@ function Player() {
                                     <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
                                     <li><h2 >{`${player.position}`}</h2></li>
                                     <li><p >{`${player.age}`}</p></li>
+                                    <li>
+                                        <div className='playerStatTeamLogo'>
+                                            <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                                {playerInfo.map(player => 
+                                                    <h2>{`${player.team}`}</h2>
+                                                )}
+                                        </div>
+                                    </li>
                                     </ul>)}
                                     {playerInfo.map(player => 
                                         <div className='playerStatsCircles'>
-                                        <div>
+                                        <div style={{marginRight: '30px'}}>
                                             <h2>Rating</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.rating.toFixed(2)}
                                             </div>
                                         </div>
                                         <div>
                                             <h2>Goals</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.goals}
                                             </div>
                                         </div>
-                                        <div>
+                                        <div style={{marginLeft: '30px'}}>
                                             <h2>Assists</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.assists}
                                             </div>
                                         </div>
@@ -339,13 +350,9 @@ function Player() {
                                         </div>
                                         )}
                             </div>
-                            <div className='playerStatTeamLogo'>
-                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
-                            </div>
                             {playerInfo.map(player => 
-                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
-                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                <div className='teamStats'>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                             <p style={{fontWeight: "bold"}}>Appearences</p>
                                             <p>{player.matchesPlayed}</p>
@@ -364,7 +371,7 @@ function Player() {
                                         </div>
 
                                     </div>
-                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Shots</p>
                                                 <p>{player.shots}</p>
@@ -382,7 +389,7 @@ function Player() {
                                                 <p>{player.passAccuracy}%</p>
                                         </div>
                                     </div>
-                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
                                                 <p>{player.dribblesAttempted}</p>
@@ -402,53 +409,56 @@ function Player() {
                                     </div>
                                 </div>
                             )}
-                            <div style={{display: "flex", width: "100%"}}>
+                            <div style={{display: "flex", width: "100%", boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'}}>
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
                     </section>
 
                     <section id='defenderplayerBio' className="playerInfoSection">
-                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Defenders)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
                                 {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
-                                {playerInfo.map(player => <ul>
+                                {playerInfo.map(player => 
+                                <ul>
                                     <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
                                     <li><h2 >{`${player.position}`}</h2></li>
                                     <li><p >{`${player.age}`}</p></li>
-                                    </ul>)}
+                                    <li>
+                                        <div className='playerStatTeamLogo'>
+                                            <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                                {playerInfo.map(player => 
+                                                    <h2>{`${player.team}`}</h2>
+                                                )}
+                                        </div>
+                                    </li>
+                                </ul>)}
                                     {playerInfo.map(player => 
                                         <div className='playerStatsCircles'>
-                                        <div>
-                                            <h2>Rating</h2>
-                                            <div className='topPlayerCircle'>
-                                                {player.rating.toFixed(2)}
+                                                <div style={{marginRight: '30px'}}>
+                                                    <h2>Rating</h2>
+                                                    <div className='topPlayerCircleP'>
+                                                        {player.rating.toFixed(2)}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h2>Blocks</h2>
+                                                    <div className='topPlayerCircleP'>
+                                                        {player.blocks}
+                                                    </div>
+                                                </div>
+                                                <div style={{marginLeft: '30px'}}>
+                                                    <h2>Intercept</h2>
+                                                    <div className='topPlayerCircleP'>
+                                                        {player.interceptions}
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <h2>Blocks</h2>
-                                            <div className='topPlayerCircle'>
-                                                {player.blocks}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <h2>Interceptions</h2>
-                                            <div className='topPlayerCircle'>
-                                                {player.interceptions}
-                                            </div>
-                                        </div>
-                                        
-                                        </div>
                                         )}
                             </div>
-                            <div className='playerStatTeamLogo'>
-                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
-                            </div>
                             {playerInfo.map(player => 
-                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
-                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                <div className='teamStats'>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                             <p style={{fontWeight: "bold"}}>Appearences</p>
                                             <p>{player.matchesPlayed}</p>
@@ -467,7 +477,7 @@ function Player() {
                                         </div>
 
                                     </div>
-                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Shots</p>
                                                 <p>{player.shots}</p>
@@ -485,7 +495,7 @@ function Player() {
                                                 <p>{player.passAccuracy}%</p>
                                         </div>
                                     </div>
-                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
                                                 <p>{player.dribblesAttempted}</p>
@@ -505,7 +515,7 @@ function Player() {
                                     </div>
                                 </div>
                             )}
-                            <div style={{display: "flex", width: "100%"}}>
+                            <div style={{display: "flex", width: "100%", boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'}}>
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
@@ -513,7 +523,6 @@ function Player() {
                     </section>
 
                     <section id='goalkeeperplayerBio' className='playerInfoSection'>
-                        {/* {playerInfo.map((playersData, index) => <h1>{`${playersData.firstName} ${playersData.lastName}`} (Goalkeepers)</h1>)} */}
                         <div className="playerStats">
                             <div className="playerStatsImg">
                                 {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
@@ -521,24 +530,32 @@ function Player() {
                                     <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
                                     <li><h2 >{`${player.position}`}</h2></li>
                                     <li><p >{`${player.age}`}</p></li>
+                                    <li>
+                                        <div className='playerStatTeamLogo'>
+                                            <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
+                                                {playerInfo.map(player => 
+                                                    <h2>{`${player.team}`}</h2>
+                                                )}
+                                        </div>
+                                    </li>
                                     </ul>)}
                                     {playerInfo.map(player => 
                                         <div className='playerStatsCircles'>
-                                        <div>
+                                        <div style={{marginRight: '30px'}}>
                                             <h2>Rating</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.rating.toFixed(2)}
                                             </div>
                                         </div>
                                         <div>
                                             <h2>Saves</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.saves}
                                             </div>
                                         </div>
-                                        <div>
+                                        <div style={{marginLeft: '30px'}}>
                                             <h2>Conceded</h2>
-                                            <div className='topPlayerCircle'>
+                                            <div className='topPlayerCircleP'>
                                                 {player.goalsConceded}
                                             </div>
                                         </div>
@@ -546,13 +563,9 @@ function Player() {
                                         </div>
                                         )}
                             </div>
-                            <div className='playerStatTeamLogo'>
-                                <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                {playerInfo.map(player => <h2>{`${player.team}`}</h2>)}
-                            </div>
                             {playerInfo.map(player => 
-                                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "100px", marginRight: "100px"}}>
-                                    <div className='playerStatBox1' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                <div className='teamStats'>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                             <p style={{fontWeight: "bold"}}>Appearences</p>
                                             <p>{player.matchesPlayed}</p>
@@ -571,14 +584,14 @@ function Player() {
                                         </div>
 
                                     </div>
-                                    <div className='playerStatBox2' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>Shots</p>
-                                                <p>{player.shots}</p>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                                <p>{player.dribblesAttempted}</p>
                                         </div>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>On Target</p>
-                                                <p>{player.shotsOnTarget}</p>
+                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                                <p>{player.successfulDribbles}</p>
                                         </div>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
                                                 <p style={{fontWeight: "bold"}}>Passes</p>
@@ -589,28 +602,28 @@ function Player() {
                                                 <p>{player.passAccuracy}%</p>
                                         </div>
                                     </div>
-                                    <div className='playerStatBox3' style={{display: "flex", flexDirection: "column", width: "25%"}}>
+                                    <div className='statsBox'>
                                         <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
-                                                <p>{player.dribblesAttempted}</p>
+                                                <p style={{fontWeight: "bold"}}>Saves</p>
+                                                <p>{player.saves}</p>
                                         </div>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
-                                                <p>{player.successfulDribbles}</p>
+                                                <p style={{fontWeight: "bold"}}>Conceded</p>
+                                                <p>{player.goalsConceded}</p>
                                         </div>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>PK Taken</p>
-                                                <p>{player.penaltiesTaken}</p>
+                                                <p style={{fontWeight: "bold"}}>Duels</p>
+                                                <p>{player.duels}</p>
                                         </div>
                                         <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                                <p style={{fontWeight: "bold"}}>PK Scored</p>
-                                                <p>{player.penaltiesScored}</p>
+                                                <p style={{fontWeight: "bold"}}>Duels Won</p>
+                                                <p>{player.duelsWon}</p>
                                         </div>
                                     </div>
                                 </div>
                             )}
 
-                            <div style={{display: "flex", width: "100%"}}>
+                            <div style={{display: "flex", width: "100%", boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'}}>
                                 {playerInfo.map(player => <PieChart player={player} />)}
                             </div>
                         </div>
