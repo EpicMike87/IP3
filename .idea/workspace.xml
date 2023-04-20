@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb04042f-8066-49ac-86a7-3380904ab05b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Component/PieChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Component/PieChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/Pages/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/ip3-app/src/css/Tabs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ip3-app/src/css/table.css" beforeDir="false" />
+    <list default="true" id="cb04042f-8066-49ac-86a7-3380904ab05b" name="Changes" comment="Player Bio Bug Fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +139,7 @@
       <item itemvalue="Application.Best11Application" />
       <item itemvalue="Application.Heapsort" />
       <item itemvalue="Application.MergeSort" />
+      <item itemvalue="Spring Boot.Best11Application" />
     </list>
     <recent_temporary>
       <list>
@@ -180,6 +172,8 @@
       <workItem from="1680627892163" duration="1083000" />
       <workItem from="1680717386518" duration="150000" />
       <workItem from="1680717749693" duration="534000" />
+      <workItem from="1682010209612" duration="121000" />
+      <workItem from="1682010385230" duration="96000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1677089207658</created>
