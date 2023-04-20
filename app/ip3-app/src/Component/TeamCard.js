@@ -51,7 +51,9 @@ function TeamCard({team, last5H2H}){
                 </div>
                 <h2>Head 2 Heads</h2>
                 <div className="H2Hresults">
-			        {lastResults.map((result, index) => <div>{result == 'D' ? <div className="resultBox drawBox">D</div> : (result == 'W' ? <div className="resultBox winBox">			  W</div> : <div className="resultBox loseBox">L</div>)}</div>)}
+                    <div id="resultsH2H">
+			            {lastResults.map((result, index) => <div>{result == 'D' ? <div className="resultBox drawBox">D</div> : (result == 'W' ? <div className="resultBox winBox"> W</div> : <div className="resultBox loseBox">L</div>)}</div>)}
+                    </div>
                 </div>
                 <div className="CardSectionTableRank" style={{color: team.rank == 1 ? "#F5E446" : team.rank == 2 ? "rgb(0, 32, 96)" : team.rank >= 3 && team.rank <= 5 ? "#F0D0B2" : team.rank >= 6 && team.rank <=10 ? "#747474" : team.rank == 11 ? "#FFAD61" : "#F1ADAD"}}>
                     <h2>Current Standing:</h2>

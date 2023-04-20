@@ -171,7 +171,6 @@ img {
   margin-right: auto;
   left: 0;
   right: 101px;
-  /* display: none; */
   height: auto;
   max-height: 400px;
   overflow-x: hidden;
@@ -262,6 +261,8 @@ img {
   width: auto;
   z-index: 2;
   max-width: 70%;
+  border-left: 3px solid rgb(0, 32, 96);
+  border-right: 3px solid rgb(0, 32, 96);
 }
 
 #playerBio {
@@ -316,6 +317,17 @@ img {
   background-color: white;
   margin: 0;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
+}
+
+.playerStatsSection{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  margin: 10px auto ;
+  width: 70%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
@@ -421,6 +433,17 @@ img {
 }
 
 .statsBox {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  margin: 0;
+}
+
+.playerStatsBox{
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
@@ -677,7 +700,6 @@ select {
   position: relative;
   top: 0;
   border-radius: 8px;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 .searchBarInput {
@@ -813,7 +835,6 @@ select {
   width: 50%;
   display: flex;
   justify-content: space-between;
-  /* flex-flow: column, wrap; */
   flex-direction: row;
   text-align: center;
   padding-left: 10px;
@@ -829,7 +850,6 @@ select {
 .matchesPlayed>p {
   position: relative;
   text-align: center;
-  /* bottom: 20px; */
   font-size: large;
   margin-top: 30px;
 }
@@ -845,7 +865,6 @@ select {
 .playerAge>p {
   position: relative;
   text-align: center;
-  /* bottom: 20px; */
   font-size: large;
   margin-top: 30px;
 }
@@ -861,7 +880,6 @@ select {
 .playerPosition>p {
   position: relative;
   text-align: center;
-  /* bottom: 20px; */
   font-size: large;
   margin-top: 30px;
 }
@@ -977,7 +995,6 @@ select {
 
 .componentTabSection {
   position: relative;
-  /* display: flex; */
   width: 80%;
   height: 100%;
   margin-right: auto;
@@ -1031,15 +1048,9 @@ select {
   border-right-style: solid;
   border-right-color: #ffffff;
   margin-right: 10px;
-  /* height: fit-content; */
 
 }
 
-/* .CardSection1WithBasket:hover {
-  background-color: #cccccc;
-  cursor: pointer;
-
-} */
 
 .CardSection2 {
   display: flex;
@@ -1071,13 +1082,8 @@ select {
   border-left-style: solid;
   border-left-color: #ffffff;
   margin-left: 10px;
-  /* height: fit-content; */
 }
 
-/* .CardSection2WithBasket:hover {
-  background-color: #cccccc;
-  cursor: pointer;
-} */
 
 .basket1 {
   position: absolute;
@@ -1151,6 +1157,7 @@ select {
   font-size: inherit;
   font-family: inherit;
   width: 100%;
+  margin-top: auto;
 }
 
 .learn-more {
@@ -1399,6 +1406,7 @@ select {
   height: 65%;
   width: 100%;
   margin-top: 5px;
+  justify-content: space-around;
 }
 
 .CardSectionTeamStatistics{
@@ -1437,6 +1445,11 @@ select {
   height: 100px;
 }
 
+#resultsH2H{
+  display: flex;
+  margin: auto;
+}
+
 
 .Doughnuts {
   position: relative;
@@ -1444,7 +1457,7 @@ select {
   flex-direction: row;
   height: 50%;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .DoughnutHide {
@@ -1456,9 +1469,17 @@ select {
   flex-grow: 1;
 }
 
+.Doughnut1 > canvas{
+  margin: auto;
+}
+
 .Doughnut2 {
   flex-basis: 0;
   flex-grow: 1;
+}
+
+.Doughnut2 > canvas{
+  margin: auto;
 }
 
 .Doughnut3 {
@@ -1466,13 +1487,9 @@ select {
   flex-grow: 1;
 }
 
-/* .DoughnutRating{
-  position: relative;
- display: flex;
- justify-content: center;
-  width: 100%;
-  height: 50%;
-} */
+.Doughnut3 > canvas{
+  margin: auto;
+}
 
 .Rating {
   position: relative;
@@ -1488,6 +1505,8 @@ select {
   -ms-animation: fadein 3s;
   -o-animation: fadein 3s;
   animation: fadein 3s;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .slide-arrow {
@@ -1568,6 +1587,31 @@ select {
   font-size: xx-large;
 }
 
+.topPlayerCircle:hover {
+  background-color: rgb(0, 24,72);
+}
+
+.topPlayerCircleP{
+    background-color: rgb(000, 32, 96);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 7px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    font-size: xx-large;
+    margin: auto;
+}
+
+.topPlayerCircleP:hover {
+  background-color: rgb(0, 24,72);
+}
+
 .link{
   margin-bottom: 0;
   cursor: pointer;
@@ -1601,13 +1645,10 @@ select {
 }
 
 .CardSectionTableRank{
-  padding-top: 20px;
-  padding-bottom: 50px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 .CardSectionTableRank > h2 {
@@ -1622,16 +1663,19 @@ select {
 .DoughnutOne{
   height: 100%;
   width: 33%;
+  margin: auto;
 }
 
 .DoughnutTwo{
   height: 100%;
   width: 33%;
+  margin: auto;
 }
 
 .DoughnutThree{
   height: 100%;
   width: 33%;
+  margin: auto;
 }
 
 .playerStats{
@@ -1644,6 +1688,7 @@ select {
 .playerStatsImg{
   display: flex;
   flex-direction: row;
+  padding: auto;
 }
 
 .playerStatsImg > ul {
@@ -1653,8 +1698,8 @@ select {
 .playerStatsImg > ul > li>h1{
   margin: auto;
   margin-left: 10px;
-  text-align: center;
-  font-size: larger;
+  text-align: left;
+  font-size: xx-large;
   white-space: nowrap;
 }
 
@@ -1662,7 +1707,8 @@ select {
   text-align: left;
   margin: auto;
   margin-left: 10px;
-  font-size: large;
+  font-size: xx-large;
+  padding-left: 10px;
 }
 
 .playerStatsImg > ul > li>p{
@@ -1670,9 +1716,13 @@ select {
   margin: auto;
   margin-left: 10px;
   font-size: 25px;
-  font-size: large;
+  font-size: xx-large;
+  padding-left: 10px;
 }
 
+.playerStatsBox > div > p {
+  font-size: x-large;
+}
 .playerStatTeamLogo{
   display: flex;
   flex: 1 1 0;
@@ -1683,18 +1733,18 @@ select {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 20px;
-  font-size: large;
+  font-size: xx-large;
 }
 
 .playerStatsTeamImg{
   margin-top: 10px;
   width: 100px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding-left: 10px;
 }
 
 .playerStatsProfImg{
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   border-radius: 6%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -1703,41 +1753,49 @@ select {
   display: flex;
   flex: 1 1 0;
   width: 100%;
-  justify-content: flex-end;
-
+  padding-left: 30px;
+  justify-content: center;
 }
 
 .playerStatsCircles > div >h2 {
-  font-size: large;
+  font-size: x-large;
 }
 
 .Pies{
   position: relative;
   width: 100%;
   display: flex;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 250px;
   flex: 1 1 0;
-
 }
 
 .Pie1 {
-  width: 500px !important;
-  height: 250px !important;
+  width: 250px !important;
+  height: 280px !important;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
+
 .Pie2 {
-  width: 500px !important;
-  height: 250px !important;
+  width: 250px !important;
+  height: 280px !important;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 .Pie3 {
-  width: 500px !important;
-  height: 250px !important;
+  width: 250px !important;
+  height: 280px !important;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 .Pie4 {
-  width: 500px !important;
-  height: 250px !important;
+  width: 250px !important;
+  height: 280px !important;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 @keyframes App-logo-spin {

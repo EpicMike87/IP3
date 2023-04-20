@@ -90,20 +90,6 @@ function DonutChart({player}) {
     },
   };
 
-  // const textCenter = {
-  //   id: 'textCenter',
-  //   beforeDatasetsDraw(chart, args, pluginOptions) {
-  //     const { ctx, data} = chart;
-
-  //     ctx.save();
-  //     ctx.font = 'bolder 10px sans-serif';
-  //     ctx.fillStyle = 'red';
-  //     ctx.textAlign = 'center';
-  //     ctx.textBaseline = 'middle';
-  //     ctx.fillText(`Rating: ${data.datasets[0].data[0]}`, chart.getDatasetMeta(0).data[0].x, chart.getDatasetMeta(0).data[0].y);
-  //   },
-  // };
-
   if((player.position == "Left-Back") || (player.position == "Right-Back")){
 
     if(!player.duels){
@@ -380,8 +366,8 @@ function DonutChart({player}) {
 
  return(
   <>
-  <div style={{textAlign: 'center', marginTop: 'auto', marginBottom: 'auto', marginRight: '25px', marginLeft: '25px', display: 'flex', flexWrap: 'wrap'}} >
-  No statistics are available for this Player.
+  <div style={{textAlign: 'center', margin: 'auto', fontSize: 'xx-large'}} >
+  <h4>No statistics available for this Player.</h4>
   </div>
   </>
  );
