@@ -82,7 +82,7 @@ public class TeamNLG {
             stringAttackAnalysis2 = String.format("lower than the league average of %.0f indicating a side weak in attack", goalsAvg);
         }
         else {
-            stringAttackAnalysis2 = String.format("inline with the league average of %.0f.", goalsAvg);
+            stringAttackAnalysis2 = String.format("inline with the league average of %.0f", goalsAvg);
         }
 
         /*
@@ -90,7 +90,7 @@ public class TeamNLG {
         */
 
         Player topScorer = Collections.max(team.getPlayers(), Comparator.comparing(a -> a.getGoals()));
-        String stringTopScorer = String.format(" with %s %s currently their top scorer, with %1s goals in %1s appearances this season.", topScorer.getFirstName(), topScorer.getLastName(), topScorer.getGoals(), topScorer.getMatchesPlayed());
+        String stringTopScorer = String.format(" with %s %s currently their top scorer with %1s goals in %1s appearances this season.", topScorer.getFirstName(), topScorer.getLastName(), topScorer.getGoals(), topScorer.getMatchesPlayed());
 
          /*
       The following is the logic to generate the text for assessing a team's defensive performance.
@@ -101,7 +101,7 @@ public class TeamNLG {
       This prompts the text to use the word "also" if team is either below or above average in both attack and defense.
         */
         String alsoQualifier;
-        if ((team.getTeamStats().get(0).getGoalsFor() > goalsAvg+3) && (team.getTeamStats().get(0).getGoalsAgainst() < concededAvg+3)||((team.getTeamStats().get(0).getGoalsFor() < goalsAvg+3) && (team.getTeamStats().get(0).getGoalsAgainst() > concededAvg+3))){
+        if ((team.getTeamStats().get(0).getGoalsFor() > goalsAvg+2) && (team.getTeamStats().get(0).getGoalsAgainst() < concededAvg+2)||((team.getTeamStats().get(0).getGoalsFor() < goalsAvg+2) && (team.getTeamStats().get(0).getGoalsAgainst() > concededAvg+2))){
             alsoQualifier = " also";
         }
         else{

@@ -493,6 +493,12 @@ img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.playerNLG {
+  background-color: white;
+  padding: 0.8em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
