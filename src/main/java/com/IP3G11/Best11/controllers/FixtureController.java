@@ -30,7 +30,6 @@ public class FixtureController {
     //Returns all upcoming fixtures
     @GetMapping("fixtures/upcoming")
     public List<FixtureDto> getUpcomingFixtures(){
-        System.out.println("dfgf");
         List<FixtureDto> fixtures = fixtureService.getUpcoming();
         Collections.sort(fixtures);
         return fixtures;

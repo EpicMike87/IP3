@@ -30,7 +30,7 @@ public class PlayerNLG {
 
 
         String playerNLGString = playerGoals + playerRating;
-
+        System.out.println(playerNLGString);
         return playerNLGString;
     }
 }
