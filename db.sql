@@ -55,15 +55,15 @@ CREATE TABLE Player (
     penalties_scored INT,
     dribbles_attempted INT,
     successful_dribbles INT,
-        goals INT NOT NULL,
-        assists INT NOT NULL,
-        shots INT NOT NULL,
-        shots_on_target INT NOT NULL
+    goals INT NOT NULL,
+    assists INT NOT NULL,
+    shots INT NOT NULL,
+    shots_on_target INT NOT NULL,
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 
 CREATE TABLE Attacker_Stats (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT
 );
 
 CREATE TABLE Midfielder_Stats (

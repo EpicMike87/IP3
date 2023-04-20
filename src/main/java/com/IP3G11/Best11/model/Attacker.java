@@ -14,6 +14,4 @@ import lombok.NoArgsConstructor;
 @Table(name="Attacker_Stats")
 @DiscriminatorValue("Attacker")
 public class Attacker extends Player{
-
-
 }

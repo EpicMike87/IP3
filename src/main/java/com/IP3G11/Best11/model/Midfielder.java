@@ -16,9 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name="Midfielder_Stats")
 @DiscriminatorValue("Midfielder")
 public class Midfielder extends Player{
-
     private int tackles;
     private int blocks;
     private int interceptions;
-
 }
