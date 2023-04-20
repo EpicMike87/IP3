@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Comparator;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import java.time.Period;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name="player_type",
         discriminatorType = DiscriminatorType.STRING)
-public class Player {
+public class Player{
 
     @Id
     private int id;
@@ -42,6 +43,10 @@ public class Player {
     private int penaltiesScored;
     private int dribblesAttempted;
     private int successfulDribbles;
+    private int shots;
+    private int shotsOnTarget;
+    private int assists;
+    private int goals;
 
     public void setAge(){
         age = Period.between(dateOfBirth, LocalDate.now()).getYears();
@@ -53,4 +58,5 @@ public class Player {
         Player p = (Player) o;
         return p.getFirstName().equals(this.firstName) && p.getLastName().equals(this.lastName);
     }
+
 }

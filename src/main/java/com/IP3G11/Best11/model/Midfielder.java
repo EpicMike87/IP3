@@ -17,10 +17,6 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("Midfielder")
 public class Midfielder extends Player{
 
-    private int shots;
-    private int shotsOnTarget;
-    private int assists;
-    private int goals;
     private int tackles;
     private int blocks;
     private int interceptions;

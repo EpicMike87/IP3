@@ -55,23 +55,19 @@ CREATE TABLE Player (
     penalties_scored INT,
     dribbles_attempted INT,
     successful_dribbles INT,
+        goals INT NOT NULL,
+        assists INT NOT NULL,
+        shots INT NOT NULL,
+        shots_on_target INT NOT NULL
     FOREIGN KEY (team_id) REFERENCES team (id)
 );
 
 CREATE TABLE Attacker_Stats (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    goals INT NOT NULL,
-    assists INT NOT NULL,
-    shots INT NOT NULL,
-    shots_on_target INT NOT NULL
 );
 
 CREATE TABLE Midfielder_Stats (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    shots INT NOT NULL,
-    shots_on_target INT NOT NULL,
-    goals INT NOT NULL,
-    assists INT NOT NULL,
     tackles INT NOT NULL,
     blocks INT NOT NULL,
     interceptions INT NOT NULL
@@ -79,9 +75,6 @@ CREATE TABLE Midfielder_Stats (
 
 CREATE TABLE Defender_Stats (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    assists INT NOT NULL,
-    goals INT NOT NULL,
-    shots_on_target INT NOT NULL,
     tackles INT NOT NULL,
     blocks INT NOT NULL,
     interceptions INT NOT NULL

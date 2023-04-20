@@ -17,9 +17,6 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("Defender")
 public class Defender extends Player{
 
-    private int assists;
-    private int goals;
-    private int shotsOnTarget;
     private int tackles;
     private int blocks;
     private int interceptions;
