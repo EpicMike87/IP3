@@ -1,7 +1,10 @@
 package com.IP3G11.Best11.tools;
 
+import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.model.Team;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -82,8 +85,12 @@ public class TeamNLG {
             stringAttackAnalysis2 = String.format("inline with the league average of %.0f.", goalsAvg);
         }
 
-        String stringTopScorer = String.format(" with [Player Name] currently their top scorer, with X goals.");
-        //String stringTopScorer = String.format(" with %s currently their top scorer with %1d goals.", team.topScorerName, team.topScorerGoals);
+        /*
+         The following logic works out the team's top scorer.
+        */
+
+        Player topScorer = Collections.max(team.getPlayers(), Comparator.comparing(a -> a.getGoals()));
+        String stringTopScorer = String.format(" with %s %s currently their top scorer, with %1s goals in %1s appearances this season.", topScorer.getFirstName(), topScorer.getLastName(), topScorer.getGoals(), topScorer.getMatchesPlayed());
 
          /*
       The following is the logic to generate the text for assessing a team's defensive performance.
@@ -112,8 +119,12 @@ public class TeamNLG {
             stringDefenceAnalysis2 = String.format("inline with the league average of %.0f.", concededAvg);
         }
 
-        String stringBestPlayer = String.format(" Their best player is [position] [name] with an average rating of [x].");
-        //String stringBestPlayer = String.format("Their best player is %s %s with an average rating of %1.1f.", team. bestPlayerPosition, team.bestPlayerName, team.bestPayerRating);
+        /*
+         The following logic works out the team's highest rated player.
+        */
+        Player topPlayer = Collections.max(team.getPlayers(), Comparator.comparing(a -> a.getRating()));
+        String stringBestPlayer = String.format(" Their best player is %s %s %s with an average rating of %.2f.", topPlayer.getPositionType(), topPlayer.getFirstName(), topPlayer.getLastName(), topPlayer.getRating());
+
 
         String teamNLGString = stringTeamPosition+additionalPositionText+stringAttackAnalysis
                 +stringAttackAnalysis2+stringTopScorer+stringDefenceAnalysis+stringDefenceAnalysis2+stringBestPlayer;

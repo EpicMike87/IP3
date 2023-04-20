@@ -11,16 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name="Attacker_Stats")
 @DiscriminatorValue("Attacker")
 public class Attacker extends Player{
-
-    private int assists;
-    private int goals;
-    private int shots;
-    private int shotsOnTarget;
-
-
 }

@@ -42,6 +42,10 @@ public class Player {
     private int penaltiesScored;
     private int dribblesAttempted;
     private int successfulDribbles;
+    private int assists;
+    private int goals;
+    private int shotsOnTarget;
+    private int shots;
 
     public void setAge(){
         age = Period.between(dateOfBirth, LocalDate.now()).getYears();
