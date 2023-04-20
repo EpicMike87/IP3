@@ -342,7 +342,7 @@ function PieChart({player}){
 
     return( 
         <>
-            <h2>No Statistics for this Player</h2>
+            <h2 style={{margin: '100px auto', width: '100%'}}>No Statistics for this Player</h2>
         </>
     )
 }
