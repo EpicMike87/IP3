@@ -14,7 +14,7 @@
   background: whitesmoke;
   padding: 2rem 1rem;
   color: #000000;
-  border: 1px solid #000000;
+  border: 3px solid rgb(0, 32, 96);
 
   border-radius: 2rem;
   @media (max-width: 769px) {
@@ -32,7 +32,6 @@
     width: 100%;
     height: auto;
     background-size: contain;
-/*    background-repeat: no-repeat;*/
     border: 0.25rem solid rgba(000, 0, 0, 1) ;
     border-radius: 1%;
 }
@@ -133,7 +132,6 @@ ul.Tabnav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border: 1px solid #39A2DB; */
   border: 1px solid #000000;
 
   border-radius: 2rem;
@@ -167,7 +165,6 @@ ul.Tabnav li:last-child {
 }
 
 ul.Tabnav li:hover {
-  /* background: rgba(50, 224, 196, 0.15); */
   background-color: rgb(0, 24,72);
 
 }
