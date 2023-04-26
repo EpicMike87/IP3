@@ -101,7 +101,7 @@ public class TeamNLG {
       This prompts the text to use the word "also" if team is either below or above average in both attack and defense.
         */
         String alsoQualifier;
-        if ((team.getTeamStats().get(0).getGoalsFor() > goalsAvg+2) && (team.getTeamStats().get(0).getGoalsAgainst() < concededAvg+2)||((team.getTeamStats().get(0).getGoalsFor() < goalsAvg+2) && (team.getTeamStats().get(0).getGoalsAgainst() > concededAvg+2))){
+        if (((team.getTeamStats().get(0).getGoalsFor() > goalsAvg+3) && (team.getTeamStats().get(0).getGoalsAgainst()) < concededAvg+3)||(((team.getTeamStats().get(0).getGoalsFor() < goalsAvg-3) && (team.getTeamStats().get(0).getGoalsAgainst() > concededAvg-3)))){
             alsoQualifier = " also";
         }
         else{
