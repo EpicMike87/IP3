@@ -352,7 +352,7 @@ function Teams() {
                 </section>
                 <div className="bioRowBox">
                     <h2>Team Report</h2>
-                <section className="teamNLG">
+                <section className="nlgBox">
                     <div>
                         {nlgString}
                     </div>
