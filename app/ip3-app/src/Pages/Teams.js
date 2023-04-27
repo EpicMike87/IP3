@@ -364,7 +364,7 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
-                                    <th>Form:</th>
+                                    <th>PPG (Points Per Game):</th>
                                     <td>{parseFloat((matchesWon * 3 + matchesDrew) / matchesPlayed).toFixed(2)}</td>
                                 </tr>
                                 <tr>
@@ -408,7 +408,7 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
-                                    <th>Form:</th>
+                                    <th>PPG (Points Per Game):</th>
                                     <td>{parseFloat((homeMatchesWon * 3 + homeMatchesDrew) / homeMatchesPlayed).toFixed(2)}</td>
                                 </tr>
                                 <tr>
@@ -452,7 +452,7 @@ function Teams() {
                         <div className="rowBox">
                             <table>
                                 <tr>
-                                    <th>Form:</th>
+                                    <th>PPG (Points Per Game):</th>
                                     <td>{parseFloat((awayMatchesWon * 3 + awayMatchesDrew) / awayMatchesPlayed).toFixed(2)}</td>
                                 </tr>
                                 <tr>
