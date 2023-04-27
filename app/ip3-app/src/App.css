@@ -258,6 +258,37 @@ img {
   background-color: white;
   width: 70%;
   z-index: 2;
+ 
+}
+
+.aboutContent{
+  margin: 0 auto;
+  min-height: 100%;
+  flex-direction: column;
+  background-color: white;
+  width: 80%;
+  padding: 2rem;
+}
+
+.aboutContent p{
+  font-size: 1.25rem;
+}
+
+.aboutContent img{
+  max-width: 400px;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.aboutContent h1{
+  font-size: 2rem;
+}
+
+.aboutContent hr{
+  margin: 1rem auto;
+  width: 60%;
 }
 
 .playerInfoSection {
