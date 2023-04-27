@@ -314,7 +314,7 @@ function Home() {
           </Carousel>
         </section>
         <div className="rowBox">
-          <div style={{ margin: '0.25rem', border: '1px solid lightgray' }}>
+          <div style={{ margin: '0.25rem', border: '1px solid lightgray', width: '100%' }}>
             <table id="homeStats" className="sortable">
               <thead>
                 <tr id="teampagerow">
@@ -349,21 +349,17 @@ function Home() {
               </tbody>
             </table>
             <div className="key">
-              <div className="rowBox">
-                <div className="keyDot" style={{ backgroundColor: '#F5E446' }}></div>Winner and Champions League Qualification
-                <div className="keyDot" style={{ backgroundColor: '#DCF0F4' }}></div>Champions League Qualification
-              </div>
-              <div className="rowBox" style={{margin: '0.25rem auto'}}>
-                <div className="keyDot" style={{ backgroundColor: '#F0D0B2' }}></div>Europa Conference League Qualification
-                <div className="keyDot" style={{ backgroundColor: '#FFAD61' }}></div>Relegation Play-Off
-                <div className="keyDot" style={{ backgroundColor: '#F1ADAD' }}></div>Relegation
-              </div>
+                <div className="rowBox"><div className="keyDot" style={{ backgroundColor: '#F5E446' }}></div>Winner and Champions League Qualification</div>
+                <div className="rowBox"><div className="keyDot" style={{ backgroundColor: '#DCF0F4' }}></div>Champions League Qualification</div>
+                <div className="rowBox"><div className="keyDot" style={{ backgroundColor: '#F0D0B2' }}></div>Europa Conference League Qualification</div>
+                <div className="rowBox"><div className="keyDot" style={{ backgroundColor: '#FFAD61' }}></div>Relegation Play-Off</div>
+                <div className="rowBox"><div className="keyDot" style={{ backgroundColor: '#F1ADAD' }}></div>Relegation</div>
             </div>
           </div>
 
           <div className="teamStats" style={{ margin: '0.25rem', border: '1px solid lightgray' }}>
             <div className="colBox">
-              <div className="statsBox" style={{ padding: "1rem 0.5rem" }}>
+              <div className="statsBox" >
                 <h3>Most Goals</h3>
                 {topGoalScorer.map((playersData, index) =>
                   <div className="colBox">
@@ -379,7 +375,7 @@ function Home() {
                 )}
               </div>
 
-              <div className="statsBox" style={{ padding: "1rem 0.5rem" }}>
+              <div className="statsBox" >
                 <h3>Most Assists</h3>
                 {mostAssists.map((playersData, index) =>
                   <div className="colBox">
@@ -396,7 +392,7 @@ function Home() {
               </div>
             </div>
             <div className="colBox">
-              <div className="statsBox" style={{ padding: "1rem 0.5rem" }}>
+              <div className="statsBox" >
                 <h3>Most Saves</h3>
                 {mostSavesStat.map((playersData, index) =>
                   <div className="colBox">
@@ -412,7 +408,7 @@ function Home() {
                 )}
               </div>
 
-              <div className="statsBox" style={{ padding: "1rem 0.5rem" }}>
+              <div className="statsBox" >
                 <h3>Highest Rated</h3>
                 {topRatedPlayer.map((playersData, index) =>
                   <div className="colBox">

@@ -31,14 +31,19 @@ img {
 
 .key{
   background-color: white;
-  width: 100%;
-  text-align: center;
-  padding: 0.25rem;
-  font-size: 0.7rem;
+  width: auto;
+  margin: 0 auto;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
+}
+
+.key h4{
+  text-align: center;
 }
 
 .keyDot{
