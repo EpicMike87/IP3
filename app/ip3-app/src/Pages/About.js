@@ -5,8 +5,8 @@ import playerSearchResult from "../images/playersearchresult.PNG";
 import teamProfileImage from "../images/teamprof.PNG";
 import teamProfileImage2 from "../images/teamprof2.PNG";
 import b11Pic from "../images/b11pic.PNG";
-import compareDemo from "../images/playercomparedemo.PNG";
-import teamCompareDemo from "../images/teamcomparedemo.PNG";
+import compareDemo from "../images/playercomparedemo1.png";
+import teamCompareDemo from "../images/teamcomparedemo1.png";
 
 function About() {
     return (
