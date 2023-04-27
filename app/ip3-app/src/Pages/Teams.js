@@ -107,8 +107,10 @@ function Teams() {
     const searchTeamByName = (name) => {
         Api.get(`/team/${name}`)
             .then(res => {
-                mapData(res.data);
-                showPlayerSection();
+                console.log(res)
+                    console.log(res.data.teamName)
+                    mapData(res.data);
+                    showPlayerSection();
 
             })
             .catch(err => {
@@ -120,9 +122,11 @@ function Teams() {
         if (team.length > 2) {
             Api.get(`/team/${team}`)
                 .then(res => {
+                    if(res.data.teamName){
                     mapData(res.data);
                     showPlayerSection();
-                }).then(showPlayerSection())
+                    }
+                })
                 .catch(err => {
                     console.log(err);
                 });
@@ -346,6 +350,14 @@ function Teams() {
 
                     </div>
                 </section>
+                <div className="bioRowBox">
+                    <h2>Team Report</h2>
+                <section className="teamNLG">
+                    <div>
+                        {nlgString}
+                    </div>
+                </section>
+                </div>
                 <section className="teamStats">
                     <div className="statsBox">
                         <h2>Season Stats</h2>
@@ -479,12 +491,7 @@ function Teams() {
                         </div>
                     </div>
                 </section>
-                <section className="teamNLG">
-                    <h3>Team Report</h3>
-                    <div>
-                        {nlgString}
-                    </div>
-                </section>
+                
                 <section className="colBox" id="upcomingFixturesSection" style={{ boxShadow: "0 0 20px rgba(0, 0, 0, 0.15)", padding: "1rem 0" }}>
                     <h2 style={{ marginBottom: "1rem" }}>Upcoming Fixtures</h2>
                     <Carousel responsive={responsive} slidesToSlide={3}>

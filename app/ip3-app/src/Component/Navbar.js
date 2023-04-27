@@ -6,15 +6,15 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-      <img src={logo} alt="Logo" width={120}height={100}></img>
+      <img src={logo} alt="Logo" width={96}height={80}></img>
         
       </Link>
       
       <ul>
-        
+      <CustomLink to="/home"> <b>Home</b></CustomLink>
+      <CustomLink to="/about"> <b>About</b></CustomLink>
         <CustomLink to="/player"> <b>Players</b></CustomLink>
         <CustomLink to="/team"><b>Teams</b></CustomLink>
-        <CustomLink to="/manager"><b>Managers</b></CustomLink>
         <CustomLink to="/ranking"><b>Ranking</b></CustomLink>
         
       </ul>

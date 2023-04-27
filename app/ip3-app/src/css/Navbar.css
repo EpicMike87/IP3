@@ -47,10 +47,14 @@
   }
   
   .nav li.active {
-    background-color: rgb(0,16,48);
+    background-color: #001847;
+  }
+
+  .nav li.active:hover {
+    background-color: #001847;
   }
   
   .nav li:hover {
-    background-color: rgb(0, 24,72);
+    background-color: #00297a;
   }
  

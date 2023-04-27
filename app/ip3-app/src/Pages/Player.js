@@ -206,21 +206,21 @@ function Player() {
                 <body onLoad={(e) => mapPlayerBioData(`${playersData.positionType}`)} >
 
                 <section id='attackerplayerBio' className='playerInfoSection' >
-                    <div className="playerStats">
                         <div className="playerStatsImg">
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                            <div className='playerStatsProfImg'>
+                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                            </div>
                             {playerInfo.map(player => <ul>
-                                <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
-                                <li><h2 >{`${player.position}`}</h2></li>
-                                <li><p >{`${player.age}`}</p></li>
+                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                <li>{`${player.position}`}</li>
                                 <li>
-                                    <div className='playerStatTeamLogo'>
-                                        <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                        {playerInfo.map(player =>
-                                            <h2>{`${player.team}`}</h2>
-                                        )}
-                                    </div>
+                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
+                                {playerInfo.map(player =>
+                                            <span className='link'>{`${player.team}`}</span>  )}
+                                    </a>
                                 </li>
+                                <li>{`${player.age}`}</li>
+                                
                             </ul>)}
                             {playerInfo.map(player =>
                                 <div className='playerStatsCircles'>
@@ -314,25 +314,25 @@ function Player() {
                                 {nlgString}
                             </div>
                         </section>
-                    </div>
                 </section>
 
                 <section id='midfielderplayerBio' className='playerInfoSection'>
                     <div className="playerStats">
                         <div className="playerStatsImg">
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                        <div className='playerStatsProfImg'>
+                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                            </div>
                             {playerInfo.map(player => <ul>
-                                <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
-                                <li><h2 >{`${player.position}`}</h2></li>
-                                <li><p >{`${player.age}`}</p></li>
+                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                <li>{`${player.position}`}</li>
                                 <li>
-                                    <div className='playerStatTeamLogo'>
-                                        <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                        {playerInfo.map(player =>
-                                            <h2>{`${player.team}`}</h2>
-                                        )}
-                                    </div>
+                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
+                                {playerInfo.map(player =>
+                                            <span className='link'>{`${player.team}`}</span>  )}
+                                    </a>
                                 </li>
+                                <li>{`${player.age}`}</li>
+                                
                             </ul>)}
                             {playerInfo.map(player =>
                                 <div className='playerStatsCircles'>
@@ -432,21 +432,21 @@ function Player() {
                 <section id='defenderplayerBio' className="playerInfoSection">
                     <div className="playerStats">
                         <div className="playerStatsImg">
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
-                            {playerInfo.map(player =>
-                                <ul>
-                                    <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
-                                    <li><h2 >{`${player.position}`}</h2></li>
-                                    <li><p >{`${player.age}`}</p></li>
-                                    <li>
-                                        <div className='playerStatTeamLogo'>
-                                            <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                            {playerInfo.map(player =>
-                                                <h2>{`${player.team}`}</h2>
-                                            )}
-                                        </div>
-                                    </li>
-                                </ul>)}
+                        <div className='playerStatsProfImg'>
+                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                            </div>
+                            {playerInfo.map(player => <ul>
+                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                <li>{`${player.position}`}</li>
+                                <li>
+                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
+                                {playerInfo.map(player =>
+                                            <span className='link'>{`${player.team}`}</span>  )}
+                                    </a>
+                                </li>
+                                <li>{`${player.age}`}</li>
+                                
+                            </ul>)}
                             {playerInfo.map(player =>
                                 <div className='playerStatsCircles'>
                                     <div style={{marginRight: '30px'}}>
@@ -545,19 +545,20 @@ function Player() {
                 <section id='goalkeeperplayerBio' className='playerInfoSection'>
                     <div className="playerStats">
                         <div className="playerStatsImg">
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic" className='playerStatsProfImg'></img>)}
+                        <div className='playerStatsProfImg'>
+                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                            </div>
                             {playerInfo.map(player => <ul>
-                                <li><h1>{`${player.firstName} ${player.lastName}`}</h1></li>
-                                <li><h2 >{`${player.position}`}</h2></li>
-                                <li><p >{`${player.age}`}</p></li>
+                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                <li>{`${player.position}`}</li>
                                 <li>
-                                    <div className='playerStatTeamLogo'>
-                                        <img src={teamPhoto} alt="teamLogo" className='playerStatsTeamImg'/>
-                                        {playerInfo.map(player =>
-                                            <h2>{`${player.team}`}</h2>
-                                        )}
-                                    </div>
+                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
+                                {playerInfo.map(player =>
+                                            <span className='link'>{`${player.team}`}</span>  )}
+                                    </a>
                                 </li>
+                                <li>{`${player.age}`}</li>
+                                
                             </ul>)}
                             {playerInfo.map(player =>
                                 <div className='playerStatsCircles'>

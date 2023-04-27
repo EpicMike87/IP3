@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Player from './Pages/Player'; 
 import Teams from './Pages/Teams'; 
-import Ranking from './Pages/Ranking'; 
-import Managers from './Pages/Managers'; 
+import About from './Pages/About'; 
+import Ranking from './Pages/Ranking';  
 import Navbar from "./Component/Navbar";
 import Footer from './Component/Footer';
 import { DndProvider } from 'react-dnd';
@@ -21,10 +21,10 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               <Route path="/player" element={<Player />} />
               <Route path="/home" element={<Home />} />
               <Route path="/team" element={<Teams />} />
-              <Route path="/manager" element={<Managers />} />
               <Route path='/ranking' element={<Ranking />} />
             </Routes>
           </div>

@@ -260,9 +260,8 @@ img {
   background-color: white;
   width: auto;
   z-index: 2;
-  max-width: 70%;
-  border-left: 3px solid rgb(0, 32, 96);
-  border-right: 3px solid rgb(0, 32, 96);
+  width: auto;
+  max-width: 60%;
 }
 
 #playerBio {
@@ -326,8 +325,8 @@ img {
   justify-content: center;
   align-content: center;
   background-color: white;
-  margin: 10px auto ;
-  width: 70%;
+  margin: 0;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
@@ -489,8 +488,12 @@ img {
 
 .teamNLG {
   background-color: white;
-  padding: 0.8em;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: darkgrey 1px solid;
+  padding: 2rem 2rem;
+  width: 60%;
+  margin: 0.5rem auto;
+  font-style: italic;
+  border-radius: 5px;
 }
 
 .playerNLG {
@@ -1694,16 +1697,20 @@ select {
 .playerStatsImg{
   display: flex;
   flex-direction: row;
+  flex-basis: 0;
+  flex-grow: 1;
   padding: auto;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 .playerStatsImg > ul {
   list-style: none;
+  padding: 0 1rem;
 }
 
-.playerStatsImg > ul > li>h1{
+.playerStatsImg > ul > li{
   margin: auto;
-  margin-left: 10px;
   text-align: left;
   font-size: xx-large;
   white-space: nowrap;
@@ -1712,9 +1719,7 @@ select {
 .playerStatsImg > ul > li>h2{
   text-align: left;
   margin: auto;
-  margin-left: 10px;
   font-size: xx-large;
-  padding-left: 10px;
 }
 
 .playerStatsImg > ul > li>p{
@@ -1749,18 +1754,21 @@ select {
 }
 
 .playerStatsProfImg{
-  width: 350px;
-  height: 350px;
-  border-radius: 6%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: auto;
+  height: auto;
+}
+
+.playerStatsProfImg img {
+  width: 230px;
+  height: 230px;
+  border-radius: 0;
 }
 
 .playerStatsCircles{
   display: flex;
-  flex: 1 1 0;
-  width: 100%;
-  padding-left: 30px;
+  padding: 30px;
   justify-content: center;
+  width: 100%;
 }
 
 .playerStatsCircles > div >h2 {
@@ -1771,37 +1779,33 @@ select {
   position: relative;
   width: 100%;
   display: flex;
-  margin-top: 5px;
-  margin-bottom: 250px;
   flex: 1 1 0;
+  padding: 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 .Pie1 {
-  width: 250px !important;
-  height: 280px !important;
+  width: 200px !important;
+  height: 200px !important;
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 
 .Pie2 {
-  width: 250px !important;
-  height: 280px !important;
+  width: 200px !important;
+  height: 200px !important;
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 .Pie3 {
-  width: 250px !important;
-  height: 280px !important;
+  width: 200px !important;
+  height: 200px !important;
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 .Pie4 {
-  width: 250px !important;
-  height: 280px !important;
+  width: 200px !important;
+  height: 200px !important;
   margin: auto;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
 }
 
 @keyframes App-logo-spin {

@@ -272,7 +272,7 @@ function Home() {
       <div className="backgroundImage" role="banner">
         <img src={playerImage} alt="teamPageImage" className="teamPageImage"></img>
         <div class="backgroundOverlay"></div>
-        <div class="pageHeaderBox" role="heading"><h1>Best 11</h1></div>
+        <div class="pageHeaderBox" role="heading"><h2 style={{color: 'white', marginTop: '1rem'}}>Best 11 - Football Stats and Analysis for the Scottish Premiership</h2></div>
         <br></br>
       </div>
 
