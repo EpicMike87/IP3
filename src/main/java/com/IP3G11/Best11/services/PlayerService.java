@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,11 +27,18 @@ public class PlayerService {
     }
 
     public List<Player> getPlayerByName(String name){
+        PlayerNLG TC = new PlayerNLG();
         String[] names = name.split(" ");
+        List<Player> players;
         if(names.length > 1){
-            return playerRepo.findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(names[0], names[names.length-1]);
+            players = playerRepo.findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(names[0], names[names.length-1]);
         }
-        return playerRepo.findAllByFirstNameContainingOrLastNameContaining(name, name);
+        else {
+            players = playerRepo.findAllByFirstNameContainingOrLastNameContaining(name, name);
+        }
+        Player player = players.get(0);
+        player.setNlgString(TC.playerText(player));
+        return players;
     }
 
     public List<Player> getById(int id){

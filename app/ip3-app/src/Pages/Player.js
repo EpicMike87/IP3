@@ -24,11 +24,12 @@ function Player() {
             try {
                 const { data } = await Api.get(`search-player/${playerName}`)
                 changeSelectionVisibility(true)
+                console.log(data[0])
+                setNLGString(data[0].nlgString)
                 if (playerName == "") {
                     changeSelectionVisibility(false)
                 }
                 setPlayers(data)
-                setNLGString(data[0].nlgString)
             } catch (error) {
                 console.error(error)
             }
@@ -48,12 +49,13 @@ function Player() {
         Api.get(`players/id/${playerId}`)
             .then(res => {
                 setPlayerInfo(res.data);
-                changeSelectionVisibility(false);
+                setNLGString(res.data[0].nlgString);
                 console.log(res.data);
+                console.log(res.data[0].nlgString)
                 getTeamImage(res.data[0].team)
                 showPlayerBio(playerPositionType);
-                setNLGString(res.data[0].nlgString)
-                console.log(res.data[0].nlgString)
+                
+                
             })
             .catch(err => {
                 console.log(err);
@@ -202,7 +204,7 @@ function Player() {
 
             <div id="message" >Search to view player information.</div>
 
-            {playerInfo.map((playersData, index) =>
+            {playerInfo.map((playersData) =>
                 <body onLoad={(e) => mapPlayerBioData(`${playersData.positionType}`)} >
 
                 <section id='attackerplayerBio' className='playerInfoSection' >
@@ -310,9 +312,11 @@ function Player() {
                         </div>
                         <section className="playerNLG">
                             <h3>Player Report</h3>
+                            {playerInfo.map(player =>
                             <div>
-                                {nlgString}
+                                {player.nlgString}
                             </div>
+                            )}
                         </section>
                 </section>
 
@@ -422,9 +426,10 @@ function Player() {
                         </div>
                         <section className="playerNLG">
                             <h3>Player Report</h3>
+                            {playerInfo.map(player =>
                             <div>
-                                {nlgString}
-                            </div>
+                                {player.nlgString}
+                            </div>)}
                         </section>
                     </div>
                 </section>
@@ -534,9 +539,10 @@ function Player() {
                         </div>
                         <section className="playerNLG">
                             <h3>Player Report</h3>
+                            {playerInfo.map(player =>
                             <div>
-                                {nlgString}
-                            </div>
+                                {player.nlgString}
+                            </div>)}
                         </section>
                     </div>
 
@@ -649,9 +655,10 @@ function Player() {
                         </div>
                         <section className="playerNLG">
                             <h3>Player Report</h3>
+                            {playerInfo.map(player =>
                             <div>
-                                {nlgString}
-                            </div>
+                                {player.nlgString}
+                            </div>)}
                         </section>
                     </div>
                 </section>
