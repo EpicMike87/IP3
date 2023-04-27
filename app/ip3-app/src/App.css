@@ -312,6 +312,7 @@ img {
 
 .playerInfoSection {
   margin: 0 auto;
+  margin-bottom: 1rem;
   display: none;
   flex-direction: column;
   background-color: white;
@@ -543,7 +544,7 @@ img {
   background-color: gray;
 }
 
-.teamNLG {
+.nlgBox {
   background-color: white;
   border: darkgrey 1px solid;
   padding: 2rem 2rem;

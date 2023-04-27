@@ -13,7 +13,6 @@ function Player() {
     const [showElement, setShowElement] = useState(false);
     const [bioType, setBioType] = useState()
     const [teamPhoto, setTeamPhoto] = useState("");
-    const [nlgString, setNLGString] = useState("")
 
     const searchPlayer = () => {
         showDetail(players[0].id);
@@ -25,7 +24,6 @@ function Player() {
                 const { data } = await Api.get(`search-player/${playerName}`)
                 changeSelectionVisibility(true)
                 console.log(data[0])
-                setNLGString(data[0].nlgString)
                 if (playerName == "") {
                     changeSelectionVisibility(false)
                 }
@@ -49,9 +47,7 @@ function Player() {
         Api.get(`players/id/${playerId}`)
             .then(res => {
                 setPlayerInfo(res.data);
-                setNLGString(res.data[0].nlgString);
                 console.log(res.data);
-                console.log(res.data[0].nlgString)
                 getTeamImage(res.data[0].team)
                 showPlayerBio(playerPositionType);
                 
@@ -248,6 +244,19 @@ function Player() {
                                 </div>
                             )}
                         </div>
+                        
+                        <div className='playerStatsBox'>
+                        <h3>Player Report</h3>
+                        <section className="nlgBox">
+                            
+                            {playerInfo.map(player =>
+                            <div>
+                                {player.nlgString}
+                            </div>
+                            )}
+                            
+                        </section>
+                        </div>
                         {playerInfo.map(player =>
                             <div className='playerStatsSection'>
                                 <div className='playerStatsBox'>
@@ -310,14 +319,7 @@ function Player() {
                         <div style={{display: "flex", width: "100%", maxHeight: '350px'}}>
                             {playerInfo.map(player => <PieChart player={player} />)}
                         </div>
-                        <section className="playerNLG">
-                            <h3>Player Report</h3>
-                            {playerInfo.map(player =>
-                            <div>
-                                {player.nlgString}
-                            </div>
-                            )}
-                        </section>
+                        
                 </section>
 
                 <section id='midfielderplayerBio' className='playerInfoSection'>
