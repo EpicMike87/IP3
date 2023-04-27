@@ -106,6 +106,9 @@ function PlayerCompare() {
 
     return (
         <div className="Player" onClick={e => setToFalse(e)}>
+            <h2>Player Comparison</h2>
+            <p style={{textAlign: 'center', marginBottom: '1rem'}}>Use this feature to compare stats of players. Search for a player in the searchbar below, and drag the displayed player on to one of the two grey rectangles.</p>
+            <p style={{textAlign: 'center', marginBottom: '1rem'}}>Note: this works best with players of the same position.</p>
             <SearchBar keyword={player} onChange={setPlayer} fun={searchPlayer} />
             <div id="playerSelection" style={{ maxHeight: "300px" }}>
                 <table className="playerTable sortable">

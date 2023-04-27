@@ -156,6 +156,8 @@ function TeamCompare(){
 
     return (
         <div className="Player" onClick={e => setToFalse(e)}>
+            <h2>Team Comparison</h2>
+                        <p style={{textAlign: 'center', marginBottom: '1rem'}}>Use this feature to compare stats of teams. Search for a team in the searchbar below, and drag the displayed team on to one of the two grey rectangles.</p>
             <SearchBar keyword={team} onChange={setTeam} fun={searchTeam} />
             <div id="playerSelection" style={{ maxHeight: "300px" }}>
                 <table className="playerTable sortable">

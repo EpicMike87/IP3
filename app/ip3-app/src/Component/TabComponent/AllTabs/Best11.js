@@ -255,8 +255,9 @@ const Best11 = () => {
     return (
         <section className="Best11Tab">
             <h2>Best 11 SPFL Team </h2>
-            <small>Hover over players to view information.</small>
+            <p>The pitch below displays the best 11 by current player rating in the SPFL. Use the drop down to change between several popular team formations.</p>
             <div className="pitch" style={{ backgroundImage: `url(${pitchImage})` }}>
+            <small style={{color: 'white', margin: '1rem'}}>Hover over players to view information.</small>
                 <img src={pitchImage} alt="A pitch" />
                 <select className="formationSelect" id="formation" onChange={changeFormation}>
                     <option selected hidden>Select Formation</option>
@@ -269,8 +270,6 @@ const Best11 = () => {
                     <option value={352}>3-5-2</option>
                 </select>
             </div>
-            <p>content</p>
-            <p>content</p>
         </section>
     );
 };

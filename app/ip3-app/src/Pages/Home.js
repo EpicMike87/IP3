@@ -54,9 +54,9 @@ function Home() {
   }, []);
 
   const getFixtures = () => {
-    Api.get('/fixtures/upcoming')
+    Api.get('/fixtures/all')
       .then(res => {
-        setUpcomingFixtures(res.data.reverse());
+        setUpcomingFixtures(res.data);
         console.log(res.data)
       })
   }
@@ -275,116 +275,9 @@ function Home() {
         <div class="pageHeaderBox" role="heading"><h2 style={{color: 'white', marginTop: '1rem'}}>Best 11 - Football Stats and Analysis for the Scottish Premiership</h2></div>
         <br></br>
       </div>
-
-      <br></br>
-
-      <h1>Scottish Premiership 2022-2023</h1>
-
-      <section className='leagueStats'>
-        <table id="homeStats" className="sortable">
-          <thead>
-            <tr id="teampagerow">
-              <th>Position</th>
-              <th>Team Name</th>
-              <th>Points</th>
-              <th>GD</th>
-              <th>GA</th>
-              <th>GF</th>
-              <th>Played</th>
-              <th>Won</th>
-              <th>Drew</th>
-              <th>Lost</th>
-            </tr>
-          </thead>
-          <tbody id="tableBodyHome">
-            {dataTable.map((teamData, index) =>
-              <tr key={index} onClick={(e) => gotoTeam(`${teamData.id}`)}>
-                <td>{teamData.rank}</td>
-                <td>{teamData.teamName}</td>
-                <td>{teamData.points}</td>
-                <td>{teamData.goalDiff}</td>
-                <td>{teamData.allStats.goalsAgainst}</td>
-                <td>{teamData.allStats.goalsFor}</td>
-                <td>{teamData.allStats.matchesPlayed}</td>
-                <td>{teamData.allStats.matchesWon}</td>
-                <td>{teamData.allStats.matchesDrew}</td>
-                <td>{teamData.allStats.matchesLost}</td>
-
-              </tr>
-            )}
-          </tbody>
-        </table>
-
-        <section className='leaguePlayerStats'>
-
-          <div className="teamStats">
-
-            <div className="statsBox" style={{padding: "1rem 0"}}>
-              <h3>Most Goals</h3>
-              {topGoalScorer.map((playersData, index) =>
-                <div className="colBox">
-                  <div className="rowBox">
-                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <div className="topPlayerCircle">
-                      {playersData.goals}
-                    </div>
-                  </div>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
-                </div>
-              )}
-            </div>
-
-            <div className="statsBox" style={{padding: "1rem 0"}}>
-              <h3>Most Assists</h3>
-              {mostAssists.map((playersData, index) =>
-                <div className="colBox">
-                  <div className="rowBox">
-                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <div className="topPlayerCircle">
-                      {playersData.assists}
-                    </div>
-                  </div>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
-                </div>
-              )}
-            </div>
-
-            <div className="statsBox" style={{padding: "1rem 0"}}>
-              <h3>Most Saves</h3>
-              {mostSavesStat.map((playersData, index) =>
-                <div className="colBox">
-                  <div className="rowBox">
-                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <div className="topPlayerCircle">
-                      {playersData.saves}
-                    </div>
-                  </div>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
-                </div>
-              )}
-            </div>
-
-            <div className="statsBox" style={{padding: "1rem 0"}}>
-              <h3>Highest Rated</h3>
-              {topRatedPlayer.map((playersData, index) =>
-                <div className="colBox">
-                  <div className="rowBox">
-                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
-                    <div className="topPlayerCircle" style={{fontSize: "2.25rem", paddingBottom: "3px"}}>
-                      {parseFloat(playersData.rating).toFixed(2)}
-                    </div>
-                  </div>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
-                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      </section>
+      <section className='home'>
+      <div style={{margin: '1rem 3rem', textAlign: 'center'}}><p style={{fontSize: '1.25rem'}}>Welcome to Best 11, a resource for SPFL data - including Team and Player data, fixtures (upcoming and past results), 
+        fixture predictions, information on the best current SPFL players and the best 11 team, as well as player and team comparison features. </p> <p style={{fontSize: '1.25rem'}}>For full information on the features available on site, please visit <a href="/about" className="link" style={{fontStyle: 'bold'}}>About Us</a></p></div>
       <section className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
         <h2>Upcoming Fixtures</h2>
         <Carousel responsive={responsive} slidesToSlide={3}>
@@ -420,6 +313,114 @@ function Home() {
           )}
         </Carousel>
       </section>
+        <div className="rowBox">
+        <table id="homeStats" className="sortable">
+          <thead>
+            <tr id="teampagerow">
+              <th>Position</th>
+              <th>Team Name</th>
+              <th>Points</th>
+              <th>GD</th>
+              <th>GA</th>
+              <th>GF</th>
+              <th>Played</th>
+              <th>Won</th>
+              <th>Drew</th>
+              <th>Lost</th>
+            </tr>
+          </thead>
+          <tbody id="tableBodyHome">
+            {dataTable.map((teamData, index) =>
+              <tr key={index} onClick={(e) => gotoTeam(`${teamData.id}`)}>
+                <td>{teamData.rank}</td>
+                <td>{teamData.teamName}</td>
+                <td>{teamData.points}</td>
+                <td>{teamData.goalDiff}</td>
+                <td>{teamData.allStats.goalsAgainst}</td>
+                <td>{teamData.allStats.goalsFor}</td>
+                <td>{teamData.allStats.matchesPlayed}</td>
+                <td>{teamData.allStats.matchesWon}</td>
+                <td>{teamData.allStats.matchesDrew}</td>
+                <td>{teamData.allStats.matchesLost}</td>
+
+              </tr>
+            )}
+          </tbody>
+        </table>
+
+
+          <div className="teamStats" style={{margin: '0.25rem', border: '1px solid lightgray'}}>
+            <div className="colBox">
+            <div className="statsBox" style={{padding: "1rem 0.5rem"}}>
+              <h3>Most Goals</h3>
+              {topGoalScorer.map((playersData, index) =>
+                <div className="colBox">
+                  <div className="rowBox">
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.goals}
+                    </div>
+                  </div>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                </div>
+              )}
+            </div>
+
+            <div className="statsBox" style={{padding: "1rem 0.5rem"}}>
+              <h3>Most Assists</h3>
+              {mostAssists.map((playersData, index) =>
+                <div className="colBox">
+                  <div className="rowBox">
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.assists}
+                    </div>
+                  </div>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                </div>
+              )}
+            </div>
+            </div>
+            <div className="colBox">
+            <div className="statsBox" style={{padding: "1rem 0.5rem"}}>
+              <h3>Most Saves</h3>
+              {mostSavesStat.map((playersData, index) =>
+                <div className="colBox">
+                  <div className="rowBox">
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle">
+                      {playersData.saves}
+                    </div>
+                  </div>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                </div>
+              )}
+            </div>
+
+            <div className="statsBox" style={{padding: "1rem 0.5rem"}}>
+              <h3>Highest Rated</h3>
+              {topRatedPlayer.map((playersData, index) =>
+                <div className="colBox">
+                  <div className="rowBox">
+                    <img src={playersData.photoUrl} style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}></img>
+                    <div className="topPlayerCircle" style={{fontSize: "2.25rem", paddingBottom: "3px"}}>
+                      {parseFloat(playersData.rating).toFixed(2)}
+                    </div>
+                  </div>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoPlayer(playersData.id)}>{`${playersData.firstName} ${playersData.lastName}`} </h3>
+                  <h3 className="link" style={{ cursor: "pointer" }} onClick={(e) => gotoTeam(playersData.teamId)}>{playersData.team} </h3>
+                </div>
+              )}
+            </div>
+          </div>
+          </div>
+          </div>
+      </section>
+      
+      
     </main>
 
   )
