@@ -586,7 +586,7 @@ function Teams() {
                                             <td>{playersData.age}</td>
                                             <td>{playersData.position}</td>
                                             <td>{playersData.matchesPlayed}</td>
-                                            <td>{playersData.rating}</td>
+                                            <td>{playersData.rating.toFixed(2)}</td>
                                         </tr>
                                     )}
                                 </tbody>
