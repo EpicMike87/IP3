@@ -1881,6 +1881,58 @@ select {
   left: 0.5%;
 }
 
+.toolTip{
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.toolTipText{
+  visibility: hidden;
+  width: 110%;
+  background-color: rgba(000, 32, 96, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.25rem;
+  position: absolute;
+  z-index: 50;
+  bottom: 110%;
+  left: 0%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.toolTipText::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(000, 32, 96, 0.7) transparent transparent transparent;
+}
+
+.toolTipText::before{
+content: "";
+position: absolute;
+top: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: rgba(000, 32, 96, 0.7) transparent transparent transparent;
+}
+
+.toolTip:hover .toolTipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

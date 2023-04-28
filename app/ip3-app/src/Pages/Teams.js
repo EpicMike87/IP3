@@ -520,7 +520,8 @@ function Teams() {
                                     </div>
                                 </div>
                                 <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                                    <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                                <span className="toolTip"><h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win<span className="toolTipText">
+                                    This is a prediction on the team most likely to win provided by our match prediction machine learning model, which is trained on over 6 seasons of fixtures.</span></h4></span>
                                 </div>
 
 
