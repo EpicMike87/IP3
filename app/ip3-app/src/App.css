@@ -1676,6 +1676,9 @@ select {
 .link{
   margin-bottom: 0;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 .link:hover{
@@ -1883,14 +1886,14 @@ select {
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 0.25rem;
+  padding: 0.35rem;
   position: absolute;
   z-index: 50;
   bottom: 110%;
   left: 0%;
   opacity: 0;
   transition: opacity 0.3s;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: normal;
 }
 
