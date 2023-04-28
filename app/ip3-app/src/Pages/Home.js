@@ -277,7 +277,7 @@ function Home() {
       </div>
       <section className='home'>
         <div style={{ margin: '1rem 3rem', textAlign: 'center' }}><p style={{ fontSize: '1.25rem' }}>Welcome to Best 11, a resource for SPFL data - including Team and Player data, fixtures (upcoming and past results),
-          fixture predictions, information on the best current SPFL players and the best 11 team, as well as player and team comparison features. </p> <p style={{ fontSize: '1.25rem' }}>For full information on the features available on site, please visit <a href="/about" className="link" style={{ fontStyle: 'bold' }}>About Us</a></p></div>
+          fixture predictions, information on the best current SPFL players and the best 11 team, as well as player and team comparison features. </p> <p style={{ fontSize: '1.25rem' }}>For full information on the features available on site, please visit <a href="/about" className="link" style={{ fontStyle: 'bold' }}>About</a></p></div>
         <section className='leaguePlayerStats' style={{ paddingBottom: "5rem" }}>
           <h2>Upcoming Fixtures</h2>
           <Carousel responsive={responsive} slidesToSlide={3}>
@@ -305,7 +305,9 @@ function Home() {
                   </div>
                 </div>
                 <div className="rowBox" style={{ justifyContent: "center", marginBottom: "1rem" }}>
-                  <h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win</h4>
+                  <span className="toolTip"><h4>Prediction: {fixture.prediction != 'H' ? fixture.homeTeamName : fixture.awayTeamName} Win<span className="toolTipText">
+                    This is a prediction on the team most likely to win provided by our match prediction machine learning model, which is trained on over 6 seasons of fixtures.
+                    </span></h4></span>
                 </div>
 
 
@@ -315,7 +317,7 @@ function Home() {
         </section>
         <div className="rowBox">
           <div style={{ margin: '0.25rem', border: '1px solid lightgray', width: '100%' }}>
-            <table id="homeStats" className="sortable">
+            <table id="homeStats" className="sortable" style={{cursor: 'pointer'}}>
               <thead>
                 <tr id="teampagerow">
                   <th>Position</th>

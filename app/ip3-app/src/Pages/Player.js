@@ -50,8 +50,8 @@ function Player() {
                 console.log(res.data);
                 getTeamImage(res.data[0].team)
                 showPlayerBio(playerPositionType);
-                
-                
+
+
             })
             .catch(err => {
                 console.log(err);
@@ -185,14 +185,14 @@ function Player() {
                 <div id='playerSelection'>
                     <table className="playerTable sortable">
                         <tbody>
-                        {showElement ? players.map((playersData, index) =>
-                            <tr key={index} onClick={(e) => showDetail(`${playersData.id}`, `${playersData.positionType}`)}>
-                                <td><img src={playersData.photoUrl} className="searchImage"></img></td>
-                                <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
-                                <td>{playersData.position}</td>
-                                <td>{playersData.team}</td>
-                            </tr>
-                        ) : <div></div>}
+                            {showElement ? players.map((playersData, index) =>
+                                <tr key={index} onClick={(e) => showDetail(`${playersData.id}`, `${playersData.positionType}`)}>
+                                    <td><img src={playersData.photoUrl} className="searchImage"></img></td>
+                                    <td>{`${playersData.firstName} ${playersData.lastName}`}</td>
+                                    <td>{playersData.position}</td>
+                                    <td>{playersData.team}</td>
+                                </tr>
+                            ) : <div></div>}
                         </tbody>
                     </table>
                 </div>
@@ -203,26 +203,26 @@ function Player() {
             {playerInfo.map((playersData) =>
                 <body onLoad={(e) => mapPlayerBioData(`${playersData.positionType}`)} >
 
-                <section id='attackerplayerBio' className='playerInfoSection' >
+                    <section id='attackerplayerBio' className='playerInfoSection' >
                         <div className="playerStatsImg">
                             <div className='playerStatsProfImg'>
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                                {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
                             </div>
                             {playerInfo.map(player => <ul>
                                 <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
                                 <li>{`${player.position}`}</li>
                                 <li>
-                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
-                                {playerInfo.map(player =>
-                                            <span className='link'>{`${player.team}`}</span>  )}
+                                    <a href={`/team?name=${player.team}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                        {playerInfo.map(player =>
+                                            <span className='link'>{`${player.team}`}</span>)}
                                     </a>
                                 </li>
                                 <li>{`${player.age}`}</li>
-                                
+
                             </ul>)}
                             {playerInfo.map(player =>
                                 <div className='playerStatsCircles'>
-                                    <div style={{marginRight: '30px'}}>
+                                    <div style={{ marginRight: '30px' }}>
                                         <h2>Rating</h2>
                                         <div className='topPlayerCircleP'>
                                             {player.rating.toFixed(2)}
@@ -234,7 +234,7 @@ function Player() {
                                             {player.goals}
                                         </div>
                                     </div>
-                                    <div style={{marginLeft: '30px'}}>
+                                    <div style={{ marginLeft: '30px' }}>
                                         <h2>Assists</h2>
                                         <div className='topPlayerCircleP'>
                                             {player.assists}
@@ -244,426 +244,443 @@ function Player() {
                                 </div>
                             )}
                         </div>
-                        
+
                         <div className='playerStatsBox'>
-                        <h3>Player Report</h3>
-                        <section className="nlgBox">
-                            
-                            {playerInfo.map(player =>
-                            <div>
-                                {player.nlgString}
-                            </div>
-                            )}
-                            
-                        </section>
+                            <h3>Player Report</h3>
+                            <section className="nlgBox">
+
+                                {playerInfo.map(player =>
+                                    <div>
+                                        {player.nlgString}
+                                    </div>
+                                )}
+
+                            </section>
                         </div>
                         {playerInfo.map(player =>
                             <div className='playerStatsSection'>
                                 <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Appearences</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Appearences</p>
                                         <p>{player.matchesPlayed}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Fouls</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Fouls</p>
                                         <p>{player.foulsCommitted}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Yellow Cards</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Yellow Cards</p>
                                         <p>{player.yellowCards}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Red Cards</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Red Cards</p>
                                         <p>{player.redCards}</p>
                                     </div>
 
                                 </div>
                                 <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Shots</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Shots</p>
                                         <p>{player.shots}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>On Target</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>On Target</p>
                                         <p>{player.shotsOnTarget}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Passes</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Passes</p>
                                         <p>{player.passes}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Pass Acc.</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Pass Acc.</p>
                                         <p>{player.passAccuracy}%</p>
                                     </div>
                                 </div>
                                 <div className='playerStatsBox'>
-                                    <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
+                                    <div style={{ display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Dribbles Att.</p>
                                         <p>{player.dribblesAttempted}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>Dribbles Succ.</p>
                                         <p>{player.successfulDribbles}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Taken</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>PK Taken</p>
                                         <p>{player.penaltiesTaken}</p>
                                     </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Scored</p>
+                                    <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                        <p style={{ fontWeight: "bold" }}>PK Scored</p>
                                         <p>{player.penaltiesScored}</p>
                                     </div>
                                 </div>
                             </div>
                         )}
-                        <div style={{display: "flex", width: "100%", maxHeight: '350px'}}>
+                        <div style={{ display: "flex", width: "100%", maxHeight: '350px' }}>
                             {playerInfo.map(player => <PieChart player={player} />)}
                         </div>
+
+                    </section>
+
+                    <section id='midfielderplayerBio' className='playerInfoSection'>
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                <div className='playerStatsProfImg'>
+                                    {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                                </div>
+                                {playerInfo.map(player => <ul>
+                                    <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                    <li>{`${player.position}`}</li>
+                                    <li>
+                                        <a href={`/team?name=${player.team}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                            {playerInfo.map(player =>
+                                                <span className='link'>{`${player.team}`}</span>)}
+                                        </a>
+                                    </li>
+                                    <li>{`${player.age}`}</li>
+
+                                </ul>)}
+                                {playerInfo.map(player =>
+                                    <div className='playerStatsCircles'>
+                                        <div style={{ marginRight: '30px' }}>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Goals</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.goals}
+                                            </div>
+                                        </div>
+                                        <div style={{ marginLeft: '30px' }}>
+                                            <h2>Assists</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.assists}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                )}
+                            </div>
+                            <div className='playerStatsBox'>
+                                <h3>Player Report</h3>
+                                <section className="nlgBox">
+
+                                    {playerInfo.map(player =>
+                                        <div>
+                                            {player.nlgString}
+                                        </div>
+                                    )}
+
+                                </section>
+                            </div>
+                            {playerInfo.map(player =>
+                                <div className='playerStatsSection'>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
+
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Shots</p>
+                                            <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>On Target</p>
+                                            <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Passes</p>
+                                            <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Pass Acc.</p>
+                                            <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Att.</p>
+                                            <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Succ.</p>
+                                            <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>PK Taken</p>
+                                            <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>PK Scored</p>
+                                            <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div style={{ display: "flex", width: "100%", maxHeight: '350px' }}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section id='defenderplayerBio' className="playerInfoSection">
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                <div className='playerStatsProfImg'>
+                                    {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                                </div>
+                                {playerInfo.map(player => <ul>
+                                    <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                    <li>{`${player.position}`}</li>
+                                    <li>
+                                        <a href={`/team?name=${player.team}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                            {playerInfo.map(player =>
+                                                <span className='link'>{`${player.team}`}</span>)}
+                                        </a>
+                                    </li>
+                                    <li>{`${player.age}`}</li>
+
+                                </ul>)}
+                                {playerInfo.map(player =>
+                                    <div className='playerStatsCircles'>
+                                        <div style={{ marginRight: '30px' }}>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Blocks</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.blocks}
+                                            </div>
+                                        </div>
+                                        <div style={{ marginLeft: '30px' }}>
+                                            <h2>Intercept</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.interceptions}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                            <div className='playerStatsBox'>
+                                <h3>Player Report</h3>
+                                <section className="nlgBox">
+
+                                    {playerInfo.map(player =>
+                                        <div>
+                                            {player.nlgString}
+                                        </div>
+                                    )}
+
+                                </section>
+                            </div>
+                            {playerInfo.map(player =>
+                                <div className='playerStatsSection'>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
+
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Shots</p>
+                                            <p>{player.shots}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>On Target</p>
+                                            <p>{player.shotsOnTarget}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Passes</p>
+                                            <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Pass Acc.</p>
+                                            <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap", }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Att.</p>
+                                            <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Succ.</p>
+                                            <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>PK Taken</p>
+                                            <p>{player.penaltiesTaken}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>PK Scored</p>
+                                            <p>{player.penaltiesScored}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            <div style={{ display: "flex", width: "100%", maxHeight: '350px' }}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section id='goalkeeperplayerBio' className='playerInfoSection'>
+                        <div className="playerStats">
+                            <div className="playerStatsImg">
+                                <div className='playerStatsProfImg'>
+                                    {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
+                                </div>
+                                {playerInfo.map(player => <ul>
+                                    <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
+                                    <li>{`${player.position}`}</li>
+                                    <li>
+                                        <a href={`/team?name=${player.team}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                            {playerInfo.map(player =>
+                                                <span className='link'>{`${player.team}`}</span>)}
+                                        </a>
+                                    </li>
+                                    <li>{`${player.age}`}</li>
+
+                                </ul>)}
+                                {playerInfo.map(player =>
+                                    <div className='playerStatsCircles'>
+                                        <div style={{ marginRight: '30px' }}>
+                                            <h2>Rating</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.rating.toFixed(2)}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h2>Saves</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.saves}
+                                            </div>
+                                        </div>
+                                        <div style={{ marginLeft: '30px' }}>
+                                            <h2>Conceded</h2>
+                                            <div className='topPlayerCircleP'>
+                                                {player.goalsConceded}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                )}
+                            </div>
+                            <div className='playerStatsBox'>
+                                <h3>Player Report</h3>
+                                <section className="nlgBox">
+
+                                    {playerInfo.map(player =>
+                                        <div>
+                                            {player.nlgString}
+                                        </div>
+                                    )}
+
+                                </section>
+                            </div>
+                            {playerInfo.map(player =>
+                                <div className='playerStatsSection'>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Appearences</p>
+                                            <p>{player.matchesPlayed}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Fouls</p>
+                                            <p>{player.foulsCommitted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Yellow Cards</p>
+                                            <p>{player.yellowCards}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Red Cards</p>
+                                            <p>{player.redCards}</p>
+                                        </div>
+
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Att.</p>
+                                            <p>{player.dribblesAttempted}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Dribbles Succ.</p>
+                                            <p>{player.successfulDribbles}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Passes</p>
+                                            <p>{player.passes}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Pass Acc.</p>
+                                            <p>{player.passAccuracy}%</p>
+                                        </div>
+                                    </div>
+                                    <div className='playerStatsBox'>
+                                        <div style={{ display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Saves</p>
+                                            <p>{player.saves}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Conceded</p>
+                                            <p>{player.goalsConceded}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Duels</p>
+                                            <p>{player.duels}</p>
+                                        </div>
+                                        <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap" }}>
+                                            <p style={{ fontWeight: "bold" }}>Duels Won</p>
+                                            <p>{player.duelsWon}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div style={{ display: "flex", width: "100%", maxHeight: '350px' }}>
+                                {playerInfo.map(player => <PieChart player={player} />)}
+                            </div>
                         
-                </section>
-
-                <section id='midfielderplayerBio' className='playerInfoSection'>
-                    <div className="playerStats">
-                        <div className="playerStatsImg">
-                        <div className='playerStatsProfImg'>
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
-                            </div>
-                            {playerInfo.map(player => <ul>
-                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
-                                <li>{`${player.position}`}</li>
-                                <li>
-                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
-                                {playerInfo.map(player =>
-                                            <span className='link'>{`${player.team}`}</span>  )}
-                                    </a>
-                                </li>
-                                <li>{`${player.age}`}</li>
-                                
-                            </ul>)}
-                            {playerInfo.map(player =>
-                                <div className='playerStatsCircles'>
-                                    <div style={{marginRight: '30px'}}>
-                                        <h2>Rating</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.rating.toFixed(2)}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h2>Goals</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.goals}
-                                        </div>
-                                    </div>
-                                    <div style={{marginLeft: '30px'}}>
-                                        <h2>Assists</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.assists}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            )}
                         </div>
-                        {playerInfo.map(player =>
-                            <div className='playerStatsSection'>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Appearences</p>
-                                        <p>{player.matchesPlayed}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Fouls</p>
-                                        <p>{player.foulsCommitted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Yellow Cards</p>
-                                        <p>{player.yellowCards}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Red Cards</p>
-                                        <p>{player.redCards}</p>
-                                    </div>
-
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Shots</p>
-                                        <p>{player.shots}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>On Target</p>
-                                        <p>{player.shotsOnTarget}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Passes</p>
-                                        <p>{player.passes}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Pass Acc.</p>
-                                        <p>{player.passAccuracy}%</p>
-                                    </div>
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
-                                        <p>{player.dribblesAttempted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
-                                        <p>{player.successfulDribbles}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Taken</p>
-                                        <p>{player.penaltiesTaken}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Scored</p>
-                                        <p>{player.penaltiesScored}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        <div style={{display: "flex", width: "100%", maxHeight: '350px'}}>
-                            {playerInfo.map(player => <PieChart player={player} />)}
-                        </div>
-                        <section className="playerNLG">
-                            <h3>Player Report</h3>
-                            {playerInfo.map(player =>
-                            <div>
-                                {player.nlgString}
-                            </div>)}
-                        </section>
-                    </div>
-                </section>
-
-                <section id='defenderplayerBio' className="playerInfoSection">
-                    <div className="playerStats">
-                        <div className="playerStatsImg">
-                        <div className='playerStatsProfImg'>
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
-                            </div>
-                            {playerInfo.map(player => <ul>
-                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
-                                <li>{`${player.position}`}</li>
-                                <li>
-                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
-                                {playerInfo.map(player =>
-                                            <span className='link'>{`${player.team}`}</span>  )}
-                                    </a>
-                                </li>
-                                <li>{`${player.age}`}</li>
-                                
-                            </ul>)}
-                            {playerInfo.map(player =>
-                                <div className='playerStatsCircles'>
-                                    <div style={{marginRight: '30px'}}>
-                                        <h2>Rating</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.rating.toFixed(2)}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h2>Blocks</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.blocks}
-                                        </div>
-                                    </div>
-                                    <div style={{marginLeft: '30px'}}>
-                                        <h2>Intercept</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.interceptions}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        {playerInfo.map(player =>
-                            <div className='playerStatsSection'>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Appearences</p>
-                                        <p>{player.matchesPlayed}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Fouls</p>
-                                        <p>{player.foulsCommitted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Yellow Cards</p>
-                                        <p>{player.yellowCards}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Red Cards</p>
-                                        <p>{player.redCards}</p>
-                                    </div>
-
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Shots</p>
-                                        <p>{player.shots}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>On Target</p>
-                                        <p>{player.shotsOnTarget}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Passes</p>
-                                        <p>{player.passes}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Pass Acc.</p>
-                                        <p>{player.passAccuracy}%</p>
-                                    </div>
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap", }}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
-                                        <p>{player.dribblesAttempted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
-                                        <p>{player.successfulDribbles}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Taken</p>
-                                        <p>{player.penaltiesTaken}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>PK Scored</p>
-                                        <p>{player.penaltiesScored}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        <div style={{display: "flex", width: "100%", maxHeight: '350px'}}>
-                            {playerInfo.map(player => <PieChart player={player} />)}
-                        </div>
-                        <section className="playerNLG">
-                            <h3>Player Report</h3>
-                            {playerInfo.map(player =>
-                            <div>
-                                {player.nlgString}
-                            </div>)}
-                        </section>
-                    </div>
-
-                </section>
-
-                <section id='goalkeeperplayerBio' className='playerInfoSection'>
-                    <div className="playerStats">
-                        <div className="playerStatsImg">
-                        <div className='playerStatsProfImg'>
-                            {playerInfo.map(player => <img src={player.photoUrl} alt="playerPic"></img>)}
-                            </div>
-                            {playerInfo.map(player => <ul>
-                                <li><h2>{`${player.firstName} ${player.lastName}`}</h2></li>
-                                <li>{`${player.position}`}</li>
-                                <li>
-                                <a href={`/team?name=${player.team}`} style={{textDecoration: 'none', color: 'black'}}>
-                                {playerInfo.map(player =>
-                                            <span className='link'>{`${player.team}`}</span>  )}
-                                    </a>
-                                </li>
-                                <li>{`${player.age}`}</li>
-                                
-                            </ul>)}
-                            {playerInfo.map(player =>
-                                <div className='playerStatsCircles'>
-                                    <div style={{marginRight: '30px'}}>
-                                        <h2>Rating</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.rating.toFixed(2)}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h2>Saves</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.saves}
-                                        </div>
-                                    </div>
-                                    <div style={{marginLeft: '30px'}}>
-                                        <h2>Conceded</h2>
-                                        <div className='topPlayerCircleP'>
-                                            {player.goalsConceded}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            )}
-                        </div>
-                        {playerInfo.map(player =>
-                            <div className='playerStatsSection'>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Appearences</p>
-                                        <p>{player.matchesPlayed}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Fouls</p>
-                                        <p>{player.foulsCommitted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Yellow Cards</p>
-                                        <p>{player.yellowCards}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Red Cards</p>
-                                        <p>{player.redCards}</p>
-                                    </div>
-
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Att.</p>
-                                        <p>{player.dribblesAttempted}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Dribbles Succ.</p>
-                                        <p>{player.successfulDribbles}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Passes</p>
-                                        <p>{player.passes}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Pass Acc.</p>
-                                        <p>{player.passAccuracy}%</p>
-                                    </div>
-                                </div>
-                                <div className='playerStatsBox'>
-                                    <div style={{display: "flex ", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Saves</p>
-                                        <p>{player.saves}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Conceded</p>
-                                        <p>{player.goalsConceded}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Duels</p>
-                                        <p>{player.duels}</p>
-                                    </div>
-                                    <div style={{display: "flex", flexDirection: 'row', justifyContent: 'space-between', columnGap: "10%", whiteSpace: "nowrap"}}>
-                                        <p style={{fontWeight: "bold"}}>Duels Won</p>
-                                        <p>{player.duelsWon}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        <div style={{display: "flex", width: "100%", maxHeight: '350px'}}>
-                            {playerInfo.map(player => <PieChart player={player} />)}
-                        </div>
-                        <section className="playerNLG">
-                            <h3>Player Report</h3>
-                            {playerInfo.map(player =>
-                            <div>
-                                {player.nlgString}
-                            </div>)}
-                        </section>
-                    </div>
-                </section>
+                    </section>
                 </body>
             )}
         </main>
