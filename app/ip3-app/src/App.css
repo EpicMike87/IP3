@@ -1070,8 +1070,7 @@ select {
   position: relative;
   width: 80%;
   height: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 30px auto;
 
 }
 
