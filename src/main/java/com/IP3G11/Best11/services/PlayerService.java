@@ -2,14 +2,11 @@ package com.IP3G11.Best11.services;
 
 import com.IP3G11.Best11.model.Player;
 import com.IP3G11.Best11.repositories.PlayerRepo;
-import com.IP3G11.Best11.tools.PlayerDataReader;
 import com.IP3G11.Best11.tools.PlayerNLG;
-import com.IP3G11.Best11.tools.TeamNLG;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
