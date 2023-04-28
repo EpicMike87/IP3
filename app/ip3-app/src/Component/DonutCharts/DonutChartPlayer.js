@@ -14,7 +14,7 @@ import {
     Legend
   );
 
-function DonutChart({player}) {
+function DonutChartPlayer({player}) {
  
 
   const options = {
@@ -223,11 +223,11 @@ function DonutChart({player}) {
     const passesCompleted = player.passes * player.passAccuracy / 100;
     const passesIncompleted = player.passes - passesCompleted; 
     const data2 = {
-      labels: ['Passes Completed', 'Passes Incomplete', 'Assists'],
+      labels: ['Passes Completed', 'Passes Incomplete'],
       datasets: [{
-        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0), player.assists],
-        backgroundColor: ['orange', '#00D100', 'purple'],
-        borderColor: ['orange', '#00D100', 'purple'],
+        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0)],
+        backgroundColor: ['orange', '#00D100'],
+        borderColor: ['orange', '#00D100'],
       }],
     }
 
@@ -279,11 +279,11 @@ function DonutChart({player}) {
     const passesCompleted = player.passes * player.passAccuracy / 100;
     const passesIncompleted = player.passes - passesCompleted; 
     const data2 = {
-      labels: ['Passes Completed', 'Passes Incomplete', 'Assists'],
+      labels: ['Passes Completed', 'Passes Incomplete'],
       datasets: [{
-        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0), player.assists],
-        backgroundColor: ['orange', '#00D100', 'purple'],
-        borderColor: ['orange', '#00D100', 'purple'],
+        data: [passesCompleted.toFixed(0), passesIncompleted.toFixed(0)],
+        backgroundColor: ['orange', '#00D100'],
+        borderColor: ['orange', '#00D100'],
       }],
     }
 
@@ -374,4 +374,4 @@ function DonutChart({player}) {
 
 }
 
-  export default DonutChart;
+  export default DonutChartPlayer;

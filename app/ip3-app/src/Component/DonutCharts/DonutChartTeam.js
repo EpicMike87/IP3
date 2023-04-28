@@ -88,7 +88,7 @@ import {
     const data2 = {
       labels: ['Won', 'Lost', 'Draw'],
       datasets: [{
-        data: [team.matchesWon, team.matchesLost, team.matchesDraw],
+        data: [team.matchesWon, team.matchesLost, team.matchesDrew],
         backgroundColor: ['orange', '#00D100', 'purple'],
         borderColor: ['orange', '#00D100', 'purple'],
       }],
