@@ -557,6 +557,7 @@ img {
   margin: 0.5rem auto;
   font-style: italic;
   border-radius: 5px;
+  text-align: center;
 }
 
 .playerNLG {
@@ -1069,8 +1070,7 @@ select {
   position: relative;
   width: 80%;
   height: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 30px auto;
 
 }
 
