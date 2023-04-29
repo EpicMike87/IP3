@@ -46,6 +46,7 @@ public class Player{
     private int goals;
     private int shotsOnTarget;
     private int shots;
+    @Transient
     private String nlgString;
 
     public void setAge(){

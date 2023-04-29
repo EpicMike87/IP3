@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class FixtureDto implements Comparable<FixtureDto>{
         this.homeTeamGoals = f.getHomeTeamGoals();
         this.awayTeamGoals = f.getAwayTeamGoals();
         this.dateTime = f.getDateTime();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(f.getDateTime());
+        calendar.add(Calendar.HOUR_OF_DAY, 1);
+        this.dateTime = calendar.getTime();
         this.fullTimeResult = f.getFullTimeResult();
         this.prediction = f.getPrediction();
     }

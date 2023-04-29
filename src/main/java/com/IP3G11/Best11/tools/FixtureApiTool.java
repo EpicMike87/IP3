@@ -27,9 +27,16 @@ public class FixtureApiTool {
                 Fixture fixture = new Fixture();
 
                 Date fixDate = java.sql.Timestamp.valueOf(LocalDateTime.parse(jEle.getAsJsonObject().get("fixture").getAsJsonObject().get("date").getAsString().split("\\+")[0]));
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(fixDate);
+                calendar.add(Calendar.HOUR_OF_DAY, 1);
+                fixDate = calendar.getTime();
+
                 String homeTeamName = jEle.getAsJsonObject().get("teams").getAsJsonObject().get("home").getAsJsonObject().get("name").getAsString();
                 String awayTeamName = jEle.getAsJsonObject().get("teams").getAsJsonObject().get("away").getAsJsonObject().get("name").getAsString();
-
+                if(homeTeamName.equals("Celtic") && awayTeamName.equals("Motherwell")){
+                    System.out.println(fixDate);
+                }
                 fixture.setDateTime(fixDate);
                 fixture.setFullTimeResult('?');
                 fixture.setAwayTeamGoals(0);

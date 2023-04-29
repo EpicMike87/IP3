@@ -35,6 +35,13 @@ public class FixtureController {
         return fixtures;
     }
 
+    //Returns all upcoming fixtures
+    @GetMapping("fixtures/id/{id}")
+    public FixtureDto getById(@PathVariable int id){
+        FixtureDto fixture = fixtureService.getById(id);
+        return fixture;
+    }
+
     //Returns upcoming fixtures for specific team
     @GetMapping("fixtures/next/{name}")
     public List<FixtureDto> getNext(@PathVariable String name){
