@@ -54,9 +54,9 @@ function Home() {
   }, []);
 
   const getFixtures = () => {
-    Api.get('/fixtures/all')
+    Api.get('/fixtures/upcoming')
       .then(res => {
-        setUpcomingFixtures(res.data);
+        setUpcomingFixtures(res.data.reverse());
         console.log(res.data)
       })
   }
