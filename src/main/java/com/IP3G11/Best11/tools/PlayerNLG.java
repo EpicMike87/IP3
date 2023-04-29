@@ -30,11 +30,11 @@ public class PlayerNLG {
 
         // This checks the player age and assigns a descriptor if younger than 24 or older than 30
         if (player.getAge() > 30) {
-            ageDescriptor = "veteran";
+            ageDescriptor = "veteran ";
         }
 
         else if (player.getAge() < 24) {
-            ageDescriptor = "young";
+            ageDescriptor = "young ";
         }
 
         else {
@@ -71,7 +71,7 @@ public class PlayerNLG {
         }
         else {
             playerGoals = String.format("%s %s has scored 20 in %1s appearances this season", player.getFirstName(), player.getLastName(), player.getMatchesPlayed());
-            playerRating = String.format("the %s %s has an average rating of %.2f", ageDescriptor, player.getPosition(), player.getRating());
+            playerRating = String.format("the %s%s has an average rating of %.2f", ageDescriptor, player.getPosition(), player.getRating());
         }
 
         String playerNLGString = appearanceText + playerRating;
